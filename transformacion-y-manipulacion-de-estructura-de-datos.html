@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS | AMAT- Introducción a Ciencia de Datos y Machine Learning</title>
+  <meta name="description" content="AMAT Curso 1 : Introduccion a Ciencia de Datos" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS | AMAT- Introducción a Ciencia de Datos y Machine Learning" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="AMAT Curso 1 : Introduccion a Ciencia de Datos" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS | AMAT- Introducción a Ciencia de Datos y Machine Learning" />
+  
+  <meta name="twitter:description" content="AMAT Curso 1 : Introduccion a Ciencia de Datos" />
+  
+
+<meta name="author" content="Karina Lizette Gamboa Puente" />
+<meta name="author" content="Oscar Arturo Bringas López" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="analisis-exploratorio-y-visualización.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.4.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="img/amat-logo.png" width="280"></a></li|
+|:-:|  
+<center>Introducción a Ciencia de Datos y Machine Learning</center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIENVENIDA</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#quienes-somos"><i class="fa fa-check"></i><b>1.2</b> ¿Quienes somos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> INTRODUCCIÓN</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#lo-que-no-es-ciencia-de-datos"><i class="fa fa-check"></i><b>2.1</b> Lo que NO es Ciencia de Datos</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#definiendo-conceptos"><i class="fa fa-check"></i><b>2.1.1</b> Definiendo conceptos:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#objetivo-de-la-ciencia-se-datos"><i class="fa fa-check"></i><b>2.2</b> Objetivo de la Ciencia se Datos</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#qué-se-requiere-para-hacer-ciencia-de-datos"><i class="fa fa-check"></i><b>2.3</b> ¿Qué se requiere para hacer Ciencia de Datos?</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#tipos-de-problemas-que-se-pueden-resolver-con-ciencia-de-datos"><i class="fa fa-check"></i><b>2.4</b> Tipos de problemas que se pueden resolver con Ciencia de Datos</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#tipos-de-aprendizaje"><i class="fa fa-check"></i><b>2.5</b> Tipos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#aprendizaje-supervisado"><i class="fa fa-check"></i><b>2.5.1</b> Aprendizaje supervisado</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#aprendizaje-no-supervisado"><i class="fa fa-check"></i><b>2.5.2</b> Aprendizaje no supervisado</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#ciclo-de-un-proyecto-de-ciencia-de-datos"><i class="fa fa-check"></i><b>2.6</b> Ciclo de un proyecto de Ciencia de Datos</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html"><i class="fa fa-check"></i><b>3</b> TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#importación-de-datos"><i class="fa fa-check"></i><b>3.1</b> Importación de datos</a></li>
+<li class="chapter" data-level="3.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#lectura-de-datos"><i class="fa fa-check"></i><b>3.2</b> Lectura de datos</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-csv"><i class="fa fa-check"></i><b>3.2.1</b> Archivos <em>csv</em></a></li>
+<li class="chapter" data-level="3.2.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-xls-y-xlsx"><i class="fa fa-check"></i><b>3.2.2</b> Archivos <em>xls</em> y <em>xlsx</em></a></li>
+<li class="chapter" data-level="3.2.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-json"><i class="fa fa-check"></i><b>3.2.3</b> Archivos json</a></li>
+<li class="chapter" data-level="3.2.4" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#bases-de-datos"><i class="fa fa-check"></i><b>3.2.4</b> Bases de Datos</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#consultas-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>3.3</b> Consultas de datos con tidyverse</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#select"><i class="fa fa-check"></i><b>3.3.1</b> select()</a></li>
+<li class="chapter" data-level="3.3.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#filter"><i class="fa fa-check"></i><b>3.3.2</b> filter()</a></li>
+<li class="chapter" data-level="3.3.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#arrange"><i class="fa fa-check"></i><b>3.3.3</b> arrange()</a></li>
+<li class="chapter" data-level="3.3.4" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#mutate"><i class="fa fa-check"></i><b>3.3.4</b> mutate()</a></li>
+<li class="chapter" data-level="3.3.5" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#summarise"><i class="fa fa-check"></i><b>3.3.5</b> summarise()</a></li>
+<li class="chapter" data-level="3.3.6" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#group_by"><i class="fa fa-check"></i><b>3.3.6</b> group_by()</a></li>
+<li class="chapter" data-level="3.3.7" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#join"><i class="fa fa-check"></i><b>3.3.7</b> join()</a></li>
+<li class="chapter" data-level="3.3.8" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#pivot_longer"><i class="fa fa-check"></i><b>3.3.8</b> pivot_longer()</a></li>
+<li class="chapter" data-level="3.3.9" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#pivot_wider"><i class="fa fa-check"></i><b>3.3.9</b> pivot_wider()</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#referencias"><i class="fa fa-check"></i><b>3.4</b> Referencias:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html"><i class="fa fa-check"></i><b>4</b> ANALISIS EXPLORATORIO Y VISUALIZACIÓN</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#eda-análisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>4.1</b> EDA: Análisis Exploratorio de Datos</a></li>
+<li class="chapter" data-level="4.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#geda-análisis-exploratorio-de-datos-gráficos"><i class="fa fa-check"></i><b>4.2</b> GEDA: Análisis Exploratorio de Datos Gráficos</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#lo-que-no-se-debe-hacer"><i class="fa fa-check"></i><b>4.2.1</b> Lo que no se debe hacer…</a></li>
+<li class="chapter" data-level="4.2.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#principios-de-visualización"><i class="fa fa-check"></i><b>4.2.2</b> Principios de visualización</a></li>
+<li class="chapter" data-level="4.2.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#principios-generales-del-diseño-analítico"><i class="fa fa-check"></i><b>4.2.3</b> Principios generales del diseño analítico:</a></li>
+<li class="chapter" data-level="4.2.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#técnicas-de-visualización"><i class="fa fa-check"></i><b>4.2.4</b> Técnicas de visualización:</a></li>
+<li class="chapter" data-level="4.2.5" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#indicadores-de-calidad-gráfica"><i class="fa fa-check"></i><b>4.2.5</b> Indicadores de calidad gráfica:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#uso-decisión-e-implementación-de-técnicas-gráficas."><i class="fa fa-check"></i><b>4.3</b> Uso, decisión e implementación de técnicas gráficas.</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#gráficos-univariados"><i class="fa fa-check"></i><b>4.3.1</b> Gráficos univariados:</a></li>
+<li class="chapter" data-level="4.3.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#gráficos-multivariados"><i class="fa fa-check"></i><b>4.3.2</b> Gráficos multivariados</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#ggplot2"><i class="fa fa-check"></i><b>4.4</b> Ggplot2</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#objetos-aesteticos"><i class="fa fa-check"></i><b>4.4.1</b> Objetos aesteticos</a></li>
+<li class="chapter" data-level="4.4.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#objetos-geométricos-o-capas"><i class="fa fa-check"></i><b>4.4.2</b> Objetos geométricos o capas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#facetas"><i class="fa fa-check"></i><b>4.4.3</b> Facetas</a></li>
+<li class="chapter" data-level="4.4.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#más-sobre-estéticas"><i class="fa fa-check"></i><b>4.4.4</b> Más sobre estéticas</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#eda-y-geda-con-r"><i class="fa fa-check"></i><b>4.5</b> EDA y GEDA con R</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#un-vistazo-rápido-a-los-datos"><i class="fa fa-check"></i><b>4.5.1</b> Un vistazo rápido a los datos</a></li>
+<li class="chapter" data-level="4.5.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#análisis-univariado"><i class="fa fa-check"></i><b>4.5.2</b> Análisis univariado</a></li>
+<li class="chapter" data-level="4.5.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#análisis-multivariado"><i class="fa fa-check"></i><b>4.5.3</b> Análisis multivariado</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#referencias-1"><i class="fa fa-check"></i><b>4.6</b> Referencias:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html"><i class="fa fa-check"></i><b>5</b> MACHINE LEARNING: CONCEPTOS BÁSICOS</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#ml-y-algoritmos"><i class="fa fa-check"></i><b>5.1</b> ML y Algoritmos</a></li>
+<li class="chapter" data-level="5.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#análisis-supervisado-vs-no-supervisado"><i class="fa fa-check"></i><b>5.2</b> Análisis Supervisado vs No supervisado</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#regresión-vs-clasificación"><i class="fa fa-check"></i><b>5.2.1</b> Regresión vs clasificación</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#sesgo-vs-varianza"><i class="fa fa-check"></i><b>5.3</b> Sesgo vs varianza</a></li>
+<li class="chapter" data-level="5.4" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#pre-procesamiento-e-ingeniería-de-datos"><i class="fa fa-check"></i><b>5.4</b> Pre-procesamiento e ingeniería de datos</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#pre-procesamiento-de-datos"><i class="fa fa-check"></i><b>5.4.1</b> Pre-procesamiento de datos</a></li>
+<li class="chapter" data-level="5.4.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#ingeniería-de-datos"><i class="fa fa-check"></i><b>5.4.2</b> Ingeniería de datos</a></li>
+<li class="chapter" data-level="5.4.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#recetas"><i class="fa fa-check"></i><b>5.4.3</b> Recetas</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#partición-de-datos"><i class="fa fa-check"></i><b>5.5</b> Partición de datos</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#métodos-comunes-para-particionar-datos"><i class="fa fa-check"></i><b>5.5.1</b> Métodos comunes para particionar datos</a></li>
+<li class="chapter" data-level="5.5.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#qué-proporción-debería-ser-usada"><i class="fa fa-check"></i><b>5.5.2</b> ¿Qué proporción debería ser usada?</a></li>
+<li class="chapter" data-level="5.5.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#conjunto-de-validación"><i class="fa fa-check"></i><b>5.5.3</b> Conjunto de validación</a></li>
+<li class="chapter" data-level="5.5.4" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#leave-one-out-cross-validation"><i class="fa fa-check"></i><b>5.5.4</b> Leave-one-out cross-validation</a></li>
+<li class="chapter" data-level="5.5.5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#v-fold-cross-validation"><i class="fa fa-check"></i><b>5.5.5</b> V Fold Cross Validation</a></li>
+<li class="chapter" data-level="5.5.6" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#medidas-de-ajuste"><i class="fa fa-check"></i><b>5.5.6</b> Medidas de ajuste</a></li>
+<li class="chapter" data-level="5.5.7" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#validación-cruzada-para-series-de-tiempo"><i class="fa fa-check"></i><b>5.5.7</b> Validación cruzada para series de tiempo</a></li>
+<li class="chapter" data-level="5.5.8" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#otros-tipos-de-validación-cruzada"><i class="fa fa-check"></i><b>5.5.8</b> Otros tipos de validación cruzada</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html"><i class="fa fa-check"></i><b>6</b> MACHINE LEARNING: APRENDIZAJE SUPERVISADO</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-preparación-de-conjunto-de-datos"><i class="fa fa-check"></i><b>6.1</b> REGRESIÓN: Preparación de conjunto de datos</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#datos-de-regresión-ames-housing-data"><i class="fa fa-check"></i><b>6.1.1</b> Datos de regresión: Ames Housing Data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#clasificación-preparación-de-datos"><i class="fa fa-check"></i><b>6.2</b> CLASIFICACIÓN: Preparación de Datos</a></li>
+<li class="chapter" data-level="6.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-lineal-simple-y-múltiple"><i class="fa fa-check"></i><b>6.3</b> Regresión lineal simple y múltiple</a></li>
+<li class="chapter" data-level="6.4" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-logística"><i class="fa fa-check"></i><b>6.4</b> Regresión logística</a></li>
+<li class="chapter" data-level="6.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-regularizada"><i class="fa fa-check"></i><b>6.5</b> Regresión regularizada</a></li>
+<li class="chapter" data-level="6.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#knn"><i class="fa fa-check"></i><b>6.6</b> KNN</a></li>
+<li class="chapter" data-level="6.7" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#tree-decision"><i class="fa fa-check"></i><b>6.7</b> Tree decision</a></li>
+<li class="chapter" data-level="6.8" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#bagging"><i class="fa fa-check"></i><b>6.8</b> Bagging</a></li>
+<li class="chapter" data-level="6.9" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#random-forest"><i class="fa fa-check"></i><b>6.9</b> Random forest</a></li>
+<li class="chapter" data-level="6.10" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#boosting"><i class="fa fa-check"></i><b>6.10</b> Boosting</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html"><i class="fa fa-check"></i><b>7</b> MACHINE LEARNING: APRENDIZAJE NO SUPERVISADO</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-k--means"><i class="fa fa-check"></i><b>7.1</b> Cluster: K- means</a></li>
+<li class="chapter" data-level="7.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-pam"><i class="fa fa-check"></i><b>7.2</b> Cluster: PAM</a></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#dbscan"><i class="fa fa-check"></i><b>7.3</b> DBSCAN</a></li>
+<li class="chapter" data-level="7.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-jerárquico"><i class="fa fa-check"></i><b>7.4</b> Cluster: Jerárquico</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">AMAT- Introducción a Ciencia de Datos y Machine Learning</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="transformacion-y-manipulacion-de-estructura-de-datos" class="section level1" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS</h1>
+<div class="watermark">
+<img src="img/header.png" width="400">
+</div>
+<p>Como se ha mencionado anteriormente, existe un ciclo dentro de un proyecto de Ciencia de Datos que aborda desde la identificación del problema a resolver, hasta la definición de las acciones que serán detonadas a partir del resultado de un modelo validado.</p>
+<p><img src="img/cc/need-DS.png" style="display: block; margin: auto;" /></p>
+<p>Para efectos de este curso, tendremos el supuesto de que éstas definiciones y alcances ya están previamente decididos o en otro caso muy probable; no dependen de nosotros. Así, el curso estará enfocado al <strong>flujo de trabajo técnico</strong> que conlleva el análisis de los datos en la que se buscará la solución del problema.</p>
+<p><img src="img/ml/tidyv-flow.png" style="display: block; margin: auto;" /></p>
+<p>Particularmente, R tiene bibliotecas especializadas que pueden ayudarnos en cada parte del camino.</p>
+<div id="importación-de-datos" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Importación de datos</h2>
+<p>Existen diferentes archivos de los cuales puede recolectarse información, los más comunes son</p>
+<p><img src="img/cc/archivos.jpg" style="display: block; margin: auto;" />
+La paquetería base de R, contiene las funciones que eran la forma más común de introducir datos en R:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(file, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">quote =</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>,</span>
+<span id="cb1-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="at">fill =</span> <span class="cn">TRUE</span>, <span class="at">comment.char =</span> <span class="st">&quot;&quot;</span>, ...)</span>
+<span id="cb1-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read.table</span>(file, <span class="at">header =</span> <span class="cn">FALSE</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>, <span class="at">quote =</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&#39;&quot;</span>,</span>
+<span id="cb1-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>, <span class="at">numerals =</span> <span class="fu">c</span>(<span class="st">&quot;allow.loss&quot;</span>, <span class="st">&quot;warn.loss&quot;</span>, <span class="st">&quot;no.loss&quot;</span>),</span>
+<span id="cb1-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-6" aria-hidden="true" tabindex="-1"></a>           row.names, col.names, <span class="at">as.is =</span> <span class="sc">!</span>stringsAsFactors,</span>
+<span id="cb1-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">na.strings =</span> <span class="st">&quot;NA&quot;</span>, <span class="at">colClasses =</span> <span class="cn">NA</span>, <span class="at">nrows =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb1-8"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">skip =</span> <span class="dv">0</span>, <span class="at">check.names =</span> <span class="cn">TRUE</span>, <span class="at">fill =</span> <span class="sc">!</span>blank.lines.skip,</span>
+<span id="cb1-9"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">strip.white =</span> <span class="cn">FALSE</span>, <span class="at">blank.lines.skip =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-10"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">comment.char =</span> <span class="st">&quot;#&quot;</span>,</span>
+<span id="cb1-11"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">allowEscapes =</span> <span class="cn">FALSE</span>, <span class="at">flush =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-12"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">stringsAsFactors =</span> <span class="fu">default.stringsAsFactors</span>(),</span>
+<span id="cb1-13"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb1-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">fileEncoding =</span> <span class="st">&quot;&quot;</span>, <span class="at">encoding =</span> <span class="st">&quot;unknown&quot;</span>, text, <span class="at">skipNul =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Sin embargo, las funciones anteriores importan los marcos de datos a R de la forma ‘antigua,’ por otro lado, la paquetería <em>readr</em> fue desarrollado recientemente para lidiar con la lectura de archivos grandes rápidamente. El paquete proporciona reemplazos para funciones como <code>read.table()</code>, <code>read.csv()</code> entre otras. Esta paquetería proporciona funciones que suelen ser mucho más rápidas que las funciones base que proporciona <em>R</em>.</p>
+<p><img src="img/cc/3-2-0-logo-readr.png" style="display: block; margin: auto;" /></p>
+<p><strong>Ventajas de readr:</strong></p>
+<ul>
+<li><p>Por lo general, son mucho más rápidos (~ 10x) que sus funciones equivalentes.</p></li>
+<li><p>Producen tibbles:</p>
+<ul>
+<li>No convierten vectores de caracteres en factores.</li>
+<li>No usan nombres de filas ni modifican los nombres de columnas.</li>
+</ul></li>
+<li><p>Reproducibilidad</p></li>
+</ul>
+</div>
+<div id="lectura-de-datos" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Lectura de datos</h2>
+<div id="archivos-csv" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Archivos <em>csv</em></h3>
+<p>A la hora de importar conjuntos de datos en <em>R</em>, uno de los formatos más habituales en los que hallamos información es en archivos separados por comas (comma separated values), cuya extensión suele ser <em>.csv</em>. En ellos encontramos múltiples líneas que recogen la tabla de interés, y en las cuales los valores aparecen, de manera consecutiva, separados por el carácter <em>,</em>.</p>
+<p>Para importar este tipo de archivos en nuestra sesión de <em>R</em>, se utiliza la función <code>read_csv()</code>. Para acceder a su documentación utilizamos el comando <code>?read_csv</code>.</p>
+<p>El único argumento que debemos de pasar a esta función de manera obligatoria, es <code>file</code>, el nombre o la ruta completa del archivo que pretendemos importar.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(</span>
+<span id="cb2-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  file,</span>
+<span id="cb2-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">col_types =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">locale =</span> <span class="fu">default_locale</span>(),</span>
+<span id="cb2-8"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">na =</span> <span class="fu">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>),</span>
+<span id="cb2-9"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">quoted_na =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-10"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">quote =</span> <span class="st">&quot;</span><span class="sc">\&quot;</span><span class="st">&quot;</span>,</span>
+<span id="cb2-11"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">comment =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p>Algunas de las ventajas que utilizar <code>read_csv()</code> ofrece son:</p>
+<ul>
+<li>No convierte, automáticamente, las columnas con cadenas de caracteres a factores, como sí hacen por defecto las otras funciones base de <em>R</em>.</li>
+<li>Reconoce ocho clases diferentes de datos (enteros, lógicos, etc.), dejando el resto como cadenas de caracteres.</li>
+</ul>
+<p>Veamos un ejemplo:</p>
+<p>La base de datos llamada <a href="http://jse.amstat.org/v19n3/decock.pdf">AmesHousing</a> contiene un conjunto de datos con información de la Oficina del Tasador de Ames utilizada para calcular los valores tasados para las propiedades residenciales individuales vendidas en Ames, Iowa, de 2006 a 2010. FUENTES: Ames, Oficina del Tasador de Iowa.</p>
+<p>Pueden descargar los datos para la clase <a href="https://drive.google.com/drive/folders/16aKNbkhYfF-x6R2oh4RswSQOXN62UQX3?usp=sharing">aquí</a></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb3-1" aria-hidden="true" tabindex="-1"></a>base<span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/ames.csv&quot;</span>) </span>
+<span id="cb3-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb3-2" aria-hidden="true" tabindex="-1"></a>base</span>
+<span id="cb3-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb3-4" aria-hidden="true" tabindex="-1"></a>tidy<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ames.csv&quot;</span>)</span>
+<span id="cb3-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb3-5" aria-hidden="true" tabindex="-1"></a>tidy</span></code></pre></div>
+<p><img src="img/cc/read_base.jpg" style="display: block; margin: auto;" />
+</br>
+</br>
+</br></p>
+<p><img src="img/cc/read_tidy.jpg" style="display: block; margin: auto;" /></p>
+<p>¿Y si el archivo que necesitamos leer esta en excel?</p>
+</div>
+<div id="archivos-xls-y-xlsx" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Archivos <em>xls</em> y <em>xlsx</em></h3>
+<p>La paquetería <em>readxl</em> facilita la obtención de datos tabulares de archivos de <em>Excel</em>. Admite tanto el formato <em>.xls</em> heredado como el formato <em>.xlsx</em> moderno basado en <em>XML</em>.</p>
+<p>Esta paqueteía pone a disposición las siguientes funciones:</p>
+<ul>
+<li><code>read_xlsx()</code> lee un archivo con extensión <em>xlsx</em>.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_xlsx</span>(path,</span>
+<span id="cb4-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">sheet =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">range =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">col_types =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">na =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb4-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-8"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">skip =</span> <span class="dv">0</span>,</span>
+<span id="cb4-9"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">n_max =</span> <span class="cn">Inf</span>,</span>
+<span id="cb4-10"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">guess_max =</span> <span class="fu">min</span>(<span class="dv">1000</span>, n_max),</span>
+<span id="cb4-11"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">progress =</span> <span class="fu">readxl_progress</span>(),</span>
+<span id="cb4-12"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb4-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">.name_repair =</span> <span class="st">&quot;unique&quot;</span>)</span></code></pre></div>
+<ul>
+<li><code>read_xls()</code> lee un archivo con extensión <em>xls</em>.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_xls</span>(path,</span>
+<span id="cb5-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">sheet =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">range =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">col_types =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">na =</span> <span class="st">&quot;&quot;</span>, </span>
+<span id="cb5-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">trim_ws =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-8"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">skip =</span> <span class="dv">0</span>,</span>
+<span id="cb5-9"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">n_max =</span> <span class="cn">Inf</span>, </span>
+<span id="cb5-10"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">guess_max =</span> <span class="fu">min</span>(<span class="dv">1000</span>, n_max),</span>
+<span id="cb5-11"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">progress =</span> <span class="fu">readxl_progress</span>(),</span>
+<span id="cb5-12"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb5-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">.name_repair =</span> <span class="st">&quot;unique&quot;</span>)</span></code></pre></div>
+<ul>
+<li><code>read_excel()</code> determina si el archivo es de tipo <em>xls</em> o <em>xlsx</em> para después
+llamar a una de las fuciones mencionadas anteriormente.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_excel</span>(path,</span>
+<span id="cb6-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">sheet =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">range =</span> <span class="cn">NULL</span>,</span>
+<span id="cb6-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">col_names =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">col_types =</span> <span class="cn">NULL</span>, </span>
+<span id="cb6-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">na =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb6-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">trim_ws =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb6-8"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">skip =</span> <span class="dv">0</span>,</span>
+<span id="cb6-9"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="cn">Inf</span>,</span>
+<span id="cb6-10"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">guess_max =</span> <span class="fu">min</span>(<span class="dv">1000</span>, n_max),</span>
+<span id="cb6-11"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">progress =</span> <span class="fu">readxl_progress</span>(),</span>
+<span id="cb6-12"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb6-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">.name_repair =</span> <span class="st">&quot;unique&quot;</span>)</span></code></pre></div>
+<p><strong>EJERCICIO:</strong> Leer archivo excel de la carpeta del curso</p>
+</div>
+<div id="archivos-json" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Archivos json</h3>
+<p>Se utiliza la función <code>fromJSON</code> de la paquetería <em>rjson</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
+<span id="cb7-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb7-3" aria-hidden="true" tabindex="-1"></a>base_json <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">&quot;data/ames.json&quot;</span>)</span>
+<span id="cb7-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb7-4" aria-hidden="true" tabindex="-1"></a>base_json</span></code></pre></div>
+</div>
+<div id="bases-de-datos" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Bases de Datos</h3>
+<p>En muchos de los casos la información estará dentro de un Sistema Manejador de Bases de Datos, existen bibliotecas que nos permiten establecer las conexiones con ellas, algunos ejemplos son:</p>
+<ul>
+<li>ODBC</li>
+<li>DBI</li>
+</ul>
+<p>Un ejemplo con un SMBD como SQL Server:</p>
+<div id="microsoft-sql-server" class="section level4" number="3.2.4.1">
+<h4><span class="header-section-number">3.2.4.1</span> Microsoft SQL Server</h4>
+<p><a href="https://db.rstudio.com/databases/microsoft-sql-server/">Referencias</a></p>
+<p><strong>Configuración de conexión: </strong></p>
+<p>Se necesitan seis configuraciones para realizar una conexión:</p>
+<ul>
+<li>Controlador : consulte la sección Controladores para obtener más información</li>
+<li>Servidor : una ruta de red al servidor de la base de datos.</li>
+<li>Base de datos : el nombre de la base de datos.</li>
+<li>UID : el ID de red del usuario o la cuenta local del servidor</li>
+<li>PWD : la contraseña de la cuenta</li>
+<li>Puerto : debe establecerse en 1433</li>
+</ul>
+<p>Para establecer la conexión con la base de datos:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb8-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb8-2" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(odbc<span class="sc">::</span><span class="fu">odbc</span>(),</span>
+<span id="cb8-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb8-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Driver   =</span> <span class="st">&quot;[your driver&#39;s name]&quot;</span>,</span>
+<span id="cb8-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb8-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Server   =</span> <span class="st">&quot;[your server&#39;s path]&quot;</span>,</span>
+<span id="cb8-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb8-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Database =</span> <span class="st">&quot;[your database&#39;s name]&quot;</span>,</span>
+<span id="cb8-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb8-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">UID      =</span> rstudioapi<span class="sc">::</span><span class="fu">askForPassword</span>(<span class="st">&quot;Database user&quot;</span>),</span>
+<span id="cb8-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb8-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">PWD      =</span> rstudioapi<span class="sc">::</span><span class="fu">askForPassword</span>(<span class="st">&quot;Database password&quot;</span>),</span>
+<span id="cb8-8"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb8-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Port     =</span> <span class="dv">1433</span>)</span></code></pre></div>
+<p><strong>Información sobre la base de datos: </strong></p>
+<p>El odbcpaquete le brinda herramientas para explorar objetos y columnas en la base de datos.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Top level objects</span></span>
+<span id="cb9-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">odbcListObjects</span>(con)</span>
+<span id="cb9-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tables in a schema</span></span>
+<span id="cb9-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">odbcListObjects</span>(con, <span class="at">catalog=</span><span class="st">&quot;mydb&quot;</span>, <span class="at">schema=</span><span class="st">&quot;dbo&quot;</span>)</span>
+<span id="cb9-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Columns in a table</span></span>
+<span id="cb9-8"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">odbcListColumns</span>(con, <span class="at">catalog=</span><span class="st">&quot;mydb&quot;</span>, <span class="at">schema=</span><span class="st">&quot;dbo&quot;</span>, <span class="at">table=</span><span class="st">&quot;cars&quot;</span>)</span>
+<span id="cb9-9"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Database structure</span></span>
+<span id="cb9-11"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">odbcListObjectTypes</span>(con)</span></code></pre></div>
+<p><strong>Consultas con SQL: </strong>
+Para consultas interactivas, utilice dbGetQuery()para enviar una consulta y obtener los resultados. Para obtener los resultados por separado, utilice dbSendQuery()y dbFetch(). El n=argumento en dbFetch()se puede utilizar para obtener resultados parciales.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the results for an arbitrary query</span></span>
+<span id="cb10-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, <span class="st">&quot;SELECT speed, dist FROM cars&quot;</span>)</span>
+<span id="cb10-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch the first 100 records</span></span>
+<span id="cb10-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb10-5" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="fu">dbSendQuery</span>(con, <span class="st">&quot;SELECT speed, dist FROM cars&quot;</span>)</span>
+<span id="cb10-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dbFetch</span>(query, <span class="at">n =</span> <span class="dv">10</span>)</span>
+<span id="cb10-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dbClearResult</span>(query)</span></code></pre></div>
+<p>Puedes usar los ejemplos anteriores para probar con diferentes consultas y bases de datos.</p>
+<p><strong>Tidyverse a SQL</strong></p>
+<p>Tengamos un ejemplo de manera local:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb11-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_version</span>(<span class="st">&quot;RSQLite&quot;</span>, <span class="at">version =</span> <span class="st">&quot;2.2.5&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
+<span id="cb12-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RSQLite)</span>
+<span id="cb12-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-5" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">src_memdb</span>()</span>
+<span id="cb12-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">copy_to</span>(con, storms, <span class="at">overwrite =</span> T)</span>
+<span id="cb12-8"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-9" aria-hidden="true" tabindex="-1"></a>tbl_storms <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">&quot;storms&quot;</span>)</span>
+<span id="cb12-10"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-11" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> tbl_storms <span class="sc">%&gt;%</span> </span>
+<span id="cb12-12"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, year, month, day, hour, status,</span>
+<span id="cb12-13"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-13" aria-hidden="true" tabindex="-1"></a>         wind, pressure) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-14"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(status) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-15"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb12-16"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_wind =</span> <span class="fu">mean</span>(wind, <span class="at">na.rm =</span> T),</span>
+<span id="cb12-17"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_wind =</span> <span class="fu">sd</span>(wind, <span class="at">na.rm =</span> T),</span>
+<span id="cb12-18"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_pressure =</span> <span class="fu">mean</span>(pressure, <span class="at">na.rm =</span> T),</span>
+<span id="cb12-19"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">se_pressure =</span> <span class="fu">sd</span>(pressure, <span class="at">na.rm =</span> T)</span>
+<span id="cb12-20"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-20" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-21"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(mean_wind) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-22"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(tbl_storms, <span class="at">by =</span> <span class="st">&quot;status&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-23"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># relocate(name, .after = status) %&gt;% </span></span>
+<span id="cb12-24"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># relocate(wind, .after = mean_pressure) %&gt;% </span></span>
+<span id="cb12-25"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># relocate(pressure, .after = wind) %&gt;% </span></span>
+<span id="cb12-26"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>lat, <span class="sc">-</span>long, <span class="sc">-</span>hu_diameter, <span class="sc">-</span>ts_diameter) </span>
+<span id="cb12-27"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb12-28" aria-hidden="true" tabindex="-1"></a>query <span class="sc">%&gt;%</span> <span class="fu">show_query</span>()</span></code></pre></div>
+<pre><code>## &lt;SQL&gt;
+## SELECT `status`, `mean_wind`, `sd_wind`, `mean_pressure`, `se_pressure`, `name`, `year`, `month`, `day`, `hour`, `category`, `wind`, `pressure`
+## FROM (SELECT `RHS`.`status` AS `status`, `mean_wind`, `sd_wind`, `mean_pressure`, `se_pressure`, `name`, `year`, `month`, `day`, `hour`, `lat`, `long`, `category`, `wind`, `pressure`, `ts_diameter`, `hu_diameter`
+## FROM `storms` AS `RHS`
+## LEFT JOIN (SELECT `status`, AVG(`wind`) AS `mean_wind`, STDEV(`wind`) AS `sd_wind`, AVG(`pressure`) AS `mean_pressure`, STDEV(`pressure`) AS `se_pressure`
+## FROM (SELECT `name`, `year`, `month`, `day`, `hour`, `status`, `wind`, `pressure`
+## FROM `storms`)
+## GROUP BY `status`) AS `LHS`
+## ON (`LHS`.`status` = `RHS`.`status`)
+## )</code></pre>
+<p>Para poder revisar la consulta, puedes ejecutar:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb14-1" aria-hidden="true" tabindex="-1"></a>query</span>
+<span id="cb14-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">collect</span>(query)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="consultas-de-datos-con-tidyverse" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Consultas de datos con tidyverse</h2>
+<p>Ahora que ya sabemos como cargar datos, aprenderemos como manipularlos con dplyr. El paquete dplyr proporciona un conjunto de funciones muy útiles para manipular data frames y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, puedes encontrar que la gramática de dplyr es más fácil de entender.</p>
+<p>Revisaremos algunas de sus funciones más usadas (<em>verbos</em>), así como el uso de <strong>pipes</strong> (%&gt;%) para combinarlas.</p>
+<ul>
+<li><p>select()</p></li>
+<li><p>filter()</p></li>
+<li><p>arrange()</p></li>
+<li><p>mutate()</p></li>
+<li><p>summarise()</p></li>
+<li><p>join()</p></li>
+<li><p>group_by()</p></li>
+</ul>
+<p>Primero tenemos que instalar y cargar la paquetería (parte de tidyverse):</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb15-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<p>Usaremos el dataset <em>iris</em> que se encuentra en la paquetería <em>datasets</em> (el alumno puede hacer el ejercicio con la base AmesHousing)</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa</code></pre>
+<div id="select" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> select()</h3>
+<p>Observamos que nuestros datos tienen 150 observaciones y 5 variables, con <em>select()</em> podemos seleccionar las variables que le indiquemos.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb18-1" aria-hidden="true" tabindex="-1"></a>select_ejemplo<span class="ot">&lt;-</span>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length,Petal.Length,Species)</span>
+<span id="cb18-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(select_ejemplo,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Petal.Length Species
+## 1           5.1          1.4  setosa
+## 2           4.9          1.4  setosa
+## 3           4.7          1.3  setosa
+## 4           4.6          1.5  setosa
+## 5           5.0          1.4  setosa
+## 6           5.4          1.7  setosa
+## 7           4.6          1.4  setosa
+## 8           5.0          1.5  setosa
+## 9           4.4          1.4  setosa
+## 10          4.9          1.5  setosa</code></pre>
+<p>El operador pipe (%&gt;%) se usa para conectar múltiples acciones, en este caso solo le indicamos que de la base iris seleccionara 3 varibles y que guardara este nuevo data frame en la variable <em>select_ejemplo</em>.</p>
+<p>Con <em>select()</em> y <em>contains</em> podemos seleccionar varibles con alguna cadena de texto.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb20-1" aria-hidden="true" tabindex="-1"></a>select_ejemplo<span class="ot">&lt;-</span>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;Sepal&quot;</span>))</span>
+<span id="cb20-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(select_ejemplo,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width
+## 1          5.1         3.5
+## 2          4.9         3.0
+## 3          4.7         3.2
+## 4          4.6         3.1
+## 5          5.0         3.6</code></pre>
+<p>De igual manera, con <em>select()</em>, <em>ends_with</em> y <em>start_with()</em> podemos seleccionar que inicien o terminen con alguna cadena de texto.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb22-1" aria-hidden="true" tabindex="-1"></a>select_ejemplo<span class="ot">&lt;-</span>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;Sepal&quot;</span>),<span class="fu">ends_with</span>(<span class="st">&quot;Length&quot;</span>))</span>
+<span id="cb22-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(select_ejemplo,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length
+## 1          5.1         3.5          1.4
+## 2          4.9         3.0          1.4
+## 3          4.7         3.2          1.3
+## 4          4.6         3.1          1.5
+## 5          5.0         3.6          1.4</code></pre>
+<p>Funciones útiles para <em>select()</em>:</p>
+<ul>
+<li><p><em>contains()</em>: Selecciona variables cuyo nombre contiene la cadena de texto.</p></li>
+<li><p><em>ends_with()</em>: Selecciona variables cuyo nombre termina con la cadena de caracteres.</p></li>
+<li><p><em>everything()</em>: Selecciona todas las columnas.</p></li>
+<li><p><em>matches()</em>: Selecciona las variables cuyos nombres coinciden con una expresión regular.</p></li>
+<li><p><em>num_range()</em>: Selecciona las variables por posición.</p></li>
+<li><p><em>one_of()</em>: Selecciona variables cuyos nombres están en un grupo de nombres.</p></li>
+<li><p><em>start_with()</em>: Selecciona variables cuyos nombres empiezan con la cadena de caracteres.</p></li>
+</ul>
+</div>
+<div id="filter" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> filter()</h3>
+<p>La función filter nos permite filtrar filas según una condición, primero notemos que la variable <em>Species</em> tiene tres categorías.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
+<pre><code>## 
+##     setosa versicolor  virginica 
+##         50         50         50</code></pre>
+<p>Ahora usaremos la función <em>filter</em> para quedarnos solo con las observaciones de la especie virginica.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb26-1" aria-hidden="true" tabindex="-1"></a>ejemplo_filter<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;virginica&quot;</span>)</span>
+<span id="cb26-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_filter,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 1          6.3         3.3          6.0         2.5 virginica
+## 2          5.8         2.7          5.1         1.9 virginica
+## 3          7.1         3.0          5.9         2.1 virginica
+## 4          6.3         2.9          5.6         1.8 virginica
+## 5          6.5         3.0          5.8         2.2 virginica</code></pre>
+<p>También se puede usar para filtrar variables numéricas:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb28-1" aria-hidden="true" tabindex="-1"></a>ejemplo_filter<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sepal.Length<span class="sc">&gt;</span><span class="dv">5</span> <span class="sc">&amp;</span> Sepal.Width<span class="sc">&gt;=</span><span class="fl">3.5</span>)</span>
+<span id="cb28-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_filter,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          5.4         3.9          1.7         0.4  setosa
+## 3          5.4         3.7          1.5         0.2  setosa
+## 4          5.8         4.0          1.2         0.2  setosa
+## 5          5.7         4.4          1.5         0.4  setosa</code></pre>
+<p>Notemos que en el ejemplo anterior usamos <em>&amp;</em>, que nos ayuda a filtrar por dos condiciones.</p>
+<p>También podemos usar <em>|</em> para filtrar por alguna de las dos condiciones.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb30-1" aria-hidden="true" tabindex="-1"></a>ejemplo_filter<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sepal.Length<span class="sc">&gt;</span><span class="dv">5</span> <span class="sc">|</span> Sepal.Width<span class="sc">&gt;=</span><span class="fl">3.5</span>)</span>
+<span id="cb30-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_filter,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          5.0         3.6          1.4         0.2  setosa
+## 3          5.4         3.9          1.7         0.4  setosa
+## 4          5.4         3.7          1.5         0.2  setosa
+## 5          5.8         4.0          1.2         0.2  setosa</code></pre>
+<p>Las condiciones pueden ser expresiones lógicas construidas mediante los operadores relacionales y lógicos:</p>
+<ul>
+<li><p><strong>&lt;</strong> : Menor que</p></li>
+<li><p><strong>&gt;</strong> : Mayor que</p></li>
+<li><p><strong>=</strong> : Igual que</p></li>
+<li><p><strong>&lt;=</strong> : Menor o igual que</p></li>
+<li><p><strong>&gt;=</strong> : Mayor o igual que</p></li>
+<li><p><strong>!=</strong> : Diferente que</p></li>
+<li><p><strong>%in%</strong> : Pertenece al conjunto</p></li>
+<li><p><strong>is.na</strong> : Es NA</p></li>
+<li><p><strong>!is.na</strong> : No es NA</p></li>
+</ul>
+</div>
+<div id="arrange" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> arrange()</h3>
+<p>La función arrange() se utiliza para ordenar las filas de un data frame de acuerdo a una o varias variables.</p>
+<p>Por defecto arrange() ordena las filas por orden ascendente:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb32-1" aria-hidden="true" tabindex="-1"></a>ejemplo_arrange<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Sepal.Length)</span>
+<span id="cb32-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_arrange,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           4.3         3.0          1.1         0.1  setosa
+## 2           4.4         2.9          1.4         0.2  setosa
+## 3           4.4         3.0          1.3         0.2  setosa
+## 4           4.4         3.2          1.3         0.2  setosa
+## 5           4.5         2.3          1.3         0.3  setosa
+## 6           4.6         3.1          1.5         0.2  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           4.6         3.6          1.0         0.2  setosa
+## 9           4.6         3.2          1.4         0.2  setosa
+## 10          4.7         3.2          1.3         0.2  setosa</code></pre>
+<p><br>
+<br>
+Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb34-1" aria-hidden="true" tabindex="-1"></a>ejemplo_arrange<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Sepal.Length))</span>
+<span id="cb34-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_arrange,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 1           7.9         3.8          6.4         2.0 virginica
+## 2           7.7         3.8          6.7         2.2 virginica
+## 3           7.7         2.6          6.9         2.3 virginica
+## 4           7.7         2.8          6.7         2.0 virginica
+## 5           7.7         3.0          6.1         2.3 virginica
+## 6           7.6         3.0          6.6         2.1 virginica
+## 7           7.4         2.8          6.1         1.9 virginica
+## 8           7.3         2.9          6.3         1.8 virginica
+## 9           7.2         3.6          6.1         2.5 virginica
+## 10          7.2         3.2          6.0         1.8 virginica</code></pre>
+</div>
+<div id="mutate" class="section level3" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> mutate()</h3>
+<p>Con la función mutate() podemos computar tranformaciones de variables en un data frame. A menudo, tendremos la necesidad de crear nuevas variables que se calculan a partir de variables existentes,mutate() nos proporciona una interface clara para realizar este tipo de operaciones.</p>
+<p>Por ejemplo haremos la suma de las variables <em>Sepal.Lenght</em> y <em>Sepal.Width</em>:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb36-1" aria-hidden="true" tabindex="-1"></a>ejemplo_mutate<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length,Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb36-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Suma=</span>Sepal.Length<span class="sc">+</span>Sepal.Width)</span>
+<span id="cb36-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_mutate,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Suma
+## 1          5.1         3.5  8.6
+## 2          4.9         3.0  7.9
+## 3          4.7         3.2  7.9
+## 4          4.6         3.1  7.7
+## 5          5.0         3.6  8.6</code></pre>
+<p>Notemos que en el ejemplo anterior usamos dos <em>pipes</em> (%&gt;%), como habiamos mencionado se pueden usar los necesarios para combinar funciones.</p>
+</div>
+<div id="summarise" class="section level3" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> summarise()</h3>
+<p>La función summarise() funciona de forma análoga a la función mutate, excepto que en lugar de añadir nuevas columnas crea un nuevo data frame.</p>
+<p>Podemos usar el ejemplo anterior y calcular la media de la varible creada <em>Suma</em>:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb38-1" aria-hidden="true" tabindex="-1"></a>ejemplo_summarise<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length,Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Suma=</span>Sepal.Length<span class="sc">+</span>Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media_Suma=</span><span class="fu">mean</span>(Suma))</span>
+<span id="cb38-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb38-4" aria-hidden="true" tabindex="-1"></a>ejemplo_summarise</span></code></pre></div>
+<pre><code>##   Media_Suma
+## 1   8.900667</code></pre>
+<p>Solo fue necesario agregar un <em>pipe</em>, especificar el nombre de la varible creada y la operación a realizar.</p>
+<p>A continuación se muestran funciones que trabajando conjuntamente con la función summarise() facilitarán nuestro trabajo diario. Las primeras pertenecen al paquete base y las otras son del paquete dplyr. Todas ellas toman como argumento un vector y devuelven un único resultado:</p>
+<ul>
+<li><p><em>min(), max()</em> : Valores max y min.</p></li>
+<li><p><em>mean()</em> : Media.</p></li>
+<li><p><em>median()</em> : Mediana.</p></li>
+<li><p><em>sum()</em> : Suma de los valores.</p></li>
+<li><p><em>var(), sd()</em> : Varianza y desviación estandar.</p></li>
+<li><p><em>first()</em> : Primer valor en un vector.</p></li>
+<li><p><em>last()</em> : El último valor en un vector</p></li>
+<li><p><em>n()</em> : El número de valores en un vector.</p></li>
+<li><p><em>n_distinc()</em> : El número de valores distintos en un vector.</p></li>
+<li><p><em>nth()</em> : Extrar el valor que ocupa la posición n en un vector.</p></li>
+</ul>
+<p>Mas adelante veremos como combinar esta función con la función <em>group_by</em>.</p>
+</div>
+<div id="group_by" class="section level3" number="3.3.6">
+<h3><span class="header-section-number">3.3.6</span> group_by()</h3>
+<p>La función group_by() agrupa un conjunto de filas seleccionado en un conjunto de filas de resumen de acuerdo con los valores de una o más columnas o expresiones.</p>
+<p>Usaremos el ejemplo anterior, primero creamos nuestra nueva variable <em>Suma</em>, despues agrupamos por especie y al final sacamos la media de la variable <em>Suma</em> pero esta vez, por la función <em>group_by</em>, nos regresara una media por cada grupo creado, es decir, nos regresara el promedio de la suma por especie.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb40-1" aria-hidden="true" tabindex="-1"></a>ejemplo_groupby<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Suma=</span>Sepal.Length<span class="sc">+</span>Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb40-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media_Suma=</span><span class="fu">mean</span>(Suma))</span>
+<span id="cb40-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb40-5" aria-hidden="true" tabindex="-1"></a>ejemplo_groupby</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   Species    Media_Suma
+##   &lt;fct&gt;           &lt;dbl&gt;
+## 1 setosa           8.43
+## 2 versicolor       8.71
+## 3 virginica        9.56</code></pre>
+</div>
+<div id="join" class="section level3" number="3.3.7">
+<h3><span class="header-section-number">3.3.7</span> join()</h3>
+<p>Existen 4 funciones para combinar data frames:</p>
+<ul>
+<li><em>inner_join()</em>: Regresa todas las observaciones de <strong>x</strong> que tiene valores que coinciden en <strong>y</strong>, regresa todas las columnas de <strong>x</strong> y <strong>y</strong></li>
+<li><em>left_join()</em>: Regresa todas las observaciones de <strong>x</strong> y las columnas de <strong>x</strong> y <strong>y</strong>. Observaciones en <strong>x</strong> que no esten en <strong>y</strong> tendran NAs en sus nuevas columnas.</li>
+<li><em>right_join()</em>: Regresa todas las observaciones de <strong>y</strong> y las columnas de <strong>y</strong> y <strong>x</strong>. Observaciones en <strong>y</strong> que no esten en <strong>x</strong> tendran NAs en sus nuevas columnas.</li>
+<li><em>full_join()</em>: Regresa todas las columnas de <strong>x</strong> y <strong>y</strong></li>
+</ul>
+<p><img src="img/cc/joins.png" style="display: block; margin: auto;" /></p>
+<p>Usaremos los datasets <em>band_instruments</em> y <em>band_members</em> para mostrar algunos ejemplos.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb42-1" aria-hidden="true" tabindex="-1"></a>band_instruments</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   name  plays 
+##   &lt;chr&gt; &lt;chr&gt; 
+## 1 John  guitar
+## 2 Paul  bass  
+## 3 Keith guitar</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb44-1" aria-hidden="true" tabindex="-1"></a>band_members</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   name  band   
+##   &lt;chr&gt; &lt;chr&gt;  
+## 1 Mick  Stones 
+## 2 John  Beatles
+## 3 Paul  Beatles</code></pre>
+<p>En este caso la función <em>inner_join()</em> nos devuelve todas las varibles con las observaciones que tienen texto igual en la varible name de los data frames <em>band_members</em> y <em>band_instruments</em>.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(band_members,band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##   name  band    plays 
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1 John  Beatles guitar
+## 2 Paul  Beatles bass</code></pre>
+<p>Ahora con la función <em>left_join</em> nos regresa todas las observaciones de <em>band_members</em> y todas las varibles de ambos data frames, con NAs en las observaciones de <em>band_members</em> que no tengan un valor en la varible <em>plays</em> de <em>band_instruments</em>.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(band_members,band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   name  band    plays 
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1 Mick  Stones  &lt;NA&gt;  
+## 2 John  Beatles guitar
+## 3 Paul  Beatles bass</code></pre>
+<p>La función <em>right_join</em> funciona igual que <em>left_join</em> solo qur ahora toma las observaciones de <em>band_instrument</em>.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(band_members,band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   name  band    plays 
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1 John  Beatles guitar
+## 2 Paul  Beatles bass  
+## 3 Keith &lt;NA&gt;    guitar</code></pre>
+<p>La función <em>full_join</em> junta todas las obervaciones de ambos data frames poninedo NAs donde no se tenga un valor.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(band_members,band_instruments, <span class="at">by =</span> <span class="st">&quot;name&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##   name  band    plays 
+##   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1 Mick  Stones  &lt;NA&gt;  
+## 2 John  Beatles guitar
+## 3 Paul  Beatles bass  
+## 4 Keith &lt;NA&gt;    guitar</code></pre>
+<p><strong>tidyr</strong> EL objetivo de <em>tidyr</em> es crear <em>tidy data</em>, un formato que hace que el manejo de los datos sea más semcillo, en esta ocasión revisaremos dos funciones, <em>pivot_longer()</em> y <em>pivot_wider()</em></p>
+</div>
+<div id="pivot_longer" class="section level3" number="3.3.8">
+<h3><span class="header-section-number">3.3.8</span> pivot_longer()</h3>
+<p>La función <em>pivot_longer</em> sirve para incrementar el número de renglones y disminuir el número de columnas, uasaremos el dataset <em>table4a</em> de la paquetería <em>tidyr</em>.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb54-1" aria-hidden="true" tabindex="-1"></a>table4a</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   country     `1999` `2000`
+## * &lt;chr&gt;        &lt;int&gt;  &lt;int&gt;
+## 1 Afghanistan    745   2666
+## 2 Brazil       37737  80488
+## 3 China       212258 213766</code></pre>
+<div id="ejemplo-pivot_longer" class="section level4" number="3.3.8.1">
+<h4><span class="header-section-number">3.3.8.1</span> Ejemplo pivot_longer()</h4>
+<p>Un problema común es cuando en un dataset los nombres de las columnas no representan nombres de variables, sino que representan los valores de una variable, en nuestro caso los nombres de las columnas 1999 y 2000 representan los valores de la variable año, los valores en las columnas 1999 y 2000 representan valores de la variable casos y cada fila representa dos observaciones en lugar de una.</p>
+<p>Los parámetros que usaremos para pivotear son:</p>
+<ul>
+<li><p>El conjunto de columnas cuyos nombres son valores y no variables. En este ejemplo son las columnas 1999 y 2000.</p></li>
+<li><p>El nombre de la variable cuyos valores forman los nombres de las columnas. Llamaremos a esto key (clave) y en este caso corresponde a anio.</p></li>
+<li><p>El nombre de la variable cuyos valores están repartidos por las celdas. Llamaremos a esto value (valor) y en este caso corresponde al número de casos.</p></li>
+</ul>
+</div>
+<div id="ejemplo-pivot_longer-1" class="section level4" number="3.3.8.2">
+<h4><span class="header-section-number">3.3.8.2</span> Ejemplo pivot_longer()</h4>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb56-1" aria-hidden="true" tabindex="-1"></a>table4a <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb56-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>), </span>
+<span id="cb56-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb56-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;año&quot;</span>, </span>
+<span id="cb56-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;casos&quot;</span></span>
+<span id="cb56-6"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb56-6" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   country     año    casos
+##   &lt;chr&gt;       &lt;chr&gt;  &lt;int&gt;
+## 1 Afghanistan 1999     745
+## 2 Afghanistan 2000    2666
+## 3 Brazil      1999   37737
+## 4 Brazil      2000   80488
+## 5 China       1999  212258
+## 6 China       2000  213766</code></pre>
+</div>
+</div>
+<div id="pivot_wider" class="section level3" number="3.3.9">
+<h3><span class="header-section-number">3.3.9</span> pivot_wider()</h3>
+<p>La función <em>pivot_wider</em> sirve para incrementar el número de columnas y disminuir el número de renglones, uasaremos el dataset <em>table4a</em> de la paquetería <em>tidyr</em>.</p>
+<p>la función pivot_wider() es lo opuesto de pivot_longer(). Se usa cuando una observación aparece en múltiples filas. Por ejemplo, considera la tabla2: una observación es un país en un año, pero cada observación aparece en dos filas.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb58-1" aria-hidden="true" tabindex="-1"></a>table2</span></code></pre></div>
+<pre><code>## # A tibble: 12 x 4
+##    country      year type            count
+##    &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;           &lt;int&gt;
+##  1 Afghanistan  1999 cases             745
+##  2 Afghanistan  1999 population   19987071
+##  3 Afghanistan  2000 cases            2666
+##  4 Afghanistan  2000 population   20595360
+##  5 Brazil       1999 cases           37737
+##  6 Brazil       1999 population  172006362
+##  7 Brazil       2000 cases           80488
+##  8 Brazil       2000 population  174504898
+##  9 China        1999 cases          212258
+## 10 China        1999 population 1272915272
+## 11 China        2000 cases          213766
+## 12 China        2000 population 1280428583</code></pre>
+<div id="ejemplo-pivot_wider" class="section level4" number="3.3.9.1">
+<h4><span class="header-section-number">3.3.9.1</span> Ejemplo pivot_wider()</h4>
+<p>Para ordenar esto, primero analizaremos la representación, esta vez, solo necesitamos dos parámetros:</p>
+<ul>
+<li><p>La columna desde la que obtener los nombres de las variables. En este caso corresponde a <em>tipo.</em></p></li>
+<li><p>La columna desde la que obtener los valores. En este caso corresponde a <em>cuenta.</em></p></li>
+</ul>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb60-1" aria-hidden="true" tabindex="-1"></a>table2 <span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb60-3"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> type, </span>
+<span id="cb60-4"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> count</span>
+<span id="cb60-5"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#cb60-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 4
+##   country      year  cases population
+##   &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+## 1 Afghanistan  1999    745   19987071
+## 2 Afghanistan  2000   2666   20595360
+## 3 Brazil       1999  37737  172006362
+## 4 Brazil       2000  80488  174504898
+## 5 China        1999 212258 1272915272
+## 6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div>
+<div id="referencias" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Referencias:</h2>
+<ul>
+<li><p><a href="https://www.building-blocks.com/content/blogs/different-types-of-data-sources">Diferentes tipos de datos</a></p></li>
+<li><p><a href="https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON">JSON</a></p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html">jsonlite</a></p></li>
+<li><p><a href="https://www.tutorialspoint.com/r/r_xml_files.htm">XML</a></p></li>
+<li><p><a href="https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781783989065/1/ch01lvl1sec11/reading-xml-data">Leer XML con url</a></p></li>
+<li><p><a href="https://rsanchezs.gitbooks.io/rprogramming/content/chapter9/select.html">dplyr</a></p></li>
+<li><p><a href="https://es.r4ds.hadley.nz/datos-ordenados.html#pivotar">R for Data Science</a></p></li>
+</ul>
+
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$('.pipehover_incremental tr').hover(function() {
+  $(this).removeClass()
+  $(this).prevAll().removeClass()
+  $(this).nextAll().removeClass()
+  $(this).addClass('hover');
+  $(this).prevAll().addClass('hover');
+  $(this).closest('div').next().find('img').attr("src", $(this).attr("link"));
+});
+
+
+$('.pipehover_select_one_row tr').hover(function() {
+  $(this).removeClass()
+  $(this).prevAll().removeClass()
+  $(this).nextAll().removeClass()
+  $(this).addClass('hover');
+  $(this).closest('div').next().find('img').attr("src", $(this).attr("link"));
+});
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analisis-exploratorio-y-visualización.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introducción a Ciencia de Datos y Machine Learning.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
