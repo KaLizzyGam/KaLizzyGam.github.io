@@ -159,3 +159,4 @@ machine-learning-aprendizaje-no-supervisado
 cluster-k--means
 cluster-pam
 dbscan
+cluster-jerárquico
