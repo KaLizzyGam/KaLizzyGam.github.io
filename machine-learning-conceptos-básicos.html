@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 5 MACHINE LEARNING: CONCEPTOS BÁSICOS | AMAT- Introducción a Ciencia de Datos y Machine Learning</title>
   <meta name="description" content="AMAT Curso 1 : Introduccion a Ciencia de Datos" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 5 MACHINE LEARNING: CONCEPTOS BÁSICOS | AMAT- Introducción a Ciencia de Datos y Machine Learning" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="analisis-exploratorio-y-visualización.html"/>
 <link rel="next" href="machine-learning-aprendizaje-supervisado.html"/>
-<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +51,6 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
@@ -65,18 +65,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -96,7 +96,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -148,32 +148,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <center>Introducción a Ciencia de Datos y Machine Learning</center>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIENVENIDA</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIENVENIDA</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.1</b> Objetivo</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#quienes-somos"><i class="fa fa-check"></i><b>1.2</b> ¿Quienes somos?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> INTRODUCCIÓN</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#lo-que-no-es-ciencia-de-datos"><i class="fa fa-check"></i><b>2.1</b> Lo que NO es Ciencia de Datos</a><ul>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> INTRODUCCIÓN</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#lo-que-no-es-ciencia-de-datos"><i class="fa fa-check"></i><b>2.1</b> Lo que NO es Ciencia de Datos</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#definiendo-conceptos"><i class="fa fa-check"></i><b>2.1.1</b> Definiendo conceptos:</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#objetivo-de-la-ciencia-se-datos"><i class="fa fa-check"></i><b>2.2</b> Objetivo de la Ciencia se Datos</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#qué-se-requiere-para-hacer-ciencia-de-datos"><i class="fa fa-check"></i><b>2.3</b> ¿Qué se requiere para hacer Ciencia de Datos?</a></li>
 <li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#tipos-de-problemas-que-se-pueden-resolver-con-ciencia-de-datos"><i class="fa fa-check"></i><b>2.4</b> Tipos de problemas que se pueden resolver con Ciencia de Datos</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#tipos-de-aprendizaje"><i class="fa fa-check"></i><b>2.5</b> Tipos de aprendizaje</a><ul>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#tipos-de-aprendizaje"><i class="fa fa-check"></i><b>2.5</b> Tipos de aprendizaje</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#aprendizaje-supervisado"><i class="fa fa-check"></i><b>2.5.1</b> Aprendizaje supervisado</a></li>
 <li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#aprendizaje-no-supervisado"><i class="fa fa-check"></i><b>2.5.2</b> Aprendizaje no supervisado</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#ciclo-de-un-proyecto-de-ciencia-de-datos"><i class="fa fa-check"></i><b>2.6</b> Ciclo de un proyecto de Ciencia de Datos</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html"><i class="fa fa-check"></i><b>3</b> TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS</a><ul>
+<li class="chapter" data-level="3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html"><i class="fa fa-check"></i><b>3</b> TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#importación-de-datos"><i class="fa fa-check"></i><b>3.1</b> Importación de datos</a></li>
-<li class="chapter" data-level="3.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#lectura-de-datos"><i class="fa fa-check"></i><b>3.2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="3.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#lectura-de-datos"><i class="fa fa-check"></i><b>3.2</b> Lectura de datos</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-csv"><i class="fa fa-check"></i><b>3.2.1</b> Archivos <em>csv</em></a></li>
 <li class="chapter" data-level="3.2.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-xls-y-xlsx"><i class="fa fa-check"></i><b>3.2.2</b> Archivos <em>xls</em> y <em>xlsx</em></a></li>
 <li class="chapter" data-level="3.2.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-json"><i class="fa fa-check"></i><b>3.2.3</b> Archivos json</a></li>
 <li class="chapter" data-level="3.2.4" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#bases-de-datos"><i class="fa fa-check"></i><b>3.2.4</b> Bases de Datos</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#consultas-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>3.3</b> Consultas de datos con tidyverse</a><ul>
+<li class="chapter" data-level="3.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#consultas-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>3.3</b> Consultas de datos con tidyverse</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#select"><i class="fa fa-check"></i><b>3.3.1</b> select()</a></li>
 <li class="chapter" data-level="3.3.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#filter"><i class="fa fa-check"></i><b>3.3.2</b> filter()</a></li>
 <li class="chapter" data-level="3.3.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#arrange"><i class="fa fa-check"></i><b>3.3.3</b> arrange()</a></li>
@@ -186,44 +193,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#referencias"><i class="fa fa-check"></i><b>3.4</b> Referencias:</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html"><i class="fa fa-check"></i><b>4</b> ANALISIS EXPLORATORIO Y VISUALIZACIÓN</a><ul>
+<li class="chapter" data-level="4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html"><i class="fa fa-check"></i><b>4</b> ANALISIS EXPLORATORIO Y VISUALIZACIÓN</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#eda-análisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>4.1</b> EDA: Análisis Exploratorio de Datos</a></li>
-<li class="chapter" data-level="4.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#geda-análisis-exploratorio-de-datos-gráficos"><i class="fa fa-check"></i><b>4.2</b> GEDA: Análisis Exploratorio de Datos Gráficos</a><ul>
+<li class="chapter" data-level="4.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#geda-análisis-exploratorio-de-datos-gráficos"><i class="fa fa-check"></i><b>4.2</b> GEDA: Análisis Exploratorio de Datos Gráficos</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#lo-que-no-se-debe-hacer"><i class="fa fa-check"></i><b>4.2.1</b> Lo que no se debe hacer…</a></li>
 <li class="chapter" data-level="4.2.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#principios-de-visualización"><i class="fa fa-check"></i><b>4.2.2</b> Principios de visualización</a></li>
 <li class="chapter" data-level="4.2.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#principios-generales-del-diseño-analítico"><i class="fa fa-check"></i><b>4.2.3</b> Principios generales del diseño analítico:</a></li>
 <li class="chapter" data-level="4.2.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#técnicas-de-visualización"><i class="fa fa-check"></i><b>4.2.4</b> Técnicas de visualización:</a></li>
 <li class="chapter" data-level="4.2.5" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#indicadores-de-calidad-gráfica"><i class="fa fa-check"></i><b>4.2.5</b> Indicadores de calidad gráfica:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#uso-decisión-e-implementación-de-técnicas-gráficas."><i class="fa fa-check"></i><b>4.3</b> Uso, decisión e implementación de técnicas gráficas.</a><ul>
+<li class="chapter" data-level="4.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#uso-decisión-e-implementación-de-técnicas-gráficas."><i class="fa fa-check"></i><b>4.3</b> Uso, decisión e implementación de técnicas gráficas.</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#gráficos-univariados"><i class="fa fa-check"></i><b>4.3.1</b> Gráficos univariados:</a></li>
 <li class="chapter" data-level="4.3.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#gráficos-multivariados"><i class="fa fa-check"></i><b>4.3.2</b> Gráficos multivariados</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#ggplot2"><i class="fa fa-check"></i><b>4.4</b> Ggplot2</a><ul>
+<li class="chapter" data-level="4.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#ggplot2"><i class="fa fa-check"></i><b>4.4</b> Ggplot2</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#objetos-aesteticos"><i class="fa fa-check"></i><b>4.4.1</b> Objetos aesteticos</a></li>
 <li class="chapter" data-level="4.4.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#objetos-geométricos-o-capas"><i class="fa fa-check"></i><b>4.4.2</b> Objetos geométricos o capas</a></li>
 <li class="chapter" data-level="4.4.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#facetas"><i class="fa fa-check"></i><b>4.4.3</b> Facetas</a></li>
 <li class="chapter" data-level="4.4.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#más-sobre-estéticas"><i class="fa fa-check"></i><b>4.4.4</b> Más sobre estéticas</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#eda-y-geda-con-r"><i class="fa fa-check"></i><b>4.5</b> EDA y GEDA con R</a><ul>
+<li class="chapter" data-level="4.5" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#eda-y-geda-con-r"><i class="fa fa-check"></i><b>4.5</b> EDA y GEDA con R</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#un-vistazo-rápido-a-los-datos"><i class="fa fa-check"></i><b>4.5.1</b> Un vistazo rápido a los datos</a></li>
 <li class="chapter" data-level="4.5.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#análisis-univariado"><i class="fa fa-check"></i><b>4.5.2</b> Análisis univariado</a></li>
 <li class="chapter" data-level="4.5.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#análisis-multivariado"><i class="fa fa-check"></i><b>4.5.3</b> Análisis multivariado</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#referencias-1"><i class="fa fa-check"></i><b>4.6</b> Referencias:</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html"><i class="fa fa-check"></i><b>5</b> MACHINE LEARNING: CONCEPTOS BÁSICOS</a><ul>
+<li class="chapter" data-level="5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html"><i class="fa fa-check"></i><b>5</b> MACHINE LEARNING: CONCEPTOS BÁSICOS</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#ml-y-algoritmos"><i class="fa fa-check"></i><b>5.1</b> ML y Algoritmos</a></li>
-<li class="chapter" data-level="5.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#análisis-supervisado-vs-no-supervisado"><i class="fa fa-check"></i><b>5.2</b> Análisis Supervisado vs No supervisado</a><ul>
+<li class="chapter" data-level="5.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#análisis-supervisado-vs-no-supervisado"><i class="fa fa-check"></i><b>5.2</b> Análisis Supervisado vs No supervisado</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#regresión-vs-clasificación"><i class="fa fa-check"></i><b>5.2.1</b> Regresión vs clasificación</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#sesgo-vs-varianza"><i class="fa fa-check"></i><b>5.3</b> Sesgo vs varianza</a></li>
-<li class="chapter" data-level="5.4" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#pre-procesamiento-e-ingeniería-de-datos"><i class="fa fa-check"></i><b>5.4</b> Pre-procesamiento e ingeniería de datos</a><ul>
+<li class="chapter" data-level="5.4" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#pre-procesamiento-e-ingeniería-de-datos"><i class="fa fa-check"></i><b>5.4</b> Pre-procesamiento e ingeniería de datos</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#pre-procesamiento-de-datos"><i class="fa fa-check"></i><b>5.4.1</b> Pre-procesamiento de datos</a></li>
 <li class="chapter" data-level="5.4.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#ingeniería-de-datos"><i class="fa fa-check"></i><b>5.4.2</b> Ingeniería de datos</a></li>
 <li class="chapter" data-level="5.4.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#recetas"><i class="fa fa-check"></i><b>5.4.3</b> Recetas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#partición-de-datos"><i class="fa fa-check"></i><b>5.5</b> Partición de datos</a><ul>
+<li class="chapter" data-level="5.5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#partición-de-datos"><i class="fa fa-check"></i><b>5.5</b> Partición de datos</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#métodos-comunes-para-particionar-datos"><i class="fa fa-check"></i><b>5.5.1</b> Métodos comunes para particionar datos</a></li>
 <li class="chapter" data-level="5.5.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#qué-proporción-debería-ser-usada"><i class="fa fa-check"></i><b>5.5.2</b> ¿Qué proporción debería ser usada?</a></li>
 <li class="chapter" data-level="5.5.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#conjunto-de-validación"><i class="fa fa-check"></i><b>5.5.3</b> Conjunto de validación</a></li>
@@ -234,12 +250,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.8" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#otros-tipos-de-validación-cruzada"><i class="fa fa-check"></i><b>5.5.8</b> Otros tipos de validación cruzada</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html"><i class="fa fa-check"></i><b>6</b> MACHINE LEARNING: APRENDIZAJE SUPERVISADO</a><ul>
-<li class="chapter" data-level="6.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-preparación-de-conjunto-de-datos"><i class="fa fa-check"></i><b>6.1</b> <strong>Regresión</strong>: Preparación de conjunto de datos</a><ul>
+<li class="chapter" data-level="6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html"><i class="fa fa-check"></i><b>6</b> MACHINE LEARNING: APRENDIZAJE SUPERVISADO</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-preparación-de-conjunto-de-datos"><i class="fa fa-check"></i><b>6.1</b> <strong>Regresión</strong>: Preparación de conjunto de datos</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#datos-de-regresión-ames-housing-data"><i class="fa fa-check"></i><b>6.1.1</b> Datos de regresión: Ames Housing Data</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#clasificación-preparación-de-datos"><i class="fa fa-check"></i><b>6.2</b> <strong>Clasificación</strong>: Preparación de Datos</a></li>
-<li class="chapter" data-level="6.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-lineal-simple-y-múltiple"><i class="fa fa-check"></i><b>6.3</b> Regresión lineal simple y múltiple</a><ul>
+<li class="chapter" data-level="6.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-lineal-simple-y-múltiple"><i class="fa fa-check"></i><b>6.3</b> Regresión lineal simple y múltiple</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#ajuste-de-modelo"><i class="fa fa-check"></i><b>6.3.1</b> Ajuste de modelo</a></li>
 <li class="chapter" data-level="6.3.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#residuos-del-modelo"><i class="fa fa-check"></i><b>6.3.2</b> Residuos del modelo</a></li>
 <li class="chapter" data-level="6.3.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métricas-de-desempeño"><i class="fa fa-check"></i><b>6.3.3</b> Métricas de desempeño</a></li>
@@ -247,11 +266,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#coeficientes-del-modelo"><i class="fa fa-check"></i><b>6.3.5</b> Coeficientes del modelo</a></li>
 <li class="chapter" data-level="6.3.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métricas-de-desempeño-1"><i class="fa fa-check"></i><b>6.3.6</b> Métricas de desempeño</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métodos-se-selección-de-variables"><i class="fa fa-check"></i><b>6.4</b> Métodos se selección de variables</a><ul>
+<li class="chapter" data-level="6.4" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métodos-se-selección-de-variables"><i class="fa fa-check"></i><b>6.4</b> Métodos se selección de variables</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#forward-selection-selección-hacia-adelante"><i class="fa fa-check"></i><b>6.4.1</b> Forward selection (selección hacia adelante)</a></li>
 <li class="chapter" data-level="6.4.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#desventajas-de-la-selección-forward-backward-y-stepwise"><i class="fa fa-check"></i><b>6.4.2</b> Desventajas de la selección forward, backward y stepwise</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-logística"><i class="fa fa-check"></i><b>6.5</b> Regresión logística</a><ul>
+<li class="chapter" data-level="6.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-logística"><i class="fa fa-check"></i><b>6.5</b> Regresión logística</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#función-sigmoide"><i class="fa fa-check"></i><b>6.5.1</b> Función sigmoide</a></li>
 <li class="chapter" data-level="6.5.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#ajuste-del-modelo"><i class="fa fa-check"></i><b>6.5.2</b> Ajuste del modelo</a></li>
 <li class="chapter" data-level="6.5.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#convertir-probabilidad-en-clasificación"><i class="fa fa-check"></i><b>6.5.3</b> Convertir probabilidad en clasificación</a></li>
@@ -259,23 +280,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#implementación-en-r-1"><i class="fa fa-check"></i><b>6.5.5</b> Implementación en R</a></li>
 <li class="chapter" data-level="6.5.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métricas-de-desempeño-3"><i class="fa fa-check"></i><b>6.5.6</b> Métricas de desempeño</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-regularizada-ridge-lasso-elasticnet"><i class="fa fa-check"></i><b>6.6</b> Regresión regularizada: Ridge, Lasso &amp; ElasticNet</a><ul>
+<li class="chapter" data-level="6.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-regularizada-ridge-lasso-elasticnet"><i class="fa fa-check"></i><b>6.6</b> Regresión regularizada: Ridge, Lasso &amp; ElasticNet</a>
+<ul>
 <li class="chapter" data-level="6.6.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regularización-ridge"><i class="fa fa-check"></i><b>6.6.1</b> Regularización Ridge</a></li>
 <li class="chapter" data-level="6.6.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regularización-lasso"><i class="fa fa-check"></i><b>6.6.2</b> Regularización Lasso</a></li>
 <li class="chapter" data-level="6.6.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#elasticnet"><i class="fa fa-check"></i><b>6.6.3</b> ElasticNet</a></li>
 <li class="chapter" data-level="6.6.4" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#elasticnet-para-regresión-lineal"><i class="fa fa-check"></i><b>6.6.4</b> ElasticNet para regresión lineal</a></li>
 <li class="chapter" data-level="6.6.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#elasticnet-para-regresión-logística"><i class="fa fa-check"></i><b>6.6.5</b> ElasticNet para regresión logística</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#knn-k-nearest-neighbor"><i class="fa fa-check"></i><b>6.7</b> KNN: K-Nearest-Neighbor</a><ul>
+<li class="chapter" data-level="6.7" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#knn-k-nearest-neighbor"><i class="fa fa-check"></i><b>6.7</b> KNN: K-Nearest-Neighbor</a>
+<ul>
 <li class="chapter" data-level="6.7.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#ajuste-del-modelo-1"><i class="fa fa-check"></i><b>6.7.1</b> Ajuste del modelo</a></li>
 <li class="chapter" data-level="6.7.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#implementación-en-r-2"><i class="fa fa-check"></i><b>6.7.2</b> Implementación en R</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#árboles-de-decisión-decision-trees"><i class="fa fa-check"></i><b>6.8</b> Árboles de decisión (Decision trees)</a><ul>
+<li class="chapter" data-level="6.8" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#árboles-de-decisión-decision-trees"><i class="fa fa-check"></i><b>6.8</b> Árboles de decisión (Decision trees)</a>
+<ul>
 <li class="chapter" data-level="6.8.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#ajuste-del-modelo-2"><i class="fa fa-check"></i><b>6.8.1</b> Ajuste del modelo</a></li>
 <li class="chapter" data-level="6.8.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#implementación-en-r-3"><i class="fa fa-check"></i><b>6.8.2</b> Implementación en R</a></li>
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#bagging"><i class="fa fa-check"></i><b>6.9</b> Bagging</a></li>
-<li class="chapter" data-level="6.10" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#random-forest"><i class="fa fa-check"></i><b>6.10</b> Random Forest</a><ul>
+<li class="chapter" data-level="6.10" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#random-forest"><i class="fa fa-check"></i><b>6.10</b> Random Forest</a>
+<ul>
 <li class="chapter" data-level="6.10.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#qué-es"><i class="fa fa-check"></i><b>6.10.1</b> ¿Qué es?</a></li>
 <li class="chapter" data-level="6.10.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#características-de-los-bosques-aleatorios"><i class="fa fa-check"></i><b>6.10.2</b> Características de los bosques aleatorios</a></li>
 <li class="chapter" data-level="6.10.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#aplicar-árboles-de-decisión-en-un-bosque-aleatorio"><i class="fa fa-check"></i><b>6.10.3</b> Aplicar árboles de decisión en un bosque aleatorio</a></li>
@@ -286,11 +311,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#comparación-de-modelos"><i class="fa fa-check"></i><b>6.11</b> Comparación de modelos</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html"><i class="fa fa-check"></i><b>7</b> MACHINE LEARNING: APRENDIZAJE NO SUPERVISADO</a><ul>
-<li class="chapter" data-level="7.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-k--means"><i class="fa fa-check"></i><b>7.1</b> Cluster: K- means</a></li>
-<li class="chapter" data-level="7.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-pam"><i class="fa fa-check"></i><b>7.2</b> Cluster: PAM</a></li>
-<li class="chapter" data-level="7.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#dbscan"><i class="fa fa-check"></i><b>7.3</b> DBSCAN</a></li>
-<li class="chapter" data-level="7.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-jerárquico"><i class="fa fa-check"></i><b>7.4</b> Cluster: Jerárquico</a></li>
+<li class="chapter" data-level="7" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html"><i class="fa fa-check"></i><b>7</b> MACHINE LEARNING: APRENDIZAJE NO SUPERVISADO</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#k---means"><i class="fa fa-check"></i><b>7.1</b> K - means</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#ajuste-de-modelo-cómo-funciona-el-algortimo"><i class="fa fa-check"></i><b>7.1.1</b> Ajuste de modelo: ¿Cómo funciona el algortimo?</a></li>
+<li class="chapter" data-level="7.1.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#calidad-de-ajuste"><i class="fa fa-check"></i><b>7.1.2</b> Calidad de ajuste</a></li>
+<li class="chapter" data-level="7.1.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cómo-seleccionamos-k"><i class="fa fa-check"></i><b>7.1.3</b> ¿Cómo seleccionamos K?</a></li>
+<li class="chapter" data-level="7.1.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#implementación-en-r-4"><i class="fa fa-check"></i><b>7.1.4</b> Implementación en R</a></li>
+<li class="chapter" data-level="7.1.5" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#warnings"><i class="fa fa-check"></i><b>7.1.5</b> Warnings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#partitioning-around-medoids-pam"><i class="fa fa-check"></i><b>7.2</b> Partitioning Around Medoids (PAM)</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#algoritmo-pam"><i class="fa fa-check"></i><b>7.2.1</b> Algoritmo PAM</a></li>
+<li class="chapter" data-level="7.2.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#implementación-en-r-5"><i class="fa fa-check"></i><b>7.2.2</b> Implementación en R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#clustering-large-applications-clara"><i class="fa fa-check"></i><b>7.3</b> Clustering Large Applications (CLARA)</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#implementación-en-r-6"><i class="fa fa-check"></i><b>7.3.1</b> Implementación en R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#dbscan"><i class="fa fa-check"></i><b>7.4</b> DBSCAN</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#algoritmo"><i class="fa fa-check"></i><b>7.4.1</b> Algoritmo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#estimación-de-parámetros"><i class="fa fa-check"></i><b>7.4.2</b> Estimación de parámetros</a></li>
+<li class="chapter" data-level="7.4.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#implementación-en-r-7"><i class="fa fa-check"></i><b>7.4.3</b> Implementación en R</a></li>
+<li class="chapter" data-level="7.4.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#ventajas-de-dbscan"><i class="fa fa-check"></i><b>7.4.4</b> Ventajas de DBSCAN</a></li>
+<li class="chapter" data-level="7.4.5" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#aplicación-dbscan"><i class="fa fa-check"></i><b>7.4.5</b> Aplicación DBSCAN</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#comparación-de-algoritmos"><i class="fa fa-check"></i><b>7.5</b> Comparación de algoritmos</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
@@ -312,12 +360,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="machine-learning-conceptos-básicos" class="section level1">
+<div id="machine-learning-conceptos-básicos" class="section level1" number="5">
 <h1><span class="header-section-number">Capítulo 5</span> MACHINE LEARNING: CONCEPTOS BÁSICOS</h1>
 <div class="watermark">
 <img src="img/header.png" width="400">
 </div>
-<div id="ml-y-algoritmos" class="section level2">
+<div id="ml-y-algoritmos" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> ML y Algoritmos</h2>
 <p>Como se habia mencionado, el Machine Learning es una disciplina del campo de la Inteligencia Artificial que, a través de algoritmos, dota a los ordenadores de la capacidad de identificar patrones en datos para hacer predicciones. Este aprendizaje permite a los computadores realizar tareas específicas de forma autónoma.</p>
 <p>El término se utilizó por primera vez en 1959. Sin embargo, ha ganado relevancia en los últimos años debido al aumento de la capacidad de computación y al <em>BOOM</em> de los datos.</p>
@@ -349,7 +397,7 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 <p>El paso final es utilizar el modelo con nuevos datos y, en el mejor de los casos, para que mejore en precisión y eficacia con el tiempo. De dónde procedan los nuevos datos dependerá del problema que se resuelva. Por ejemplo, un modelo de Machine Learning diseñado para identificar el spam ingerirá mensajes de correo electrónico, mientras que un modelo de Machine Learning que maneja una aspiradora robot ingerirá datos que resulten de la interacción en el mundo real con muebles movidos o nuevos objetos en la habitación.</p>
 <p><img src="img/ml/competencia.jpg" width="600pt" style="display: block; margin: auto;" /></p>
 </div>
-<div id="análisis-supervisado-vs-no-supervisado" class="section level2">
+<div id="análisis-supervisado-vs-no-supervisado" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Análisis Supervisado vs No supervisado</h2>
 <p>Los algoritmos de Machine Learning se dividen en tres categorías, siendo las dos primeras las más comunes:</p>
 <p><img src="img/ml/ml2.png" width="750pt" height="500pt" style="display: block; margin: auto;" /></p>
@@ -388,14 +436,14 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 - Diagnósticos médicos
 
 - Clasificar secuencias de ADN</code></pre>
-<div id="regresión-vs-clasificación" class="section level3">
+<div id="regresión-vs-clasificación" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Regresión vs clasificación</h3>
 <p>Existen dos tipos principales de aprendizaje supervisado, esto depende del tipo de la variable respuesta:</p>
-<div id="clasificación" class="section level4">
+<div id="clasificación" class="section level4" number="5.2.1.1">
 <h4><span class="header-section-number">5.2.1.1</span> Clasificación</h4>
 <p>En el aprendizaje supervisado, los algoritmos de clasificación se usan cuando el resultado es una etiqueta discreta. Esto quiere decir que se utilizan cuando la respuesta se fundamenta en conjunto finito de resultados.</p>
 </div>
-<div id="regresión" class="section level4">
+<div id="regresión" class="section level4" number="5.2.1.2">
 <h4><span class="header-section-number">5.2.1.2</span> Regresión</h4>
 <p>El análisis de regresión es un subcampo del aprendizaje automático supervisado cuyo objetivo es establecer un método para la relación entre un cierto número de características y una variable objetivo continua.</p>
 <p><br/></p>
@@ -403,11 +451,11 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 </div>
 </div>
 </div>
-<div id="sesgo-vs-varianza" class="section level2">
+<div id="sesgo-vs-varianza" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Sesgo vs varianza</h2>
 <p>En el mundo de Machine Learning cuando desarrollamos un modelo nos esforzamos para hacer que sea lo más preciso, ajustando los parámetros, pero la realidad es que no se puede construir un modelo 100% preciso ya que nunca pueden estar libres de errores.</p>
 <p>Comprender cómo las diferentes fuentes de error generan sesgo y varianza nos ayudará a mejorar el proceso de ajuste de datos, lo que resulta en modelos más precisos, adicionalmente también evitará el error de sobreajuste y falta de ajuste.</p>
-<div id="errores-reducibles" class="section level4">
+<div id="errores-reducibles" class="section level4" number="5.3.0.1">
 <h4><span class="header-section-number">5.3.0.1</span> Errores reducibles</h4>
 <ul>
 <li><strong>Error por sesgo:</strong></li>
@@ -421,11 +469,11 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 <p><img src="img/ml/3-1-3-biasvar.png" width="650pt" height="350pt" style="display: block; margin: auto;" /></p>
 <p>Los algoritmos de Machine Learning que tienen una gran varianza están fuertemente influenciados por los detalles de los datos de entrenamiento, esto significa que los detalles de la capacitación influyen en el número y los tipos de parámetros utilizados para caracterizar la función de mapeo.</p>
 </div>
-<div id="error-irreducible" class="section level4">
+<div id="error-irreducible" class="section level4" number="5.3.0.2">
 <h4><span class="header-section-number">5.3.0.2</span> Error irreducible</h4>
 <p>El error irreducible no se puede reducir, independientemente de qué algoritmo se usa. También se le conoce como ruido y, por lo general, proviene por factores como variables desconocidas que influyen en el mapeo de las variables de entrada a la variable de salida, un conjunto de características incompleto o un problema mal enmarcado. Acá es importante comprender que no importa cuán bueno hagamos nuestro modelo, nuestros datos tendrán cierta cantidad de ruido o un error irreductible que no se puede eliminar.</p>
 </div>
-<div id="balance-entre-sesgo-y-varianza-o-trade-off" class="section level4">
+<div id="balance-entre-sesgo-y-varianza-o-trade-off" class="section level4" number="5.3.0.3">
 <h4><span class="header-section-number">5.3.0.3</span> Balance entre sesgo y varianza o Trade-off</h4>
 <p>El objetivo de cualquier algoritmo supervisado de Machine Learning es lograr un bias bajo, una baja varianza y a su vez el algoritmo debe lograr un buen rendimiento de predicción.</p>
 <p><img src="img/ml/3-1-3-tradeoff.jpeg" width="650pt" height="450pt" style="display: block; margin: auto;" /></p>
@@ -436,7 +484,7 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 <p>Los algoritmos de bajo bias (alta varianza) tienden a ser más complejos, con una estructura subyacente flexible.</p>
 <p>No hay escapatoria a la relación entre el bias y la varianza en Machine Learning, aumentar el bias disminuirá la varianza, aumentar la varianza disminuirá el bias.</p>
 </div>
-<div id="error-total" class="section level4">
+<div id="error-total" class="section level4" number="5.3.0.4">
 <h4><span class="header-section-number">5.3.0.4</span> Error total</h4>
 <p>Comprender el sesgo y la varianza es fundamental para comprender el comportamiento de los modelos de predicción, pero en general lo que realmente importa es el error general, no la descomposición específica. El punto ideal para cualquier modelo es el nivel de complejidad en el que el aumento en el sesgo es equivalente a la reducción en la varianza.</p>
 <p><img src="img/ml/3-1-3-errortotal.jpeg" width="650pt" height="450pt" style="display: block; margin: auto;" /></p>
@@ -444,7 +492,7 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 <p>Un equilibrio óptimo de bias y varianza nunca sobreequiparía o no sería adecuado para el modelo. Por lo tanto comprender el bias y la varianza es fundamental para comprender el comportamiento de los modelos de predicción.</p>
 <p><img src="img/ml/3-1-3-biasvar.png" width="650pt" height="350pt" style="display: block; margin: auto;" /></p>
 </div>
-<div id="overfitting" class="section level4">
+<div id="overfitting" class="section level4" number="5.3.0.5">
 <h4><span class="header-section-number">5.3.0.5</span> Overfitting</h4>
 <ul>
 <li><p>El modelo es muy particular.</p></li>
@@ -452,7 +500,7 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 <li><p>Durante el entrenamiento tiene un desempeño muy bueno, pero al pasar nuevos datos su desempeño es malo.</p></li>
 </ul>
 </div>
-<div id="underfitting" class="section level4">
+<div id="underfitting" class="section level4" number="5.3.0.6">
 <h4><span class="header-section-number">5.3.0.6</span> Underfitting</h4>
 <ul>
 <li><p>El modelo es demasiado general.</p></li>
@@ -462,7 +510,7 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 <p><img src="img/ml/over-under.jpg" width="600pt" height="350pt" style="display: block; margin: auto;" /></p>
 </div>
 </div>
-<div id="pre-procesamiento-e-ingeniería-de-datos" class="section level2">
+<div id="pre-procesamiento-e-ingeniería-de-datos" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Pre-procesamiento e ingeniería de datos</h2>
 <p>Hay varios pasos que se deben de seguir para crear un modelo útil:</p>
 <ul>
@@ -475,7 +523,7 @@ Hay ciertos pasos que usualmente se siguen para crear un modelo de Machine Learn
 </ul>
 <p>Al comienzo de un proyecto, generalmente hay un conjunto finito de datos disponibles para todas estas tareas.</p>
 <p><strong>OJO:</strong> A medida que los datos se reutilizan para múltiples tareas, aumentan los riesgos de agregar sesgos o grandes efectos de errores metodológicos.</p>
-<div id="pre-procesamiento-de-datos" class="section level3">
+<div id="pre-procesamiento-de-datos" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Pre-procesamiento de datos</h3>
 <p><img src="img/ml/3-2-1-preprocesamiento.png" width="800pt" height="200pt" style="display: block; margin: auto;" /></p>
 <p>Como punto de partida para nuestro flujo de trabajo de aprendizaje automático, necesitaremos datos de entrada.
@@ -521,7 +569,7 @@ sin embargo, muchas implementaciones de conjuntos de árboles requieren imputaci
 <li><p>Si bien los métodos de refuerzo basados en árboles generalmente no requieren la creación de variables ficticias, los modelos que usan <code>xgboost</code> sí lo hacen.</p></li>
 </ul>
 </div>
-<div id="ingeniería-de-datos" class="section level3">
+<div id="ingeniería-de-datos" class="section level3" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> Ingeniería de datos</h3>
 <p>La ingeniería de datos abarca actividades que reformatean los valores de los predictores
 para que se puedan utilizar de manera eficaz para nuestro modelo.
@@ -530,7 +578,7 @@ Esto incluye transformaciones y codificaciones de los datos para representar mej
 <blockquote>
 <p><strong>1.-</strong> Supongamos que un conjunto de datos tiene dos predictores que se pueden representar de manera más eficaz en nuestro modelo como una proporción, así, tendríamos un nuevo predictor a partir de la proporción de los dos predictores originales.</p>
 </blockquote>
-<table class=" lightable-classic-2" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+<table class=" lightable-classic-2" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:right;">
@@ -587,7 +635,7 @@ x_prop
 <blockquote>
 <p><strong>2.-</strong> Al elegir cómo codificar nuestros datos en el modelado, podríamos elegir una opción que creemos que está más asociada con el resultado. El formato original de los datos, por ejemplo numérico (edad) versus categórico (grupo).</p>
 </blockquote>
-<table class=" lightable-classic-2" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'>
+<table class=" lightable-classic-2" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:right;">
@@ -643,7 +691,7 @@ Adultos mayores
 </table>
 <p>La ingeniería y el pre-procesamiento de datos también pueden implicar el reformateo requerido por el modelo. Algunos modelos utilizan métricas de distancia geométrica y, en consecuencia, los predictores numéricos deben centrarse y escalar para que estén todos en las mismas unidades. De lo contrario, los valores de distancia estarían sesgados por la escala de cada columna.</p>
 </div>
-<div id="recetas" class="section level3">
+<div id="recetas" class="section level3" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> Recetas</h3>
 <p><img src="img/ml/3-2-3-recetas.png" width="150pt" height="150pt" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Una receta es un objeto que define una serie de pasos para el procesamiento de datos.
@@ -660,20 +708,20 @@ vivienda <code>Ames</code>:</p>
 </ul>
 <p>Un modelo de regresión lineal ordinario inicial se ajusta a estos datos con la función estándar <code>lm()</code>
 de la siguiente manera:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="machine-learning-conceptos-básicos.html#cb97-1"></a><span class="kw">lm</span>(Sale_Price <span class="op">~</span><span class="st"> </span>Neighborhood <span class="op">+</span><span class="st"> </span><span class="kw">log10</span>(Gr_Liv_Area) <span class="op">+</span><span class="st"> </span>Year_Built <span class="op">+</span><span class="st"> </span>Bldg_Type, <span class="dt">data =</span> ames)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="machine-learning-conceptos-básicos.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(Sale_Price <span class="sc">~</span> Neighborhood <span class="sc">+</span> <span class="fu">log10</span>(Gr_Liv_Area) <span class="sc">+</span> Year_Built <span class="sc">+</span> Bldg_Type, <span class="at">data =</span> ames)</span></code></pre></div>
 <p>Cuando se ejecuta esta función, los datos se convierten en a una matriz de diseño numérico (también llamada matriz de modelo) y luego se utiliza el método de mínimos cuadrados para estimar los parámetros.
 Lo que hace la fórmula anterior se puede descomponer en una serie de pasos:</p>
 <p><strong>1.-</strong> El precio de venta se define como el resultado, mientras que las variables de vecindario, superficie habitable bruta, año de construcción y tipo de edificio se definen como predictores.</p>
 <p><strong>2.-</strong> Se aplica una transformación logarítmica al predictor de superficie habitable bruta.</p>
 <p><strong>3.-</strong> Las columnas de vecindad y tipo de edificio se convierten de un formato no numérico a un formato numérico (dado que los mínimos cuadrados requieren predictores numéricos).</p>
 <p>La siguiente receta es equivalente a la fórmula anterior:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="machine-learning-conceptos-básicos.html#cb98-1"></a>simple_ames &lt;-</span>
-<span id="cb98-2"><a href="machine-learning-conceptos-básicos.html#cb98-2"></a><span class="st">  </span><span class="kw">recipe</span>(Sale_Price <span class="op">~</span><span class="st"> </span>Neighborhood <span class="op">+</span><span class="st"> </span>Gr_Liv_Area <span class="op">+</span><span class="st"> </span>Year_Built <span class="op">+</span><span class="st"> </span>Bldg_Type,</span>
-<span id="cb98-3"><a href="machine-learning-conceptos-básicos.html#cb98-3"></a>         <span class="dt">data =</span> ames) <span class="op">%&gt;%</span></span>
-<span id="cb98-4"><a href="machine-learning-conceptos-básicos.html#cb98-4"></a><span class="st">  </span><span class="kw">step_log</span>(Gr_Liv_Area, <span class="dt">base =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb98-5"><a href="machine-learning-conceptos-básicos.html#cb98-5"></a><span class="st">  </span><span class="kw">step_dummy</span>(<span class="kw">all_nominal_predictors</span>())</span>
-<span id="cb98-6"><a href="machine-learning-conceptos-básicos.html#cb98-6"></a></span>
-<span id="cb98-7"><a href="machine-learning-conceptos-básicos.html#cb98-7"></a>simple_ames</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="machine-learning-conceptos-básicos.html#cb98-1" aria-hidden="true" tabindex="-1"></a>simple_ames <span class="ot">&lt;-</span></span>
+<span id="cb98-2"><a href="machine-learning-conceptos-básicos.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> Neighborhood <span class="sc">+</span> Gr_Liv_Area <span class="sc">+</span> Year_Built <span class="sc">+</span> Bldg_Type,</span>
+<span id="cb98-3"><a href="machine-learning-conceptos-básicos.html#cb98-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> ames) <span class="sc">%&gt;%</span></span>
+<span id="cb98-4"><a href="machine-learning-conceptos-básicos.html#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_log</span>(Gr_Liv_Area, <span class="at">base =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb98-5"><a href="machine-learning-conceptos-básicos.html#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>())</span>
+<span id="cb98-6"><a href="machine-learning-conceptos-básicos.html#cb98-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-7"><a href="machine-learning-conceptos-básicos.html#cb98-7" aria-hidden="true" tabindex="-1"></a>simple_ames</span></code></pre></div>
 <pre><code>## Data Recipe
 ## 
 ## Inputs:
@@ -702,9 +750,9 @@ Solo ustiliza los datos <code>ames</code> para determinar los tipos de datos par
 <li><p>Todo el procesamiento de datos se puede capturar en un solo objeto en lugar de
 tener scripts que se repiten o incluso se distribuyen en diferentes archivos.</p></li>
 </ul>
-<div id="pasos-de-recetas" class="section level4">
+<div id="pasos-de-recetas" class="section level4" number="5.4.3.1">
 <h4><span class="header-section-number">5.4.3.1</span> Pasos de recetas</h4>
-<div id="codificación-de-datos-cualitativos-en-formato-numérico" class="section level5">
+<div id="codificación-de-datos-cualitativos-en-formato-numérico" class="section level5" number="5.4.3.1.1">
 <h5><span class="header-section-number">5.4.3.1.1</span> Codificación de datos cualitativos en formato numérico</h5>
 <p>Una de las tareas de ingeniería de datos más comunes es transformar datos
 nominales o cualitativos (factores o caracteres) para que puedan codificarse
@@ -712,59 +760,59 @@ o representarse numéricamente. A veces, podemos alterar los niveles de factores
 de una columna cualitativa de manera útil antes de tal transformación.</p>
 <p>Por ejemplo:</p>
 <ul>
-<li><p><code>step_unknown()</code> cambia los valores perdidos en un nivel de factor “desconocido”.</p></li>
+<li><p><code>step_unknown()</code> cambia los valores perdidos en un nivel de factor “desconocido.”</p></li>
 <li><p><code>step_novel()</code> puede asignar un nuevo nivel si anticipamos que se puede encontrar un nuevo factor en datos futuros.</p></li>
 <li><p><code>step_other()</code> analiza las frecuencias de los niveles de los factores en el conjunto de datos y convierte
-los valores que ocurren con poca frecuencia a un nivel general de “otro”, con un umbral que se puede especificar.</p></li>
+los valores que ocurren con poca frecuencia a un nivel general de “otro,” con un umbral que se puede especificar.</p></li>
 </ul>
 <p>Un buen ejemplo es el predictor de vecindad en nuestros datos:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="machine-learning-conceptos-básicos.html#cb100-1"></a><span class="kw">ggplot</span>(ames, <span class="kw">aes</span>(<span class="dt">y =</span> Neighborhood)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb100-2"><a href="machine-learning-conceptos-básicos.html#cb100-2"></a><span class="st">  </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb100-3"><a href="machine-learning-conceptos-básicos.html#cb100-3"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="ot">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="machine-learning-conceptos-básicos.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ames, <span class="fu">aes</span>(<span class="at">y =</span> Neighborhood)) <span class="sc">+</span> </span>
+<span id="cb100-2"><a href="machine-learning-conceptos-básicos.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb100-3"><a href="machine-learning-conceptos-básicos.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 <p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
 <p>Aquí hay dos vecindarios que tienen menos de cinco propiedades; en este caso,
 no se incluyó ninguna casa en el vecindario Landmark.</p>
 <p>Para algunos modelos, puede resultar problemático tener variables ficticias con
 una sola entrada distinta de cero en la columna. Como mínimo, es muy improbable
 que estas características sean importantes para un modelo.
-Si agregamos <code>step_other (Neighborhood, threshold = 0.01)</code> a nuestra receta, el último <span class="math inline">\(1\%\)</span> de los vecindarios se agrupará en un nuevo nivel llamado “otro”, esto atrapará a 8 vecindarios.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="machine-learning-conceptos-básicos.html#cb101-1"></a>simple_ames &lt;-<span class="st"> </span></span>
-<span id="cb101-2"><a href="machine-learning-conceptos-básicos.html#cb101-2"></a><span class="st">  </span><span class="kw">recipe</span>(Sale_Price <span class="op">~</span><span class="st"> </span>Neighborhood <span class="op">+</span><span class="st"> </span>Gr_Liv_Area <span class="op">+</span><span class="st"> </span>Year_Built <span class="op">+</span><span class="st"> </span>Bldg_Type,</span>
-<span id="cb101-3"><a href="machine-learning-conceptos-básicos.html#cb101-3"></a>         <span class="dt">data =</span> ames) <span class="op">%&gt;%</span></span>
-<span id="cb101-4"><a href="machine-learning-conceptos-básicos.html#cb101-4"></a><span class="st">  </span><span class="kw">step_log</span>(Gr_Liv_Area, <span class="dt">base =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb101-5"><a href="machine-learning-conceptos-básicos.html#cb101-5"></a><span class="st">  </span><span class="kw">step_other</span>(Neighborhood, <span class="dt">threshold =</span> <span class="fl">0.01</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb101-6"><a href="machine-learning-conceptos-básicos.html#cb101-6"></a><span class="st">  </span><span class="kw">step_dummy</span>(<span class="kw">all_nominal_predictors</span>())</span></code></pre></div>
+Si agregamos <code>step_other (Neighborhood, threshold = 0.01)</code> a nuestra receta, el último <span class="math inline">\(1\%\)</span> de los vecindarios se agrupará en un nuevo nivel llamado “otro,” esto atrapará a 8 vecindarios.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="machine-learning-conceptos-básicos.html#cb101-1" aria-hidden="true" tabindex="-1"></a>simple_ames <span class="ot">&lt;-</span> </span>
+<span id="cb101-2"><a href="machine-learning-conceptos-básicos.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> Neighborhood <span class="sc">+</span> Gr_Liv_Area <span class="sc">+</span> Year_Built <span class="sc">+</span> Bldg_Type,</span>
+<span id="cb101-3"><a href="machine-learning-conceptos-básicos.html#cb101-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> ames) <span class="sc">%&gt;%</span></span>
+<span id="cb101-4"><a href="machine-learning-conceptos-básicos.html#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_log</span>(Gr_Liv_Area, <span class="at">base =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb101-5"><a href="machine-learning-conceptos-básicos.html#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(Neighborhood, <span class="at">threshold =</span> <span class="fl">0.01</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb101-6"><a href="machine-learning-conceptos-básicos.html#cb101-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>())</span></code></pre></div>
 <p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
 </div>
-<div id="interacciones" class="section level5">
+<div id="interacciones" class="section level5" number="5.4.3.1.2">
 <h5><span class="header-section-number">5.4.3.1.2</span> Interacciones</h5>
 <p>Los efectos de interacción involucran dos o más predictores.
 Tal efecto ocurre cuando un predictor tiene un efecto sobre el resultado que depende de uno o más predictores.
 Numéricamente, un término de interacción entre predictores se codifica como su producto. Las interacciones solo se definen en términos de su efecto sobre el resultado y pueden ser combinaciones de diferentes tipos de datos (por ejemplo, numéricos, categóricos, etc.).</p>
 <p>Después de explorar el conjunto de datos de Ames, podríamos encontrar que las pendientes
 de regresión para el área habitable bruta difieren para los diferentes tipos de edificios:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="machine-learning-conceptos-básicos.html#cb102-1"></a><span class="kw">ggplot</span>(ames, <span class="kw">aes</span>(<span class="dt">x =</span> Gr_Liv_Area, <span class="dt">y =</span> Sale_Price)) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb102-2"><a href="machine-learning-conceptos-básicos.html#cb102-2"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">.2</span>) <span class="op">+</span></span>
-<span id="cb102-3"><a href="machine-learning-conceptos-básicos.html#cb102-3"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Bldg_Type) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb102-4"><a href="machine-learning-conceptos-básicos.html#cb102-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> lm, <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb102-5"><a href="machine-learning-conceptos-básicos.html#cb102-5"></a><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb102-6"><a href="machine-learning-conceptos-básicos.html#cb102-6"></a><span class="st">  </span><span class="kw">scale_y_log10</span>() <span class="op">+</span><span class="st"> </span></span>
-<span id="cb102-7"><a href="machine-learning-conceptos-básicos.html#cb102-7"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Gross Living Area&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Sale Price (USD)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="machine-learning-conceptos-básicos.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ames, <span class="fu">aes</span>(<span class="at">x =</span> Gr_Liv_Area, <span class="at">y =</span> Sale_Price)) <span class="sc">+</span> </span>
+<span id="cb102-2"><a href="machine-learning-conceptos-básicos.html#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb102-3"><a href="machine-learning-conceptos-básicos.html#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Bldg_Type) <span class="sc">+</span> </span>
+<span id="cb102-4"><a href="machine-learning-conceptos-básicos.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb102-5"><a href="machine-learning-conceptos-básicos.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span> </span>
+<span id="cb102-6"><a href="machine-learning-conceptos-básicos.html#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span> </span>
+<span id="cb102-7"><a href="machine-learning-conceptos-básicos.html#cb102-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Gross Living Area&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Sale Price (USD)&quot;</span>)</span></code></pre></div>
 <p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
 <p>Con la receta actual, <code>step_dummy()</code> ya ha creado variables ficticias.
 ¿Cómo combinaríamos estos para una interacción? El paso adicional se vería como
 <code>step_interact(~ términos de interacción)</code> donde los términos en el lado derecho de la tilde son las interacciones. Estos pueden incluir selectores, por lo que sería apropiado usar:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="machine-learning-conceptos-básicos.html#cb103-1"></a>simple_ames &lt;-<span class="st"> </span><span class="kw">recipe</span>(Sale_Price <span class="op">~</span><span class="st"> </span>Neighborhood <span class="op">+</span><span class="st"> </span>Gr_Liv_Area <span class="op">+</span><span class="st"> </span>Year_Built <span class="op">+</span><span class="st"> </span>Bldg_Type,</span>
-<span id="cb103-2"><a href="machine-learning-conceptos-básicos.html#cb103-2"></a>         <span class="dt">data =</span> ames) <span class="op">%&gt;%</span></span>
-<span id="cb103-3"><a href="machine-learning-conceptos-básicos.html#cb103-3"></a><span class="st">  </span><span class="kw">step_log</span>(Gr_Liv_Area, <span class="dt">base =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb103-4"><a href="machine-learning-conceptos-básicos.html#cb103-4"></a><span class="st">  </span><span class="kw">step_other</span>(Neighborhood, <span class="dt">threshold =</span> <span class="fl">0.01</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb103-5"><a href="machine-learning-conceptos-básicos.html#cb103-5"></a><span class="st">  </span><span class="kw">step_dummy</span>(<span class="kw">all_nominal_predictors</span>()) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb103-6"><a href="machine-learning-conceptos-básicos.html#cb103-6"></a><span class="st">  </span><span class="co"># Gr_Liv_Area está en escala logarítmica</span></span>
-<span id="cb103-7"><a href="machine-learning-conceptos-básicos.html#cb103-7"></a><span class="st">  </span><span class="kw">step_interact</span>( <span class="op">~</span><span class="st"> </span>Gr_Liv_Area<span class="op">:</span><span class="kw">starts_with</span>(<span class="st">&quot;Bldg_Type_&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="machine-learning-conceptos-básicos.html#cb103-1" aria-hidden="true" tabindex="-1"></a>simple_ames <span class="ot">&lt;-</span> <span class="fu">recipe</span>(Sale_Price <span class="sc">~</span> Neighborhood <span class="sc">+</span> Gr_Liv_Area <span class="sc">+</span> Year_Built <span class="sc">+</span> Bldg_Type,</span>
+<span id="cb103-2"><a href="machine-learning-conceptos-básicos.html#cb103-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> ames) <span class="sc">%&gt;%</span></span>
+<span id="cb103-3"><a href="machine-learning-conceptos-básicos.html#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_log</span>(Gr_Liv_Area, <span class="at">base =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb103-4"><a href="machine-learning-conceptos-básicos.html#cb103-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_other</span>(Neighborhood, <span class="at">threshold =</span> <span class="fl">0.01</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb103-5"><a href="machine-learning-conceptos-básicos.html#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb103-6"><a href="machine-learning-conceptos-básicos.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Gr_Liv_Area está en escala logarítmica</span></span>
+<span id="cb103-7"><a href="machine-learning-conceptos-básicos.html#cb103-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_interact</span>( <span class="sc">~</span> Gr_Liv_Area<span class="sc">:</span><span class="fu">starts_with</span>(<span class="st">&quot;Bldg_Type_&quot;</span>) )</span></code></pre></div>
 <p>Se pueden especificar interacciones adicionales en esta fórmula separándolas con el signo <span class="math inline">\(+\)</span>.
 La receta solamente utilizará interacciones entre diferentes variables.</p>
 </div>
-<div id="transformaciones-generales" class="section level5">
+<div id="transformaciones-generales" class="section level5" number="5.4.3.1.3">
 <h5><span class="header-section-number">5.4.3.1.3</span> Transformaciones generales</h5>
 <p>Reflejando las operaciones originales de dplyr, los siguientes pasos se pueden
 usar para realizar una variedad de operaciones básicas a los datos.</p>
@@ -787,15 +835,15 @@ variables según su nombre, tipo o función.</p></li>
 <li><p><code>all_numeric_predictors()</code>: Selecciona a todos los predictores numéricos del conjunto de entrenamineto para aplicarles alguna de las funciones mencionadas.</p></li>
 <li><p><code>all_nominal_predictors()</code>: Selecciona a todos los predictores nominales del conjunto de entrenamineto para aplicarles alguna de las funciones mencionadas.</p></li>
 </ul>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="machine-learning-conceptos-básicos.html#cb104-1"></a>receta &lt;-<span class="st"> </span><span class="kw">recipe</span>( <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> iris) <span class="op">%&gt;%</span></span>
-<span id="cb104-2"><a href="machine-learning-conceptos-básicos.html#cb104-2"></a><span class="st">  </span><span class="kw">step_mutate</span>(</span>
-<span id="cb104-3"><a href="machine-learning-conceptos-básicos.html#cb104-3"></a>    <span class="dt">dbl_width =</span> Sepal.Width <span class="op">*</span><span class="st"> </span><span class="dv">2</span>,</span>
-<span id="cb104-4"><a href="machine-learning-conceptos-básicos.html#cb104-4"></a>    <span class="dt">half_length =</span> Sepal.Length <span class="op">/</span><span class="st"> </span><span class="dv">2</span></span>
-<span id="cb104-5"><a href="machine-learning-conceptos-básicos.html#cb104-5"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb104-6"><a href="machine-learning-conceptos-básicos.html#cb104-6"></a><span class="st">  </span><span class="kw">step_normalize</span>(<span class="kw">all_numeric_predictors</span>(), <span class="dt">na_rm =</span> T) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb104-7"><a href="machine-learning-conceptos-básicos.html#cb104-7"></a><span class="st">  </span><span class="kw">step_dummy</span>(<span class="kw">all_nominal_predictors</span>(), <span class="dt">min_unique =</span> <span class="dv">5</span>)</span>
-<span id="cb104-8"><a href="machine-learning-conceptos-básicos.html#cb104-8"></a></span>
-<span id="cb104-9"><a href="machine-learning-conceptos-básicos.html#cb104-9"></a>receta</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="machine-learning-conceptos-básicos.html#cb104-1" aria-hidden="true" tabindex="-1"></a>receta <span class="ot">&lt;-</span> <span class="fu">recipe</span>( <span class="sc">~</span> ., <span class="at">data =</span> iris) <span class="sc">%&gt;%</span></span>
+<span id="cb104-2"><a href="machine-learning-conceptos-básicos.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_mutate</span>(</span>
+<span id="cb104-3"><a href="machine-learning-conceptos-básicos.html#cb104-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">dbl_width =</span> Sepal.Width <span class="sc">*</span> <span class="dv">2</span>,</span>
+<span id="cb104-4"><a href="machine-learning-conceptos-básicos.html#cb104-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">half_length =</span> Sepal.Length <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb104-5"><a href="machine-learning-conceptos-básicos.html#cb104-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb104-6"><a href="machine-learning-conceptos-básicos.html#cb104-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_normalize</span>(<span class="fu">all_numeric_predictors</span>(), <span class="at">na_rm =</span> T) <span class="sc">%&gt;%</span> </span>
+<span id="cb104-7"><a href="machine-learning-conceptos-básicos.html#cb104-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">step_dummy</span>(<span class="fu">all_nominal_predictors</span>(), <span class="at">min_unique =</span> <span class="dv">5</span>)</span>
+<span id="cb104-8"><a href="machine-learning-conceptos-básicos.html#cb104-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-9"><a href="machine-learning-conceptos-básicos.html#cb104-9" aria-hidden="true" tabindex="-1"></a>receta</span></code></pre></div>
 <pre><code>## Data Recipe
 ## 
 ## Inputs:
@@ -811,17 +859,17 @@ variables según su nombre, tipo o función.</p></li>
 <p>La guía completa de las familia de funciones <em>step</em> puede consultarse en la <a href="https://recipes.tidymodels.org/reference/index.html">documentación oficial</a></p>
 </div>
 </div>
-<div id="ejecutar-el-pre-procesamiento-de-datos" class="section level4">
+<div id="ejecutar-el-pre-procesamiento-de-datos" class="section level4" number="5.4.3.2">
 <h4><span class="header-section-number">5.4.3.2</span> Ejecutar el pre-procesamiento de datos</h4>
-<div id="preparar-la-receta-prep" class="section level5">
+<div id="preparar-la-receta-prep" class="section level5" number="5.4.3.2.1">
 <h5><span class="header-section-number">5.4.3.2.1</span> Preparar la receta <code>prep()</code></h5>
 <p>Esta función devuelve una receta actualizada con las estimaciones.
 Dado un conjunto de datos, la función <code>prep()</code> estima las cantidades requeridas y
 las estadísticas necesarias para cualquier paso declarado en la receta.
 Los datos faltantes se manejan en los pasos; no hay una opción <code>na.rm</code> a nivel de receta o en <code>prep()</code>.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="machine-learning-conceptos-básicos.html#cb106-1"></a>prep &lt;-<span class="st"> </span><span class="kw">prep</span>(simple_ames) </span>
-<span id="cb106-2"><a href="machine-learning-conceptos-básicos.html#cb106-2"></a></span>
-<span id="cb106-3"><a href="machine-learning-conceptos-básicos.html#cb106-3"></a>prep</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="machine-learning-conceptos-básicos.html#cb106-1" aria-hidden="true" tabindex="-1"></a>prep <span class="ot">&lt;-</span> <span class="fu">prep</span>(simple_ames) </span>
+<span id="cb106-2"><a href="machine-learning-conceptos-básicos.html#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="machine-learning-conceptos-básicos.html#cb106-3" aria-hidden="true" tabindex="-1"></a>prep</span></code></pre></div>
 <pre><code>## Data Recipe
 ## 
 ## Inputs:
@@ -839,7 +887,7 @@ Los datos faltantes se manejan en los pasos; no hay una opción <code>na.rm</cod
 ## Dummy variables from Neighborhood, Bldg_Type [trained]
 ## Interactions with Gr_Liv_Area:(Bldg_Type_TwoFmCon + Bldg_Type_Duplex + Bldg_Type_Twnhs + Bldg_Type_TwnhsE) [trained]</code></pre>
 </div>
-<div id="extracción-de-datos-bake" class="section level5">
+<div id="extracción-de-datos-bake" class="section level5" number="5.4.3.2.2">
 <h5><span class="header-section-number">5.4.3.2.2</span> Extracción de datos <code>bake</code></h5>
 <p>La función <code>bake()</code> toma una receta como entrenada (con la función <code>prep()</code>) y aplica
 las operaciones a un conjunto de datos para crear una matriz de diseño.</p>
@@ -847,7 +895,7 @@ las operaciones a un conjunto de datos para crear una matriz de diseño.</p>
 Así, con esta opción configurada (por default), la función <code>bake (object, new_data = NULL)</code> devolverá
 los datos con los que se entrenó la receta.</p>
 <p><strong>Nota: </strong> La función <code>juice()</code> devolverá los resultados de una receta en la que se hayan aplicado todos los pasos a los datos. Similar a la función <code>bake()</code> con el comando <code>new_data = NULL</code>.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="machine-learning-conceptos-básicos.html#cb108-1"></a><span class="kw">bake</span>(prep, <span class="dt">new_data =</span> <span class="ot">NULL</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">glimpse</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="machine-learning-conceptos-básicos.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bake</span>(prep, <span class="at">new_data =</span> <span class="cn">NULL</span>) <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code></pre></div>
 <pre><code>## Rows: 2,930
 ## Columns: 32
 ## $ Gr_Liv_Area                                          &lt;dbl&gt; 3.219060, 2.95230…
@@ -886,14 +934,14 @@ los datos con los que se entrenó la receta.</p>
 </div>
 </div>
 </div>
-<div id="partición-de-datos" class="section level2">
+<div id="partición-de-datos" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Partición de datos</h2>
 <p><img src="img/ml/3-5-particion-datos.jpg" width="150pt" height="150pt" style="display: block; margin: auto auto auto 0;" /></p>
 <p>Cuando hay una gran cantidad de datos disponibles, una estrategia inteligente es asignar subconjuntos específicos de datos para diferentes tareas, en lugar de asignar la mayor cantidad posible solo a la estimación de los parámetros del modelo.</p>
 <p>Si el conjunto inicial de datos no es lo suficientemente grande, habrá cierta superposición
 de cómo y cuándo se asignan nuestros datos, y es importante contar con una metodología
 sólida para la partición de datos.</p>
-<div id="métodos-comunes-para-particionar-datos" class="section level3">
+<div id="métodos-comunes-para-particionar-datos" class="section level3" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Métodos comunes para particionar datos</h3>
 <p>El enfoque principal para la validación del modelo es dividir el conjunto de datos existente en dos conjuntos distintos:</p>
 <ul>
@@ -909,26 +957,26 @@ por lo que es fundamental mirar el conjunto de prueba una sola vez.</p></li>
 <p>Supongamos que asignamos el <span class="math inline">\(80\%\)</span> de los datos al conjunto de entrenamiento y el <span class="math inline">\(20\%\)</span> restante a las pruebas. El método más común es utilizar un muestreo aleatorio simple.
 El paquete <em>rsample</em> tiene herramientas para realizar divisiones de datos como esta;
 la función <code>initial_split()</code> fue creada para este propósito.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="machine-learning-conceptos-básicos.html#cb110-1"></a><span class="kw">library</span>(tidymodels)</span>
-<span id="cb110-2"><a href="machine-learning-conceptos-básicos.html#cb110-2"></a></span>
-<span id="cb110-3"><a href="machine-learning-conceptos-básicos.html#cb110-3"></a><span class="kw">tidymodels_prefer</span>()</span>
-<span id="cb110-4"><a href="machine-learning-conceptos-básicos.html#cb110-4"></a></span>
-<span id="cb110-5"><a href="machine-learning-conceptos-básicos.html#cb110-5"></a><span class="co"># Fijar un número aleatorio con para que los resultados puedan ser reproducibles </span></span>
-<span id="cb110-6"><a href="machine-learning-conceptos-básicos.html#cb110-6"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb110-7"><a href="machine-learning-conceptos-básicos.html#cb110-7"></a></span>
-<span id="cb110-8"><a href="machine-learning-conceptos-básicos.html#cb110-8"></a><span class="co"># Partición 80/20 de los datos</span></span>
-<span id="cb110-9"><a href="machine-learning-conceptos-básicos.html#cb110-9"></a>ames_split &lt;-<span class="st"> </span><span class="kw">initial_split</span>(ames, <span class="dt">prop =</span> <span class="fl">0.80</span>)</span>
-<span id="cb110-10"><a href="machine-learning-conceptos-básicos.html#cb110-10"></a>ames_split</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="machine-learning-conceptos-básicos.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb110-2"><a href="machine-learning-conceptos-básicos.html#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="machine-learning-conceptos-básicos.html#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidymodels_prefer</span>()</span>
+<span id="cb110-4"><a href="machine-learning-conceptos-básicos.html#cb110-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-5"><a href="machine-learning-conceptos-básicos.html#cb110-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Fijar un número aleatorio con para que los resultados puedan ser reproducibles </span></span>
+<span id="cb110-6"><a href="machine-learning-conceptos-básicos.html#cb110-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb110-7"><a href="machine-learning-conceptos-básicos.html#cb110-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-8"><a href="machine-learning-conceptos-básicos.html#cb110-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Partición 80/20 de los datos</span></span>
+<span id="cb110-9"><a href="machine-learning-conceptos-básicos.html#cb110-9" aria-hidden="true" tabindex="-1"></a>ames_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(ames, <span class="at">prop =</span> <span class="fl">0.80</span>)</span>
+<span id="cb110-10"><a href="machine-learning-conceptos-básicos.html#cb110-10" aria-hidden="true" tabindex="-1"></a>ames_split</span></code></pre></div>
 <pre><code>## &lt;Analysis/Assess/Total&gt;
 ## &lt;2344/586/2930&gt;</code></pre>
 <p>La información impresa denota la cantidad de datos en el conjunto de entrenamiento
 <span class="math inline">\((n = 2,344)\)</span>, la cantidad en el conjunto de prueba <span class="math inline">\((n = 586)\)</span>
 y el tamaño del grupo original de muestras <span class="math inline">\((n = 2,930)\)</span>.</p>
 <p>El objeto <code>ames_split</code> es un objeto <em>rsplit</em> y solo contiene la información de partición; para obtener los conjuntos de datos resultantes, aplicamos dos funciones más:</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="machine-learning-conceptos-básicos.html#cb112-1"></a>ames_train &lt;-<span class="st"> </span><span class="kw">training</span>(ames_split)</span>
-<span id="cb112-2"><a href="machine-learning-conceptos-básicos.html#cb112-2"></a>ames_test  &lt;-<span class="st">  </span><span class="kw">testing</span>(ames_split)</span>
-<span id="cb112-3"><a href="machine-learning-conceptos-básicos.html#cb112-3"></a></span>
-<span id="cb112-4"><a href="machine-learning-conceptos-básicos.html#cb112-4"></a><span class="kw">dim</span>(ames_train)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="machine-learning-conceptos-básicos.html#cb112-1" aria-hidden="true" tabindex="-1"></a>ames_train <span class="ot">&lt;-</span> <span class="fu">training</span>(ames_split)</span>
+<span id="cb112-2"><a href="machine-learning-conceptos-básicos.html#cb112-2" aria-hidden="true" tabindex="-1"></a>ames_test  <span class="ot">&lt;-</span>  <span class="fu">testing</span>(ames_split)</span>
+<span id="cb112-3"><a href="machine-learning-conceptos-básicos.html#cb112-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-4"><a href="machine-learning-conceptos-básicos.html#cb112-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(ames_train)</span></code></pre></div>
 <pre><code>## [1] 2344   74</code></pre>
 <p>El muestreo aleatorio simple es apropiado en muchos casos, pero hay excepciones.</p>
 <p>Cuando hay un desbalance de clases en los problemas de clasificación, el uso de una muestra aleatoria simple puede asignar al azar estas muestras poco frecuentes de manera desproporcionada al conjunto de entrenamiento o prueba.</p>
@@ -939,10 +987,10 @@ y el tamaño del grupo original de muestras <span class="math inline">\((n = 2,9
 Las casas más caras no estarían bien representadas en el conjunto de entrenamiento con una simple partición; esto aumentaría el riesgo de que nuestro modelo sea ineficaz para predecir el precio de dichas propiedades.</p>
 <p>Las líneas verticales punteadas indican los cuatro cuartiles para estos datos.
 Una muestra aleatoria estratificada llevaría a cabo la división 80/20 dentro de cada uno de estos subconjuntos de datos y luego combinaría los resultados. En <em>rsample</em>, esto se logra usando el argumento de estratos:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="machine-learning-conceptos-básicos.html#cb114-1"></a><span class="kw">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb114-2"><a href="machine-learning-conceptos-básicos.html#cb114-2"></a>ames_split &lt;-<span class="st"> </span><span class="kw">initial_split</span>(ames, <span class="dt">prop =</span> <span class="fl">0.80</span>, <span class="dt">strata =</span> Sale_Price)</span>
-<span id="cb114-3"><a href="machine-learning-conceptos-básicos.html#cb114-3"></a>ames_train &lt;-<span class="st"> </span><span class="kw">training</span>(ames_split)</span>
-<span id="cb114-4"><a href="machine-learning-conceptos-básicos.html#cb114-4"></a>ames_test  &lt;-<span class="st">  </span><span class="kw">testing</span>(ames_split)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="machine-learning-conceptos-básicos.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb114-2"><a href="machine-learning-conceptos-básicos.html#cb114-2" aria-hidden="true" tabindex="-1"></a>ames_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(ames, <span class="at">prop =</span> <span class="fl">0.80</span>, <span class="at">strata =</span> Sale_Price)</span>
+<span id="cb114-3"><a href="machine-learning-conceptos-básicos.html#cb114-3" aria-hidden="true" tabindex="-1"></a>ames_train <span class="ot">&lt;-</span> <span class="fu">training</span>(ames_split)</span>
+<span id="cb114-4"><a href="machine-learning-conceptos-básicos.html#cb114-4" aria-hidden="true" tabindex="-1"></a>ames_test  <span class="ot">&lt;-</span>  <span class="fu">testing</span>(ames_split)</span></code></pre></div>
 <p><strong>Hay muy pocas desventajas en el uso de muestreo estratificado.</strong></p>
 <p>Un caso es cuando los datos tienen un componente de tiempo, como los datos de series de tiempo.
 Aquí, es más común utilizar los datos más recientes como conjunto de prueba.</p>
@@ -951,29 +999,25 @@ que es muy similar a <code>initial_split()</code>. En lugar de usar un muestreo 
 denota qué proporción de la primera parte de los datos debe usarse como conjunto de entrenamiento;
 la función asume que los datos se han clasificado previamente en un orden apropiado.</p>
 </div>
-<div id="qué-proporción-debería-ser-usada" class="section level3">
+<div id="qué-proporción-debería-ser-usada" class="section level3" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> ¿Qué proporción debería ser usada?</h3>
 <p>No hay un porcentaje de división óptimo para el conjunto de entrenamiento y prueba.
 Muy pocos datos en el conjunto de entrenamiento obstaculizan la capacidad del modelo para encontrar estimaciones de parámetros adecuadas y muy pocos datos en el conjunto de prueba reducen la calidad de las estimaciones de rendimiento.</p>
 <p>Se debe elegir un porcentaje que cumpla con los objetivos de nuestro proyecto con consideraciones que incluyen:</p>
 <ul>
-<li>Costo computacional en el entrenamiento del modelo.
-<ul>
+<li>Costo computacional en el entrenamiento del modelo.</li>
 <li>Costo computacional en la evaluación del modelo.</li>
 <li>Representatividad del conjunto de formación.</li>
 <li>Representatividad del conjunto de pruebas.</li>
-</ul></li>
 </ul>
 <p>Los porcentajes de división más comunes comunes son:</p>
 <ul>
-<li>Entrenamiento: <span class="math inline">\(80\%\)</span>, Prueba: <span class="math inline">\(20\%\)</span>
-<ul>
+<li>Entrenamiento: <span class="math inline">\(80\%\)</span>, Prueba: <span class="math inline">\(20\%\)</span></li>
 <li>Entrenamiento: <span class="math inline">\(67\%\)</span>, Prueba: <span class="math inline">\(33\%\)</span></li>
 <li>Entrenamiento: <span class="math inline">\(50\%\)</span>, Prueba: <span class="math inline">\(50\%\)</span></li>
-</ul></li>
 </ul>
 </div>
-<div id="conjunto-de-validación" class="section level3">
+<div id="conjunto-de-validación" class="section level3" number="5.5.3">
 <h3><span class="header-section-number">5.5.3</span> Conjunto de validación</h3>
 <p>El conjunto de validación se definió originalmente cuando los investigadores se dieron cuenta de que medir el rendimiento del conjunto de entrenamiento conducía a resultados que eran demasiado optimistas.</p>
 <p>Esto llevó a modelos que se sobreajustaban, lo que significa que se desempeñaron muy bien en el conjunto de entrenamiento pero mal en el conjunto de prueba.</p>
@@ -983,9 +1027,9 @@ Muy pocos datos en el conjunto de entrenamiento obstaculizan la capacidad del mo
 <p>Los conjuntos de validación se utilizan a menudo cuando el conjunto de datos original es muy grande. En este caso, una sola partición grande puede ser adecuada para caracterizar el rendimiento del modelo sin tener que realizar múltiples iteraciones de remuestreo.</p>
 <p>Con <em>rsample</em>, un conjunto de validación es como cualquier otro objeto de remuestreo; este tipo es diferente solo en que tiene una sola iteración</p>
 <p><img src="img/ml/3-5-3-conjunto-validacion-2.png" width="500pt" height="350pt" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="machine-learning-conceptos-básicos.html#cb115-1"></a><span class="kw">set.seed</span>(<span class="dv">12</span>)</span>
-<span id="cb115-2"><a href="machine-learning-conceptos-básicos.html#cb115-2"></a>val_set &lt;-<span class="st"> </span><span class="kw">validation_split</span>(ames_train, <span class="dt">prop =</span> <span class="dv">3</span><span class="op">/</span><span class="dv">4</span>, <span class="dt">strata =</span> <span class="ot">NULL</span>)</span>
-<span id="cb115-3"><a href="machine-learning-conceptos-básicos.html#cb115-3"></a>val_set <span class="co">#val_set contiene el conjunto de entrenamiento y validación.</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="machine-learning-conceptos-básicos.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12</span>)</span>
+<span id="cb115-2"><a href="machine-learning-conceptos-básicos.html#cb115-2" aria-hidden="true" tabindex="-1"></a>val_set <span class="ot">&lt;-</span> <span class="fu">validation_split</span>(ames_train, <span class="at">prop =</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>, <span class="at">strata =</span> <span class="cn">NULL</span>)</span>
+<span id="cb115-3"><a href="machine-learning-conceptos-básicos.html#cb115-3" aria-hidden="true" tabindex="-1"></a>val_set <span class="co">#val_set contiene el conjunto de entrenamiento y validación.</span></span></code></pre></div>
 <pre><code>## # Validation Set Split (0.75/0.25)  
 ## # A tibble: 1 × 2
 ##   splits             id        
@@ -994,7 +1038,7 @@ Muy pocos datos en el conjunto de entrenamiento obstaculizan la capacidad del mo
 <p>Esta función regresa una columna para los objetos de división de datos y una columna llamada id que tiene una cadena de caracteres con el identificador de remuestreo.</p>
 <p>El argumento de estratos hace que el muestreo aleatorio se lleve a cabo dentro de la variable de estratificación. Esto puede ayudar a garantizar que el número de datos en los datos del análisis sea equivalente a las proporciones del conjunto de datos original. (Los estratos inferiores al 10% del total se agrupan).</p>
 </div>
-<div id="leave-one-out-cross-validation" class="section level3">
+<div id="leave-one-out-cross-validation" class="section level3" number="5.5.4">
 <h3><span class="header-section-number">5.5.4</span> Leave-one-out cross-validation</h3>
 <p>La validación cruzada es una manera de predecir el ajuste de un modelo a un hipotético conjunto de datos de prueba cuando no disponemos del conjunto explícito de datos de prueba.</p>
 <p>El método <em>LOOCV</em> en un método iterativo que se inicia empleando como conjunto
@@ -1010,9 +1054,9 @@ calculando el error con dicha observación.</p>
 El proceso requiere que el modelo sea reajustado y validado tantas veces como observaciones disponibles
 se tengan lo que en algunos casos puede ser muy complicado.</p>
 <p><em>rsample</em> contiene la función <code>loo_cv()</code>.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="machine-learning-conceptos-básicos.html#cb117-1"></a><span class="kw">set.seed</span>(<span class="dv">55</span>)</span>
-<span id="cb117-2"><a href="machine-learning-conceptos-básicos.html#cb117-2"></a>ames_loo &lt;-<span class="st"> </span><span class="kw">loo_cv</span>(ames_train)</span>
-<span id="cb117-3"><a href="machine-learning-conceptos-básicos.html#cb117-3"></a>ames_loo</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="machine-learning-conceptos-básicos.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">55</span>)</span>
+<span id="cb117-2"><a href="machine-learning-conceptos-básicos.html#cb117-2" aria-hidden="true" tabindex="-1"></a>ames_loo <span class="ot">&lt;-</span> <span class="fu">loo_cv</span>(ames_train)</span>
+<span id="cb117-3"><a href="machine-learning-conceptos-básicos.html#cb117-3" aria-hidden="true" tabindex="-1"></a>ames_loo</span></code></pre></div>
 <pre><code>## # Leave-one-out cross-validation 
 ## # A tibble: 2,342 × 2
 ##    splits           id        
@@ -1028,14 +1072,14 @@ se tengan lo que en algunos casos puede ser muy complicado.</p>
 ##  9 &lt;split [2341/1]&gt; Resample9 
 ## 10 &lt;split [2341/1]&gt; Resample10
 ## # … with 2,332 more rows</code></pre>
-<div id="cálculo-del-error" class="section level4">
+<div id="cálculo-del-error" class="section level4" number="5.5.4.1">
 <h4><span class="header-section-number">5.5.4.1</span> Cálculo del error</h4>
 <p>En la validación cruzada dejando uno fuera se realizan tantas iteraciones como muestras <span class="math inline">\((N)\)</span> tenga el conjunto de datos. De forma que para cada una de las <span class="math inline">\(N\)</span> iteraciones se realiza un cálculo de error.</p>
 <p>El resultado final se obtiene realizando la media de los <span class="math inline">\(N\)</span> errores obtenidos, según la fórmula:</p>
 <p><span class="math display">\[E = \frac{1}{N}\sum_{i = 1}^N E_i\]</span></p>
 </div>
 </div>
-<div id="v-fold-cross-validation" class="section level3">
+<div id="v-fold-cross-validation" class="section level3" number="5.5.5">
 <h3><span class="header-section-number">5.5.5</span> V Fold Cross Validation</h3>
 <p>En la validación cruzada de V iteraciones (V Fold Cross Validation) los datos de muestra se dividen en V
 subconjuntos. Uno de los subconjuntos se utiliza como datos de prueba y el resto <span class="math inline">\((V-1)\)</span> como datos de entrenamiento. El proceso de validación cruzada es repetido durante <span class="math inline">\(v\)</span> iteraciones, con cada uno de los posibles subconjuntos de datos de prueba.</p>
@@ -1053,9 +1097,9 @@ aquellos hiperparámetros que hayan producido el error más pequeño.</p></li>
 <p><img src="img/ml/3-5-4-VFCV-tune.png" width="550pt" height="250pt" style="display: block; margin: auto;" /></p>
 <p>En la función <code>vfold_cv()</code> la entrada principal es el conjunto de entrenamiento,
 así como el número de bloques:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="machine-learning-conceptos-básicos.html#cb119-1"></a><span class="kw">set.seed</span>(<span class="dv">55</span>)</span>
-<span id="cb119-2"><a href="machine-learning-conceptos-básicos.html#cb119-2"></a>ames_folds &lt;-<span class="st"> </span><span class="kw">vfold_cv</span>(ames_train, <span class="dt">v =</span> <span class="dv">10</span>)</span>
-<span id="cb119-3"><a href="machine-learning-conceptos-básicos.html#cb119-3"></a>ames_folds</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="machine-learning-conceptos-básicos.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">55</span>)</span>
+<span id="cb119-2"><a href="machine-learning-conceptos-básicos.html#cb119-2" aria-hidden="true" tabindex="-1"></a>ames_folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(ames_train, <span class="at">v =</span> <span class="dv">10</span>)</span>
+<span id="cb119-3"><a href="machine-learning-conceptos-básicos.html#cb119-3" aria-hidden="true" tabindex="-1"></a>ames_folds</span></code></pre></div>
 <pre><code>## #  10-fold cross-validation 
 ## # A tibble: 10 × 2
 ##    splits             id    
@@ -1078,10 +1122,10 @@ así como el número de bloques:</p>
 que etiqueta la partición. Algunos métodos de remuestreo requieren varios campos de identificación.</p>
 <p>Para recuperar manualmente los datos particionados, las funciones de <code>analysis()</code>
 y <code>assessment()</code> devuelven los de datos de análisis y evaluación respectivamente.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="machine-learning-conceptos-básicos.html#cb121-1"></a><span class="co"># Primer bloque</span></span>
-<span id="cb121-2"><a href="machine-learning-conceptos-básicos.html#cb121-2"></a>ames_folds<span class="op">$</span>splits[[<span class="dv">1</span>]] <span class="op">%&gt;%</span></span>
-<span id="cb121-3"><a href="machine-learning-conceptos-básicos.html#cb121-3"></a><span class="st">  </span><span class="kw">analysis</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># O assessment()</span></span>
-<span id="cb121-4"><a href="machine-learning-conceptos-básicos.html#cb121-4"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="machine-learning-conceptos-básicos.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primer bloque</span></span>
+<span id="cb121-2"><a href="machine-learning-conceptos-básicos.html#cb121-2" aria-hidden="true" tabindex="-1"></a>ames_folds<span class="sc">$</span>splits[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb121-3"><a href="machine-learning-conceptos-básicos.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">analysis</span>() <span class="sc">%&gt;%</span> <span class="co"># O assessment()</span></span>
+<span id="cb121-4"><a href="machine-learning-conceptos-básicos.html#cb121-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">7</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 7 × 74
 ##   MS_SubClass       MS_Zoning     Lot_Frontage Lot_Area Street Alley   Lot_Shape
 ##   &lt;fct&gt;             &lt;fct&gt;                &lt;dbl&gt;    &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;   &lt;fct&gt;    
@@ -1100,7 +1144,7 @@ y <code>assessment()</code> devuelven los de datos de análisis y evaluación re
 ## #   Mas_Vnr_Area &lt;dbl&gt;, Exter_Cond &lt;fct&gt;, Foundation &lt;fct&gt;, Bsmt_Cond &lt;fct&gt;,
 ## #   Bsmt_Exposure &lt;fct&gt;, BsmtFin_Type_1 &lt;fct&gt;, BsmtFin_SF_1 &lt;dbl&gt;, …</code></pre>
 </div>
-<div id="medidas-de-ajuste" class="section level3">
+<div id="medidas-de-ajuste" class="section level3" number="5.5.6">
 <h3><span class="header-section-number">5.5.6</span> Medidas de ajuste</h3>
 <p>Las medidas de ajuste obtenidas pueden ser utilizadas para estimar cualquier medida cuantitativa de ajuste apropiada para los datos y el modelo.</p>
 <p>En un modelo basado en clasificación binaria, para resumir el ajuste del modelo se pueden usar las medidas:</p>
@@ -1120,7 +1164,7 @@ y <code>assessment()</code> devuelven los de datos de análisis y evaluación re
 <li><span class="math inline">\(R^2\)</span> (Coeficiente de determinación)</li>
 <li><span class="math inline">\(R^2_a\)</span> (Coeficiente de determinación ajustado)</li>
 </ul>
-<div id="cálculo-del-error-1" class="section level4">
+<div id="cálculo-del-error-1" class="section level4" number="5.5.6.1">
 <h4><span class="header-section-number">5.5.6.1</span> Cálculo del error</h4>
 <p>En cada una de las <span class="math inline">\(v\)</span> iteraciones de este tipo de validación se realiza un cálculo de error.
 El resultado final lo obtenemos a partir de realizar la media de los <span class="math inline">\(V\)</span> valores de
@@ -1128,7 +1172,7 @@ errores obtenidos, según la fórmula:</p>
 <p><span class="math display">\[E = \frac{1}{V}\sum_{i = 1}^vE_i\]</span></p>
 </div>
 </div>
-<div id="validación-cruzada-para-series-de-tiempo" class="section level3">
+<div id="validación-cruzada-para-series-de-tiempo" class="section level3" number="5.5.7">
 <h3><span class="header-section-number">5.5.7</span> Validación cruzada para series de tiempo</h3>
 <p>En este procedimiento, hay una serie de conjuntos de prueba, cada uno de los cuales
 consta de una única observación. El conjunto de entrenamiento correspondiente consta solo de observaciones que ocurrieron antes de la observación que forma el conjunto de prueba.
@@ -1143,12 +1187,12 @@ Entonces el diagrama correspondiente se muestra a continuación.</p>
 La validación cruzada de series de tiempo se implementa con la función <code>tsCV()</code>
 del paquete <em>forecast</em>.
 En el siguiente ejemplo, comparamos el RMSE residual con el RMSE obtenido mediante la validación cruzada de series de tiempo.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="machine-learning-conceptos-básicos.html#cb123-1"></a><span class="kw">library</span>(fpp)</span>
-<span id="cb123-2"><a href="machine-learning-conceptos-básicos.html#cb123-2"></a></span>
-<span id="cb123-3"><a href="machine-learning-conceptos-básicos.html#cb123-3"></a>e &lt;-<span class="st"> </span><span class="kw">tsCV</span>(dj, rwf, <span class="dt">drift=</span><span class="ot">TRUE</span>, <span class="dt">h=</span><span class="dv">1</span>)</span>
-<span id="cb123-4"><a href="machine-learning-conceptos-básicos.html#cb123-4"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>(e<span class="op">^</span><span class="dv">2</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="machine-learning-conceptos-básicos.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp)</span>
+<span id="cb123-2"><a href="machine-learning-conceptos-básicos.html#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="machine-learning-conceptos-básicos.html#cb123-3" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> <span class="fu">tsCV</span>(dj, rwf, <span class="at">drift=</span><span class="cn">TRUE</span>, <span class="at">h=</span><span class="dv">1</span>)</span>
+<span id="cb123-4"><a href="machine-learning-conceptos-básicos.html#cb123-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>(e<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## [1] 22.68249</code></pre>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="machine-learning-conceptos-básicos.html#cb125-1"></a><span class="kw">sqrt</span>(<span class="kw">mean</span>(<span class="kw">residuals</span>(<span class="kw">rwf</span>(dj, <span class="dt">drift=</span><span class="ot">TRUE</span>))<span class="op">^</span><span class="dv">2</span>, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="machine-learning-conceptos-básicos.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>(<span class="fu">residuals</span>(<span class="fu">rwf</span>(dj, <span class="at">drift=</span><span class="cn">TRUE</span>))<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## [1] 22.49681</code></pre>
 <p>Aquí se aplicó una caminata aleatoria con deriva a la serie temporal del índice <em>Dow-Jones</em>.</p>
 <p>El primer cálculo implementa una validación cruzada de series de tiempo de un solo paso en la que el parámetro de deriva se vuelve a estimar en cada origen de pronóstico.</p>
@@ -1159,7 +1203,7 @@ el tamaño de muestra mínimo para el ajuste del modelo, ya que se ajustará
 silenciosamente a los modelos comenzando con una sola observación y devolverá
 un valor faltante cuando el modelo no se pueda estimar.</p>
 </div>
-<div id="otros-tipos-de-validación-cruzada" class="section level3">
+<div id="otros-tipos-de-validación-cruzada" class="section level3" number="5.5.8">
 <h3><span class="header-section-number">5.5.8</span> Otros tipos de validación cruzada</h3>
 <ul>
 <li><p>Validación cruzada repetida</p></li>
@@ -1203,7 +1247,6 @@ $('.pipehover_select_one_row tr').hover(function() {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1243,6 +1286,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Introducción a Ciencia de Datos y Machine Learning.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

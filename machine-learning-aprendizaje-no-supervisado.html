@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 7 MACHINE LEARNING: APRENDIZAJE NO SUPERVISADO | AMAT- Introducción a Ciencia de Datos y Machine Learning</title>
   <meta name="description" content="AMAT Curso 1 : Introduccion a Ciencia de Datos" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 7 MACHINE LEARNING: APRENDIZAJE NO SUPERVISADO | AMAT- Introducción a Ciencia de Datos y Machine Learning" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="machine-learning-aprendizaje-supervisado.html"/>
 
-<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +51,6 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
@@ -65,18 +65,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -96,7 +96,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -148,32 +148,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <center>Introducción a Ciencia de Datos y Machine Learning</center>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIENVENIDA</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIENVENIDA</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.1</b> Objetivo</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#quienes-somos"><i class="fa fa-check"></i><b>1.2</b> ¿Quienes somos?</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> INTRODUCCIÓN</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#lo-que-no-es-ciencia-de-datos"><i class="fa fa-check"></i><b>2.1</b> Lo que NO es Ciencia de Datos</a><ul>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> INTRODUCCIÓN</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#lo-que-no-es-ciencia-de-datos"><i class="fa fa-check"></i><b>2.1</b> Lo que NO es Ciencia de Datos</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#definiendo-conceptos"><i class="fa fa-check"></i><b>2.1.1</b> Definiendo conceptos:</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#objetivo-de-la-ciencia-se-datos"><i class="fa fa-check"></i><b>2.2</b> Objetivo de la Ciencia se Datos</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#qué-se-requiere-para-hacer-ciencia-de-datos"><i class="fa fa-check"></i><b>2.3</b> ¿Qué se requiere para hacer Ciencia de Datos?</a></li>
 <li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#tipos-de-problemas-que-se-pueden-resolver-con-ciencia-de-datos"><i class="fa fa-check"></i><b>2.4</b> Tipos de problemas que se pueden resolver con Ciencia de Datos</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#tipos-de-aprendizaje"><i class="fa fa-check"></i><b>2.5</b> Tipos de aprendizaje</a><ul>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#tipos-de-aprendizaje"><i class="fa fa-check"></i><b>2.5</b> Tipos de aprendizaje</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#aprendizaje-supervisado"><i class="fa fa-check"></i><b>2.5.1</b> Aprendizaje supervisado</a></li>
 <li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#aprendizaje-no-supervisado"><i class="fa fa-check"></i><b>2.5.2</b> Aprendizaje no supervisado</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#ciclo-de-un-proyecto-de-ciencia-de-datos"><i class="fa fa-check"></i><b>2.6</b> Ciclo de un proyecto de Ciencia de Datos</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html"><i class="fa fa-check"></i><b>3</b> TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS</a><ul>
+<li class="chapter" data-level="3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html"><i class="fa fa-check"></i><b>3</b> TRANSFORMACION Y MANIPULACION DE ESTRUCTURA DE DATOS</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#importación-de-datos"><i class="fa fa-check"></i><b>3.1</b> Importación de datos</a></li>
-<li class="chapter" data-level="3.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#lectura-de-datos"><i class="fa fa-check"></i><b>3.2</b> Lectura de datos</a><ul>
+<li class="chapter" data-level="3.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#lectura-de-datos"><i class="fa fa-check"></i><b>3.2</b> Lectura de datos</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-csv"><i class="fa fa-check"></i><b>3.2.1</b> Archivos <em>csv</em></a></li>
 <li class="chapter" data-level="3.2.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-xls-y-xlsx"><i class="fa fa-check"></i><b>3.2.2</b> Archivos <em>xls</em> y <em>xlsx</em></a></li>
 <li class="chapter" data-level="3.2.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#archivos-json"><i class="fa fa-check"></i><b>3.2.3</b> Archivos json</a></li>
 <li class="chapter" data-level="3.2.4" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#bases-de-datos"><i class="fa fa-check"></i><b>3.2.4</b> Bases de Datos</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#consultas-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>3.3</b> Consultas de datos con tidyverse</a><ul>
+<li class="chapter" data-level="3.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#consultas-de-datos-con-tidyverse"><i class="fa fa-check"></i><b>3.3</b> Consultas de datos con tidyverse</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#select"><i class="fa fa-check"></i><b>3.3.1</b> select()</a></li>
 <li class="chapter" data-level="3.3.2" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#filter"><i class="fa fa-check"></i><b>3.3.2</b> filter()</a></li>
 <li class="chapter" data-level="3.3.3" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#arrange"><i class="fa fa-check"></i><b>3.3.3</b> arrange()</a></li>
@@ -186,44 +193,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="transformacion-y-manipulacion-de-estructura-de-datos.html"><a href="transformacion-y-manipulacion-de-estructura-de-datos.html#referencias"><i class="fa fa-check"></i><b>3.4</b> Referencias:</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html"><i class="fa fa-check"></i><b>4</b> ANALISIS EXPLORATORIO Y VISUALIZACIÓN</a><ul>
+<li class="chapter" data-level="4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html"><i class="fa fa-check"></i><b>4</b> ANALISIS EXPLORATORIO Y VISUALIZACIÓN</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#eda-análisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>4.1</b> EDA: Análisis Exploratorio de Datos</a></li>
-<li class="chapter" data-level="4.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#geda-análisis-exploratorio-de-datos-gráficos"><i class="fa fa-check"></i><b>4.2</b> GEDA: Análisis Exploratorio de Datos Gráficos</a><ul>
+<li class="chapter" data-level="4.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#geda-análisis-exploratorio-de-datos-gráficos"><i class="fa fa-check"></i><b>4.2</b> GEDA: Análisis Exploratorio de Datos Gráficos</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#lo-que-no-se-debe-hacer"><i class="fa fa-check"></i><b>4.2.1</b> Lo que no se debe hacer…</a></li>
 <li class="chapter" data-level="4.2.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#principios-de-visualización"><i class="fa fa-check"></i><b>4.2.2</b> Principios de visualización</a></li>
 <li class="chapter" data-level="4.2.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#principios-generales-del-diseño-analítico"><i class="fa fa-check"></i><b>4.2.3</b> Principios generales del diseño analítico:</a></li>
 <li class="chapter" data-level="4.2.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#técnicas-de-visualización"><i class="fa fa-check"></i><b>4.2.4</b> Técnicas de visualización:</a></li>
 <li class="chapter" data-level="4.2.5" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#indicadores-de-calidad-gráfica"><i class="fa fa-check"></i><b>4.2.5</b> Indicadores de calidad gráfica:</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#uso-decisión-e-implementación-de-técnicas-gráficas."><i class="fa fa-check"></i><b>4.3</b> Uso, decisión e implementación de técnicas gráficas.</a><ul>
+<li class="chapter" data-level="4.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#uso-decisión-e-implementación-de-técnicas-gráficas."><i class="fa fa-check"></i><b>4.3</b> Uso, decisión e implementación de técnicas gráficas.</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#gráficos-univariados"><i class="fa fa-check"></i><b>4.3.1</b> Gráficos univariados:</a></li>
 <li class="chapter" data-level="4.3.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#gráficos-multivariados"><i class="fa fa-check"></i><b>4.3.2</b> Gráficos multivariados</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#ggplot2"><i class="fa fa-check"></i><b>4.4</b> Ggplot2</a><ul>
+<li class="chapter" data-level="4.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#ggplot2"><i class="fa fa-check"></i><b>4.4</b> Ggplot2</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#objetos-aesteticos"><i class="fa fa-check"></i><b>4.4.1</b> Objetos aesteticos</a></li>
 <li class="chapter" data-level="4.4.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#objetos-geométricos-o-capas"><i class="fa fa-check"></i><b>4.4.2</b> Objetos geométricos o capas</a></li>
 <li class="chapter" data-level="4.4.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#facetas"><i class="fa fa-check"></i><b>4.4.3</b> Facetas</a></li>
 <li class="chapter" data-level="4.4.4" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#más-sobre-estéticas"><i class="fa fa-check"></i><b>4.4.4</b> Más sobre estéticas</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#eda-y-geda-con-r"><i class="fa fa-check"></i><b>4.5</b> EDA y GEDA con R</a><ul>
+<li class="chapter" data-level="4.5" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#eda-y-geda-con-r"><i class="fa fa-check"></i><b>4.5</b> EDA y GEDA con R</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#un-vistazo-rápido-a-los-datos"><i class="fa fa-check"></i><b>4.5.1</b> Un vistazo rápido a los datos</a></li>
 <li class="chapter" data-level="4.5.2" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#análisis-univariado"><i class="fa fa-check"></i><b>4.5.2</b> Análisis univariado</a></li>
 <li class="chapter" data-level="4.5.3" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#análisis-multivariado"><i class="fa fa-check"></i><b>4.5.3</b> Análisis multivariado</a></li>
 </ul></li>
 <li class="chapter" data-level="4.6" data-path="analisis-exploratorio-y-visualización.html"><a href="analisis-exploratorio-y-visualización.html#referencias-1"><i class="fa fa-check"></i><b>4.6</b> Referencias:</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html"><i class="fa fa-check"></i><b>5</b> MACHINE LEARNING: CONCEPTOS BÁSICOS</a><ul>
+<li class="chapter" data-level="5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html"><i class="fa fa-check"></i><b>5</b> MACHINE LEARNING: CONCEPTOS BÁSICOS</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#ml-y-algoritmos"><i class="fa fa-check"></i><b>5.1</b> ML y Algoritmos</a></li>
-<li class="chapter" data-level="5.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#análisis-supervisado-vs-no-supervisado"><i class="fa fa-check"></i><b>5.2</b> Análisis Supervisado vs No supervisado</a><ul>
+<li class="chapter" data-level="5.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#análisis-supervisado-vs-no-supervisado"><i class="fa fa-check"></i><b>5.2</b> Análisis Supervisado vs No supervisado</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#regresión-vs-clasificación"><i class="fa fa-check"></i><b>5.2.1</b> Regresión vs clasificación</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#sesgo-vs-varianza"><i class="fa fa-check"></i><b>5.3</b> Sesgo vs varianza</a></li>
-<li class="chapter" data-level="5.4" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#pre-procesamiento-e-ingeniería-de-datos"><i class="fa fa-check"></i><b>5.4</b> Pre-procesamiento e ingeniería de datos</a><ul>
+<li class="chapter" data-level="5.4" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#pre-procesamiento-e-ingeniería-de-datos"><i class="fa fa-check"></i><b>5.4</b> Pre-procesamiento e ingeniería de datos</a>
+<ul>
 <li class="chapter" data-level="5.4.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#pre-procesamiento-de-datos"><i class="fa fa-check"></i><b>5.4.1</b> Pre-procesamiento de datos</a></li>
 <li class="chapter" data-level="5.4.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#ingeniería-de-datos"><i class="fa fa-check"></i><b>5.4.2</b> Ingeniería de datos</a></li>
 <li class="chapter" data-level="5.4.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#recetas"><i class="fa fa-check"></i><b>5.4.3</b> Recetas</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#partición-de-datos"><i class="fa fa-check"></i><b>5.5</b> Partición de datos</a><ul>
+<li class="chapter" data-level="5.5" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#partición-de-datos"><i class="fa fa-check"></i><b>5.5</b> Partición de datos</a>
+<ul>
 <li class="chapter" data-level="5.5.1" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#métodos-comunes-para-particionar-datos"><i class="fa fa-check"></i><b>5.5.1</b> Métodos comunes para particionar datos</a></li>
 <li class="chapter" data-level="5.5.2" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#qué-proporción-debería-ser-usada"><i class="fa fa-check"></i><b>5.5.2</b> ¿Qué proporción debería ser usada?</a></li>
 <li class="chapter" data-level="5.5.3" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#conjunto-de-validación"><i class="fa fa-check"></i><b>5.5.3</b> Conjunto de validación</a></li>
@@ -234,12 +250,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5.8" data-path="machine-learning-conceptos-básicos.html"><a href="machine-learning-conceptos-básicos.html#otros-tipos-de-validación-cruzada"><i class="fa fa-check"></i><b>5.5.8</b> Otros tipos de validación cruzada</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html"><i class="fa fa-check"></i><b>6</b> MACHINE LEARNING: APRENDIZAJE SUPERVISADO</a><ul>
-<li class="chapter" data-level="6.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-preparación-de-conjunto-de-datos"><i class="fa fa-check"></i><b>6.1</b> <strong>Regresión</strong>: Preparación de conjunto de datos</a><ul>
+<li class="chapter" data-level="6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html"><i class="fa fa-check"></i><b>6</b> MACHINE LEARNING: APRENDIZAJE SUPERVISADO</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-preparación-de-conjunto-de-datos"><i class="fa fa-check"></i><b>6.1</b> <strong>Regresión</strong>: Preparación de conjunto de datos</a>
+<ul>
 <li class="chapter" data-level="6.1.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#datos-de-regresión-ames-housing-data"><i class="fa fa-check"></i><b>6.1.1</b> Datos de regresión: Ames Housing Data</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#clasificación-preparación-de-datos"><i class="fa fa-check"></i><b>6.2</b> <strong>Clasificación</strong>: Preparación de Datos</a></li>
-<li class="chapter" data-level="6.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-lineal-simple-y-múltiple"><i class="fa fa-check"></i><b>6.3</b> Regresión lineal simple y múltiple</a><ul>
+<li class="chapter" data-level="6.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-lineal-simple-y-múltiple"><i class="fa fa-check"></i><b>6.3</b> Regresión lineal simple y múltiple</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#ajuste-de-modelo"><i class="fa fa-check"></i><b>6.3.1</b> Ajuste de modelo</a></li>
 <li class="chapter" data-level="6.3.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#residuos-del-modelo"><i class="fa fa-check"></i><b>6.3.2</b> Residuos del modelo</a></li>
 <li class="chapter" data-level="6.3.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métricas-de-desempeño"><i class="fa fa-check"></i><b>6.3.3</b> Métricas de desempeño</a></li>
@@ -247,11 +266,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.3.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#coeficientes-del-modelo"><i class="fa fa-check"></i><b>6.3.5</b> Coeficientes del modelo</a></li>
 <li class="chapter" data-level="6.3.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métricas-de-desempeño-1"><i class="fa fa-check"></i><b>6.3.6</b> Métricas de desempeño</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métodos-se-selección-de-variables"><i class="fa fa-check"></i><b>6.4</b> Métodos se selección de variables</a><ul>
+<li class="chapter" data-level="6.4" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métodos-se-selección-de-variables"><i class="fa fa-check"></i><b>6.4</b> Métodos se selección de variables</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#forward-selection-selección-hacia-adelante"><i class="fa fa-check"></i><b>6.4.1</b> Forward selection (selección hacia adelante)</a></li>
 <li class="chapter" data-level="6.4.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#desventajas-de-la-selección-forward-backward-y-stepwise"><i class="fa fa-check"></i><b>6.4.2</b> Desventajas de la selección forward, backward y stepwise</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-logística"><i class="fa fa-check"></i><b>6.5</b> Regresión logística</a><ul>
+<li class="chapter" data-level="6.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-logística"><i class="fa fa-check"></i><b>6.5</b> Regresión logística</a>
+<ul>
 <li class="chapter" data-level="6.5.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#función-sigmoide"><i class="fa fa-check"></i><b>6.5.1</b> Función sigmoide</a></li>
 <li class="chapter" data-level="6.5.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#ajuste-del-modelo"><i class="fa fa-check"></i><b>6.5.2</b> Ajuste del modelo</a></li>
 <li class="chapter" data-level="6.5.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#convertir-probabilidad-en-clasificación"><i class="fa fa-check"></i><b>6.5.3</b> Convertir probabilidad en clasificación</a></li>
@@ -259,23 +280,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#implementación-en-r-1"><i class="fa fa-check"></i><b>6.5.5</b> Implementación en R</a></li>
 <li class="chapter" data-level="6.5.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#métricas-de-desempeño-3"><i class="fa fa-check"></i><b>6.5.6</b> Métricas de desempeño</a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-regularizada-ridge-lasso-elasticnet"><i class="fa fa-check"></i><b>6.6</b> Regresión regularizada: Ridge, Lasso &amp; ElasticNet</a><ul>
+<li class="chapter" data-level="6.6" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regresión-regularizada-ridge-lasso-elasticnet"><i class="fa fa-check"></i><b>6.6</b> Regresión regularizada: Ridge, Lasso &amp; ElasticNet</a>
+<ul>
 <li class="chapter" data-level="6.6.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regularización-ridge"><i class="fa fa-check"></i><b>6.6.1</b> Regularización Ridge</a></li>
 <li class="chapter" data-level="6.6.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#regularización-lasso"><i class="fa fa-check"></i><b>6.6.2</b> Regularización Lasso</a></li>
 <li class="chapter" data-level="6.6.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#elasticnet"><i class="fa fa-check"></i><b>6.6.3</b> ElasticNet</a></li>
 <li class="chapter" data-level="6.6.4" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#elasticnet-para-regresión-lineal"><i class="fa fa-check"></i><b>6.6.4</b> ElasticNet para regresión lineal</a></li>
 <li class="chapter" data-level="6.6.5" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#elasticnet-para-regresión-logística"><i class="fa fa-check"></i><b>6.6.5</b> ElasticNet para regresión logística</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#knn-k-nearest-neighbor"><i class="fa fa-check"></i><b>6.7</b> KNN: K-Nearest-Neighbor</a><ul>
+<li class="chapter" data-level="6.7" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#knn-k-nearest-neighbor"><i class="fa fa-check"></i><b>6.7</b> KNN: K-Nearest-Neighbor</a>
+<ul>
 <li class="chapter" data-level="6.7.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#ajuste-del-modelo-1"><i class="fa fa-check"></i><b>6.7.1</b> Ajuste del modelo</a></li>
 <li class="chapter" data-level="6.7.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#implementación-en-r-2"><i class="fa fa-check"></i><b>6.7.2</b> Implementación en R</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#árboles-de-decisión-decision-trees"><i class="fa fa-check"></i><b>6.8</b> Árboles de decisión (Decision trees)</a><ul>
+<li class="chapter" data-level="6.8" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#árboles-de-decisión-decision-trees"><i class="fa fa-check"></i><b>6.8</b> Árboles de decisión (Decision trees)</a>
+<ul>
 <li class="chapter" data-level="6.8.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#ajuste-del-modelo-2"><i class="fa fa-check"></i><b>6.8.1</b> Ajuste del modelo</a></li>
 <li class="chapter" data-level="6.8.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#implementación-en-r-3"><i class="fa fa-check"></i><b>6.8.2</b> Implementación en R</a></li>
 </ul></li>
 <li class="chapter" data-level="6.9" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#bagging"><i class="fa fa-check"></i><b>6.9</b> Bagging</a></li>
-<li class="chapter" data-level="6.10" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#random-forest"><i class="fa fa-check"></i><b>6.10</b> Random Forest</a><ul>
+<li class="chapter" data-level="6.10" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#random-forest"><i class="fa fa-check"></i><b>6.10</b> Random Forest</a>
+<ul>
 <li class="chapter" data-level="6.10.1" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#qué-es"><i class="fa fa-check"></i><b>6.10.1</b> ¿Qué es?</a></li>
 <li class="chapter" data-level="6.10.2" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#características-de-los-bosques-aleatorios"><i class="fa fa-check"></i><b>6.10.2</b> Características de los bosques aleatorios</a></li>
 <li class="chapter" data-level="6.10.3" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#aplicar-árboles-de-decisión-en-un-bosque-aleatorio"><i class="fa fa-check"></i><b>6.10.3</b> Aplicar árboles de decisión en un bosque aleatorio</a></li>
@@ -286,11 +311,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.11" data-path="machine-learning-aprendizaje-supervisado.html"><a href="machine-learning-aprendizaje-supervisado.html#comparación-de-modelos"><i class="fa fa-check"></i><b>6.11</b> Comparación de modelos</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html"><i class="fa fa-check"></i><b>7</b> MACHINE LEARNING: APRENDIZAJE NO SUPERVISADO</a><ul>
-<li class="chapter" data-level="7.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-k--means"><i class="fa fa-check"></i><b>7.1</b> Cluster: K- means</a></li>
-<li class="chapter" data-level="7.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-pam"><i class="fa fa-check"></i><b>7.2</b> Cluster: PAM</a></li>
-<li class="chapter" data-level="7.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#dbscan"><i class="fa fa-check"></i><b>7.3</b> DBSCAN</a></li>
-<li class="chapter" data-level="7.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cluster-jerárquico"><i class="fa fa-check"></i><b>7.4</b> Cluster: Jerárquico</a></li>
+<li class="chapter" data-level="7" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html"><i class="fa fa-check"></i><b>7</b> MACHINE LEARNING: APRENDIZAJE NO SUPERVISADO</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#k---means"><i class="fa fa-check"></i><b>7.1</b> K - means</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#ajuste-de-modelo-cómo-funciona-el-algortimo"><i class="fa fa-check"></i><b>7.1.1</b> Ajuste de modelo: ¿Cómo funciona el algortimo?</a></li>
+<li class="chapter" data-level="7.1.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#calidad-de-ajuste"><i class="fa fa-check"></i><b>7.1.2</b> Calidad de ajuste</a></li>
+<li class="chapter" data-level="7.1.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#cómo-seleccionamos-k"><i class="fa fa-check"></i><b>7.1.3</b> ¿Cómo seleccionamos K?</a></li>
+<li class="chapter" data-level="7.1.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#implementación-en-r-4"><i class="fa fa-check"></i><b>7.1.4</b> Implementación en R</a></li>
+<li class="chapter" data-level="7.1.5" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#warnings"><i class="fa fa-check"></i><b>7.1.5</b> Warnings</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#partitioning-around-medoids-pam"><i class="fa fa-check"></i><b>7.2</b> Partitioning Around Medoids (PAM)</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#algoritmo-pam"><i class="fa fa-check"></i><b>7.2.1</b> Algoritmo PAM</a></li>
+<li class="chapter" data-level="7.2.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#implementación-en-r-5"><i class="fa fa-check"></i><b>7.2.2</b> Implementación en R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#clustering-large-applications-clara"><i class="fa fa-check"></i><b>7.3</b> Clustering Large Applications (CLARA)</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#implementación-en-r-6"><i class="fa fa-check"></i><b>7.3.1</b> Implementación en R</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#dbscan"><i class="fa fa-check"></i><b>7.4</b> DBSCAN</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#algoritmo"><i class="fa fa-check"></i><b>7.4.1</b> Algoritmo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#estimación-de-parámetros"><i class="fa fa-check"></i><b>7.4.2</b> Estimación de parámetros</a></li>
+<li class="chapter" data-level="7.4.3" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#implementación-en-r-7"><i class="fa fa-check"></i><b>7.4.3</b> Implementación en R</a></li>
+<li class="chapter" data-level="7.4.4" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#ventajas-de-dbscan"><i class="fa fa-check"></i><b>7.4.4</b> Ventajas de DBSCAN</a></li>
+<li class="chapter" data-level="7.4.5" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#aplicación-dbscan"><i class="fa fa-check"></i><b>7.4.5</b> Aplicación DBSCAN</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="machine-learning-aprendizaje-no-supervisado.html"><a href="machine-learning-aprendizaje-no-supervisado.html#comparación-de-algoritmos"><i class="fa fa-check"></i><b>7.5</b> Comparación de algoritmos</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
@@ -312,22 +360,645 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="machine-learning-aprendizaje-no-supervisado" class="section level1">
+<div id="machine-learning-aprendizaje-no-supervisado" class="section level1" number="7">
 <h1><span class="header-section-number">Capítulo 7</span> MACHINE LEARNING: APRENDIZAJE NO SUPERVISADO</h1>
 <div class="watermark">
 <img src="img/header.png" width="400">
 </div>
-<div id="cluster-k--means" class="section level2">
-<h2><span class="header-section-number">7.1</span> Cluster: K- means</h2>
+<p>Como ya habiamos mencionado, en el aprendizaje supervisado la idea principal es aprender bajo <strong>supervisión</strong>, donde la señal de supervisión se nombra como valor objetivo o etiqueta. En el aprendizaje no supervisado, carecemos de este tipo de etiqueta. Por lo tanto, necesitamos encontrar nuestro camino sin ninguna supervisión ni guía. Esto simplemente significa que necesitamos descubrir qué es qué por nosotros mismos.</p>
+<p><img src="img/ml/3-1-1-tipos_de_aprendizaje.png" width="750pt" height="350pt" style="display: block; margin: auto;" /></p>
+<p><strong>Aplicaciones de agrupación en clusters</strong></p>
+<ul>
+<li><strong>Segmentación de clientes</strong></li>
+</ul>
+<p>Una de las aplicaciones más comunes de la agrupación en <em>clusters</em> es la segmentación de clientes, Esta estrategia abarca todas las sectores, incluidas las telecomunicaciones, el comercio electrónico, los deportes, la publicidad, las ventas, etc.</p>
+<ul>
+<li><strong>Agrupación de documentos</strong></li>
+</ul>
+<p>Esta es otra aplicación común de la agrupación. Supongamos que tiene varios documentos y necesita agrupar documentos similares. La agrupación en clústeres nos ayuda a agrupar estos documentos de manera que documentos similares estén en los mismos grupos.</p>
+<ul>
+<li><strong>Segmentación de imagen</strong></li>
+</ul>
+<p>También podemos utilizar la agrupación en <em>clusters</em> para realizar la segmentación de imágenes. Aquí, intentamos agrupar píxeles similares en la imagen.</p>
+<ul>
+<li><strong>Motores de recomendación</strong></li>
+</ul>
+<p>También se puede utilizar en motores de recomendación. Supongamos que desea recomendar canciones a sus amigos. Puede ver las canciones que le gustaron a esa persona y luego usar la agrupación para encontrar canciones similares.</p>
+<ul>
+<li><strong>Reducción de dimensiones mediante agrupamiento de variables similares</strong></li>
+</ul>
+<p>Podemos usar los grupos de K-means para agrupar variables similares y crear un indice de estas variables para entrenar un modelo supervisado sin necesidad de usar todas las variables de un solo grupo.</p>
+<p><img src="img/ml/ml2.png" style="display: block; margin: auto;" /></p>
+<div id="k---means" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> K - means</h2>
+<p>La agrupación en grupos con <em>K-means</em> es uno de los algoritmos de aprendizaje de máquina no supervisados más simples y populares.</p>
+<p>K-medias es un método de <strong>agrupamiento</strong>, que tiene como objetivo la partición de un conjunto de n observaciones en k grupos en el que <strong>cada observación pertenece al grupo cuyo valor medio es más cercano</strong>.</p>
+<p>Un <em>cluster</em> se refiere a una colección de puntos de datos agregadosa a un grupo debido a ciertas similitudes.</p>
+<p><img src="img/ml/3-12-1-kmeans.jpeg" width="500pt" height="300pt" style="display: block; margin: auto;" /></p>
+<div id="ajuste-de-modelo-cómo-funciona-el-algortimo" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Ajuste de modelo: ¿Cómo funciona el algortimo?</h3>
+<ul>
+<li><strong>Paso 1:</strong> Seleccionar el número de <em>clusters</em> K</li>
+</ul>
+<p>El primer paso en <em>k-means</em> es elegir el número de conglomerados, K. Como estamos en un problema de análisis no supervisado, no hay K correcto, existen métodos para seleccionar algún K pero no hay respuesta correcta.</p>
+<ul>
+<li><strong>Paso 2:</strong> Seleccionar K puntos aleatorios de los datos como centroides.</li>
+</ul>
+<p>A continuación, seleccionamos aleatoriamente el centroide para cada grupo. Supongamos que queremos tener 2 grupos, por lo que K es igual a 2, seleccionamos aleatoriamente los centroides:</p>
+<p><img src="img/ml/3-12-1-paso2.png" width="350pt" height="300pt" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Paso 3:</strong> Asignamos todos los puntos al centroide del clúster más cercano.</li>
+</ul>
+<p>Una vez que hemos inicializado los centroides, asignamos cada punto al centroide del clúster más cercano:</p>
+<p><img src="img/ml/3-12-1-paso3.png" width="350pt" height="300pt" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Paso 4:</strong> Volvemos a calcular los centroides de los <em>clusters</em> recién formados.</li>
+</ul>
+<p>Ahora, una vez que hayamos asignado todos los puntos a cualquiera de los grupos, el siguiente paso es calcular los centroides de los grupos recién formados:</p>
+<p><img src="img/ml/3-12-1-paso4.png" width="350pt" height="300pt" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Paso 5:</strong> Repetir los pasos 3 y 4.</li>
+</ul>
+<p><img src="img/ml/3-12-1-paso5.png" width="350pt" height="300pt" style="display: block; margin: auto;" /></p>
+<p><img src="img/ml/kmeans%20step.png" width="350pt" height="300pt" style="display: block; margin: auto;" /></p>
+<ul>
+<li><strong>Criterios de paro:</strong></li>
+</ul>
+<p>Existen tres criterios de paro para detener el algoritmo:</p>
+<ol style="list-style-type: decimal">
+<li>Los centroides de los grupos recién formados no cambian:</li>
+</ol>
+<p>Podemos detener el algoritmo si <strong>los centroides no cambian</strong>. Incluso después de múltiples iteraciones, si obtenemos los mismos centroides para todos los clústeres, podemos decir que el algoritmo no está aprendiendo ningún patrón nuevo y es una señal para detener el entrenamiento.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Los puntos permanecen en el mismo grupo:</li>
+</ol>
+<p>Otra señal clara de que debemos detener el proceso de entrenamiento si <strong>los puntos permanecen en el mismo clúster</strong> incluso después de entrenar el algoritmo para múltiples iteraciones.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Se alcanza el número máximo de iteraciones:</li>
+</ol>
+<p>Finalmente, podemos detener el entrenamiento si se alcanza el número <strong>máximo de iteraciones</strong>. Supongamos que hemos establecido el número de iteraciones en 100. El proceso se repetirá durante 100 iteraciones antes de detenerse.</p>
 </div>
-<div id="cluster-pam" class="section level2">
-<h2><span class="header-section-number">7.2</span> Cluster: PAM</h2>
+<div id="calidad-de-ajuste" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Calidad de ajuste</h3>
+<div id="inercia" class="section level4" number="7.1.2.1">
+<h4><span class="header-section-number">7.1.2.1</span> Inercia</h4>
+<p>La idea detrás de la agrupación de k-medias consiste en definir agrupaciones de modo que se minimice la variación total dentro de la agrupación (conocida como <em>within cluster variation</em> o <em>inertia</em>).</p>
+<p>Existen distintos algoritmos de k-medias, el algoritmo estándar es el algoritmo de Hartigan-Wong, que define <em>within cluster variation</em> como la suma de las distancias euclidianas entre los elementos y el centroide correspondiente al cuadrado:</p>
+<p><span class="math display">\[W(C_k)=\sum_{x_i \in C_k}(x_i-\mu_k)²\]</span></p>
+<p>donde <span class="math inline">\(x_i\)</span> es una observación que pertenece al <em>cluster</em> <span class="math inline">\(C_k\)</span> y <span class="math inline">\(\mu_k\)</span> es la media del <em>cluster</em> <span class="math inline">\(C_k\)</span></p>
+<p>Cada observación <span class="math inline">\(x_i\)</span> se asigna a un grupo de modo que la suma de cuadrados de la distancia de la observación a sus centroide del grupo asignado <span class="math inline">\(\mu_k\)</span> es mínima.</p>
+<p>Definimos la <em>total within cluster variation</em> total de la siguiente manera:</p>
+<p><span class="math display">\[total \quad within = \sum_{k=1}^{K}W(C_k) = \sum_{k=1}^{K}\sum_{x_i \in C_k}(x_i-\mu_k)²\]</span></p>
 </div>
-<div id="dbscan" class="section level2">
-<h2><span class="header-section-number">7.3</span> DBSCAN</h2>
+<div id="silhouette" class="section level4" number="7.1.2.2">
+<h4><span class="header-section-number">7.1.2.2</span> Silhouette</h4>
+<p>El índice de <strong>Silhouette</strong> hace referencia al método de interpretación y validación de la consistencia dentro de los conglomerados. La medida de Silhouette es una medida de qué tan similar es un elemento al interior del cluster en comparación con otros.</p>
+<p>El rango del índice va de -1 a 1, donde un alto valor del índice indica que el objeto es consistente dentro de su cluster y pobremente asociado a otro conglomerado. Si muchos elementos presentan un valor bajo o negativo, entonces la configuración del cluster puede que tenga muy pocos o demasiados conglomerados.</p>
+<p>El índice de Silhouette puede ser calculado con cualquier métrica de distancia, tal como la distancia Euclidiana o de Manhattan.</p>
+<p>Asumiendo que cada elemento ha sido asignado a un cluster, para cada punto <em>i</em> en <span class="math inline">\(C_i\)</span>, entonces:</p>
+<p><span class="math display">\[a(i)=\frac{1}{|C_i|-1}\sum_{j\in C_i, i \neq j}d(i,j)\]</span>
+es la distancia promedio entre <em>i</em> y el resto de elementos dentro del conglomerado <em>i</em> y <span class="math inline">\(|C_i|\)</span> es el número de elementos dentro del i-ésimo conglomerado. <span class="math inline">\(d(i,j)\)</span> es la distancia entre los elementos <em>i</em> y <em>j</em>. Se puede interpretar a <span class="math inline">\(a(i)\)</span> como una métrica de qué tan bien asignado está el elemento <em>i</em> al conglomerado. Entre más pequeño sea el valor, mejor asignado se encuentra.</p>
+<p>Posteriormente, se calcula la medida de disimilaridad del punti <em>i</em> a algún conglomerado <span class="math inline">\(C_k\)</span> como el promedio de la distancia del punto <em>i</em> a todos los puntos en <span class="math inline">\(C_k\)</span> <span class="math inline">\((C_k \neq C_i)\)</span>.</p>
+<p>Para cada punto <span class="math inline">\(i \in C_i\)</span>, se define:</p>
+<p><span class="math display">\[b(i)=min_{k\neq i}\frac{1}{|C_k|}\sum_{j\in C_k}d(i,j)\]</span>
+Se define al índice de <strong>Silhouette</strong> como:</p>
+<p><span class="math display">\[s(i)=\frac{b(i)-a(i)}{max\left\{a(i), b(i)\right\}}; \quad \quad \quad -1 \le s(i) \le 1\]</span></p>
 </div>
-<div id="cluster-jerárquico" class="section level2">
-<h2><span class="header-section-number">7.4</span> Cluster: Jerárquico</h2>
+</div>
+<div id="cómo-seleccionamos-k" class="section level3" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> ¿Cómo seleccionamos K?</h3>
+<p>Una de las dudas más comunes que se tienen al trabajar con K-Means es seleccionar el número correcto de clusters.</p>
+<p>El número máximo posible de conglomerados será igual al número de observaciones en el conjunto de datos.</p>
+<p>Pero entonces, ¿cómo podemos decidir el número óptimo de agrupaciones? Una cosa que podemos hacer es trazar un gráfico, también conocido como gráfica de codo, donde el eje x representará el <strong>número de conglomerados</strong> y el eje y será una métrica de evaluación, en este caso usaremos <strong>inertia</strong>.</p>
+<p>Comenzaremos con un valor de K pequeño, digamos 2. Entrenaremos el modelo usando 2 grupos, calculamos la inercia para ese modelo y, finalmente, agregamos el punto en el gráfico mencinado. Digamos que tenemos un valor de inercia de alrededor de 1000:</p>
+<p><img src="img/ml/3-12-1-inertia1.png" width="500pt" height="400pt" style="display: block; margin: auto;" /></p>
+<p>Ahora, aumentaremos el número de conglomerados, entrenaremos el modelo nuevamente y agregaremos el valor de inercia en la gráfica con distintintos números de K:</p>
+<p><img src="img/ml/3-12-1-inertia2.png" width="500pt" height="400pt" style="display: block; margin: auto;" /></p>
+<p>Cuando cambiamos el valor de K de 2 a 4, el valor de inercia se redujo de forma muy pronunciada. Esta disminución en el valor de inercia se reduce y eventualmente se vuelve constante a medida que aumentamos más el número de grupos.</p>
+<p>Entonces, el valor de K donde esta disminución en <strong>el valor de inercia se vuelve constante</strong> se puede elegir como el valor de grupo correcto para nuestros datos.</p>
+<p><img src="img/ml/3-12-1-inertia3.png" width="500pt" height="400pt" style="display: block; margin: auto;" /></p>
+<p>Aquí, podemos elegir cualquier número de conglomerados entre 6 y 10. Podemos tener 7, 8 o incluso 9 conglomerados. También debe tener en cuenta el costo de cálculo al decidir la cantidad de clústeres. Si aumentamos el número de clústeres, el costo de cálculo también aumentará. Entonces, si no tiene recursos computacionales altos, deberíamos un número menor de clústeres.</p>
+</div>
+<div id="implementación-en-r-4" class="section level3" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Implementación en R</h3>
+<p>Usaremos los datos <em>USArrests</em>, que contiene estadísticas, en arrestos por cada 100,000 residentes por asalto, asesinato y violación en cada uno de los 50 estados de EE. UU. En 1973. También se da el porcentaje de la población que vive en áreas urbanas.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;USArrests&quot;</span>) </span>
+<span id="cb357-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb357-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(USArrests)</span></code></pre></div>
+<pre><code>##            Murder Assault UrbanPop Rape
+## Alabama      13.2     236       58 21.2
+## Alaska       10.0     263       48 44.5
+## Arizona       8.1     294       80 31.0
+## Arkansas      8.8     190       50 19.5
+## California    9.0     276       91 40.6
+## Colorado      7.9     204       78 38.7</code></pre>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb359-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span><span class="fu">scale</span>(USArrests, <span class="at">center =</span> T, <span class="at">scale =</span> T)</span>
+<span id="cb359-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb359-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df)</span>
+<span id="cb359-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb359-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb359-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb359-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df, <span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##                Murder   Assault   UrbanPop         Rape
+## Alabama    1.24256408 0.7828393 -0.5209066 -0.003416473
+## Alaska     0.50786248 1.1068225 -1.2117642  2.484202941
+## Arizona    0.07163341 1.4788032  0.9989801  1.042878388
+## Arkansas   0.23234938 0.2308680 -1.0735927 -0.184916602
+## California 0.27826823 1.2628144  1.7589234  2.067820292</code></pre>
+<p>Usaremos la función <em>kmeans()</em>, los siguientes parámetros son los más usados:</p>
+<ul>
+<li><p><strong>X</strong>: matriz numérica de datos, o un objeto que puede ser forzado a tal matriz (como un vector numérico o un marco de datos con todas las columnas numéricas).</p></li>
+<li><p><strong>centers</strong>: ya sea el número de conglomerados(K), o un conjunto de centros de conglomerados iniciales (distintos). Si es un número, se elige un conjunto aleatorio de observaciones (distintas) en x como centros iniciales.</p></li>
+<li><p><strong>iter.max</strong>: el número máximo de iteraciones permitido.</p></li>
+<li><p><strong>nstart</strong>: si centers es un número, ¿cuántos conjuntos aleatorios deben elegirse?</p></li>
+<li><p><strong>algorithm</strong>: Algoritmo a usar</p></li>
+</ul>
+<p>En el siguiente ejemplo se agruparán los datos en seis grupos (<em>centers</em> = 6). Como se habia mencionado, la función kmeans también tiene una opción <em>nstart</em> que intenta múltiples configuraciones iniciales y regresa la mejor, agregar nstart = 25 generará 25 configuraciones iniciales.</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb361-1" aria-hidden="true" tabindex="-1"></a>k6 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="at">centers =</span> <span class="dv">6</span>, <span class="at">nstart =</span> <span class="dv">25</span>)</span>
+<span id="cb361-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb361-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(k6)</span></code></pre></div>
+<pre><code>## List of 9
+##  $ cluster     : Named int [1:50] 1 5 6 3 5 5 4 4 6 1 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:50] &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; &quot;Arkansas&quot; ...
+##  $ centers     : num [1:6, 1:4] 1.58 -1.173 -0.164 -0.629 0.456 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:6] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##   .. ..$ : chr [1:4] &quot;Murder&quot; &quot;Assault&quot; &quot;UrbanPop&quot; &quot;Rape&quot;
+##  $ totss       : num 196
+##  $ withinss    : num [1:6] 6.13 7.44 7.79 9.33 6.26 ...
+##  $ tot.withinss: num 42.8
+##  $ betweenss   : num 153
+##  $ size        : int [1:6] 7 10 11 10 4 8
+##  $ iter        : int 3
+##  $ ifault      : int 0
+##  - attr(*, &quot;class&quot;)= chr &quot;kmeans&quot;</code></pre>
+<p>La salida de kmeans es una lista con distinta información. La más importante:</p>
+<ul>
+<li><p><strong>cluster</strong>: Un vector de números enteros (de 1:K) que indica el grupo al que se asigna cada punto.</p></li>
+<li><p><strong>centers</strong>: una matriz de centros.</p></li>
+<li><p><strong>totss</strong>: La suma total de cuadrados.</p></li>
+<li><p><strong>withinss</strong>: Vector de suma de cuadrados dentro del grupo, un componente por grupo.</p></li>
+<li><p><strong>tot.withinss</strong>: Suma total de cuadrados dentro del conglomerado, es decir, sum(withinss)</p></li>
+<li><p><strong>betweenss</strong>: La suma de cuadrados entre grupos, es decir, <span class="math inline">\(totss-tot.withinss\)</span>.</p></li>
+<li><p><strong>size</strong>: el número de observaciones en cada grupo.</p></li>
+</ul>
+<p>También podemos ver nuestros resultados usando la función <em>fviz_cluster()</em>. Esto proporciona una ilustración de los grupos. Si hay más de dos dimensiones (variables), <em>fviz_cluster()</em> realizará un análisis de componentes principales (PCA) y trazará los puntos de datos de acuerdo con los dos primeros componentes principales que explican la mayor parte de la varianza.</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb363-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb363-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb363-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb363-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(k6, <span class="at">data =</span> df, <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>, <span class="at">repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-343-1.png" width="672" /></p>
+<p>Debido a que el número de conglomerados (K) debe establecerse antes de iniciar el algoritmo, a menudo es recomendado utilizar varios valores diferentes de K y examinar las diferencias en los resultados. Podemos ejecutar el mismo proceso para 3, 4 y 5 clusters, y los resultados se muestran en la siguiente figura:</p>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb364-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb364-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-4" aria-hidden="true" tabindex="-1"></a>k3 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="at">centers =</span> <span class="dv">3</span>, <span class="at">nstart =</span> <span class="dv">25</span>)</span>
+<span id="cb364-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-5" aria-hidden="true" tabindex="-1"></a>k4 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="at">centers =</span> <span class="dv">4</span>, <span class="at">nstart =</span> <span class="dv">25</span>)</span>
+<span id="cb364-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-6" aria-hidden="true" tabindex="-1"></a>k5 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="at">centers =</span> <span class="dv">5</span>, <span class="at">nstart =</span> <span class="dv">25</span>)</span>
+<span id="cb364-7"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-8"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-8" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">fviz_cluster</span>(k3, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>,  <span class="at">data =</span> df) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;K = 3&quot;</span>)</span>
+<span id="cb364-9"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-9" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">fviz_cluster</span>(k4, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>,  <span class="at">data =</span> df) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;K = 4&quot;</span>)</span>
+<span id="cb364-10"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-10" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">fviz_cluster</span>(k5, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>,  <span class="at">data =</span> df) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;K = 5&quot;</span>)</span>
+<span id="cb364-11"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-11" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> <span class="fu">fviz_cluster</span>(k6, <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>, <span class="at">data =</span> df) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;K = 6&quot;</span>)</span>
+<span id="cb364-12"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-13"><a href="machine-learning-aprendizaje-no-supervisado.html#cb364-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p2, p3, p4, p6, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-344-1.png" width="672" /></p>
+<p>Recordemos que podemos usar la gráfica de codo para obtener el número óptimo de K, usaremos la función <em>fviz_nbclust()</em> para esto.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb365-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb365-2" aria-hidden="true" tabindex="-1"></a>wss_plot <span class="ot">&lt;-</span> <span class="fu">fviz_nbclust</span>(df, kmeans, <span class="at">method =</span> <span class="st">&quot;wss&quot;</span>)</span>
+<span id="cb365-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb365-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb365-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb365-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb365-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb365-5" aria-hidden="true" tabindex="-1"></a>sil_plot <span class="ot">&lt;-</span> <span class="fu">fviz_nbclust</span>(df, kmeans, <span class="at">method =</span> <span class="st">&quot;silhouette&quot;</span>)</span>
+<span id="cb365-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb365-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb365-7"><a href="machine-learning-aprendizaje-no-supervisado.html#cb365-7" aria-hidden="true" tabindex="-1"></a>wss_plot <span class="sc">+</span> sil_plot</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-345-1.png" width="672" /></p>
+<p>Con las gráficas anteriores no es claro cual K debemos elegir, podemos usar la función <em>NbClust()</em> de la librería <em>NbClust</em> para comparar <strong>30 indices distintos</strong> y ver cual es el mejor K.</p>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NbClust)</span>
+<span id="cb366-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb366-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb366-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb366-3" aria-hidden="true" tabindex="-1"></a>nb <span class="ot">&lt;-</span> <span class="fu">NbClust</span>(<span class="at">data =</span> df, <span class="at">diss =</span> <span class="cn">NULL</span>, <span class="at">distance =</span> <span class="st">&quot;euclidean&quot;</span>, <span class="at">min.nc =</span> <span class="dv">2</span>, <span class="at">method =</span> <span class="st">&quot;kmeans&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(nb)</span></code></pre></div>
+<pre><code>## Among all indices: 
+## ===================
+## * 2 proposed  0 as the best number of clusters
+## * 9 proposed  2 as the best number of clusters
+## * 2 proposed  3 as the best number of clusters
+## * 1 proposed  4 as the best number of clusters
+## * 1 proposed  5 as the best number of clusters
+## * 4 proposed  6 as the best number of clusters
+## * 1 proposed  9 as the best number of clusters
+## * 5 proposed  14 as the best number of clusters
+## * 1 proposed  15 as the best number of clusters
+## 
+## Conclusion
+## =========================
+## * According to the majority rule, the best number of clusters is  2 .</code></pre>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-348-1.png" width="672" /></p>
+<p>Con ayuda de la función anterior, observamos que 9 indices proponen <span class="math inline">\(K=2\)</span></p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb369-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb369-2" aria-hidden="true" tabindex="-1"></a>final <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="dv">2</span>, <span class="at">nstart =</span> <span class="dv">25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-1" aria-hidden="true" tabindex="-1"></a>kmeans_plot <span class="ot">&lt;-</span> <span class="fu">fviz_cluster</span>(</span>
+<span id="cb370-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-2" aria-hidden="true" tabindex="-1"></a>  final, </span>
+<span id="cb370-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df, </span>
+<span id="cb370-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>, </span>
+<span id="cb370-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
+<span id="cb370-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;K-Means Plot&quot;</span>) <span class="sc">+</span></span>
+<span id="cb370-7"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb370-8"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb370-9"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb370-10"><a href="machine-learning-aprendizaje-no-supervisado.html#cb370-10" aria-hidden="true" tabindex="-1"></a>kmeans_plot</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-350-1.png" width="672" /></p>
+</div>
+<div id="warnings" class="section level3" number="7.1.5">
+<h3><span class="header-section-number">7.1.5</span> Warnings</h3>
+<p>Dado que este algoritmo está basado en promedios, debe de ser considerada su sensibilidad a valores atípicos, esto es, si un valor esta lejos del resto, el centroide de un cluster puede cambiar drásticamente y eso significa que también puede incluir dentro del mismo grupo a puntos diferentes de los que de otra manera no serían incluidos en ese conglomerado.</p>
+<p><img src="img/ml/kmeans-outliers.png" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="partitioning-around-medoids-pam" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Partitioning Around Medoids (PAM)</h2>
+<p>El algoritmo <em>k-medoides</em> es un enfoque de agrupamiento relacionado con el agrupamiento de <em>k-medias</em> para particionar un conjunto de datos en <em>k</em> grupos o clústeres. En <em>k-medoides</em>, cada grupo está representado por uno de los puntos de datos pertenecientes a un grupo. Estos puntos son nombrados <strong>medoides</strong>.</p>
+<p>El término <strong>medoide</strong> se refiere a un objeto dentro de un grupo para el cual la disimilitud promedio entre él y todos los demás miembros del clúster son mínimos. Corresponde a el punto más céntrico del grupo. Estos objetos (uno por grupo) pueden ser considerado como un ejemplo representativo de los miembros de ese grupo que puede ser útil en algunas situaciones.</p>
+<p>Este algotimo es una alternativa sólida de <em>k-medias</em>. Debido a que este
+algoritmo es menos sensible al ruido y los valores atípicos, en comparación con <em>k-medias</em>, pues usa medoides como centros de conglomerados en lugar de medias. El uso de medias implica que la agrupación de <em>k-medias</em> es muy sensible a los valores atípicos, lo cual
+puede afectar gravemente la asignación de observaciones a los conglomerados.</p>
+<p><img src="img/ml/kmeans-kmedoids.png" style="display: block; margin: auto;" /></p>
+<p>El método de agrupamiento de <em>k-medoides</em> más común es el algoritmo <em>PAM (Partitioning Around Medoids, Kaufman &amp; Rousseeuw, 1990)</em>.</p>
+<div id="algoritmo-pam" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Algoritmo PAM</h3>
+<p>El algoritmo <em>PAM</em> se basa en la búsqueda de <em>k</em> objetos representativos o medoides entre las observaciones del conjunto de datos.</p>
+<p>Después de encontrar un conjunto de <em>k</em> medoides, los grupos se construyen asignando cada observación al medoide más cercano.</p>
+<p>Posteriormente, cada medoide <em>m</em> y cada punto de datos no medoide seleccionado se intercambian y se calcula la función objetivo.</p>
+<p><strong>La función objetivo corresponde a la suma de las disimilitudes de todos los objetos a su medoide más cercano.</strong></p>
+<p>El paso de intercambio intenta mejorar la calidad de la agrupación mediante el intercambio entre objetos seleccionados (medoides) y objetos no seleccionados. Si la función objetivo puede reducirse intercambiando un objeto seleccionado con un objeto no seleccionado, entonces el se realiza el intercambio. Esto se continúa hasta que la función objetivo ya no puede ser disminuida. El objetivo es encontrar <em>k</em> objetos representativos que minimicen la suma de disimilitudes de las observaciones con su objeto representativo más cercano.</p>
+<p>Como se mencionó anteriormente, el algoritmo <em>PAM</em> funciona con una matriz de disimilitud y para calcular esta matriz, el algoritmo puede utilizar dos métricas:</p>
+<ul>
+<li><p>La distancia <em>euclideana</em>, que es la raíz de la suma de cuadrados de las diferencias;</p></li>
+<li><p>Y la distancia de <em>Manhattan</em>, que es la suma de distancias absolutas.</p></li>
+</ul>
+<p><img src="img/ml/distancias.jpg" style="display: block; margin: auto;" /></p>
+<p><strong>Nota:</strong> En la práctica, se debería obtener resultados similares la mayor parte del tiempo, utilizando cualquiera de estas distancias mencionadas. Si lo datos contienen valores atípicos, distancia de <em>Manhattan</em> debería dar resultados más sólidos, mientras que la distancia <em>euclidiana</em> se vería influenciada por valores inusuales.</p>
+</div>
+<div id="implementación-en-r-5" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Implementación en R</h3>
+<p>Para estimar el número óptimo de clústeres, usaremos el método de silueta promedio. La idea es calcular el algoritmo <em>PAM</em> utilizando diferentes valores de los conglomerados <em>k</em>. Después, la silueta promedio de los conglomerados se dibuja de acuerdo con el número de conglomerados.</p>
+<p>La silueta media mide la calidad de un agrupamiento. Una silueta media alta indica una buena agrupación.</p>
+<p><strong>El número óptimo de conglomerados <em>k</em> es el que maximiza la silueta promedio sobre un rango de valores posibles para <em>k</em> </strong></p>
+<p>La función <code>fviz_nbclust()</code> del paquete <em>factoextra</em> proporciona una solución conveniente para estimar el número óptimo de conglomerados con diferentes métodos.</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cluster)</span>
+<span id="cb371-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb371-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Elbow method</span></span>
+<span id="cb371-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-4" aria-hidden="true" tabindex="-1"></a>Elbow <span class="ot">&lt;-</span> <span class="fu">fviz_nbclust</span>(df, pam, <span class="at">method =</span> <span class="st">&quot;wss&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb371-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">4</span>, <span class="at">linetype =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb371-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-6" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">&quot;Elbow method&quot;</span>)</span>
+<span id="cb371-7"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb371-8"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Silhouette method</span></span>
+<span id="cb371-9"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-9" aria-hidden="true" tabindex="-1"></a>Silhouette <span class="ot">&lt;-</span> <span class="fu">fviz_nbclust</span>(df, pam, <span class="at">method =</span> <span class="st">&quot;silhouette&quot;</span>) <span class="sc">+</span></span>
+<span id="cb371-10"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-10" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">subtitle =</span> <span class="st">&quot;Silhouette method&quot;</span>)</span>
+<span id="cb371-11"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb371-12"><a href="machine-learning-aprendizaje-no-supervisado.html#cb371-12" aria-hidden="true" tabindex="-1"></a>Elbow <span class="sc">+</span> Silhouette</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-354-1.png" width="672" /></p>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;NbClust&quot;</span>)</span>
+<span id="cb372-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb372-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb372-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb372-3" aria-hidden="true" tabindex="-1"></a>nb <span class="ot">&lt;-</span> <span class="fu">NbClust</span>(df, <span class="at">distance =</span> <span class="st">&quot;euclidean&quot;</span>, <span class="at">min.nc =</span> <span class="dv">2</span>, <span class="at">max.nc =</span> <span class="dv">10</span>,</span>
+<span id="cb372-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb372-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">&quot;median&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(nb)</span></code></pre></div>
+<pre><code>## Among all indices: 
+## ===================
+## * 2 proposed  0 as the best number of clusters
+## * 1 proposed  1 as the best number of clusters
+## * 8 proposed  2 as the best number of clusters
+## * 1 proposed  3 as the best number of clusters
+## * 1 proposed  5 as the best number of clusters
+## * 1 proposed  7 as the best number of clusters
+## * 1 proposed  8 as the best number of clusters
+## * 10 proposed  9 as the best number of clusters
+## * 1 proposed  10 as the best number of clusters
+## 
+## Conclusion
+## =========================
+## * According to the majority rule, the best number of clusters is  9 .</code></pre>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-356-1.png" width="672" /></p>
+<p>A partir de la gráfica se observa que la cantidad sugerida de grupos es 2, por lo que en la siguiente sección se clasificarán las observaciones en 2 grupos.</p>
+<p>La función <code>pam()</code> del paquete <em>Cluster</em> se puede utilizar para calcular
+<em>PAM.</em></p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb375-1" aria-hidden="true" tabindex="-1"></a>k_mediods <span class="ot">&lt;-</span> <span class="fu">pam</span>(df, <span class="dv">2</span>)</span>
+<span id="cb375-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb375-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb375-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb375-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(k_mediods)</span></code></pre></div>
+<pre><code>## Medoids:
+##            ID     Murder    Assault   UrbanPop       Rape
+## New Mexico 31  0.8292944  1.3708088  0.3081225  1.1603196
+## Nebraska   27 -0.8008247 -0.8250772 -0.2445636 -0.5052109
+## Clustering vector:
+##        Alabama         Alaska        Arizona       Arkansas     California 
+##              1              1              1              2              1 
+##       Colorado    Connecticut       Delaware        Florida        Georgia 
+##              1              2              2              1              1 
+##         Hawaii          Idaho       Illinois        Indiana           Iowa 
+##              2              2              1              2              2 
+##         Kansas       Kentucky      Louisiana          Maine       Maryland 
+##              2              2              1              2              1 
+##  Massachusetts       Michigan      Minnesota    Mississippi       Missouri 
+##              2              1              2              1              1 
+##        Montana       Nebraska         Nevada  New Hampshire     New Jersey 
+##              2              2              1              2              2 
+##     New Mexico       New York North Carolina   North Dakota           Ohio 
+##              1              1              1              2              2 
+##       Oklahoma         Oregon   Pennsylvania   Rhode Island South Carolina 
+##              2              2              2              2              1 
+##   South Dakota      Tennessee          Texas           Utah        Vermont 
+##              2              1              1              2              2 
+##       Virginia     Washington  West Virginia      Wisconsin        Wyoming 
+##              2              2              2              2              2 
+## Objective function:
+##    build     swap 
+## 1.441358 1.368969 
+## 
+## Available components:
+##  [1] &quot;medoids&quot;    &quot;id.med&quot;     &quot;clustering&quot; &quot;objective&quot;  &quot;isolation&quot; 
+##  [6] &quot;clusinfo&quot;   &quot;silinfo&quot;    &quot;diss&quot;       &quot;call&quot;       &quot;data&quot;</code></pre>
+<p>La salida impresa muestra:</p>
+<ul>
+<li><p>Los medoides del grupo: una matriz, cuyas filas son los medoides y las columnas son variables</p></li>
+<li><p>El vector de agrupación: un vector de números enteros (de <span class="math inline">\(1:k\)</span>) que indica la agrupación a que se asigna a cada punto</p></li>
+</ul>
+<p>Para visualizar los resultados de la partición, usaremos la función <code>fviz_cluster()</code> del paquete <em>factoextra</em>.</p>
+<p>Esta función dibuja un diagrama de dispersión de puntos de datos coloreados por números de grupo. Si los datos contienen más de <em>2</em> variables, se utiliza el algoritmo de análisis de componentes principales (PCA) para reducir la dimensionalidad de los datos. En este caso, los dos primeros componentes se utilizan para trazar los datos.</p>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-1" aria-hidden="true" tabindex="-1"></a>pam_plot <span class="ot">&lt;-</span> <span class="fu">fviz_cluster</span>(</span>
+<span id="cb377-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-2" aria-hidden="true" tabindex="-1"></a>  k_mediods,</span>
+<span id="cb377-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>), </span>
+<span id="cb377-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>, </span>
+<span id="cb377-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb377-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()) <span class="sc">+</span></span>
+<span id="cb377-7"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;K-Medoids Plot&#39;</span>) <span class="sc">+</span></span>
+<span id="cb377-8"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb377-9"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb377-10"><a href="machine-learning-aprendizaje-no-supervisado.html#cb377-10" aria-hidden="true" tabindex="-1"></a>pam_plot</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-358-1.png" width="672" /></p>
+</div>
+</div>
+<div id="clustering-large-applications-clara" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Clustering Large Applications (CLARA)</h2>
+<p><em>CLARA (Clustering Large Applications)</em> es una extensión al método <em>k-medoides</em> para tratar datos que contienen un gran número de observaciones con el fin de reducir tiempo de computación y problema de almacenamiento de <em>RAM</em>. Esto se logra utilizando muestreo.</p>
+<p>El algoritmo es el siguiente:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Dividir aleatoriamente los conjuntos de datos en varios subconjuntos con tamaño fijo (tamaño de muestra).</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Calcular el algoritmo <em>PAM</em> en cada subconjunto y elegir <em>k</em> (medoides). Asignar cada observación de los datos completos al medoide más cercano.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Calcular la media (o la suma) de las disimilitudes de las
+observaciones para su medoide más cercano. Esto se usa como una medida de calidad de la agrupación.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Conserve el subconjunto de datos para el que la media (o la suma) es mínima. Un análisis más se lleva a cabo en la partición final.</li>
+</ol>
+</blockquote>
+<p><strong>Nota:</strong> Cada subconjunto de datos está obligado a contener los medoides obtenidos del mejor subconjunto de datos hasta entonces. Las observaciones extraídas al azar se agregan a este conjunto hasta que
+el tamaño de muestra ha sido alcanzado.</p>
+<div id="implementación-en-r-6" class="section level3" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Implementación en R</h3>
+<p>Estimaremos el número óptimo de clústeres como se realizó en la sección pasada.</p>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(df, clara, <span class="at">method =</span> <span class="st">&quot;silhouette&quot;</span>)<span class="sc">+</span></span>
+<span id="cb378-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb378-2" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-359-1.png" width="672" /></p>
+<p>A partir de la gráfica, la cantidad sugerida de grupos es 2. En el siguiente paso clasificaremos las observaciones en 2 grupos.</p>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb379-1" aria-hidden="true" tabindex="-1"></a>clara <span class="ot">&lt;-</span> <span class="fu">clara</span>(df, <span class="dv">2</span>, <span class="at">samples =</span> <span class="dv">50</span>, <span class="at">pamLike =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb379-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb379-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb379-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb379-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(clara)</span></code></pre></div>
+<pre><code>## Call:     clara(x = df, k = 2, samples = 50, pamLike = TRUE) 
+## Medoids:
+##                Murder    Assault   UrbanPop       Rape
+## New Mexico  0.8292944  1.3708088  0.3081225  1.1603196
+## Nebraska   -0.8008247 -0.8250772 -0.2445636 -0.5052109
+## Objective function:   1.368969
+## Clustering vector:    Named int [1:50] 1 1 1 2 1 1 2 2 1 1 2 2 1 2 2 2 2 1 ...
+##  - attr(*, &quot;names&quot;)= chr [1:50] &quot;Alabama&quot; &quot;Alaska&quot; &quot;Arizona&quot; &quot;Arkansas&quot; &quot;California&quot; &quot;Colorado&quot; &quot;Connecticut&quot; ...
+## Cluster sizes:            20 30 
+## Best sample:
+##  [1] Alabama        Arizona        California     Colorado       Connecticut   
+##  [6] Delaware       Georgia        Idaho          Illinois       Iowa          
+## [11] Kansas         Kentucky       Louisiana      Maine          Maryland      
+## [16] Massachusetts  Michigan       Minnesota      Mississippi    Missouri      
+## [21] Montana        Nebraska       Nevada         New Hampshire  New Mexico    
+## [26] New York       North Carolina North Dakota   Ohio           Oklahoma      
+## [31] Oregon         Pennsylvania   Rhode Island   South Carolina South Dakota  
+## [36] Tennessee      Texas          Utah           Vermont        Virginia      
+## [41] Washington     West Virginia  Wisconsin      Wyoming       
+## 
+## Available components:
+##  [1] &quot;sample&quot;     &quot;medoids&quot;    &quot;i.med&quot;      &quot;clustering&quot; &quot;objective&quot; 
+##  [6] &quot;clusinfo&quot;   &quot;diss&quot;       &quot;call&quot;       &quot;silinfo&quot;    &quot;data&quot;</code></pre>
+<p>Visualizemos ahora los resultados del método <em>CLARA</em></p>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(</span>
+<span id="cb381-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb381-2" aria-hidden="true" tabindex="-1"></a>  clara,</span>
+<span id="cb381-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb381-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">&quot;#00AFBB&quot;</span>, <span class="st">&quot;#FC4E07&quot;</span>), </span>
+<span id="cb381-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb381-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>, </span>
+<span id="cb381-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb381-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb381-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb381-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-361-1.png" width="672" /></p>
+</div>
+</div>
+<div id="dbscan" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> DBSCAN</h2>
+<p><em>DBSCAN (agrupación espacial basada en densidad y aplicación con ruido)</em>,
+es un algoritmo de agrupamiento basado en densidad, que puede
+utilizarse para identificar agrupaciones de cualquier forma en un conjunto de datos que contenga ruido y valores atípicos.</p>
+<p>La idea básica detrás del enfoque de agrupamiento basado en densidad se deriva de un método de agrupamiento intuitivo. Por ejemplo, mirando la siguiente figura, uno puede identificar fácilmente cuatro grupos junto con varios puntos de ruido, debido a las diferencias
+en la densidad de puntos.</p>
+<p><img src="img/ml/3-11-3-dbscan.png" width="650pt" height="300pt" style="display: block; margin: auto;" /></p>
+<p>Los clústeres son regiones densas en el espacio de datos, separadas por regiones de menor densidad de puntos. El algoritmo <em>DBSCAN</em> se basa en esta noción intuitiva de “clústeres” y “ruido.” La idea clave es que para cada punto de un grupo, la vecindad de un determinado radio debe contener al menos un número mínimo de puntos.</p>
+<p>Los métodos de particionamiento vistos anteriormente son adecuados para encontrar grupos de forma esférica o grupos convexos. En otras palabras, ellos funcionan bien solo para grupos compactos y bien separados.
+Además, también son severamente afectados por la presencia de ruido y valores atípicos en los datos.</p>
+<p>Desafortunadamente, los datos de la vida real pueden contener:</p>
+<ul>
+<li><p>Grupos de forma arbitraria como los como se muestra en la siguiente figura (grupos ovalados, lineales y en forma de “S”).</p></li>
+<li><p>Muchos valores atípicos y ruido.</p></li>
+</ul>
+<p><img src="img/ml/3-11-3-dbscan-ovalo.png" width="350pt" height="300pt" style="display: block; margin: auto;" /></p>
+<p>El gráfico anterior contiene 5 grupos y valores atípicos, que incluyen:</p>
+<ul>
+<li>2 clústeres ovalados</li>
+<li>2 clústeres lineales</li>
+<li>1 clúster compacto</li>
+</ul>
+<p>Dados los datos “multishapes” del paquete <em>factoextra</em>, el algoritmo de <em>k-medias</em> tiene dificultades para identificar estos grupos con
+formas arbitrarias.</p>
+<p>Para ilustrar esta situación, el siguiente código calcula <em>k-medias</em>
+en el conjunto de datos mencionado.</p>
+<p>La función <code>fviz_cluster()</code> del paquete <em>factoextra</em> se utiliza para visualizar los clústeres.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;multishapes&quot;</span>)</span>
+<span id="cb382-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb382-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> multishapes[, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span>
+<span id="cb382-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb382-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb382-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb382-7"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-7" aria-hidden="true" tabindex="-1"></a>kmeans <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(df, <span class="dv">5</span>, <span class="at">nstart =</span> <span class="dv">25</span>)</span>
+<span id="cb382-8"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb382-9"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-9" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(</span>
+<span id="cb382-10"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-10" aria-hidden="true" tabindex="-1"></a>  kmeans,</span>
+<span id="cb382-11"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-11" aria-hidden="true" tabindex="-1"></a>  df,</span>
+<span id="cb382-12"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>,</span>
+<span id="cb382-13"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">ellipse=</span> <span class="cn">FALSE</span>,</span>
+<span id="cb382-14"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.clust.cent =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb382-15"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb382-16"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb382-17"><a href="machine-learning-aprendizaje-no-supervisado.html#cb382-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-364-1.png" width="672" /></p>
+<p>Sabemos que hay <em>5</em> grupos de en los datos, pero se puede ver que el método de <em>k-medias</em> identifica incorrectamente estos 5 grupos.</p>
+<div id="algoritmo" class="section level3" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Algoritmo</h3>
+<p>El objetivo es identificar regiones densas, que se pueden medir por la cantidad de objetos cerca de un punto dado.</p>
+<p>Se requieren dos parámetros importantes para <em>DBSCAN</em>:</p>
+<ul>
+<li><p><strong>epsilon (“eps”):</strong> Define el radio de vecindad alrededor
+un punto <em>x</em>.</p></li>
+<li><p><strong>puntos mínimos (“MinPts”):</strong> Es el número mínimo de vecinos dentro del radio <em>“eps”</em>.</p></li>
+</ul>
+<p>Cualquier punto <em>x</em> en el conjunto de datos, con un recuento de vecinos mayor o igual que <em>MinPts</em>, es marcado como un <strong>punto central</strong>.</p>
+<p>Decimos que <em>x</em> es un <strong>punto fronterizo</strong>, si el número de sus vecinos es menos que <em>MinPts</em>, pero pertenece a la vecindad de algún punto central <em>z</em>.</p>
+<p>Finalmente, si un punto no es ni un núcleo ni un punto fronterizo, entonces se denomina <strong>punto de ruido o parte aislada</strong>.</p>
+<p>La siguiente figura muestra los diferentes tipos de puntos (puntos centrales, fronterizos y atípicos) usando <em>MinPts = 6</em>.</p>
+<p>Aquí <em>x</em> es un punto central porque los vecinos <span class="math inline">\(s_{\epsilon}(x) = 6\)</span>, <em>y</em> es un punto fronterizo ya que <span class="math inline">\(s_{\epsilon}(y) &lt; \text{ MinPts}\)</span>,
+pero pertenece a la vecindad del punto central <em>x</em>. Finalmente, <em>z</em> es un punto de ruido.</p>
+<p><img src="img/ml/3-11-3-dbscan-puntos.png" width="600pt" height="300pt" style="display: block; margin: auto;" /></p>
+<p>Comenzamos definiendo <span class="math inline">\(3\)</span> términos, necesarios para comprender el algoritmo <em>DBSCAN</em>:</p>
+<ul>
+<li><p><strong>Densidad directa alcanzable</strong>: Un punto <span class="math inline">\(A\)</span> es directamente de
+densidad alcanzable desde otro punto <span class="math inline">\(B\)</span> si:</p>
+<ul>
+<li><span class="math inline">\(A\)</span> está en la vecindad de <span class="math inline">\(B\)</span> y</li>
+<li><span class="math inline">\(B\)</span> es un punto central.</li>
+</ul></li>
+<li><p><strong>Densidad alcanzable:</strong> Un punto <span class="math inline">\(A\)</span> es la densidad alcanzable desde <span class="math inline">\(B\)</span> si hay un conjunto de los puntos centrales que van de <span class="math inline">\(B\)</span> a <span class="math inline">\(A\)</span>.</p></li>
+<li><p><strong>Densidad conectada:</strong> Dos puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> están densamente conectados si hay un punto central <span class="math inline">\(C\)</span>, de modo que tanto <span class="math inline">\(A\)</span> como <span class="math inline">\(B\)</span> tienen densidad alcanzable desde <span class="math inline">\(C\)</span>.</p></li>
+</ul>
+<p>Un clúster basado en densidad se define como un grupo de puntos conectados por densidad. El algoritmo de agrupamiento basado en densidad (<em>DBSCAN</em>) funciona de la siguiente manera:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Para cada punto <span class="math inline">\(x_i\)</span>, calcular la distancia entre <span class="math inline">\(x_i\)</span> y los otros puntos. Hallar todos los puntos vecinos dentro de la distancia <em>eps</em> del punto de partida (<span class="math inline">\(x_i\)</span>). Cada punto, con un vecino cuenta mayor
+o igual a <em>MinPts</em>, se marca como punto central o visitado.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Para cada punto central, si aún no está asignado a un clúster, crear un nuevo clúster. Encuentrar recursivamente todos sus puntos densamente conectados y asignarlos a el mismo grupo que el punto
+central.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Iterar a través de los puntos no visitados restantes en el conjunto de datos.</li>
+</ol>
+</blockquote>
+<p>Los puntos que no pertenecen a ningún clúster se tratan como valores atípicos o ruido.</p>
+</div>
+<div id="estimación-de-parámetros" class="section level3" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Estimación de parámetros</h3>
+<ul>
+<li><p>MinPts: Cuanto mayor sea el conjunto de datos, mayor será el valor de <em>minPts</em>. Deben elegirse al menos 3.</p></li>
+<li><p><span class="math inline">\(\epsilon\)</span>: El valor de <span class="math inline">\(\epsilon\)</span> se puede elegir mediante un gráfico de distancia <span class="math inline">\(k\)</span>, trazando la distancia al vecino más cercano
+<span class="math inline">\(k = minPts\)</span>. Los buenos valores de <span class="math inline">\(\epsilon\)</span> son donde el gráfico muestra una fuerte curva.</p></li>
+</ul>
+<div id="estimación-el-valor-óptimo-de-epsilon" class="section level4" number="7.4.2.1">
+<h4><span class="header-section-number">7.4.2.1</span> Estimación el valor óptimo de <span class="math inline">\(\epsilon\)</span></h4>
+<p>El método consiste en calcular las <span class="math inline">\(k\)</span> distancias vecinas más cercanas en
+una matriz de puntos.</p>
+<p>La idea es calcular, el promedio de las distancias de cada punto a su <span class="math inline">\(k\)</span> vecino más cercano. El valor de <em>k</em> será especificado por el usuario y corresponde a <em>MinPts</em>.</p>
+<p>A continuación, estas <em>k-distancias</em> se trazan en orden ascendente. El objetivo es determinar la “rodilla,” que corresponde al parámetro óptimo de <em>eps</em>.</p>
+<p>Una “rodilla” corresponde a un umbral donde se produce un cambio brusco a lo largo de la curva.</p>
+<p>La función <code>kNNdistplot()</code> de el paquete <em>dbscan</em> se puede usar para dibujar la distancia-k.</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbscan)</span>
+<span id="cb383-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb383-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb383-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb383-3" aria-hidden="true" tabindex="-1"></a>dbscan<span class="sc">::</span><span class="fu">kNNdistplot</span>(df, <span class="at">k =</span>  <span class="dv">5</span>)</span>
+<span id="cb383-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb383-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">0.15</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-366-1.png" width="672" /></p>
+<p>Se puede ver que el valor óptimo de <span class="math inline">\(\epsilon\)</span> está alrededor de una distancia de <span class="math inline">\(0.15\)</span>.</p>
+</div>
+</div>
+<div id="implementación-en-r-7" class="section level3" number="7.4.3">
+<h3><span class="header-section-number">7.4.3</span> Implementación en R</h3>
+<p>Utilizaremos el paquete <em>fpc</em> para calcular <em>DBSCAN</em>. También es posible utilizar el paquete <em>dbscan</em>, que proporciona una reimplementación más rápida del algoritmo en comparación con el paquete <em>fpc</em>.</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;fpc&quot;</span>)</span>
+<span id="cb384-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb384-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb384-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb384-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb384-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb384-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb384-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb384-5" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> fpc<span class="sc">::</span><span class="fu">dbscan</span>(df, <span class="at">eps =</span> <span class="fl">0.15</span>, <span class="at">MinPts =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(</span>
+<span id="cb385-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-2" aria-hidden="true" tabindex="-1"></a>  db,</span>
+<span id="cb385-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
+<span id="cb385-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">stand =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb385-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ellipse =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb385-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.clust.cent =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb385-7"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>,</span>
+<span id="cb385-8"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb385-9"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()</span>
+<span id="cb385-10"><a href="machine-learning-aprendizaje-no-supervisado.html#cb385-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-368-1.png" width="672" /></p>
+<p><strong>Nota:</strong> La función <code>fviz_cluster()</code> usa diferentes símbolos de puntos para los puntos centrales (es decir, puntos semilla) y puntos fronterizos. Los puntos negros corresponden a valores atípicos.</p>
+<p>Puede verse que <em>DBSCAN</em> funciona mejor para estos conjuntos de datos y puede identificar el conjunto correcto de clústeres en comparación con los algoritmos de <em>k-medias</em>.</p>
+<p>Los resultados del algoritmo se pueden ver de la siguiente manera</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(db)</span></code></pre></div>
+<pre><code>## dbscan Pts=1100 MinPts=5 eps=0.15
+##         0   1   2   3  4  5
+## border 31  24   1   5  7  1
+## seed    0 386 404  99 92 50
+## total  31 410 405 104 99 51</code></pre>
+<p>En la tabla anterior, los nombres de las columnas son el número de grupo. El grupo <span class="math inline">\(0\)</span> corresponde a valores atípicos (puntos negros en el gráfico DBSCAN).</p>
+</div>
+<div id="ventajas-de-dbscan" class="section level3" number="7.4.4">
+<h3><span class="header-section-number">7.4.4</span> Ventajas de DBSCAN</h3>
+<ul>
+<li><p>A diferencia de <em>K-medias</em>, <em>DBSCAN</em> no requiere que el usuario especifique el número de clústeres que se generarán.</p></li>
+<li><p><em>DBSCAN</em> puede encontrar cualquier forma de clústeres. No es necesario que el grupo sea circular.</p></li>
+<li><p><em>DBSCAN</em> puede identificar valores atípicos.</p></li>
+</ul>
+</div>
+<div id="aplicación-dbscan" class="section level3" number="7.4.5">
+<h3><span class="header-section-number">7.4.5</span> Aplicación DBSCAN</h3>
+<p>Aplicaremos ahora el algoritmo <em>DBSCAN</em> a los datos <em>USArrests</em>.</p>
+<p>Veamos primero el valor óptimo de <span class="math inline">\(\epsilon\)</span> para estos datos.</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;USArrests&quot;</span>) </span>
+<span id="cb388-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb388-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb388-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb388-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">scale</span>(USArrests)</span>
+<span id="cb388-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb388-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb388-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb388-5" aria-hidden="true" tabindex="-1"></a>dbscan<span class="sc">::</span><span class="fu">kNNdistplot</span>(df, <span class="at">k =</span> <span class="dv">3</span>)</span>
+<span id="cb388-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb388-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">1.175</span>, <span class="at">lty =</span> <span class="fl">1.5</span>)</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-370-1.png" width="672" /></p>
+<p>Se puede ver que el valor óptimo de <span class="math inline">\(\epsilon\)</span> está alrededor de una distancia de <span class="math inline">\(2.45\)</span>.</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">114234</span>)</span>
+<span id="cb389-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb389-2" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> fpc<span class="sc">::</span><span class="fu">dbscan</span>(df, <span class="at">eps =</span> <span class="fl">1.175</span>, <span class="at">MinPts =</span> <span class="dv">2</span>)</span>
+<span id="cb389-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb389-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb389-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb389-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(db)</span></code></pre></div>
+<pre><code>## dbscan Pts=50 MinPts=2 eps=1.175
+##        0 1  2
+## border 6 0  0
+## seed   0 7 37
+## total  6 7 37</code></pre>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-1" aria-hidden="true" tabindex="-1"></a>dbscan_plot <span class="ot">&lt;-</span> <span class="fu">fviz_cluster</span>(</span>
+<span id="cb391-2"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-2" aria-hidden="true" tabindex="-1"></a>  db,</span>
+<span id="cb391-3"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
+<span id="cb391-4"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">stand =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb391-5"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">axes =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb391-6"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">repel =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb391-7"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.clust.cent =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb391-8"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">geom =</span> <span class="st">&quot;point&quot;</span>,</span>
+<span id="cb391-9"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">palette =</span> <span class="st">&quot;jco&quot;</span>,</span>
+<span id="cb391-10"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">ellipse.type =</span> <span class="st">&quot;t&quot;</span>, </span>
+<span id="cb391-11"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">ggtheme =</span> <span class="fu">theme_minimal</span>()) <span class="sc">+</span></span>
+<span id="cb391-12"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;DBSCAN Plot&#39;</span>) <span class="sc">+</span></span>
+<span id="cb391-13"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb391-14"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb391-15"><a href="machine-learning-aprendizaje-no-supervisado.html#cb391-15" aria-hidden="true" tabindex="-1"></a>dbscan_plot</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-372-1.png" width="672" /></p>
+</div>
+</div>
+<div id="comparación-de-algoritmos" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Comparación de algoritmos</h2>
+<p>Un buen análisis de clustering no sucede sin antes comparar los resultados producidos por los distintos algoritmos. A continuación, se presenta la comparación de las gráficas. Esta comparación visual sirve de apoyo para conocer las diferencias entre los distintos métodos, sin embargo, esto no sustituye al análisis numérico de <em>wss</em>, <em>silhouette</em> o algún otro.</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="machine-learning-aprendizaje-no-supervisado.html#cb392-1" aria-hidden="true" tabindex="-1"></a>kmeans_plot <span class="sc">+</span> pam_plot <span class="sc">+</span> dbscan_plot</span></code></pre></div>
+<p><img src="Introducci%C3%B3n-a-Ciencia-de-Datos-y-Machine-Learning_files/figure-html/unnamed-chunk-373-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -363,7 +1034,6 @@ $('.pipehover_select_one_row tr').hover(function() {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -403,6 +1073,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Introducción a Ciencia de Datos y Machine Learning.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
