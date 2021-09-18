@@ -177,3 +177,4 @@ implementación-en-r-7
 ventajas-de-dbscan
 aplicación-dbscan
 comparación-de-algoritmos
+despedida
