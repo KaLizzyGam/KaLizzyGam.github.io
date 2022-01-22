@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 4 Tidyverse | Introducción a Ciencia de Datos con R (Tidyverse)</title>
+  <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 4 Tidyverse | Introducción a Ciencia de Datos con R (Tidyverse)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 4 Tidyverse | Introducción a Ciencia de Datos con R (Tidyverse)" />
+  
+  <meta name="twitter:description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
+  
+
+<meta name="author" content="Karina Lizette Gamboa Puente" />
+<meta name="author" content="Oscar Arturo Bringas López" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lectura-de-datos.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="img/amat-logo.png" width="280"></a></li|
+|:-:|  
+<center>Introducción a Ciencia de Datos con R (Tidyverse)</center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIENVENIDA</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#quienes-somos"><i class="fa fa-check"></i><b>1.2</b> ¿Quienes somos?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#ciencia-de-datos-en-r"><i class="fa fa-check"></i><b>1.3</b> Ciencia de Datos en R</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#estructura-del-curso-actual"><i class="fa fa-check"></i><b>1.4</b> Estructura del curso actual</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#alcances-del-curso"><i class="fa fa-check"></i><b>1.4.1</b> Alcances del curso</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#duración-y-evaluación-del-curso"><i class="fa fa-check"></i><b>1.5</b> Duración y evaluación del curso</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#recursos-y-dinámica-de-clase"><i class="fa fa-check"></i><b>1.6</b> Recursos y dinámica de clase</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html"><i class="fa fa-check"></i><b>2</b> Introducción a Ciencia de Datos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#qué-es-ciencia-de-datos"><i class="fa fa-check"></i><b>2.1</b> ¿Qué es Ciencia de Datos?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#definiendo-conceptos"><i class="fa fa-check"></i><b>2.1.1</b> Definiendo conceptos:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#objetivo-de-la-ciencia-de-datos"><i class="fa fa-check"></i><b>2.2</b> Objetivo de la Ciencia de Datos</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#qué-se-requiere-para-hacer-ciencia-de-datos"><i class="fa fa-check"></i><b>2.3</b> ¿Qué se requiere para hacer Ciencia de Datos?</a></li>
+<li class="chapter" data-level="2.4" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#aplicaciones-de-ciencia-de-datos"><i class="fa fa-check"></i><b>2.4</b> Aplicaciones de Ciencia de Datos</a></li>
+<li class="chapter" data-level="2.5" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#tipos-de-aprendizaje"><i class="fa fa-check"></i><b>2.5</b> Tipos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#aprendizaje-supervisado"><i class="fa fa-check"></i><b>2.5.1</b> Aprendizaje supervisado</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#aprendizaje-no-supervisado"><i class="fa fa-check"></i><b>2.5.2</b> Aprendizaje no supervisado</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#qué-es-r"><i class="fa fa-check"></i><b>2.6</b> ¿Qué es <em>R</em>?</a></li>
+<li class="chapter" data-level="2.7" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#cómo-obtener-r"><i class="fa fa-check"></i><b>2.7</b> ¿Cómo obtener <em>R</em>?</a></li>
+<li class="chapter" data-level="2.8" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#qué-es-rstudio"><i class="fa fa-check"></i><b>2.8</b> ¿Qué es RStudio?</a></li>
+<li class="chapter" data-level="2.9" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#r-como-lenguaje-orientado-a-objetos"><i class="fa fa-check"></i><b>2.9</b> <em>R</em> como lenguaje orientado a objetos</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#clases"><i class="fa fa-check"></i><b>2.9.1</b> Clases</a></li>
+<li class="chapter" data-level="2.9.2" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#creación-de-objetos"><i class="fa fa-check"></i><b>2.9.2</b> Creación de objetos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html"><i class="fa fa-check"></i><b>3</b> Lectura de datos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#lectura-de-datos-1"><i class="fa fa-check"></i><b>3.1</b> Lectura de datos</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#archivos-csv"><i class="fa fa-check"></i><b>3.1.1</b> Archivos <em>csv</em></a></li>
+<li class="chapter" data-level="3.1.2" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#archivos-xls-y-xlsx"><i class="fa fa-check"></i><b>3.1.2</b> Archivos <em>xls</em> y <em>xlsx</em></a></li>
+<li class="chapter" data-level="3.1.3" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#archivos-json"><i class="fa fa-check"></i><b>3.1.3</b> Archivos json</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#bases-de-datos"><i class="fa fa-check"></i><b>3.2</b> Bases de Datos</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#microsoft-sql-server"><i class="fa fa-check"></i><b>3.2.1</b> Microsoft SQL Server</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>4</b> Tidyverse</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tidyverse.html"><a href="tidyverse.html#consultas-de-datos"><i class="fa fa-check"></i><b>4.1</b> Consultas de datos</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="tidyverse.html"><a href="tidyverse.html#select"><i class="fa fa-check"></i><b>4.1.1</b> select()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="tidyverse.html"><a href="tidyverse.html#filter"><i class="fa fa-check"></i><b>4.1.2</b> filter()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="tidyverse.html"><a href="tidyverse.html#arrange"><i class="fa fa-check"></i><b>4.1.3</b> arrange()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="tidyverse.html"><a href="tidyverse.html#mutate"><i class="fa fa-check"></i><b>4.1.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.1.5" data-path="tidyverse.html"><a href="tidyverse.html#summarise"><i class="fa fa-check"></i><b>4.1.5</b> summarise()</a></li>
+<li class="chapter" data-level="4.1.6" data-path="tidyverse.html"><a href="tidyverse.html#group_by"><i class="fa fa-check"></i><b>4.1.6</b> group_by()</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a Ciencia de Datos con R (Tidyverse)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tidyverse" class="section level1" number="4">
+<h1><span class="header-section-number">Capítulo 4</span> Tidyverse</h1>
+<div id="consultas-de-datos" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Consultas de datos</h2>
+<p>Ahora que ya sabemos como cargar datos, aprenderemos como manipularlos con <em>dplyr.</em> El paquete <em>dplyr</em> proporciona un conjunto de funciones muy útiles para manipular data frames y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, podemos encontrar que la gramática de <em>dplyr</em> es más fácil de entender.</p>
+<p>Revisaremos algunas de sus funciones más usadas (<em>verbos</em>), así como el uso de <strong>pipes</strong> (%&gt;%) para combinarlas.</p>
+<ul>
+<li><p>select()</p></li>
+<li><p>filter()</p></li>
+<li><p>arrange()</p></li>
+<li><p>mutate()</p></li>
+<li><p>summarise()</p></li>
+<li><p>join()</p></li>
+<li><p>group_by()</p></li>
+</ul>
+<p>Primero tenemos que instalar y cargar la paquetería (parte de tidyverse):</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="tidyverse.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb68-2"><a href="tidyverse.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<p>Usaremos el dataset <em>iris</em> que se encuentra en la paquetería <em>datasets</em> (el alumno puede hacer el ejercicio con la base AmesHousing)</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="tidyverse.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           5.1         3.5          1.4         0.2  setosa
+## 2           4.9         3.0          1.4         0.2  setosa
+## 3           4.7         3.2          1.3         0.2  setosa
+## 4           4.6         3.1          1.5         0.2  setosa
+## 5           5.0         3.6          1.4         0.2  setosa
+## 6           5.4         3.9          1.7         0.4  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           5.0         3.4          1.5         0.2  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+## 10          4.9         3.1          1.5         0.1  setosa</code></pre>
+<div id="select" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> select()</h3>
+<p>Observamos que nuestros datos tienen 150 observaciones y 5 variables, con <em>select()</em> podemos seleccionar las variables que le indiquemos.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="tidyverse.html#cb71-1" aria-hidden="true" tabindex="-1"></a>select_ejemplo<span class="ot">&lt;-</span>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length,Petal.Length,Species)</span>
+<span id="cb71-2"><a href="tidyverse.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(select_ejemplo,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Petal.Length Species
+## 1           5.1          1.4  setosa
+## 2           4.9          1.4  setosa
+## 3           4.7          1.3  setosa
+## 4           4.6          1.5  setosa
+## 5           5.0          1.4  setosa
+## 6           5.4          1.7  setosa
+## 7           4.6          1.4  setosa
+## 8           5.0          1.5  setosa
+## 9           4.4          1.4  setosa
+## 10          4.9          1.5  setosa</code></pre>
+<p>El operador pipe (%&gt;%) se usa para conectar múltiples acciones, en este caso solo le indicamos que de la base iris seleccionara 3 varibles y que guardara este nuevo data frame en la variable <em>select_ejemplo</em>.</p>
+<p>Con <em>select()</em> y <em>contains</em> podemos seleccionar varibles con alguna cadena de texto.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="tidyverse.html#cb73-1" aria-hidden="true" tabindex="-1"></a>select_ejemplo<span class="ot">&lt;-</span>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&quot;Sepal&quot;</span>))</span>
+<span id="cb73-2"><a href="tidyverse.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(select_ejemplo,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width
+## 1          5.1         3.5
+## 2          4.9         3.0
+## 3          4.7         3.2
+## 4          4.6         3.1
+## 5          5.0         3.6</code></pre>
+<p>De igual manera, con <em>select()</em>, <em>ends_with</em> y <em>start_with()</em> podemos seleccionar que inicien o terminen con alguna cadena de texto.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="tidyverse.html#cb75-1" aria-hidden="true" tabindex="-1"></a>select_ejemplo<span class="ot">&lt;-</span>iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;Sepal&quot;</span>),<span class="fu">ends_with</span>(<span class="st">&quot;Length&quot;</span>))</span>
+<span id="cb75-2"><a href="tidyverse.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(select_ejemplo,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length
+## 1          5.1         3.5          1.4
+## 2          4.9         3.0          1.4
+## 3          4.7         3.2          1.3
+## 4          4.6         3.1          1.5
+## 5          5.0         3.6          1.4</code></pre>
+<p>Funciones útiles para <em>select()</em>:</p>
+<ul>
+<li><p><em>contains()</em>: Selecciona variables cuyo nombre contiene la cadena de texto.</p></li>
+<li><p><em>ends_with()</em>: Selecciona variables cuyo nombre termina con la cadena de caracteres.</p></li>
+<li><p><em>everything()</em>: Selecciona todas las columnas.</p></li>
+<li><p><em>matches()</em>: Selecciona las variables cuyos nombres coinciden con una expresión regular.</p></li>
+<li><p><em>num_range()</em>: Selecciona las variables por posición.</p></li>
+<li><p><em>one_of()</em>: Selecciona variables cuyos nombres están en un grupo de nombres.</p></li>
+<li><p><em>start_with()</em>: Selecciona variables cuyos nombres empiezan con la cadena de caracteres.</p></li>
+</ul>
+</div>
+<div id="filter" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> filter()</h3>
+<p>La función filter nos permite filtrar filas según una condición, primero notemos que la variable <em>Species</em> tiene tres categorías.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="tidyverse.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris<span class="sc">$</span>Species)</span></code></pre></div>
+<pre><code>## 
+##     setosa versicolor  virginica 
+##         50         50         50</code></pre>
+<p>Ahora usaremos la función <em>filter</em> para quedarnos solo con las observaciones de la especie virginica.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="tidyverse.html#cb79-1" aria-hidden="true" tabindex="-1"></a>ejemplo_filter<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;virginica&quot;</span>)</span>
+<span id="cb79-2"><a href="tidyverse.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_filter,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 1          6.3         3.3          6.0         2.5 virginica
+## 2          5.8         2.7          5.1         1.9 virginica
+## 3          7.1         3.0          5.9         2.1 virginica
+## 4          6.3         2.9          5.6         1.8 virginica
+## 5          6.5         3.0          5.8         2.2 virginica</code></pre>
+<p>También se puede usar para filtrar variables numéricas:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="tidyverse.html#cb81-1" aria-hidden="true" tabindex="-1"></a>ejemplo_filter<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sepal.Length<span class="sc">&gt;</span><span class="dv">5</span> <span class="sc">&amp;</span> Sepal.Width<span class="sc">&gt;=</span><span class="fl">3.5</span>)</span>
+<span id="cb81-2"><a href="tidyverse.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_filter,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          5.4         3.9          1.7         0.4  setosa
+## 3          5.4         3.7          1.5         0.2  setosa
+## 4          5.8         4.0          1.2         0.2  setosa
+## 5          5.7         4.4          1.5         0.4  setosa</code></pre>
+<p>Notemos que en el ejemplo anterior usamos <em>&amp;</em>, que nos ayuda a filtrar por dos condiciones.</p>
+<p>También podemos usar <em>|</em> para filtrar por alguna de las dos condiciones.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="tidyverse.html#cb83-1" aria-hidden="true" tabindex="-1"></a>ejemplo_filter<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Sepal.Length<span class="sc">&gt;</span><span class="dv">5</span> <span class="sc">|</span> Sepal.Width<span class="sc">&gt;=</span><span class="fl">3.5</span>)</span>
+<span id="cb83-2"><a href="tidyverse.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_filter,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          5.0         3.6          1.4         0.2  setosa
+## 3          5.4         3.9          1.7         0.4  setosa
+## 4          5.4         3.7          1.5         0.2  setosa
+## 5          5.8         4.0          1.2         0.2  setosa</code></pre>
+<p>Las condiciones pueden ser expresiones lógicas construidas mediante los operadores relacionales y lógicos:</p>
+<ul>
+<li><p><strong>&lt;</strong> : Menor que</p></li>
+<li><p><strong>&gt;</strong> : Mayor que</p></li>
+<li><p><strong>=</strong> : Igual que</p></li>
+<li><p><strong>&lt;=</strong> : Menor o igual que</p></li>
+<li><p><strong>&gt;=</strong> : Mayor o igual que</p></li>
+<li><p><strong>!=</strong> : Diferente que</p></li>
+<li><p><strong>%in%</strong> : Pertenece al conjunto</p></li>
+<li><p><strong>is.na</strong> : Es NA</p></li>
+<li><p><strong>!is.na</strong> : No es NA</p></li>
+</ul>
+</div>
+<div id="arrange" class="section level3" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> arrange()</h3>
+<p>La función arrange() se utiliza para ordenar las filas de un data frame de acuerdo a una o varias variables.</p>
+<p>Por defecto arrange() ordena las filas por orden ascendente:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="tidyverse.html#cb85-1" aria-hidden="true" tabindex="-1"></a>ejemplo_arrange<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(Sepal.Length)</span>
+<span id="cb85-2"><a href="tidyverse.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_arrange,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1           4.3         3.0          1.1         0.1  setosa
+## 2           4.4         2.9          1.4         0.2  setosa
+## 3           4.4         3.0          1.3         0.2  setosa
+## 4           4.4         3.2          1.3         0.2  setosa
+## 5           4.5         2.3          1.3         0.3  setosa
+## 6           4.6         3.1          1.5         0.2  setosa
+## 7           4.6         3.4          1.4         0.3  setosa
+## 8           4.6         3.6          1.0         0.2  setosa
+## 9           4.6         3.2          1.4         0.2  setosa
+## 10          4.7         3.2          1.3         0.2  setosa</code></pre>
+<p><br>
+<br>
+Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="tidyverse.html#cb87-1" aria-hidden="true" tabindex="-1"></a>ejemplo_arrange<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(Sepal.Length))</span>
+<span id="cb87-2"><a href="tidyverse.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_arrange,<span class="dv">10</span>)</span></code></pre></div>
+<pre><code>##    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+## 1           7.9         3.8          6.4         2.0 virginica
+## 2           7.7         3.8          6.7         2.2 virginica
+## 3           7.7         2.6          6.9         2.3 virginica
+## 4           7.7         2.8          6.7         2.0 virginica
+## 5           7.7         3.0          6.1         2.3 virginica
+## 6           7.6         3.0          6.6         2.1 virginica
+## 7           7.4         2.8          6.1         1.9 virginica
+## 8           7.3         2.9          6.3         1.8 virginica
+## 9           7.2         3.6          6.1         2.5 virginica
+## 10          7.2         3.2          6.0         1.8 virginica</code></pre>
+</div>
+<div id="mutate" class="section level3" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> mutate()</h3>
+<p>Con la función mutate() podemos computar tranformaciones de variables en un data frame. A menudo, tendremos la necesidad de crear nuevas variables que se calculan a partir de variables existentes,mutate() nos proporciona una interface clara para realizar este tipo de operaciones.</p>
+<p>Por ejemplo haremos la suma de las variables <em>Sepal.Lenght</em> y <em>Sepal.Width</em>:</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="tidyverse.html#cb89-1" aria-hidden="true" tabindex="-1"></a>ejemplo_mutate<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length,Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb89-2"><a href="tidyverse.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Suma=</span>Sepal.Length<span class="sc">+</span>Sepal.Width)</span>
+<span id="cb89-3"><a href="tidyverse.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ejemplo_mutate,<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Suma
+## 1          5.1         3.5  8.6
+## 2          4.9         3.0  7.9
+## 3          4.7         3.2  7.9
+## 4          4.6         3.1  7.7
+## 5          5.0         3.6  8.6</code></pre>
+<p>Notemos que en el ejemplo anterior usamos dos <em>pipes</em> (%&gt;%), como habiamos mencionado se pueden usar los necesarios para combinar funciones.</p>
+</div>
+<div id="summarise" class="section level3" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> summarise()</h3>
+<p>La función summarise() funciona de forma análoga a la función mutate, excepto que en lugar de añadir nuevas columnas crea un nuevo data frame.</p>
+<p>Podemos usar el ejemplo anterior y calcular la media de la varible creada <em>Suma</em>:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="tidyverse.html#cb91-1" aria-hidden="true" tabindex="-1"></a>ejemplo_summarise<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> <span class="fu">select</span>(Sepal.Length,Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb91-2"><a href="tidyverse.html#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Suma=</span>Sepal.Length<span class="sc">+</span>Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb91-3"><a href="tidyverse.html#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media_Suma=</span><span class="fu">mean</span>(Suma))</span>
+<span id="cb91-4"><a href="tidyverse.html#cb91-4" aria-hidden="true" tabindex="-1"></a>ejemplo_summarise</span></code></pre></div>
+<pre><code>##   Media_Suma
+## 1   8.900667</code></pre>
+<p>Solo fue necesario agregar un <em>pipe</em>, especificar el nombre de la varible creada y la operación a realizar.</p>
+<p>A continuación se muestran funciones que trabajando conjuntamente con la función summarise() facilitarán nuestro trabajo diario. Las primeras pertenecen al paquete base y las otras son del paquete dplyr. Todas ellas toman como argumento un vector y devuelven un único resultado:</p>
+<ul>
+<li><p><em>min(), max()</em> : Valores max y min.</p></li>
+<li><p><em>mean()</em> : Media.</p></li>
+<li><p><em>median()</em> : Mediana.</p></li>
+<li><p><em>sum()</em> : Suma de los valores.</p></li>
+<li><p><em>var(), sd()</em> : Varianza y desviación estandar.</p></li>
+<li><p><em>first()</em> : Primer valor en un vector.</p></li>
+<li><p><em>last()</em> : El último valor en un vector</p></li>
+<li><p><em>n()</em> : El número de valores en un vector.</p></li>
+<li><p><em>n_distinc()</em> : El número de valores distintos en un vector.</p></li>
+<li><p><em>nth()</em> : Extrar el valor que ocupa la posición n en un vector.</p></li>
+</ul>
+<p>Mas adelante veremos como combinar esta función con la función <em>group_by</em>.</p>
+</div>
+<div id="group_by" class="section level3" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> group_by()</h3>
+<p>La función group_by() agrupa un conjunto de filas seleccionado en un conjunto de filas de resumen de acuerdo con los valores de una o más columnas o expresiones.</p>
+<p>Usaremos el ejemplo anterior, primero creamos nuestra nueva variable <em>Suma</em>, despues agrupamos por especie y al final sacamos la media de la variable <em>Suma</em> pero esta vez, por la función <em>group_by</em>, nos regresara una media por cada grupo creado, es decir, nos regresara el promedio de la suma por especie.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="tidyverse.html#cb93-1" aria-hidden="true" tabindex="-1"></a>ejemplo_groupby<span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb93-2"><a href="tidyverse.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Suma=</span>Sepal.Length<span class="sc">+</span>Sepal.Width) <span class="sc">%&gt;%</span></span>
+<span id="cb93-3"><a href="tidyverse.html#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">%&gt;%</span></span>
+<span id="cb93-4"><a href="tidyverse.html#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Media_Suma=</span><span class="fu">mean</span>(Suma))</span>
+<span id="cb93-5"><a href="tidyverse.html#cb93-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-6"><a href="tidyverse.html#cb93-6" aria-hidden="true" tabindex="-1"></a>ejemplo_groupby</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   Species    Media_Suma
+##   &lt;fct&gt;           &lt;dbl&gt;
+## 1 setosa           8.43
+## 2 versicolor       8.71
+## 3 virginica        9.56</code></pre>
+
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$('.pipehover_incremental tr').hover(function() {
+  $(this).removeClass()
+  $(this).prevAll().removeClass()
+  $(this).nextAll().removeClass()
+  $(this).addClass('hover');
+  $(this).prevAll().addClass('hover');
+  $(this).closest('div').next().find('img').attr("src", $(this).attr("link"));
+});
+
+
+$('.pipehover_select_one_row tr').hover(function() {
+  $(this).removeClass()
+  $(this).prevAll().removeClass()
+  $(this).nextAll().removeClass()
+  $(this).addClass('hover');
+  $(this).closest('div').next().find('img').attr("src", $(this).attr("link"));
+});
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lectura-de-datos.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introducción a Ciencia de Datos con R (Tidyverse).pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
