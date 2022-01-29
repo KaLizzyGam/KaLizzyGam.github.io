@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introducción a Ciencia de Datos con R (Tidyverse)</title>
+  <title>Capítulo 7 Instrucciones de control | Introducción a Ciencia de Datos con R (Tidyverse)</title>
   <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introducción a Ciencia de Datos con R (Tidyverse)" />
+  <meta property="og:title" content="Capítulo 7 Instrucciones de control | Introducción a Ciencia de Datos con R (Tidyverse)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introducción a Ciencia de Datos con R (Tidyverse)" />
+  <meta name="twitter:title" content="Capítulo 7 Instrucciones de control | Introducción a Ciencia de Datos con R (Tidyverse)" />
   
   <meta name="twitter:description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introducción-a-ciencia-de-datos.html"/>
+<link rel="prev" href="funbas.html"/>
+<link rel="next" href="lectura-de-datos.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -300,113 +300,155 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introducción a Ciencia de Datos con R (Tidyverse)</h1>
-<p class="author"><em>Karina Lizette Gamboa Puente</em></p>
-<p class="author"><em>Oscar Arturo Bringas López</em></p>
-</div>
-<div id="bienvenida" class="section level1" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> BIENVENIDA</h1>
-<div id="objetivo" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Objetivo</h2>
-<p>Brindar al participante los elementos teóricos y prácticos básicos alrededor de la Ciencia de Datos. Aprenderá a distinguir las diferentes soluciones a problemas que pueden resolverse con algoritmos de machine learning y aprenderá a usar el conjunto de librerías en <em>R</em> más novedoso, estructurado y ampliamente usado para la manipulación, transformación y visualización de datos: <em>“TIDYVERSE”</em>.</p>
-</div>
-<div id="quienes-somos" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> ¿Quienes somos?</h2>
-<p><strong>ACT. ARTURO BRINGAS</strong></p>
-<p><a href="https://www.linkedin.com/in/arturo-bringas/">LinkedIn</a>
-Email: <a href="mailto:act.arturo.b@ciencias.unam.mx" class="email">act.arturo.b@ciencias.unam.mx</a></p>
-<p>Actuario, egresado de la Facultad de Ciencias y Maestría en Ciencia de Datos, ITAM.
-Experiencia en modelos predictivos y de clasificación de machine learning aplicado a seguros, deportes y movilidad internacional. Jefe de departamento en Investigación Aplicada y Opinión de la UNAM, donde realiza estudios estadísticos de percepción social. Consultor para empresas y organizaciones como UNODC, GNP, CBX, El Universal, INEGI, UNAM, IZZI. Actualmente se desempeña en diferentes proyectos en consultorías como Sinnia, Geek-end y DDI contribuyendo a empresas en temas de ciencia de datos, estadística, visualización de datos y análisis geoespacial.</p>
-<p><img src="img/00-presentacion/arturo.png" width="236" style="display: block; margin: auto;" /></p>
-<p><strong>ACT. LIZETTE GAMBOA</strong></p>
-<p><a href="https://www.linkedin.com/in/kalizzygam/">LinkedIn</a>
-Email: <a href="mailto:lizzygamboa@ciencias.unam.mx" class="email">lizzygamboa@ciencias.unam.mx</a></p>
-<p>Actuaria, egresada de la Facultad de Ciencias, UNAM, Maestría en Ciencia de Datos, ITAM. Experiencia en áreas de analítica predictiva e inteligencia del negocio. Lead y Senior Data Scientist en consultoría en diferentes proyectos con empresas de tecnología, retail y del sector asegurador, financiero y bancario. Experta en entendimiento de negocio para la correcta implementación de algoritmos de inteligencia y explotación de datos. Actualmente se desarrolla como Analytics Architect en Merama, Senior Data Science en CLOSTER y profesora de cursos de ciencia de datos en AMAT.
-Empresas anteriores: GNP, Activer Banco y Casa de Bolsa, PlayCity Casinos, RakenDataGroup Consulting, entre otros.</p>
-<p><img src="img/00-presentacion/lizzy.png" width="236" style="display: block; margin: auto;" /></p>
-</div>
-<div id="ciencia-de-datos-en-r" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Ciencia de Datos en R</h2>
-<p><img src="img/00-presentacion/DataScienceVerse.png" width="1027" style="display: block; margin: auto;" /></p>
-</div>
-<div id="estructura-del-curso-actual" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Estructura del curso actual</h2>
-<div id="alcances-del-curso" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Alcances del curso</h3>
-<p>Al finalizar este curso el participante será capaz de consumir, manipular y visualizar información proveniente de diversas fuentes de información para resolver problemas de propósito general asociados a los datos. Este curso brindará las bases para introducirse a cualquiera de los cursos de Ciencia de datos que se imparten en AMAT:</p>
-<ol style="list-style-type: decimal">
-<li><p>Data Science &amp; Machine Learning (Aprendizaje supervisado I)</p></li>
-<li><p>Data Science &amp; Machine Learning (Aprendizaje no supervisado)</p></li>
-</ol>
-<p>Requisitos: Computadora con al menos 4Gb Ram</p>
-<p><strong>Temario:</strong></p>
-<p><strong>1. Introducción a Ciencia de Datos</strong></p>
-<ul>
-<li>¿Qué es Ciencia de Datos?</li>
-<li>Objetivo de la ciencia de datos</li>
-<li>¿Qué se requiere para hacer ciencia de datos?</li>
-<li>Tipos de problemas que se pueden resolver</li>
-<li>Tipos de algoritmos y aprendizaje</li>
-</ul>
-<p><strong>2. Transformación y manipulación de estructuras de datos</strong></p>
-<ul>
-<li>Importación</li>
-<li>Lectura</li>
-<li>Consultas</li>
-<li>Transformación de estructura</li>
-</ul>
-<p><strong>3. Manipulación de texto</strong></p>
-<ul>
-<li>Concatenación</li>
-<li>Expresiones regulares</li>
-<li>Extracción</li>
-</ul>
-<p><strong>4. Manipulación de fechas y horas</strong></p>
-<ul>
-<li>Creación de datos temporales</li>
-<li>Transformación de datos temporales</li>
-<li>Operaciones con datos temporales</li>
-</ul>
-<p><strong>5. Análisis exploratorio y visualización interactiva de datos</strong></p>
-<ul>
-<li>EDA</li>
-<li>GEDA</li>
-<li>Uso, decisión e implementación de técnicas gráficas</li>
-<li>Visualización interactiva</li>
-</ul>
+<div id="bucles" class="section level1" number="7">
+<h1><span class="header-section-number">Capítulo 7</span> Instrucciones de control</h1>
+<p>En R se disponen de varias instrucciones de control para facilitar los procedimientos que un usuario debe realizar. A continuación se explican esas instrucciones de control.</p>
+<div id="instrucción-if" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Instrucción <code>if</code></h2>
+<p>Esta instrucción sirve para realizar un conjunto de operaciones <strong>si</strong> se cumple cierta condición. A continuación se muestra la estructura básica de uso.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="bucles.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condicion) {</span>
+<span id="cb174-2"><a href="bucles.html#cb174-2" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">1</span></span>
+<span id="cb174-3"><a href="bucles.html#cb174-3" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">2</span></span>
+<span id="cb174-4"><a href="bucles.html#cb174-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb174-5"><a href="bucles.html#cb174-5" aria-hidden="true" tabindex="-1"></a>  operación final</span>
+<span id="cb174-6"><a href="bucles.html#cb174-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="ejemplo-4" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Una secretaria recibe la información del salario básico semanal de un empleado y las horas trabajadas durante la semana por ese empleado. El salario básico es la remuneración por 40 horas de labor por semana, las horas extra son pagadas a ciencuenta mil pesos. Escriba el procedimiento en R que debe usar la secretaria para calcular el salario semanal de un empleado que trabajó 45 horas y tiene salario básico de un millon de pesos.</p>
+<p>El código para calcular el salario final del empleado es el siguiente:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="bucles.html#cb175-1" aria-hidden="true" tabindex="-1"></a>sal <span class="ot">&lt;-</span> <span class="dv">1</span>  <span class="co"># Salario básico por semana</span></span>
+<span id="cb175-2"><a href="bucles.html#cb175-2" aria-hidden="true" tabindex="-1"></a>hlab <span class="ot">&lt;-</span> <span class="dv">45</span>   <span class="co"># Horas laboradas por semana</span></span>
+<span id="cb175-3"><a href="bucles.html#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(hlab <span class="sc">&gt;</span> <span class="dv">40</span>) {</span>
+<span id="cb175-4"><a href="bucles.html#cb175-4" aria-hidden="true" tabindex="-1"></a>  hext <span class="ot">&lt;-</span> hlab <span class="sc">-</span> <span class="dv">40</span></span>
+<span id="cb175-5"><a href="bucles.html#cb175-5" aria-hidden="true" tabindex="-1"></a>  salext <span class="ot">&lt;-</span> hext <span class="sc">*</span> <span class="fl">0.05</span></span>
+<span id="cb175-6"><a href="bucles.html#cb175-6" aria-hidden="true" tabindex="-1"></a>  sal <span class="ot">&lt;-</span> sal <span class="sc">+</span> salext</span>
+<span id="cb175-7"><a href="bucles.html#cb175-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb175-8"><a href="bucles.html#cb175-8" aria-hidden="true" tabindex="-1"></a>sal  <span class="co"># Salario semanal</span></span></code></pre></div>
+<pre><code>## [1] 1.25</code></pre>
 </div>
 </div>
-<div id="duración-y-evaluación-del-curso" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Duración y evaluación del curso</h2>
-<ul>
-<li><p>El programa tiene una duración de 24 hrs.</p></li>
-<li><p>Las clases serán impartidas los días sábado, de 9:00 am a 1:00 pm</p></li>
-<li><p>Serán asignados ejercicios que el participante deberá resolver entre una semana y otra.</p></li>
-<li><p>Al final del curso se solicitará un proyecto final, el cual deberá ser entregado para ser acreedor a la constancia de participación.</p></li>
-</ul>
+<div id="instrucción-if-else" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Instrucción <code>if</code> <code>else</code></h2>
+<p>Esta instrucción sirve para realizar un conjunto de operaciones cuando <strong>NO</strong> se cumple cierta condición evaluada por un <code>if</code>. A continuación se muestra la estructura básica de uso.</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="bucles.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condicion) {</span>
+<span id="cb177-2"><a href="bucles.html#cb177-2" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">1</span></span>
+<span id="cb177-3"><a href="bucles.html#cb177-3" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">2</span></span>
+<span id="cb177-4"><a href="bucles.html#cb177-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb177-5"><a href="bucles.html#cb177-5" aria-hidden="true" tabindex="-1"></a>  operación final</span>
+<span id="cb177-6"><a href="bucles.html#cb177-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb177-7"><a href="bucles.html#cb177-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> {</span>
+<span id="cb177-8"><a href="bucles.html#cb177-8" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">1</span></span>
+<span id="cb177-9"><a href="bucles.html#cb177-9" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">2</span></span>
+<span id="cb177-10"><a href="bucles.html#cb177-10" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb177-11"><a href="bucles.html#cb177-11" aria-hidden="true" tabindex="-1"></a>  operación final</span>
+<span id="cb177-12"><a href="bucles.html#cb177-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
-<div id="recursos-y-dinámica-de-clase" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Recursos y dinámica de clase</h2>
-<p>En esta clase estaremos usando:</p>
-<ul>
-<li>R <a href="https://cran.r-project.org/">da click aquí si aún no lo descargas</a></li>
-<li>RStudio <a href="https://www.rstudio.com/products/rstudio/download/">da click aquí también</a></li>
-<li>Miro <a href="https://miro.com/welcomeonboard/WXJiSGtOUnE4Mm1EQnJaQWxIR2R6RGxPaVo5eXQ3bG1SMHNWSkVIZ09YQ3JlTHRma1dYcFJzbm9wZ05OVmxVMXwzMDc0NDU3MzU1MzI0OTQwMDI5?invite_link_id=632956861297">úsame</a></li>
-<li>Zoom <a href="https://us02web.zoom.us/j/5155440751?pwd=YzJCOGF0VnlZdlZlS0Fpc3MvZEhadz09">Clases</a>
-<ul>
-<li>Pulgar arriba: Voy bien, estoy entendiendo!</li>
-<li>Pulgar abajo: Eso no quedó muy claro</li>
-<li>Mano arriba: Quiero participar/preguntar ó Ya estoy listo para iniciar</li>
-</ul></li>
-<li>Grupo de WhatsApp <a href="https://chat.whatsapp.com/CNv5RxZb7FnLbzUFHGtYMG">El chismecito está aquí</a></li>
-<li>Posible Drive <a href="">Aún no hay documentos, no seas avorazado :D</a></li>
-<li>Notas de clase <a href="KaLizzyGam.github.io/index.html">Revisame si quieres aprender</a></li>
-</ul>
-<div class="watermark">
-<img src="img/header.png" width="400">
+<div id="instrucción-ifelse" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Instrucción <code>ifelse</code></h2>
+<p>Se recomienda usar la instrucción <code>ifelse</code> cuando hay una sola instrucción para el caso <code>if</code> y para el caso <code>else</code>. A continuación se muestra la estructura básica de uso.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="bucles.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(condición, operación SI cumple, operación NO cumple)</span></code></pre></div>
+<div id="ejemplo-5" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Suponga que usted recibe un vector de números enteros, escriba un procedimiento que diga si cada elemento del vector es par o impar.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="bucles.html#cb179-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">8</span>, <span class="sc">-</span><span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb179-2"><a href="bucles.html#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ifelse</span>(x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>, <span class="st">&#39;Es par&#39;</span>, <span class="st">&#39;Es impar&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Es impar&quot; &quot;Es impar&quot; &quot;Es par&quot;   &quot;Es par&quot;   &quot;Es par&quot;   &quot;Es impar&quot;</code></pre>
+</div>
+</div>
+<div id="instrucción-for" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Instrucción <code>for</code></h2>
+<p>La instrucción <code>for</code> es muy útil para repetir un procedimiento cierta cantidad de veces. A continuación se muestra la estructura básica de uso.</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="bucles.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> secuencia) {</span>
+<span id="cb181-2"><a href="bucles.html#cb181-2" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">1</span></span>
+<span id="cb181-3"><a href="bucles.html#cb181-3" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">2</span></span>
+<span id="cb181-4"><a href="bucles.html#cb181-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb181-5"><a href="bucles.html#cb181-5" aria-hidden="true" tabindex="-1"></a>  operación final</span>
+<span id="cb181-6"><a href="bucles.html#cb181-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="ejemplo-6" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Escriba un procedimiento para crear 10 muestras de tamaño 100 de una distribución uniforme entre uno y tres. Para cada una de las muestra, se debe contar el número de elementos de la muestra que fueron mayores o iguales a 2.5.</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="bucles.html#cb182-1" aria-hidden="true" tabindex="-1"></a>nrep <span class="ot">&lt;-</span> <span class="dv">10</span>  <span class="co"># Número de repeticiones</span></span>
+<span id="cb182-2"><a href="bucles.html#cb182-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span>    <span class="co"># Tamaño de la muestra</span></span>
+<span id="cb182-3"><a href="bucles.html#cb182-3" aria-hidden="true" tabindex="-1"></a>conteo <span class="ot">&lt;-</span> <span class="fu">numeric</span>(nrep)  <span class="co"># Vector para almacenar el conteo</span></span>
+<span id="cb182-4"><a href="bucles.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nrep) {</span>
+<span id="cb182-5"><a href="bucles.html#cb182-5" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n=</span>n, <span class="at">min=</span><span class="dv">1</span>, <span class="at">max=</span><span class="dv">3</span>)</span>
+<span id="cb182-6"><a href="bucles.html#cb182-6" aria-hidden="true" tabindex="-1"></a>  conteo[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">&gt;=</span> <span class="fl">2.5</span>)</span>
+<span id="cb182-7"><a href="bucles.html#cb182-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb182-8"><a href="bucles.html#cb182-8" aria-hidden="true" tabindex="-1"></a>conteo  <span class="co"># Para obtener el conteo</span></span></code></pre></div>
+<pre><code>##  [1] 24 37 28 26 30 18 29 23 19 19</code></pre>
+</div>
+</div>
+<div id="instrucción-while" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Instrucción <code>while</code></h2>
+<p>La instrucción <code>while</code> es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.</p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="bucles.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (condición) {</span>
+<span id="cb184-2"><a href="bucles.html#cb184-2" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">1</span></span>
+<span id="cb184-3"><a href="bucles.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">2</span></span>
+<span id="cb184-4"><a href="bucles.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb184-5"><a href="bucles.html#cb184-5" aria-hidden="true" tabindex="-1"></a>  operación final</span>
+<span id="cb184-6"><a href="bucles.html#cb184-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="ejemplo-7" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Suponga que se lanza una moneda en la cual el resultado es cara o sello. Escribir un procedimiento que simule lanzamientos hasta que el número de caras obtenidas sea 5. El procedimiento debe entregar el historial de lanzamientos.</p>
+<p>Para simular el lanzamiento de <strong>una</strong> moneda se puede usar la función <code>sample</code> y definiendo el vector <code>resultados</code> con <code>size=1</code> para simular un lanzamiento, a continuación el código y tres pruebas ilustrativas.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="bucles.html#cb185-1" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Cara&#39;</span>, <span class="st">&#39;Sello&#39;</span>)</span>
+<span id="cb185-2"><a href="bucles.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span>resultados, <span class="at">size=</span><span class="dv">1</span>)  <span class="co"># Prueba 1</span></span></code></pre></div>
+<pre><code>## [1] &quot;Sello&quot;</code></pre>
+<p>Una vez seamos capaces de simular un lanzamiento podemos escribir el procedimiento para generar tantos lanzamientos hasta que se cumpla la condición. El código mostrado abajo permite hacer lo solicitado.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="bucles.html#cb187-1" aria-hidden="true" tabindex="-1"></a>num.lanza <span class="ot">&lt;-</span> <span class="dv">0</span>     <span class="co"># Contador de lanzamientos</span></span>
+<span id="cb187-2"><a href="bucles.html#cb187-2" aria-hidden="true" tabindex="-1"></a>num.caras <span class="ot">&lt;-</span> <span class="dv">0</span>     <span class="co"># Contados de caras obtenidas</span></span>
+<span id="cb187-3"><a href="bucles.html#cb187-3" aria-hidden="true" tabindex="-1"></a>historial <span class="ot">&lt;-</span> <span class="cn">NULL</span>  <span class="co"># Vector vacío para almacenar</span></span>
+<span id="cb187-4"><a href="bucles.html#cb187-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (num.caras <span class="sc">&lt;</span> <span class="dv">5</span>) {</span>
+<span id="cb187-5"><a href="bucles.html#cb187-5" aria-hidden="true" tabindex="-1"></a>  res <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="at">x=</span>resultados, <span class="at">size=</span><span class="dv">1</span>)</span>
+<span id="cb187-6"><a href="bucles.html#cb187-6" aria-hidden="true" tabindex="-1"></a>  num.lanza <span class="ot">&lt;-</span> num.lanza <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb187-7"><a href="bucles.html#cb187-7" aria-hidden="true" tabindex="-1"></a>  historial[num.lanza] <span class="ot">&lt;-</span> res</span>
+<span id="cb187-8"><a href="bucles.html#cb187-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (res <span class="sc">==</span> <span class="st">&#39;Cara&#39;</span>) {</span>
+<span id="cb187-9"><a href="bucles.html#cb187-9" aria-hidden="true" tabindex="-1"></a>    num.caras <span class="ot">&lt;-</span> num.caras <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb187-10"><a href="bucles.html#cb187-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb187-11"><a href="bucles.html#cb187-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb187-12"><a href="bucles.html#cb187-12" aria-hidden="true" tabindex="-1"></a>historial</span></code></pre></div>
+<pre><code>##  [1] &quot;Sello&quot; &quot;Sello&quot; &quot;Sello&quot; &quot;Sello&quot; &quot;Cara&quot;  &quot;Cara&quot;  &quot;Sello&quot; &quot;Sello&quot; &quot;Cara&quot; 
+## [10] &quot;Cara&quot;  &quot;Cara&quot;</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="bucles.html#cb189-1" aria-hidden="true" tabindex="-1"></a>num.lanza</span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+
+<div class="rmdnote">
+La instrucción <code>for</code> se usa cuando sabemos el número de veces que se debe repetir el procedimiento, mientras que la instrucción <code>while</code> se usa cuando debemos repetir un procedimiento cuando se cumpla una condición.
+</div>
+</div>
+</div>
+<div id="instrucción-repeat" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Instrucción <code>repeat</code></h2>
+<p>La instrucción <code>while</code> es muy útil para repetir un procedimiento siempre que se cumple una condición. A continuación se muestra la estructura básica de uso.</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="bucles.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb191-2"><a href="bucles.html#cb191-2" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">1</span></span>
+<span id="cb191-3"><a href="bucles.html#cb191-3" aria-hidden="true" tabindex="-1"></a>  operación <span class="dv">2</span></span>
+<span id="cb191-4"><a href="bucles.html#cb191-4" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb191-5"><a href="bucles.html#cb191-5" aria-hidden="true" tabindex="-1"></a>  operación final</span>
+<span id="cb191-6"><a href="bucles.html#cb191-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (condición) <span class="cf">break</span></span>
+<span id="cb191-7"><a href="bucles.html#cb191-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div id="ejemplo-8" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Escribir un procedimiento para ir aumentando de uno en uno el valor de <code>x</code> hasta que <code>x</code> sea igual a siete El procedimiento debe imprimir por pantalla la secuencia de valores de <code>x</code>.</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="bucles.html#cb192-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Valor de inicio</span></span>
+<span id="cb192-2"><a href="bucles.html#cb192-2" aria-hidden="true" tabindex="-1"></a><span class="cf">repeat</span> {</span>
+<span id="cb192-3"><a href="bucles.html#cb192-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">print</span>(x)</span>
+<span id="cb192-4"><a href="bucles.html#cb192-4" aria-hidden="true" tabindex="-1"></a>   x <span class="ot">&lt;-</span>  x <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb192-5"><a href="bucles.html#cb192-5" aria-hidden="true" tabindex="-1"></a>   <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">8</span>) {</span>
+<span id="cb192-6"><a href="bucles.html#cb192-6" aria-hidden="true" tabindex="-1"></a>     <span class="cf">break</span></span>
+<span id="cb192-7"><a href="bucles.html#cb192-7" aria-hidden="true" tabindex="-1"></a>   }</span>
+<span id="cb192-8"><a href="bucles.html#cb192-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7</code></pre>
+
+<div class="rmdtip">
+La instrucción <code>break</code> sirve para salir de un procedimiento iterativo.
 </div>
 
+</div>
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -436,8 +478,8 @@ $('.pipehover_select_one_row tr').hover(function() {
           </div>
         </div>
       </div>
-
-<a href="introducción-a-ciencia-de-datos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="funbas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lectura-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

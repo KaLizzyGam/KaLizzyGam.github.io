@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introducción a Ciencia de Datos con R (Tidyverse)</title>
+  <title>Capítulo 3 R | Introducción a Ciencia de Datos con R (Tidyverse)</title>
   <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introducción a Ciencia de Datos con R (Tidyverse)" />
+  <meta property="og:title" content="Capítulo 3 R | Introducción a Ciencia de Datos con R (Tidyverse)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introducción a Ciencia de Datos con R (Tidyverse)" />
+  <meta name="twitter:title" content="Capítulo 3 R | Introducción a Ciencia de Datos con R (Tidyverse)" />
   
   <meta name="twitter:description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introducción-a-ciencia-de-datos.html"/>
+<link rel="prev" href="introducción-a-ciencia-de-datos.html"/>
+<link rel="next" href="tipos-de-variables.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -300,113 +300,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introducción a Ciencia de Datos con R (Tidyverse)</h1>
-<p class="author"><em>Karina Lizette Gamboa Puente</em></p>
-<p class="author"><em>Oscar Arturo Bringas López</em></p>
+<div id="r" class="section level1" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> R</h1>
+<p>R (R Core Team 2018) es un entorno y lenguaje de programación que permite el análisis estadístico de información y reportes gráficos. Es ampliamente usado en investigación por la comunidad estadística en campos como la biomedicina, minería de datos, matemáticas financieras, entre otros. Ha ganado mucha popularidad en los últimos años al ser un software libre que está en constante crecimiento por las aportaciones de otros usuarios y que permite la interacción con software estadísticos como STATA, SAS, SPSS, etc.. R permite la incorporación de librerías y paqueterías con funcionalidades específicas, por lo que es un lenguaje de programación muy completo y fácil de usar.</p>
+<div id="cómo-obtener-r" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> ¿Cómo obtener <em>R</em>?</h2>
+<p>R puede ser fácilmente descargado de forma gratuita desde el sitio oficial <a href="http://www.r-project.org/" class="uri">http://www.r-project.org/</a>. R está disponible para las plataformas Windows, Mac y Linux.</p>
 </div>
-<div id="bienvenida" class="section level1" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> BIENVENIDA</h1>
-<div id="objetivo" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Objetivo</h2>
-<p>Brindar al participante los elementos teóricos y prácticos básicos alrededor de la Ciencia de Datos. Aprenderá a distinguir las diferentes soluciones a problemas que pueden resolverse con algoritmos de machine learning y aprenderá a usar el conjunto de librerías en <em>R</em> más novedoso, estructurado y ampliamente usado para la manipulación, transformación y visualización de datos: <em>“TIDYVERSE”</em>.</p>
+<div id="qué-es-rstudio" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> ¿Qué es RStudio?</h2>
+<p><em>RStudio</em> es un Entorno de Desarrollo Integrado (IDE, por sus siglas en inglés) para R. Este permite y facilita el desarrollo y ejecución de sintaxis para código en <em>R</em>, incluye una consola y proporciona herramientas para la gestión del espacio de trabajo. <em>RStudio</em> está disponible para Windows, Mac y Linux o para navegadores conectados a RStudio Server o RStudio Server Pro.</p>
+<p>Algunas de las principales características de Rstudio que lo hacen una gran herramienta para trabajar en R, son:</p>
+<ul>
+<li>Auto completado de código</li>
+<li>Sangría inteligente</li>
+<li>Resaltado de sintaxis</li>
+<li>Facilidad para definir funciones</li>
+<li>Soporte integrado</li>
+<li>Documentación integrada</li>
+<li>Administración de directorios y proyectos</li>
+<li>Visor de datos</li>
+<li>Depurador interactivo para corregir errores</li>
+<li>Conección con Rmarkwon y Sweave</li>
+</ul>
+<p>La siguiente imagen muestra la forma en la que está estructurado RStudio. El orden de los páneles puede ser elegido por el usuario, así como las características de tipo de letra, tamaño y color de fondo, entre otras características.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<img src="img/01-intro/15_rstudio3.png" alt="Páneles de trabajo de Rstudio" width="800px" height="450px" />
+<p class="caption">
+Figure 3.1: Páneles de trabajo de Rstudio
+</p>
 </div>
-<div id="quienes-somos" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> ¿Quienes somos?</h2>
-<p><strong>ACT. ARTURO BRINGAS</strong></p>
-<p><a href="https://www.linkedin.com/in/arturo-bringas/">LinkedIn</a>
-Email: <a href="mailto:act.arturo.b@ciencias.unam.mx" class="email">act.arturo.b@ciencias.unam.mx</a></p>
-<p>Actuario, egresado de la Facultad de Ciencias y Maestría en Ciencia de Datos, ITAM.
-Experiencia en modelos predictivos y de clasificación de machine learning aplicado a seguros, deportes y movilidad internacional. Jefe de departamento en Investigación Aplicada y Opinión de la UNAM, donde realiza estudios estadísticos de percepción social. Consultor para empresas y organizaciones como UNODC, GNP, CBX, El Universal, INEGI, UNAM, IZZI. Actualmente se desempeña en diferentes proyectos en consultorías como Sinnia, Geek-end y DDI contribuyendo a empresas en temas de ciencia de datos, estadística, visualización de datos y análisis geoespacial.</p>
-<p><img src="img/00-presentacion/arturo.png" width="236" style="display: block; margin: auto;" /></p>
-<p><strong>ACT. LIZETTE GAMBOA</strong></p>
-<p><a href="https://www.linkedin.com/in/kalizzygam/">LinkedIn</a>
-Email: <a href="mailto:lizzygamboa@ciencias.unam.mx" class="email">lizzygamboa@ciencias.unam.mx</a></p>
-<p>Actuaria, egresada de la Facultad de Ciencias, UNAM, Maestría en Ciencia de Datos, ITAM. Experiencia en áreas de analítica predictiva e inteligencia del negocio. Lead y Senior Data Scientist en consultoría en diferentes proyectos con empresas de tecnología, retail y del sector asegurador, financiero y bancario. Experta en entendimiento de negocio para la correcta implementación de algoritmos de inteligencia y explotación de datos. Actualmente se desarrolla como Analytics Architect en Merama, Senior Data Science en CLOSTER y profesora de cursos de ciencia de datos en AMAT.
-Empresas anteriores: GNP, Activer Banco y Casa de Bolsa, PlayCity Casinos, RakenDataGroup Consulting, entre otros.</p>
-<p><img src="img/00-presentacion/lizzy.png" width="236" style="display: block; margin: auto;" /></p>
 </div>
-<div id="ciencia-de-datos-en-r" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Ciencia de Datos en R</h2>
-<p><img src="img/00-presentacion/DataScienceVerse.png" width="1027" style="display: block; margin: auto;" /></p>
-</div>
-<div id="estructura-del-curso-actual" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Estructura del curso actual</h2>
-<div id="alcances-del-curso" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Alcances del curso</h3>
-<p>Al finalizar este curso el participante será capaz de consumir, manipular y visualizar información proveniente de diversas fuentes de información para resolver problemas de propósito general asociados a los datos. Este curso brindará las bases para introducirse a cualquiera de los cursos de Ciencia de datos que se imparten en AMAT:</p>
+<div id="r-como-lenguaje-orientado-a-objetos" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> <em>R</em> como lenguaje orientado a objetos</h2>
+<p><em>R</em> es un lenguaje de programación orientado a objetos (POO). (López 2011, pag. 5) define a los objetos y sus características como “cualquier cosa con significado para el problema que se trata de resolver.” A partir de esa definición, se puede decir que sirve para representar alguna entidad de la vida real, por lo general son componentes del problema que se pretende resolver y con los que podemos interactuar. A través de esta interacción y del estudio que se haga de ellos, es posible clasificarlos en grupos de acuerdo a sus caractrerísticas. A partir de los objetos con los que se trabaje, surgirán las clases adecuadas para encontrar la solución a un problema dado.</p>
+<p>Los objetos tienen características fundamentales que permiten identificarlos, conocerlos y entender su comportamiento. De acuerdo con (Schildt 2009), estas características son:</p>
 <ol style="list-style-type: decimal">
-<li><p>Data Science &amp; Machine Learning (Aprendizaje supervisado I)</p></li>
-<li><p>Data Science &amp; Machine Learning (Aprendizaje no supervisado)</p></li>
+<li>Identidad</li>
+<li>Comportamiento</li>
+<li>Estructura</li>
 </ol>
-<p>Requisitos: Computadora con al menos 4Gb Ram</p>
-<p><strong>Temario:</strong></p>
-<p><strong>1. Introducción a Ciencia de Datos</strong></p>
 <ul>
-<li>¿Qué es Ciencia de Datos?</li>
-<li>Objetivo de la ciencia de datos</li>
-<li>¿Qué se requiere para hacer ciencia de datos?</li>
-<li>Tipos de problemas que se pueden resolver</li>
-<li>Tipos de algoritmos y aprendizaje</li>
+<li><p><strong>Identidad:</strong> Esta es la propiedad que da nombre a cada uno de los objetos y que permite declararlos, distinguirlos de manera única, usarlos y llamarlos para la representación de su contenido.</p></li>
+<li><p><strong>Comportamiento:</strong> Esta es la propiedad que determina las operaciones que puede realizar el objeto, es decir, permite conocer las capacidades y alcances de la funcionalidad de cada objeto. El comportamiento permite conocer la interacción que puede existir con otros objetos y los resultrados que generarán.</p></li>
+<li><p><strong>Estructura:</strong> El estado se refiere a un conjunto de características o atributos específicos del objeto dados en un momento determinado, y que pueden cambiar en un instante de tiempo.</p></li>
 </ul>
-<p><strong>2. Transformación y manipulación de estructuras de datos</strong></p>
-<ul>
-<li>Importación</li>
-<li>Lectura</li>
-<li>Consultas</li>
-<li>Transformación de estructura</li>
-</ul>
-<p><strong>3. Manipulación de texto</strong></p>
-<ul>
-<li>Concatenación</li>
-<li>Expresiones regulares</li>
-<li>Extracción</li>
-</ul>
-<p><strong>4. Manipulación de fechas y horas</strong></p>
-<ul>
-<li>Creación de datos temporales</li>
-<li>Transformación de datos temporales</li>
-<li>Operaciones con datos temporales</li>
-</ul>
-<p><strong>5. Análisis exploratorio y visualización interactiva de datos</strong></p>
-<ul>
-<li>EDA</li>
-<li>GEDA</li>
-<li>Uso, decisión e implementación de técnicas gráficas</li>
-<li>Visualización interactiva</li>
-</ul>
-</div>
-</div>
-<div id="duración-y-evaluación-del-curso" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Duración y evaluación del curso</h2>
-<ul>
-<li><p>El programa tiene una duración de 24 hrs.</p></li>
-<li><p>Las clases serán impartidas los días sábado, de 9:00 am a 1:00 pm</p></li>
-<li><p>Serán asignados ejercicios que el participante deberá resolver entre una semana y otra.</p></li>
-<li><p>Al final del curso se solicitará un proyecto final, el cual deberá ser entregado para ser acreedor a la constancia de participación.</p></li>
-</ul>
-</div>
-<div id="recursos-y-dinámica-de-clase" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Recursos y dinámica de clase</h2>
-<p>En esta clase estaremos usando:</p>
-<ul>
-<li>R <a href="https://cran.r-project.org/">da click aquí si aún no lo descargas</a></li>
-<li>RStudio <a href="https://www.rstudio.com/products/rstudio/download/">da click aquí también</a></li>
-<li>Miro <a href="https://miro.com/welcomeonboard/WXJiSGtOUnE4Mm1EQnJaQWxIR2R6RGxPaVo5eXQ3bG1SMHNWSkVIZ09YQ3JlTHRma1dYcFJzbm9wZ05OVmxVMXwzMDc0NDU3MzU1MzI0OTQwMDI5?invite_link_id=632956861297">úsame</a></li>
-<li>Zoom <a href="https://us02web.zoom.us/j/5155440751?pwd=YzJCOGF0VnlZdlZlS0Fpc3MvZEhadz09">Clases</a>
-<ul>
-<li>Pulgar arriba: Voy bien, estoy entendiendo!</li>
-<li>Pulgar abajo: Eso no quedó muy claro</li>
-<li>Mano arriba: Quiero participar/preguntar ó Ya estoy listo para iniciar</li>
-</ul></li>
-<li>Grupo de WhatsApp <a href="https://chat.whatsapp.com/CNv5RxZb7FnLbzUFHGtYMG">El chismecito está aquí</a></li>
-<li>Posible Drive <a href="">Aún no hay documentos, no seas avorazado :D</a></li>
-<li>Notas de clase <a href="KaLizzyGam.github.io/index.html">Revisame si quieres aprender</a></li>
-</ul>
-<div class="watermark">
-<img src="img/header.png" width="400">
-</div>
-
+<p>En la programación orientada a objetos, un programa recolecta muchos objetos para ser tratado como un conjunto dinámico de objetos interactuando entre sí. Los objetos están definidos por:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Atributos:</strong> Son las propiedades o características de los datos contenidos en un objeto. Los valores asociados a un objeto en un momento determinado del tiempo determinan su estado.</p></li>
+<li><p><strong>Métodos:</strong> Acceden a los atributos de los objetos y determinan el comportamiento de los datos contenidos.</p></li>
+</ol>
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -436,8 +379,8 @@ $('.pipehover_select_one_row tr').hover(function() {
           </div>
         </div>
       </div>
-
-<a href="introducción-a-ciencia-de-datos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="introducción-a-ciencia-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tipos-de-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

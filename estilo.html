@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introducción a Ciencia de Datos con R (Tidyverse)</title>
+  <title>Capítulo 5 Guía de estilo | Introducción a Ciencia de Datos con R (Tidyverse)</title>
   <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introducción a Ciencia de Datos con R (Tidyverse)" />
+  <meta property="og:title" content="Capítulo 5 Guía de estilo | Introducción a Ciencia de Datos con R (Tidyverse)" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introducción a Ciencia de Datos con R (Tidyverse)" />
+  <meta name="twitter:title" content="Capítulo 5 Guía de estilo | Introducción a Ciencia de Datos con R (Tidyverse)" />
   
   <meta name="twitter:description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introducción-a-ciencia-de-datos.html"/>
+<link rel="prev" href="tipos-de-variables.html"/>
+<link rel="next" href="funbas.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -300,113 +300,106 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introducción a Ciencia de Datos con R (Tidyverse)</h1>
-<p class="author"><em>Karina Lizette Gamboa Puente</em></p>
-<p class="author"><em>Oscar Arturo Bringas López</em></p>
-</div>
-<div id="bienvenida" class="section level1" number="1">
-<h1><span class="header-section-number">Capítulo 1</span> BIENVENIDA</h1>
-<div id="objetivo" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Objetivo</h2>
-<p>Brindar al participante los elementos teóricos y prácticos básicos alrededor de la Ciencia de Datos. Aprenderá a distinguir las diferentes soluciones a problemas que pueden resolverse con algoritmos de machine learning y aprenderá a usar el conjunto de librerías en <em>R</em> más novedoso, estructurado y ampliamente usado para la manipulación, transformación y visualización de datos: <em>“TIDYVERSE”</em>.</p>
-</div>
-<div id="quienes-somos" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> ¿Quienes somos?</h2>
-<p><strong>ACT. ARTURO BRINGAS</strong></p>
-<p><a href="https://www.linkedin.com/in/arturo-bringas/">LinkedIn</a>
-Email: <a href="mailto:act.arturo.b@ciencias.unam.mx" class="email">act.arturo.b@ciencias.unam.mx</a></p>
-<p>Actuario, egresado de la Facultad de Ciencias y Maestría en Ciencia de Datos, ITAM.
-Experiencia en modelos predictivos y de clasificación de machine learning aplicado a seguros, deportes y movilidad internacional. Jefe de departamento en Investigación Aplicada y Opinión de la UNAM, donde realiza estudios estadísticos de percepción social. Consultor para empresas y organizaciones como UNODC, GNP, CBX, El Universal, INEGI, UNAM, IZZI. Actualmente se desempeña en diferentes proyectos en consultorías como Sinnia, Geek-end y DDI contribuyendo a empresas en temas de ciencia de datos, estadística, visualización de datos y análisis geoespacial.</p>
-<p><img src="img/00-presentacion/arturo.png" width="236" style="display: block; margin: auto;" /></p>
-<p><strong>ACT. LIZETTE GAMBOA</strong></p>
-<p><a href="https://www.linkedin.com/in/kalizzygam/">LinkedIn</a>
-Email: <a href="mailto:lizzygamboa@ciencias.unam.mx" class="email">lizzygamboa@ciencias.unam.mx</a></p>
-<p>Actuaria, egresada de la Facultad de Ciencias, UNAM, Maestría en Ciencia de Datos, ITAM. Experiencia en áreas de analítica predictiva e inteligencia del negocio. Lead y Senior Data Scientist en consultoría en diferentes proyectos con empresas de tecnología, retail y del sector asegurador, financiero y bancario. Experta en entendimiento de negocio para la correcta implementación de algoritmos de inteligencia y explotación de datos. Actualmente se desarrolla como Analytics Architect en Merama, Senior Data Science en CLOSTER y profesora de cursos de ciencia de datos en AMAT.
-Empresas anteriores: GNP, Activer Banco y Casa de Bolsa, PlayCity Casinos, RakenDataGroup Consulting, entre otros.</p>
-<p><img src="img/00-presentacion/lizzy.png" width="236" style="display: block; margin: auto;" /></p>
-</div>
-<div id="ciencia-de-datos-en-r" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Ciencia de Datos en R</h2>
-<p><img src="img/00-presentacion/DataScienceVerse.png" width="1027" style="display: block; margin: auto;" /></p>
-</div>
-<div id="estructura-del-curso-actual" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Estructura del curso actual</h2>
-<div id="alcances-del-curso" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Alcances del curso</h3>
-<p>Al finalizar este curso el participante será capaz de consumir, manipular y visualizar información proveniente de diversas fuentes de información para resolver problemas de propósito general asociados a los datos. Este curso brindará las bases para introducirse a cualquiera de los cursos de Ciencia de datos que se imparten en AMAT:</p>
-<ol style="list-style-type: decimal">
-<li><p>Data Science &amp; Machine Learning (Aprendizaje supervisado I)</p></li>
-<li><p>Data Science &amp; Machine Learning (Aprendizaje no supervisado)</p></li>
-</ol>
-<p>Requisitos: Computadora con al menos 4Gb Ram</p>
-<p><strong>Temario:</strong></p>
-<p><strong>1. Introducción a Ciencia de Datos</strong></p>
+<div id="estilo" class="section level1" number="5">
+<h1><span class="header-section-number">Capítulo 5</span> Guía de estilo</h1>
+<p>Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo es importante para que el código creado por usted sea fácilmente entendido por sus lectores <span class="citation">(<a href="#ref-rpackages" role="doc-biblioref"><strong>rpackages?</strong></a>)</span>. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada <a href="https://style.tidyverse.org/">The tidyverse style guidee</a>.</p>
+<div id="nombres-de-los-archivos" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Nombres de los archivos</h2>
+<p>Se sugiere que el nombre usado para nombrar un archivo tenga sentido y que termine con extensión “.R.” A continuación dos ejemplos de como nombrar bien y mal un archivo.</p>
 <ul>
-<li>¿Qué es Ciencia de Datos?</li>
-<li>Objetivo de la ciencia de datos</li>
-<li>¿Qué se requiere para hacer ciencia de datos?</li>
-<li>Tipos de problemas que se pueden resolver</li>
-<li>Tipos de algoritmos y aprendizaje</li>
-</ul>
-<p><strong>2. Transformación y manipulación de estructuras de datos</strong></p>
-<ul>
-<li>Importación</li>
-<li>Lectura</li>
-<li>Consultas</li>
-<li>Transformación de estructura</li>
-</ul>
-<p><strong>3. Manipulación de texto</strong></p>
-<ul>
-<li>Concatenación</li>
-<li>Expresiones regulares</li>
-<li>Extracción</li>
-</ul>
-<p><strong>4. Manipulación de fechas y horas</strong></p>
-<ul>
-<li>Creación de datos temporales</li>
-<li>Transformación de datos temporales</li>
-<li>Operaciones con datos temporales</li>
-</ul>
-<p><strong>5. Análisis exploratorio y visualización interactiva de datos</strong></p>
-<ul>
-<li>EDA</li>
-<li>GEDA</li>
-<li>Uso, decisión e implementación de técnicas gráficas</li>
-<li>Visualización interactiva</li>
+<li>Bien: <code>"2020-analisis_pca.R</code></li>
+<li>Mal: <code>ju89HR56_74.R</code></li>
 </ul>
 </div>
-</div>
-<div id="duración-y-evaluación-del-curso" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Duración y evaluación del curso</h2>
+<div id="nombres-de-los-objetos" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Nombres de los objetos</h2>
+<p>Se recomienda usar los símbolos <code>_</code> dentro de los nombres de objetos.</p>
 <ul>
-<li><p>El programa tiene una duración de 24 hrs.</p></li>
-<li><p>Las clases serán impartidas los días sábado, de 9:00 am a 1:00 pm</p></li>
-<li><p>Serán asignados ejercicios que el participante deberá resolver entre una semana y otra.</p></li>
-<li><p>Al final del curso se solicitará un proyecto final, el cual deberá ser entregado para ser acreedor a la constancia de participación.</p></li>
+<li>Para las variables es preferible usar letras minúsculas (<code>pesomaiz</code> o <code>peso_maiz</code>) o utilizar la notación camello iniciando en minúscula (<code>pesoMaiz</code>).</li>
+<li>Para las funciones se recomienda usar la notación camello iniciando todas la palabras en mayúscula (<code>PlotRes</code>).</li>
+<li>Para los nombres de las constantes se recomienda que inicien con la letra k (<code>kPrecioBus</code>).</li>
 </ul>
 </div>
-<div id="recursos-y-dinámica-de-clase" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Recursos y dinámica de clase</h2>
-<p>En esta clase estaremos usando:</p>
-<ul>
-<li>R <a href="https://cran.r-project.org/">da click aquí si aún no lo descargas</a></li>
-<li>RStudio <a href="https://www.rstudio.com/products/rstudio/download/">da click aquí también</a></li>
-<li>Miro <a href="https://miro.com/welcomeonboard/WXJiSGtOUnE4Mm1EQnJaQWxIR2R6RGxPaVo5eXQ3bG1SMHNWSkVIZ09YQ3JlTHRma1dYcFJzbm9wZ05OVmxVMXwzMDc0NDU3MzU1MzI0OTQwMDI5?invite_link_id=632956861297">úsame</a></li>
-<li>Zoom <a href="https://us02web.zoom.us/j/5155440751?pwd=YzJCOGF0VnlZdlZlS0Fpc3MvZEhadz09">Clases</a>
-<ul>
-<li>Pulgar arriba: Voy bien, estoy entendiendo!</li>
-<li>Pulgar abajo: Eso no quedó muy claro</li>
-<li>Mano arriba: Quiero participar/preguntar ó Ya estoy listo para iniciar</li>
-</ul></li>
-<li>Grupo de WhatsApp <a href="https://chat.whatsapp.com/CNv5RxZb7FnLbzUFHGtYMG">El chismecito está aquí</a></li>
-<li>Posible Drive <a href="">Aún no hay documentos, no seas avorazado :D</a></li>
-<li>Notas de clase <a href="KaLizzyGam.github.io/index.html">Revisame si quieres aprender</a></li>
-</ul>
-<div class="watermark">
-<img src="img/header.png" width="400">
+<div id="longitud-de-una-línea-de-código" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Longitud de una línea de código</h2>
+<p>Se recomienda que cada línea tenga como máximo 80 caracteres. Si una línea es muy larga se debe cortar siempre por una coma.</p>
 </div>
-
+<div id="espacios" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Espacios</h2>
+<p>Use espacios alrededor de todos los operadores binarios (=, +, -, &lt;-, etc.). Los espacios alrededor del símbolo <code>=</code> son opcionales cuando se usan para ingresar valores dentro de una función. Así como en español, nunca coloque espacio antes de una coma, pero siempre use espacio luego de una coma. A continuación ejemplos de buenas y malas prácticas.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="estilo.html#cb83-1" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">2</span>])  <span class="co"># Bien</span></span>
+<span id="cb83-2"><a href="estilo.html#cb83-2" aria-hidden="true" tabindex="-1"></a>tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[, <span class="dv">1</span>])                <span class="co"># Bien</span></span>
+<span id="cb83-3"><a href="estilo.html#cb83-3" aria-hidden="true" tabindex="-1"></a>tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[<span class="dv">1</span>, ])                <span class="co"># Bien</span></span>
+<span id="cb83-4"><a href="estilo.html#cb83-4" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days<span class="sc">&lt;</span><span class="dv">0</span>, <span class="dv">2</span>])    <span class="co"># Faltan espacios alrededor &#39;&lt;&#39; </span></span>
+<span id="cb83-5"><a href="estilo.html#cb83-5" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days <span class="sc">&lt;</span> <span class="dv">0</span>,<span class="dv">2</span>])   <span class="co"># Falta espacio luego de coma</span></span>
+<span id="cb83-6"><a href="estilo.html#cb83-6" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days <span class="sc">&lt;</span> <span class="dv">0</span> , <span class="dv">2</span>]) <span class="co"># Sobra espacio antes de coma</span></span>
+<span id="cb83-7"><a href="estilo.html#cb83-7" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span> <span class="fu">table</span>(df[df<span class="sc">$</span>days <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">2</span>])   <span class="co"># Falta espacio antes de &#39;&lt;-&#39;</span></span>
+<span id="cb83-8"><a href="estilo.html#cb83-8" aria-hidden="true" tabindex="-1"></a>tab<span class="ot">&lt;-</span><span class="fu">table</span>(df[df<span class="sc">$</span>days <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">2</span>])    <span class="co"># Falta espacio alrededor de &#39;&lt;-&#39;</span></span>
+<span id="cb83-9"><a href="estilo.html#cb83-9" aria-hidden="true" tabindex="-1"></a>tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[,<span class="dv">1</span>])                 <span class="co"># Falta espacio luego de coma</span></span>
+<span id="cb83-10"><a href="estilo.html#cb83-10" aria-hidden="true" tabindex="-1"></a>tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[<span class="dv">1</span>,])                 <span class="co"># Falta espacio luego de coma</span></span></code></pre></div>
+<p>Otra buena práctica es colocar espacio antes de un paréntesis excepto cuando se llama una función.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="estilo.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (debug)    <span class="co"># Correcto</span></span>
+<span id="cb84-2"><a href="estilo.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(debug)     <span class="co"># Funciona pero no se recomienda</span></span>
+<span id="cb84-3"><a href="estilo.html#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span> (x)  <span class="co"># Funciona pero no se recomienda</span></span></code></pre></div>
+<p>Espacios extras pueden ser usados si con esto se mejora la apariencia del código, ver el ejemplo siguiente.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="estilo.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x    =</span> x.coord,</span>
+<span id="cb85-2"><a href="estilo.html#cb85-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">y    =</span> data.mat[, <span class="fu">MakeColName</span>(metric, ptiles[<span class="dv">1</span>], <span class="st">&quot;roiOpt&quot;</span>)],</span>
+<span id="cb85-3"><a href="estilo.html#cb85-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> ylim,</span>
+<span id="cb85-4"><a href="estilo.html#cb85-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;dates&quot;</span>,</span>
+<span id="cb85-5"><a href="estilo.html#cb85-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> metric,</span>
+<span id="cb85-6"><a href="estilo.html#cb85-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> (<span class="fu">paste</span>(metric, <span class="st">&quot; for 3 samples &quot;</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)))</span></code></pre></div>
+<p>No coloque espacios alrededor del código que esté dentro de paréntesis <code>( )</code> o corchetes <code>[ ]</code>, la única excepción es luego de una coma, ver el ejemplo siguiente.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="estilo.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condicion)    <span class="co"># Correcto </span></span>
+<span id="cb86-2"><a href="estilo.html#cb86-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>, ]            <span class="co"># Correcto</span></span>
+<span id="cb86-3"><a href="estilo.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ( condicion )  <span class="co"># Sobran espacios alrededor de condicion</span></span>
+<span id="cb86-4"><a href="estilo.html#cb86-4" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>,]             <span class="co"># Se necesita espacio luego de coma</span></span></code></pre></div>
+<p>Los signos de agrupación llaves <code>{ }</code> se utilizan para agrupar bloques de código y se recomienda que nunca una llave abierta <code>{</code> esté sola en una línea; una llave cerrada <code>}</code> si debe ir sola en su propia línea. Se pueden omitir las llaves cuando el bloque de instrucciones esté formado por una sola línea pero esa línea de código NO debe ir en la misma línea de la condición. A continuación dos ejemplos de lo que se recomienda.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="estilo.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.null</span>(ylim)) {                     <span class="co"># Correcto</span></span>
+<span id="cb87-2"><a href="estilo.html#cb87-2" aria-hidden="true" tabindex="-1"></a>  ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
+<span id="cb87-3"><a href="estilo.html#cb87-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb87-4"><a href="estilo.html#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.null</span>(ylim))                       <span class="co"># Correcto</span></span>
+<span id="cb87-5"><a href="estilo.html#cb87-5" aria-hidden="true" tabindex="-1"></a>  ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
+<span id="cb87-6"><a href="estilo.html#cb87-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.null</span>(ylim)) ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)    <span class="co"># Aceptable</span></span>
+<span id="cb87-7"><a href="estilo.html#cb87-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.null</span>(ylim))                       <span class="co"># No se recomienda</span></span>
+<span id="cb87-8"><a href="estilo.html#cb87-8" aria-hidden="true" tabindex="-1"></a>{        </span>
+<span id="cb87-9"><a href="estilo.html#cb87-9" aria-hidden="true" tabindex="-1"></a>  ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)</span>
+<span id="cb87-10"><a href="estilo.html#cb87-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb87-11"><a href="estilo.html#cb87-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb87-12"><a href="estilo.html#cb87-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">is.null</span>(ylim)) {ylim <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)}</span>
+<span id="cb87-13"><a href="estilo.html#cb87-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Frente a la llave { no debe ir nada</span></span>
+<span id="cb87-14"><a href="estilo.html#cb87-14" aria-hidden="true" tabindex="-1"></a><span class="co"># la llave de cierre } debe ir sola</span></span></code></pre></div>
+<p>La sentencia else debe ir siempre entre llaves <code>} {</code>, ver el siguiente ejemplo.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="estilo.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition) {         </span>
+<span id="cb88-2"><a href="estilo.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  one or more lines</span>
+<span id="cb88-3"><a href="estilo.html#cb88-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {                 <span class="co"># Correcto</span></span>
+<span id="cb88-4"><a href="estilo.html#cb88-4" aria-hidden="true" tabindex="-1"></a>  one or more lines</span>
+<span id="cb88-5"><a href="estilo.html#cb88-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb88-6"><a href="estilo.html#cb88-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition) {         </span>
+<span id="cb88-7"><a href="estilo.html#cb88-7" aria-hidden="true" tabindex="-1"></a>  one or more lines</span>
+<span id="cb88-8"><a href="estilo.html#cb88-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb88-9"><a href="estilo.html#cb88-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> {                   <span class="co"># Incorrecto</span></span>
+<span id="cb88-10"><a href="estilo.html#cb88-10" aria-hidden="true" tabindex="-1"></a>  one or more lines</span>
+<span id="cb88-11"><a href="estilo.html#cb88-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb88-12"><a href="estilo.html#cb88-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition)           </span>
+<span id="cb88-13"><a href="estilo.html#cb88-13" aria-hidden="true" tabindex="-1"></a>  one line</span>
+<span id="cb88-14"><a href="estilo.html#cb88-14" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>                     <span class="co"># Incorrecto</span></span>
+<span id="cb88-15"><a href="estilo.html#cb88-15" aria-hidden="true" tabindex="-1"></a>  one line</span></code></pre></div>
+</div>
+<div id="asignación" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Asignación</h2>
+<p>Para realizar asignaciones se recomienda usar el símbolo <code>&lt;-</code>, el símbolo de igualdad <code>=</code> no se recomienda usarlo para asignaciones.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="estilo.html#cb89-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Correcto</span></span>
+<span id="cb89-2"><a href="estilo.html#cb89-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span>   <span class="co"># No recomendado</span></span></code></pre></div>
+<p>Para una explicación más detallada sobre el símbolo de asignación se recomienda visitar este <a href="http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/">enlace</a>.</p>
+</div>
+<div id="punto-y-coma" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Punto y coma</h2>
+<p>No se recomienda colocar varias instrucciones separadas por <code>;</code> en la misma línea, aunque funciona dificulta la revisión del código.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="estilo.html#cb90-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span>; y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">5</span>); <span class="fu">hist</span>(y)  <span class="co"># No se recomienda</span></span>
+<span id="cb90-2"><a href="estilo.html#cb90-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span>                                  <span class="co"># Correcto</span></span>
+<span id="cb90-3"><a href="estilo.html#cb90-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean=</span><span class="dv">5</span>)</span>
+<span id="cb90-4"><a href="estilo.html#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
+<p>A pesar de la anterior advertencia es posible que en este libro usemos el <code>;</code> en algunas ocasiones, si lo hacemos es para ahorrar espacio en la presentación del código.</p>
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -436,8 +429,8 @@ $('.pipehover_select_one_row tr').hover(function() {
           </div>
         </div>
       </div>
-
-<a href="introducción-a-ciencia-de-datos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tipos-de-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="funbas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
