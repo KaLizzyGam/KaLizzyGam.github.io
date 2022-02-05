@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 7 Instrucciones de control | Introducción a Ciencia de Datos con R (Tidyverse)</title>
   <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 7 Instrucciones de control | Introducción a Ciencia de Datos con R (Tidyverse)" />
   <meta property="og:type" content="book" />
@@ -33,9 +33,8 @@
   
 <link rel="prev" href="funbas.html"/>
 <link rel="next" href="lectura-de-datos.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -43,6 +42,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -279,6 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1.6" data-path="tidyverse.html"><a href="tidyverse.html#group_by"><i class="fa fa-check"></i><b>9.1.6</b> group_by()</a></li>
 <li class="chapter" data-level="9.1.7" data-path="tidyverse.html"><a href="tidyverse.html#rowwise"><i class="fa fa-check"></i><b>9.1.7</b> rowwise()</a></li>
 </ul></li>
+<li class="chapter" data-level="9.2" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-texto-stringr"><i class="fa fa-check"></i><b>9.2</b> Manipulación de texto (stringr)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
@@ -389,11 +390,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb184-6"><a href="bucles.html#cb184-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <div id="ejemplo-7" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
-<p>Suponga que se lanza una moneda en la cual el resultado es cara o sello. Escribir un procedimiento que simule lanzamientos hasta que el número de caras obtenidas sea 5. El procedimiento debe entregar el historial de lanzamientos.</p>
+<p>Suponga que se lanza una moneda en la cual el resultado es cara o cruz. Escribir un procedimiento que simule lanzamientos hasta que el número de caras obtenidas sea 5. El procedimiento debe entregar el historial de lanzamientos.</p>
 <p>Para simular el lanzamiento de <strong>una</strong> moneda se puede usar la función <code>sample</code> y definiendo el vector <code>resultados</code> con <code>size=1</code> para simular un lanzamiento, a continuación el código y tres pruebas ilustrativas.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="bucles.html#cb185-1" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Cara&#39;</span>, <span class="st">&#39;Sello&#39;</span>)</span>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="bucles.html#cb185-1" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Cara&#39;</span>, <span class="st">&#39;Cruz&#39;</span>)</span>
 <span id="cb185-2"><a href="bucles.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x=</span>resultados, <span class="at">size=</span><span class="dv">1</span>)  <span class="co"># Prueba 1</span></span></code></pre></div>
-<pre><code>## [1] &quot;Sello&quot;</code></pre>
+<pre><code>## [1] &quot;Cruz&quot;</code></pre>
 <p>Una vez seamos capaces de simular un lanzamiento podemos escribir el procedimiento para generar tantos lanzamientos hasta que se cumpla la condición. El código mostrado abajo permite hacer lo solicitado.</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="bucles.html#cb187-1" aria-hidden="true" tabindex="-1"></a>num.lanza <span class="ot">&lt;-</span> <span class="dv">0</span>     <span class="co"># Contador de lanzamientos</span></span>
 <span id="cb187-2"><a href="bucles.html#cb187-2" aria-hidden="true" tabindex="-1"></a>num.caras <span class="ot">&lt;-</span> <span class="dv">0</span>     <span class="co"># Contados de caras obtenidas</span></span>
@@ -407,8 +408,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb187-10"><a href="bucles.html#cb187-10" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb187-11"><a href="bucles.html#cb187-11" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb187-12"><a href="bucles.html#cb187-12" aria-hidden="true" tabindex="-1"></a>historial</span></code></pre></div>
-<pre><code>##  [1] &quot;Sello&quot; &quot;Sello&quot; &quot;Sello&quot; &quot;Sello&quot; &quot;Cara&quot;  &quot;Cara&quot;  &quot;Sello&quot; &quot;Sello&quot; &quot;Cara&quot; 
-## [10] &quot;Cara&quot;  &quot;Cara&quot;</code></pre>
+<pre><code>##  [1] &quot;Cruz&quot; &quot;Cruz&quot; &quot;Cruz&quot; &quot;Cruz&quot; &quot;Cara&quot; &quot;Cara&quot; &quot;Cruz&quot; &quot;Cruz&quot; &quot;Cara&quot; &quot;Cara&quot;
+## [11] &quot;Cara&quot;</code></pre>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="bucles.html#cb189-1" aria-hidden="true" tabindex="-1"></a>num.lanza</span></code></pre></div>
 <pre><code>## [1] 11</code></pre>
 
@@ -483,6 +484,7 @@ $('.pipehover_select_one_row tr').hover(function() {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -522,10 +524,6 @@ gitbook.start({
 "text": null
 },
 "download": ["Introducción a Ciencia de Datos con R (Tidyverse).pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "subsection"
 }
