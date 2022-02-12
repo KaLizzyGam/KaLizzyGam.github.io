@@ -279,6 +279,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1.6" data-path="tidyverse.html"><a href="tidyverse.html#group_by"><i class="fa fa-check"></i><b>9.1.6</b> group_by()</a></li>
 <li class="chapter" data-level="9.1.7" data-path="tidyverse.html"><a href="tidyverse.html#rowwise"><i class="fa fa-check"></i><b>9.1.7</b> rowwise()</a></li>
 </ul></li>
+<li class="chapter" data-level="9.2" data-path="tidyverse.html"><a href="tidyverse.html#cruces-de-tablas"><i class="fa fa-check"></i><b>9.2</b> Cruces de tablas</a></li>
+<li class="chapter" data-level="9.3" data-path="tidyverse.html"><a href="tidyverse.html#órden-y-reestructuración-de-tablas"><i class="fa fa-check"></i><b>9.3</b> Órden y reestructuración de tablas</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="tidyverse.html"><a href="tidyverse.html#pivote-horizontal"><i class="fa fa-check"></i><b>9.3.1</b> Pivote horizontal</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tidyverse.html"><a href="tidyverse.html#pivote-vertical"><i class="fa fa-check"></i><b>9.3.2</b> Pivote vertical</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-texto-stringr"><i class="fa fa-check"></i><b>9.4</b> Manipulación de texto (stringr)</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="tidyverse.html"><a href="tidyverse.html#caracteres-especiales"><i class="fa fa-check"></i><b>9.4.1</b> Caracteres especiales</a></li>
+<li class="chapter" data-level="9.4.2" data-path="tidyverse.html"><a href="tidyverse.html#tamaño-de-la-cadena"><i class="fa fa-check"></i><b>9.4.2</b> Tamaño de la cadena</a></li>
+<li class="chapter" data-level="9.4.3" data-path="tidyverse.html"><a href="tidyverse.html#concatenar-cadenas"><i class="fa fa-check"></i><b>9.4.3</b> Concatenar cadenas</a></li>
+<li class="chapter" data-level="9.4.4" data-path="tidyverse.html"><a href="tidyverse.html#extraer-y-reemplazar-subcadenas"><i class="fa fa-check"></i><b>9.4.4</b> Extraer y reemplazar subcadenas</a></li>
+<li class="chapter" data-level="9.4.5" data-path="tidyverse.html"><a href="tidyverse.html#expresiones-regulares"><i class="fa fa-check"></i><b>9.4.5</b> Expresiones regulares</a></li>
+<li class="chapter" data-level="9.4.6" data-path="tidyverse.html"><a href="tidyverse.html#detectar-coincidencias"><i class="fa fa-check"></i><b>9.4.6</b> Detectar coincidencias</a></li>
+<li class="chapter" data-level="9.4.7" data-path="tidyverse.html"><a href="tidyverse.html#contabilizar-coincidencias"><i class="fa fa-check"></i><b>9.4.7</b> Contabilizar coincidencias</a></li>
+<li class="chapter" data-level="9.4.8" data-path="tidyverse.html"><a href="tidyverse.html#extraer-coincidencias"><i class="fa fa-check"></i><b>9.4.8</b> Extraer coincidencias</a></li>
+<li class="chapter" data-level="9.4.9" data-path="tidyverse.html"><a href="tidyverse.html#reemplazar-coincidencias"><i class="fa fa-check"></i><b>9.4.9</b> Reemplazar coincidencias</a></li>
+<li class="chapter" data-level="9.4.10" data-path="tidyverse.html"><a href="tidyverse.html#divisiones-mediante-patrones"><i class="fa fa-check"></i><b>9.4.10</b> Divisiones mediante patrones</a></li>
+<li class="chapter" data-level="9.4.11" data-path="tidyverse.html"><a href="tidyverse.html#localización-de-coincidencias"><i class="fa fa-check"></i><b>9.4.11</b> Localización de coincidencias</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-fechas-y-horas"><i class="fa fa-check"></i><b>9.5</b> Manipulación de fechas y horas</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
@@ -556,11 +577,11 @@ En R existe el operador binario <code>:</code> que sirve para construir secuenci
 <li><p>Evaluar la siguiente suma <span class="math inline">\(\sum_{i=3}^{i=7}e^i\)</span></p></li>
 <li><p>Evaluar la siguiente productoria <span class="math inline">\(\prod_{i=1}^{i=10}\log\sqrt{i}\)</span></p></li>
 <li><p>Construya un vector cualquiera e inviertalo, es decir, que el primer elemento quede de último, el segundo de penúltimo y así sucesivamente. Compare su resultado con el de la función <code>rev</code>.</p></li>
-<li><p>Create the vector: <span class="math inline">\(1, 2, 3, \ldots, 19, 20\)</span>.</p></li>
-<li><p>Create the vector: <span class="math inline">\(20, 19, \ldots , 2, 1\)</span>.</p></li>
-<li><p>Create the vector: <span class="math inline">\(1, -2, 3, -4, 5, -6, \ldots, 19, -20\)</span>.</p></li>
-<li><p>Create the vector: <span class="math inline">\(0.1^3, 0.2^1, 0.1^6, 0.2^4, . . . , 0.1^{36}, 0.2^{34}\)</span>.</p></li>
-<li><p>Calculate the following: <span class="math inline">\(\sum_{i=10}^{100}(i^3+4i^2)\)</span> and <span class="math inline">\(\sum_{i=1}^{25}\left( \frac{2^i}{i} + \frac{3^i}{i^2} \right)\)</span>.</p></li>
+<li><p>Crear el vector: <span class="math inline">\(1, 2, 3, \ldots, 19, 20\)</span>.</p></li>
+<li><p>Crear el vector: <span class="math inline">\(20, 19, \ldots , 2, 1\)</span>.</p></li>
+<li><p>Crear el vector: <span class="math inline">\(1, -2, 3, -4, 5, -6, \ldots, 19, -20\)</span>.</p></li>
+<li><p>Crear el vector: <span class="math inline">\(0.1^3, 0.2^1, 0.1^6, 0.2^4, . . . , 0.1^{36}, 0.2^{34}\)</span>.</p></li>
+<li><p>Calcular lo siguiente: <span class="math inline">\(\sum_{i=10}^{100}(i^3+4i^2)\)</span> and <span class="math inline">\(\sum_{i=1}^{25}\left( \frac{2^i}{i} + \frac{3^i}{i^2} \right)\)</span>.</p></li>
 </ol>
 <p>En R hay unas bases de datos incluídas, una de ellas es la base de datos llamada <code>mtcars</code>. Para conocer las variables que están en <code>mtcars</code> usted puede escribir en la consola <code>?mtcars</code> o también <code>help(mtcars)</code>. De la base <code>mtcars</code> obtenga bases de datos que cumplan las siguientes condiciones.</p>
 <ol start="22" style="list-style-type: decimal">

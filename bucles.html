@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 7 Instrucciones de control | Introducción a Ciencia de Datos con R (Tidyverse)</title>
   <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 7 Instrucciones de control | Introducción a Ciencia de Datos con R (Tidyverse)" />
   <meta property="og:type" content="book" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="funbas.html"/>
 <link rel="next" href="lectura-de-datos.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +43,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -279,7 +279,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.1.6" data-path="tidyverse.html"><a href="tidyverse.html#group_by"><i class="fa fa-check"></i><b>9.1.6</b> group_by()</a></li>
 <li class="chapter" data-level="9.1.7" data-path="tidyverse.html"><a href="tidyverse.html#rowwise"><i class="fa fa-check"></i><b>9.1.7</b> rowwise()</a></li>
 </ul></li>
-<li class="chapter" data-level="9.2" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-texto-stringr"><i class="fa fa-check"></i><b>9.2</b> Manipulación de texto (stringr)</a></li>
+<li class="chapter" data-level="9.2" data-path="tidyverse.html"><a href="tidyverse.html#cruces-de-tablas"><i class="fa fa-check"></i><b>9.2</b> Cruces de tablas</a></li>
+<li class="chapter" data-level="9.3" data-path="tidyverse.html"><a href="tidyverse.html#órden-y-reestructuración-de-tablas"><i class="fa fa-check"></i><b>9.3</b> Órden y reestructuración de tablas</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="tidyverse.html"><a href="tidyverse.html#pivote-horizontal"><i class="fa fa-check"></i><b>9.3.1</b> Pivote horizontal</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tidyverse.html"><a href="tidyverse.html#pivote-vertical"><i class="fa fa-check"></i><b>9.3.2</b> Pivote vertical</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-texto-stringr"><i class="fa fa-check"></i><b>9.4</b> Manipulación de texto (stringr)</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="tidyverse.html"><a href="tidyverse.html#caracteres-especiales"><i class="fa fa-check"></i><b>9.4.1</b> Caracteres especiales</a></li>
+<li class="chapter" data-level="9.4.2" data-path="tidyverse.html"><a href="tidyverse.html#tamaño-de-la-cadena"><i class="fa fa-check"></i><b>9.4.2</b> Tamaño de la cadena</a></li>
+<li class="chapter" data-level="9.4.3" data-path="tidyverse.html"><a href="tidyverse.html#concatenar-cadenas"><i class="fa fa-check"></i><b>9.4.3</b> Concatenar cadenas</a></li>
+<li class="chapter" data-level="9.4.4" data-path="tidyverse.html"><a href="tidyverse.html#extraer-y-reemplazar-subcadenas"><i class="fa fa-check"></i><b>9.4.4</b> Extraer y reemplazar subcadenas</a></li>
+<li class="chapter" data-level="9.4.5" data-path="tidyverse.html"><a href="tidyverse.html#expresiones-regulares"><i class="fa fa-check"></i><b>9.4.5</b> Expresiones regulares</a></li>
+<li class="chapter" data-level="9.4.6" data-path="tidyverse.html"><a href="tidyverse.html#detectar-coincidencias"><i class="fa fa-check"></i><b>9.4.6</b> Detectar coincidencias</a></li>
+<li class="chapter" data-level="9.4.7" data-path="tidyverse.html"><a href="tidyverse.html#contabilizar-coincidencias"><i class="fa fa-check"></i><b>9.4.7</b> Contabilizar coincidencias</a></li>
+<li class="chapter" data-level="9.4.8" data-path="tidyverse.html"><a href="tidyverse.html#extraer-coincidencias"><i class="fa fa-check"></i><b>9.4.8</b> Extraer coincidencias</a></li>
+<li class="chapter" data-level="9.4.9" data-path="tidyverse.html"><a href="tidyverse.html#reemplazar-coincidencias"><i class="fa fa-check"></i><b>9.4.9</b> Reemplazar coincidencias</a></li>
+<li class="chapter" data-level="9.4.10" data-path="tidyverse.html"><a href="tidyverse.html#divisiones-mediante-patrones"><i class="fa fa-check"></i><b>9.4.10</b> Divisiones mediante patrones</a></li>
+<li class="chapter" data-level="9.4.11" data-path="tidyverse.html"><a href="tidyverse.html#localización-de-coincidencias"><i class="fa fa-check"></i><b>9.4.11</b> Localización de coincidencias</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-fechas-y-horas"><i class="fa fa-check"></i><b>9.5</b> Manipulación de fechas y horas</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
@@ -484,7 +504,6 @@ $('.pipehover_select_one_row tr').hover(function() {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -524,6 +543,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Introducción a Ciencia de Datos con R (Tidyverse).pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
