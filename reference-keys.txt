@@ -75,7 +75,7 @@ summarise
 group_by
 rowwise
 cruces-de-tablas
-órden-y-reestructuración-de-tablas
+orden-y-reestructuración-de-tablas
 pivote-horizontal
 pivote-vertical
 unión-de-columnas
