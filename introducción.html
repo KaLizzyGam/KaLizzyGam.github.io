@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Introducción | Introducción a Ciencia de Datos con R (Tidyverse)</title>
+  <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Introducción | Introducción a Ciencia de Datos con R (Tidyverse)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Introducción | Introducción a Ciencia de Datos con R (Tidyverse)" />
+  
+  <meta name="twitter:description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
+  
+
+<meta name="author" content="Karina Lizette Gamboa Puente" />
+<meta name="author" content="Oscar Arturo Bringas López" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="lectura-de-datos.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="img/amat-logo.png" width="280"></a></li|
+|:-:|  
+<center>Introducción a Ciencia de Datos con R (Tidyverse)</center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIENVENIDA</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#quienes-somos"><i class="fa fa-check"></i><b>1.2</b> ¿Quienes somos?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>2</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción.html"><a href="introducción.html#qué-es-r"><i class="fa fa-check"></i><b>2.1</b> ¿Qué es <em>R</em>?</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción.html"><a href="introducción.html#cómo-obtener-r"><i class="fa fa-check"></i><b>2.2</b> ¿Cómo obtener <em>R</em>?</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción.html"><a href="introducción.html#qué-es-rstudio"><i class="fa fa-check"></i><b>2.3</b> ¿Qué es RStudio?</a></li>
+<li class="chapter" data-level="2.4" data-path="introducción.html"><a href="introducción.html#r-como-lenguaje-orientado-a-objetos"><i class="fa fa-check"></i><b>2.4</b> <em>R</em> como lenguaje orientado a objetos</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="introducción.html"><a href="introducción.html#clases"><i class="fa fa-check"></i><b>2.4.1</b> Clases</a></li>
+<li class="chapter" data-level="2.4.2" data-path="introducción.html"><a href="introducción.html#creación-de-objetos"><i class="fa fa-check"></i><b>2.4.2</b> Creación de objetos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html"><i class="fa fa-check"></i><b>3</b> Lectura de datos</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#lectura-de-datos-1"><i class="fa fa-check"></i><b>3.1</b> Lectura de datos</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#archivos-csv"><i class="fa fa-check"></i><b>3.1.1</b> Archivos <em>csv</em></a></li>
+<li class="chapter" data-level="3.1.2" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#archivos-xls-y-xlsx"><i class="fa fa-check"></i><b>3.1.2</b> Archivos <em>xls</em> y <em>xlsx</em></a></li>
+<li class="chapter" data-level="3.1.3" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#archivos-json"><i class="fa fa-check"></i><b>3.1.3</b> Archivos json</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#bases-de-datos"><i class="fa fa-check"></i><b>3.2</b> Bases de Datos</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="lectura-de-datos.html"><a href="lectura-de-datos.html#microsoft-sql-server"><i class="fa fa-check"></i><b>3.2.1</b> Microsoft SQL Server</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>4</b> Tidyverse</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="tidyverse.html"><a href="tidyverse.html#consultas-de-datos"><i class="fa fa-check"></i><b>4.1</b> Consultas de datos</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="tidyverse.html"><a href="tidyverse.html#select"><i class="fa fa-check"></i><b>4.1.1</b> select()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="tidyverse.html"><a href="tidyverse.html#filter"><i class="fa fa-check"></i><b>4.1.2</b> filter()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="tidyverse.html"><a href="tidyverse.html#arrange"><i class="fa fa-check"></i><b>4.1.3</b> arrange()</a></li>
+<li class="chapter" data-level="4.1.4" data-path="tidyverse.html"><a href="tidyverse.html#mutate"><i class="fa fa-check"></i><b>4.1.4</b> mutate()</a></li>
+<li class="chapter" data-level="4.1.5" data-path="tidyverse.html"><a href="tidyverse.html#summarise"><i class="fa fa-check"></i><b>4.1.5</b> summarise()</a></li>
+<li class="chapter" data-level="4.1.6" data-path="tidyverse.html"><a href="tidyverse.html#group_by"><i class="fa fa-check"></i><b>4.1.6</b> group_by()</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción a Ciencia de Datos con R (Tidyverse)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introducción" class="section level1" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Introducción</h1>
+<div id="qué-es-r" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> ¿Qué es <em>R</em>?</h2>
+<p>R (R Core Team 2018) es un entorno y lenguaje de programación que permite el análisis estadístico de información y reportes gráficos. Es ampliamente usado en investigación por la comunidad estadística en campos como la biomedicina, minería de datos, matemáticas financieras, entre otros. Ha ganado mucha popularidad en los últimos años al ser un software libre que está en constante crecimiento por las aportaciones de otros usuarios y que permite la interacción con software estadísticos como STATA, SAS, SPSS, etc.. R permite la incorporación de librerías y paqueterías con funcionalidades específicas, por lo que es un lenguaje de programación muy completo y fácil de usar.</p>
+</div>
+<div id="cómo-obtener-r" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> ¿Cómo obtener <em>R</em>?</h2>
+<p>R puede ser fácilmente descargado de forma gratuita desde el sitio oficial <a href="http://www.r-project.org/">http://www.r-project.org/</a>. R está disponible para las plataformas Windows, Mac y Linux.</p>
+</div>
+<div id="qué-es-rstudio" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> ¿Qué es RStudio?</h2>
+<p><em>RStudio</em> es un Entorno de Desarrollo Integrado (IDE, por sus siglas en inglés) para R. Este permite y facilita el desarrollo y ejecución de sintaxis para código en <em>R</em>, incluye una consola y proporciona herramientas para la gestión del espacio de trabajo. <em>RStudio</em> está disponible para Windows, Mac y Linux o para navegadores conectados a RStudio Server o RStudio Server Pro.</p>
+<p>Algunas de las principales características de Rstudio que lo hacen una gran herramienta para trabajar en R, son:</p>
+<ul>
+<li>Auto completado de código</li>
+<li>Sangría inteligente</li>
+<li>Resaltado de sintaxis</li>
+<li>Facilidad para definir funciones</li>
+<li>Soporte integrado</li>
+<li>Documentación integrada</li>
+<li>Administración de directorios y proyectos</li>
+<li>Visor de datos</li>
+<li>Depurador interactivo para corregir errores</li>
+<li>Conección con Rmarkwon y Sweave</li>
+</ul>
+<p>La siguiente imagen muestra la forma en la que está estructurado RStudio. El orden de los páneles puede ser elegido por el usuario, así como las características de tipo de letra, tamaño y color de fondo, entre otras características.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="img/01-intro/rstudio3.png" alt="Páneles de trabajo de Rstudio" width="800px" height="450px" />
+<p class="caption">
+Figure 2.1: Páneles de trabajo de Rstudio
+</p>
+</div>
+</div>
+<div id="r-como-lenguaje-orientado-a-objetos" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> <em>R</em> como lenguaje orientado a objetos</h2>
+<p><em>R</em> es un lenguaje de programación orientado a objetos (POO). (López 2011, pag. 5) define a los objetos y sus características como “cualquier cosa con significado para el problema que se trata de resolver.” A partir de esa definición, se puede decir que sirve para representar alguna entidad de la vida real, por lo general son componentes del problema que se pretende resolver y con los que podemos interactuar. A través de esta interacción y del estudio que se haga de ellos, es posible clasificarlos en grupos de acuerdo a sus caractrerísticas. A partir de los objetos con los que se trabaje, surgirán las clases adecuadas para encontrar la solución a un problema dado.</p>
+<p>Los objetos tienen características fundamentales que permiten identificarlos, conocerlos y entender su comportamiento. De acuerdo con (Schildt 2009), estas características son:</p>
+<ol style="list-style-type: decimal">
+<li>Identidad</li>
+<li>Comportamiento</li>
+<li>Estructura</li>
+</ol>
+<ul>
+<li><p><strong>Identidad:</strong> Esta es la propiedad que da nombre a cada uno de los objetos y que permite declararlos, distinguirlos de manera única, usarlos y llamarlos para la representación de su contenido.</p></li>
+<li><p><strong>Comportamiento:</strong> Esta es la propiedad que determina las operaciones que puede realizar el objeto, es decir, permite conocer las capacidades y alcances de la funcionalidad de cada objeto. El comportamiento permite conocer la interacción que puede existir con otros objetos y los resultrados que generarán.</p></li>
+<li><p><strong>Estructura:</strong> El estado se refiere a un conjunto de características o atributos específicos del objeto dados en un momento determinado, y que pueden cambiar en un instante de tiempo.</p></li>
+</ul>
+<p>En la programación orientada a objetos, un programa recolecta muchos objetos para ser tratado como un conjunto dinámico de objetos interactuando entre sí. Los objetos están definidos por:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Atributos:</strong> Son las propiedades o características de los datos contenidos en un objeto. Los valores asociados a un objeto en un momento determinado del tiempo determinan su estado.</p></li>
+<li><p><strong>Métodos:</strong> Acceden a los atributos de los objetos y determinan el comportamiento de los datos contenidos.</p></li>
+</ol>
+<div id="clases" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Clases</h3>
+<p>R posee 5 clases de objetos básicas o atómicas integradas. A partir de la combinación de ellas, se construyen todas las demás. Estas clases atómicas son:</p>
+<ol style="list-style-type: decimal">
+<li>Character (caracteres)</li>
+<li>Numeric (números reales)</li>
+<li>Integer (números enteros)</li>
+<li>Complex (números complejos)</li>
+<li>Logical (valores lógicos verdadero y falso)</li>
+</ol>
+<p>En R, todo es un objeto, por lo que es posible acceder a sus características a través de funciones predefinidas en la librería básica. Por ejemplo:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introducción.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="st">&quot;Hola mundo&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introducción.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fl">10.5</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="introducción.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">integer</span>(<span class="dv">10</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="introducción.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="dv">10</span> <span class="sc">+</span> 1i)</span></code></pre></div>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="introducción.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+</div>
+<div id="creación-de-objetos" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Creación de objetos</h3>
+<p>Los objetos pueden ser guardados a través del operador ‘&lt;-’ ó ‘=,’ anteponiendo al operador un nombre que servirá como el identificador del objeto:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introducción.html#cb11-1" aria-hidden="true" tabindex="-1"></a>Mi_primer_objeto <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb11-2"><a href="introducción.html#cb11-2" aria-hidden="true" tabindex="-1"></a>Nombre_identificador <span class="ot">&lt;-</span> <span class="st">&quot;Objeto de clase caracter&quot;</span></span></code></pre></div>
+<p>Es posible acceder al contenido de un objeto al mandarlo llamar mediante su identificador, esto se logra escribiendo en la consola la función ‘print(),’ incluyendo entre paréntesis el nombre del objeto a imprimir, o bien, escribiendo en la consola directamente el nombre del objeto y automáticamente imprimirá su contenido, como se ve a continuación:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="introducción.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Mi_primer_objeto)</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introducción.html#cb14-1" aria-hidden="true" tabindex="-1"></a>Nombre_identificador</span></code></pre></div>
+<pre><code>## [1] &quot;Objeto de clase caracter&quot;</code></pre>
+<p>Para almacenar conjuntos de datos en R, es posible hacerlo de distintas formas, la más básica y sencilla es a través de un vector. Utilizando la función ‘c()’ e introduciendo los objetos a almacenar separándolos por comas entre sí. La característica fundamental de los vectores es que almacenan información de la misma clase. A continuación se muestran dos ejemplos con distinta clase cada uno.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="introducción.html#cb16-1" aria-hidden="true" tabindex="-1"></a>vector_numerico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb16-2"><a href="introducción.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vector_numerico)</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introducción.html#cb18-1" aria-hidden="true" tabindex="-1"></a>vector_caracter <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;este&quot;</span>, <span class="st">&quot;es&quot;</span>, <span class="st">&quot;un&quot;</span>, <span class="st">&quot;vector&quot;</span>, <span class="st">&quot;de&quot;</span>, <span class="st">&quot;caracteres&quot;</span>)</span>
+<span id="cb18-2"><a href="introducción.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(vector_caracter)</span></code></pre></div>
+<pre><code>## [1] &quot;este&quot;       &quot;es&quot;         &quot;un&quot;         &quot;vector&quot;     &quot;de&quot;        
+## [6] &quot;caracteres&quot;</code></pre>
+<p>En caso de que se introduzcan objetos de diferentes clases, R convertirá la clase de los objetos de tal forma que todos puedan ser representados por la misma clase, por ejemplo:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introducción.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="st">&quot;cinco&quot;</span>)    <span class="co"># Los números son representados como caracteres</span></span></code></pre></div>
+<pre><code>## [1] &quot;1&quot;     &quot;2&quot;     &quot;3&quot;     &quot;4&quot;     &quot;cinco&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introducción.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">2</span>, <span class="cn">FALSE</span>)     <span class="co"># True y False se convierten en los números 1 y 0 respectivamente</span></span></code></pre></div>
+<pre><code>## [1] 1 2 0</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introducción.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, F, <span class="dv">1</span>, <span class="st">&quot;dos&quot;</span>)  <span class="co"># Todos los objetos son convertidos a caracteres</span></span></code></pre></div>
+<pre><code>## [1] &quot;TRUE&quot;  &quot;FALSE&quot; &quot;1&quot;     &quot;dos&quot;</code></pre>
+<p>Para acceder al i-ésimo elemento de un vector se usa un índice que determina su posición exacta dentro del vector. Este índice debe incluirse entre corchetes inmediatamente después del nombre del vector. Hay que tomar en cuenta que, a diferencia de otros lenguajes de programación, en R la numeración de los índices comienza desde 1, por lo que si se desea acceder al cuarto elemento o al conjunto de elementos 1,4,5,6, se deberá escribir de la siguiente forma:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introducción.html#cb26-1" aria-hidden="true" tabindex="-1"></a>vector_caracter[<span class="dv">4</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;vector&quot;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introducción.html#cb28-1" aria-hidden="true" tabindex="-1"></a>vector_caracter[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)]</span></code></pre></div>
+<pre><code>## [1] &quot;este&quot;       &quot;vector&quot;     &quot;de&quot;         &quot;caracteres&quot;</code></pre>
+<p>En caso de que se desee almacenar elementos con diferente tipo de clase, es posible hacerlo mediante la implementación de “listas.” Las listas dividen en secciones los elementos de diferentes clases. Para poder acceder a dichas secciones, se usa el nombre de la sección o índice entre doble corchete. Por ejemplo:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introducción.html#cb30-1" aria-hidden="true" tabindex="-1"></a>Mi_lista <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb30-2"><a href="introducción.html#cb30-2" aria-hidden="true" tabindex="-1"></a>Mi_lista[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb30-3"><a href="introducción.html#cb30-3" aria-hidden="true" tabindex="-1"></a>Mi_lista[[<span class="st">&#39;Segunda entrada&#39;</span>]] <span class="ot">&lt;-</span> <span class="fu">c</span>(T,T,F,T,F,F)</span>
+<span id="cb30-4"><a href="introducción.html#cb30-4" aria-hidden="true" tabindex="-1"></a>Mi_lista[[<span class="dv">3</span>]] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Hay&#39;</span>, <span class="dv">3</span>, <span class="st">&#39;objetos almacenados&#39;</span>)</span>
+<span id="cb30-5"><a href="introducción.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Mi_lista)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 3 4 5
+## 
+## $`Segunda entrada`
+## [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE
+## 
+## [[3]]
+## [1] &quot;Hay&quot;                 &quot;3&quot;                   &quot;objetos almacenados&quot;</code></pre>
+<p>Para acceder a la j-ésima sección, se debe especificar entre doble corchete el índice o nombre de la sección deseada. Si se desea acceder al i-ésimo elemento de la j-ésima sección, deberá ser especificada la sección y posteriormente el i-ésimo elemnto a extraer.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introducción.html#cb32-1" aria-hidden="true" tabindex="-1"></a>Mi_lista[[<span class="dv">1</span>]]           <span class="co"># Extracción completa de la primera sección.</span></span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introducción.html#cb34-1" aria-hidden="true" tabindex="-1"></a>Mi_lista[[<span class="dv">1</span>]][<span class="dv">3</span>]        <span class="co"># Extracción del tercer elemento de la primera sección.</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="introducción.html#cb36-1" aria-hidden="true" tabindex="-1"></a>Mi_lista[[<span class="dv">2</span>]][<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)] <span class="co"># Extracción de los elemntos 2,3 y 4 de la segunda sección.</span></span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="introducción.html#cb38-1" aria-hidden="true" tabindex="-1"></a>Mi_lista[[<span class="dv">3</span>]][<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] &quot;objetos almacenados&quot;</code></pre>
+<p>Para almacenar grandes conjuntos de información conformados por distintos vectores, es común recurrir a los objetos de la clase ‘data.frame.’ La estructura de dichos objectos está conformada por dos dimensiones (renglones y columnas). Dicha estructura se usa principalmente para capturar diferentes características de sujetos o elementos, los renglones son las observaciones o los distintos sujetos y las columnas se usan para capturar cada una de las características del sujeto u observación.</p>
+<p>Esta estructura suele ser trabajada de dos formas principales, la primera es construyéndose desde dentro del código conforme se va generando la información, ó bien la segunda, leyendo datos de manera externa.
+El primer método requiere de la concatenación de 2 o más vectores de la misma dimensión. Los elementos a concatenar se pasan como parámetros de la función cbind.data.frame() ó rbind.data.frame(), dependiendo de si se desean concatenar como renglones o como columnas. A continuación se verá un ejemplo:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="introducción.html#cb40-1" aria-hidden="true" tabindex="-1"></a>vector1<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;e&quot;</span>)</span>
+<span id="cb40-2"><a href="introducción.html#cb40-2" aria-hidden="true" tabindex="-1"></a>vector2<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb40-3"><a href="introducción.html#cb40-3" aria-hidden="true" tabindex="-1"></a>vector3<span class="ot">&lt;-</span> <span class="fu">c</span>(T,F,T,F,T)</span>
+<span id="cb40-4"><a href="introducción.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="introducción.html#cb40-5" aria-hidden="true" tabindex="-1"></a>dataframe1<span class="ot">&lt;-</span><span class="fu">cbind.data.frame</span>(vector1,vector2,vector3)</span>
+<span id="cb40-6"><a href="introducción.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dataframe1)<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Columna 1&quot;</span>,<span class="st">&quot;Columna 2&quot;</span>,<span class="st">&quot;Columna 3&quot;</span>)</span>
+<span id="cb40-7"><a href="introducción.html#cb40-7" aria-hidden="true" tabindex="-1"></a>dataframe1</span></code></pre></div>
+<pre><code>##   Columna 1 Columna 2 Columna 3
+## 1         a         1      TRUE
+## 2         b         2     FALSE
+## 3         c         3      TRUE
+## 4         d         4     FALSE
+## 5         e         5      TRUE</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="introducción.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dataframe1)</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="introducción.html#cb44-1" aria-hidden="true" tabindex="-1"></a>dataframe2 <span class="ot">&lt;-</span><span class="fu">rbind.data.frame</span>(vector1,vector2,vector3)</span>
+<span id="cb44-2"><a href="introducción.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dataframe2)<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;Columna 1&quot;</span>,<span class="st">&quot;Columna 2&quot;</span>,<span class="st">&quot;Columna 3&quot;</span>, <span class="st">&quot;Columna 4&quot;</span>,<span class="st">&quot;Columna 5&quot;</span>)</span>
+<span id="cb44-3"><a href="introducción.html#cb44-3" aria-hidden="true" tabindex="-1"></a>dataframe2</span></code></pre></div>
+<pre><code>##   Columna 1 Columna 2 Columna 3 Columna 4 Columna 5
+## 1         a         b         c         d         e
+## 2         1         2         3         4         5
+## 3      TRUE     FALSE      TRUE     FALSE      TRUE</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="introducción.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(dataframe2)</span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+
+</div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$('.pipehover_incremental tr').hover(function() {
+  $(this).removeClass()
+  $(this).prevAll().removeClass()
+  $(this).nextAll().removeClass()
+  $(this).addClass('hover');
+  $(this).prevAll().addClass('hover');
+  $(this).closest('div').next().find('img').attr("src", $(this).attr("link"));
+});
+
+
+$('.pipehover_select_one_row tr').hover(function() {
+  $(this).removeClass()
+  $(this).prevAll().removeClass()
+  $(this).nextAll().removeClass()
+  $(this).addClass('hover');
+  $(this).closest('div').next().find('img').attr("src", $(this).attr("link"));
+});
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lectura-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introducción a Ciencia de Datos con R (Tidyverse).pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

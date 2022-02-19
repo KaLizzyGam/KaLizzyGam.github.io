@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 9 Tidyverse | Introducción a Ciencia de Datos con R (Tidyverse)</title>
   <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 9 Tidyverse | Introducción a Ciencia de Datos con R (Tidyverse)" />
   <meta property="og:type" content="book" />
@@ -32,10 +32,9 @@
   
   
 <link rel="prev" href="lectura-de-datos.html"/>
-
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link rel="next" href="ggplot.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,8 +50,18 @@
 
 
 
+
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<script src="libs/plotly-binding-4.9.4.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -284,6 +293,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="tidyverse.html"><a href="tidyverse.html#pivote-horizontal"><i class="fa fa-check"></i><b>9.3.1</b> Pivote horizontal</a></li>
 <li class="chapter" data-level="9.3.2" data-path="tidyverse.html"><a href="tidyverse.html#pivote-vertical"><i class="fa fa-check"></i><b>9.3.2</b> Pivote vertical</a></li>
+<li class="chapter" data-level="9.3.3" data-path="tidyverse.html"><a href="tidyverse.html#unión-de-columnas"><i class="fa fa-check"></i><b>9.3.3</b> Unión de columnas</a></li>
+<li class="chapter" data-level="9.3.4" data-path="tidyverse.html"><a href="tidyverse.html#separador-de-columnas"><i class="fa fa-check"></i><b>9.3.4</b> Separador de columnas</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-texto-stringr"><i class="fa fa-check"></i><b>9.4</b> Manipulación de texto (stringr)</a>
 <ul>
@@ -299,7 +310,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.10" data-path="tidyverse.html"><a href="tidyverse.html#divisiones-mediante-patrones"><i class="fa fa-check"></i><b>9.4.10</b> Divisiones mediante patrones</a></li>
 <li class="chapter" data-level="9.4.11" data-path="tidyverse.html"><a href="tidyverse.html#localización-de-coincidencias"><i class="fa fa-check"></i><b>9.4.11</b> Localización de coincidencias</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-fechas-y-horas"><i class="fa fa-check"></i><b>9.5</b> Manipulación de fechas y horas</a></li>
+<li class="chapter" data-level="9.5" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-fechas-y-horas"><i class="fa fa-check"></i><b>9.5</b> Manipulación de fechas y horas</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="tidyverse.html"><a href="tidyverse.html#lectura-y-creación-de-datos-temporales"><i class="fa fa-check"></i><b>9.5.1</b> Lectura y creación de datos temporales</a></li>
+<li class="chapter" data-level="9.5.2" data-path="tidyverse.html"><a href="tidyverse.html#extracción-de-datos-temporales"><i class="fa fa-check"></i><b>9.5.2</b> Extracción de datos temporales</a></li>
+<li class="chapter" data-level="9.5.3" data-path="tidyverse.html"><a href="tidyverse.html#operaciones-temporales"><i class="fa fa-check"></i><b>9.5.3</b> Operaciones temporales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>10</b> Ggplot</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ggplot.html"><a href="ggplot.html#eda-análisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>10.1</b> EDA: Análisis Exploratorio de Datos</a></li>
+<li class="chapter" data-level="10.2" data-path="ggplot.html"><a href="ggplot.html#geda-análisis-exploratorio-de-datos-gráficos"><i class="fa fa-check"></i><b>10.2</b> GEDA: Análisis Exploratorio de Datos Gráficos</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="ggplot.html"><a href="ggplot.html#gráficos-univariados"><i class="fa fa-check"></i><b>10.2.1</b> Gráficos univariados:</a></li>
+<li class="chapter" data-level="10.2.2" data-path="ggplot.html"><a href="ggplot.html#gráficos-multivariados"><i class="fa fa-check"></i><b>10.2.2</b> Gráficos multivariados</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="ggplot.html"><a href="ggplot.html#ggplot2"><i class="fa fa-check"></i><b>10.3</b> Ggplot2</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="ggplot.html"><a href="ggplot.html#objetos-aesteticos"><i class="fa fa-check"></i><b>10.3.1</b> Objetos aesteticos</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ggplot.html"><a href="ggplot.html#objetos-geométricos-o-capas"><i class="fa fa-check"></i><b>10.3.2</b> Objetos geométricos o capas</a></li>
+<li class="chapter" data-level="10.3.3" data-path="ggplot.html"><a href="ggplot.html#facetas"><i class="fa fa-check"></i><b>10.3.3</b> Facetas</a></li>
+<li class="chapter" data-level="10.3.4" data-path="ggplot.html"><a href="ggplot.html#más-sobre-estéticas"><i class="fa fa-check"></i><b>10.3.4</b> Más sobre estéticas</a></li>
+<li class="chapter" data-level="10.3.5" data-path="ggplot.html"><a href="ggplot.html#un-vistazo-rápido-a-los-datos"><i class="fa fa-check"></i><b>10.3.5</b> Un vistazo rápido a los datos</a></li>
+<li class="chapter" data-level="10.3.6" data-path="ggplot.html"><a href="ggplot.html#análisis-univariado"><i class="fa fa-check"></i><b>10.3.6</b> Análisis univariado</a></li>
+<li class="chapter" data-level="10.3.7" data-path="ggplot.html"><a href="ggplot.html#análisis-multivariado"><i class="fa fa-check"></i><b>10.3.7</b> Análisis multivariado</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
@@ -323,6 +358,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="tidyverse" class="section level1" number="9">
 <h1><span class="header-section-number">Capítulo 9</span> Tidyverse</h1>
+<div class="watermark">
+<p><img src="img/header.png" width="400"/></p>
+</div>
 <div id="consultas-de-datos-dplyr" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Consultas de datos (dplyr)</h2>
 <p>Ahora que ya sabemos como cargar datos, aprenderemos como manipularlos con <em>dplyr.</em> El paquete <em>dplyr</em> proporciona un conjunto de funciones muy útiles para manipular data frames y así reducir el número de repeticiones, la probabilidad de cometer errores y el número de caracteres que hay que escribir. Como valor extra, podemos encontrar que la gramática de <em>dplyr</em> es más fácil de entender.</p>
@@ -1055,9 +1093,7 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 </ol>
 <p>Para ordenarlo usamos <em>pivot_longer()</em>:</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="tidyverse.html#cb277-1" aria-hidden="true" tabindex="-1"></a>relig_income <span class="sc">%&gt;%</span> </span>
-<span id="cb277-2"><a href="tidyverse.html#cb277-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>religion,</span>
-<span id="cb277-3"><a href="tidyverse.html#cb277-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&quot;income&quot;</span>, </span>
-<span id="cb277-4"><a href="tidyverse.html#cb277-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;count&quot;</span>)</span></code></pre></div>
+<span id="cb277-2"><a href="tidyverse.html#cb277-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>religion, <span class="at">names_to =</span> <span class="st">&quot;income&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;count&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 180 × 3
 ##    religion income             count
 ##    &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;
@@ -1075,9 +1111,103 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <ul>
 <li>El primer argumento es el conjunto de datos para remodelar, relig_income.</li>
 <li>El segundo argumento describe qué columnas necesitan ser reformadas. En este caso, es cada columna aparte de religion.</li>
-<li>El <em>names_to</em> da el nombre de la variable que se creará a partir de los datos almacenados en los nombres de columna, es decir, ingresos.</li>
-<li>Los <em>values_to</em> dan el nombre de la variable que se creará a partir de los datos almacenados en el valor de la celda, es decir, count. Ni la columna names_to ni la values_to existen en relig_income, por lo que las proporcionamos como cadenas de caracteres entre comillas.</li>
+<li>El <strong>names_to</strong> da el nombre de la variable que se creará a partir de los datos almacenados en los nombres de columna, es decir, ingresos.</li>
+<li>Los <strong>values_to</strong> dan el nombre de la variable que se creará a partir de los datos almacenados en el valor de la celda, es decir, count. Ni la columna names_to ni la values_to existen en relig_income, por lo que las proporcionamos como cadenas de caracteres entre comillas.</li>
 </ul>
+</div>
+<div id="unión-de-columnas" class="section level3" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Unión de columnas</h3>
+<p>Es común que en los conjuntos de datos exista información esparcida en distintas columas que sería deseable <strong>(en muy pocas ocasiones)</strong> tenerlas en una sola columna. Algunos ejemplos de esta situación deseable son las fechas y claves geoestadísticas. La función <em>unite()</em> sirve para <strong>concatenar el contenido de columnas</strong> mediante un separador elegible.</p>
+<p>Se usará la variable de la clave geoestadística de localidades del país como ejemplo.</p>
+<p>El formato para las claves geoestadísticas para estado, municipio y localidad son claves alfanuméricas que contienen 2, 3 y 4 caracteres respectivamente. Es indispensable que al trabajar con claves geoestadísticas, las claves estén en su formato original. A continuación se hará la homologación de las claves para usar la función <em>unite()</em>.</p>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="tidyverse.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb279-2"><a href="tidyverse.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb279-3"><a href="tidyverse.html#cb279-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb279-4"><a href="tidyverse.html#cb279-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb279-5"><a href="tidyverse.html#cb279-5" aria-hidden="true" tabindex="-1"></a>Datos <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Margin CONAPO.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;Margin CONAPO&quot;</span>)</span>
+<span id="cb279-6"><a href="tidyverse.html#cb279-6" aria-hidden="true" tabindex="-1"></a>Datos</span></code></pre></div>
+<pre><code>## # A tibble: 107,458 × 21
+##      ENT NOM_ENT         MUN NOM_MUN   LOC NOM_LOC POB_TOT    VPH ANAL10 SPRIM10
+##    &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1     1 Aguascalient…     1 Aguasc…     1 Aguasc…  722250 184123   2.26   10.9 
+##  2     1 Aguascalient…     1 Aguasc…    96 Agua A…      37     11  17.9    48.1 
+##  3     1 Aguascalient…     1 Aguasc…   104 Ardill…      14      3   0      20   
+##  4     1 Aguascalient…     1 Aguasc…   106 Arella…    1382    255   5.60   24.7 
+##  5     1 Aguascalient…     1 Aguasc…   112 Bajío …      55     11  14.3    38.1 
+##  6     1 Aguascalient…     1 Aguasc…   114 Reside…     757    202   0       1.63
+##  7     1 Aguascalient…     1 Aguasc…   120 Buenav…     935    217  10.7    29.5 
+##  8     1 Aguascalient…     1 Aguasc…   121 Cabeci…     184     44   4.55   32.6 
+##  9     1 Aguascalient…     1 Aguasc…   125 Cañada…     395     82   8.86   23.9 
+## 10     1 Aguascalient…     1 Aguasc…   126 Cañada…     509    123   4.75   19.6 
+## # … with 107,448 more rows, and 11 more variables: SEXC10 &lt;dbl&gt;, SEE10 &lt;dbl&gt;,
+## #   SAGUAE10 &lt;dbl&gt;, PROM_OCC10 &lt;dbl&gt;, PISOTIE10 &lt;dbl&gt;, SREFRI10 &lt;dbl&gt;,
+## #   IM_2010 &lt;dbl&gt;, GM_2010 &lt;chr&gt;, IMC0A100 &lt;dbl&gt;, LUG_NAL &lt;dbl&gt;, LUG_EDO &lt;dbl&gt;</code></pre>
+<p>Como puede apreciarse en la tabla anterior, las claves de los campos <em>Ent</em>, <em>Mun</em> y <em>Loc</em> aparecen como numéricos. La estructura deseada para estos campos es de tipo alfanumérico y de longitud 2, 3 y 4 respectivamente. Para lograr esta estructura de datos, es necesario concatenar tantos ceros como sean necesarios antes del valor actual hasta lograr la longitud deseada.</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="tidyverse.html#cb281-1" aria-hidden="true" tabindex="-1"></a>Datos2 <span class="ot">&lt;-</span> Datos <span class="sc">%&gt;%</span> <span class="fu">select</span>(ENT, MUN, LOC)</span>
+<span id="cb281-2"><a href="tidyverse.html#cb281-2" aria-hidden="true" tabindex="-1"></a>Datos2<span class="sc">$</span>ENT <span class="sc">%&lt;&gt;%</span> <span class="fu">str_pad</span>(<span class="at">width =</span> <span class="dv">2</span>, <span class="at">side =</span> <span class="st">&quot;left&quot;</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>)</span>
+<span id="cb281-3"><a href="tidyverse.html#cb281-3" aria-hidden="true" tabindex="-1"></a>Datos2<span class="sc">$</span>MUN <span class="sc">%&lt;&gt;%</span> <span class="fu">str_pad</span>(<span class="at">width =</span> <span class="dv">3</span>, <span class="at">side =</span> <span class="st">&quot;left&quot;</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>)</span>
+<span id="cb281-4"><a href="tidyverse.html#cb281-4" aria-hidden="true" tabindex="-1"></a>Datos2<span class="sc">$</span>LOC <span class="sc">%&lt;&gt;%</span> <span class="fu">str_pad</span>(<span class="at">width =</span> <span class="dv">4</span>, <span class="at">side =</span> <span class="st">&quot;left&quot;</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>)</span>
+<span id="cb281-5"><a href="tidyverse.html#cb281-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb281-6"><a href="tidyverse.html#cb281-6" aria-hidden="true" tabindex="-1"></a>Datos2 <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   ENT   MUN   LOC  
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 01    001   0001 
+## 2 01    001   0096 
+## 3 01    001   0104 
+## 4 01    001   0106 
+## 5 01    001   0112 
+## 6 01    001   0114</code></pre>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="tidyverse.html#cb283-1" aria-hidden="true" tabindex="-1"></a>Datos2 <span class="sc">%&gt;%</span> <span class="fu">unite</span>(<span class="st">&quot;CVE_GEO&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;ENT&quot;</span>,<span class="st">&quot;MUN&quot;</span>,<span class="st">&quot;LOC&quot;</span>), <span class="at">sep=</span><span class="st">&quot;&quot;</span>, <span class="at">remove =</span> F) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   CVE_GEO   ENT   MUN   LOC  
+##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 010010001 01    001   0001 
+## 2 010010096 01    001   0096 
+## 3 010010104 01    001   0104 
+## 4 010010106 01    001   0106 
+## 5 010010112 01    001   0112 
+## 6 010010114 01    001   0114</code></pre>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="tidyverse.html#cb285-1" aria-hidden="true" tabindex="-1"></a>Datos2 <span class="sc">%&gt;%</span> <span class="fu">unite</span>(<span class="st">&quot;CVE_GEO&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;ENT&quot;</span>,<span class="st">&quot;MUN&quot;</span>,<span class="st">&quot;LOC&quot;</span>), <span class="at">sep=</span><span class="st">&quot;/&quot;</span>,<span class="at">remove =</span> T) <span class="sc">%&gt;%</span> <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   CVE_GEO    
+##   &lt;chr&gt;      
+## 1 01/001/0001
+## 2 01/001/0096
+## 3 01/001/0104
+## 4 01/001/0106
+## 5 01/001/0112
+## 6 01/001/0114</code></pre>
+<p>En el código anterior se carga la librería <em>magrittr</em> para poder hacer uso del operador pipe doble “%&lt;&gt;%,” que permite al igual que el operador pipe simple “%&gt;%,” usar como argumento al primer elemento y mandarlo hacia la función definida, además de guardar el resultado final de la cadena de pipes en el argumento original que fue usado como insumo para la función. Es importante tener en cuenta que el dato será reescrito y no se podrá tener acceso a su información almacenada antes de ser usado el operador.</p>
+<p>Es opción del programador poder eliminar las variables originales que crearon la nueva variable o mantenerlas en el conjunto de datos. Esta opción está disponible en el parámetro <em>remove</em> de la función <em>unite()</em>.</p>
+</div>
+<div id="separador-de-columnas" class="section level3" number="9.3.4">
+<h3><span class="header-section-number">9.3.4</span> Separador de columnas</h3>
+<p>Los procesos que se han visto hasta ahora han tenido cada uno una función inversa, este es también el caso de la función <em>unite</em> que tiene por objetivo unir dos o más columnas en una. La función <em>separate()</em> separará una columna en dos o más dependiendo de la longitud que tenga y de las especificaciones de separación.</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="tidyverse.html#cb287-1" aria-hidden="true" tabindex="-1"></a>Datos_unite1 <span class="ot">&lt;-</span> Datos2 <span class="sc">%&gt;%</span> <span class="fu">unite</span>(<span class="st">&quot;CVE_GEO&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;ENT&quot;</span>,<span class="st">&quot;MUN&quot;</span>,<span class="st">&quot;LOC&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;&quot;</span>, <span class="at">remove =</span> T) </span>
+<span id="cb287-2"><a href="tidyverse.html#cb287-2" aria-hidden="true" tabindex="-1"></a>Datos_unite1 <span class="sc">%&gt;%</span> <span class="fu">head</span>() </span></code></pre></div>
+<pre><code>## # A tibble: 6 × 1
+##   CVE_GEO  
+##   &lt;chr&gt;    
+## 1 010010001
+## 2 010010096
+## 3 010010104
+## 4 010010106
+## 5 010010112
+## 6 010010114</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="tidyverse.html#cb289-1" aria-hidden="true" tabindex="-1"></a>Datos_unite1 <span class="sc">%&gt;%</span> </span>
+<span id="cb289-2"><a href="tidyverse.html#cb289-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="st">&quot;CVE_GEO&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;EDO&quot;</span>,<span class="st">&quot;MUNI&quot;</span>,<span class="st">&quot;LOC&quot;</span>), <span class="at">sep =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>), <span class="at">remove=</span>F) <span class="sc">%&gt;%</span> </span>
+<span id="cb289-3"><a href="tidyverse.html#cb289-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   CVE_GEO   EDO   MUNI  LOC  
+##   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 010010001 01    001   0001 
+## 2 010010096 01    001   0096 
+## 3 010010104 01    001   0104 
+## 4 010010106 01    001   0106 
+## 5 010010112 01    001   0112 
+## 6 010010114 01    001   0114</code></pre>
+<p>Ya sea que se le especifique el número de caracteres que debe de contar para hacer un corte o que se le indique qué caracter debe identificar para hacer la separación, la función <em>separate()</em> puede dividir la columna indicada y crear nuevas a partir de la original.</p>
 </div>
 </div>
 <div id="manipulación-de-texto-stringr" class="section level2" number="9.4">
@@ -1086,25 +1216,25 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <div id="caracteres-especiales" class="section level3" number="9.4.1">
 <h3><span class="header-section-number">9.4.1</span> Caracteres especiales</h3>
 <p>Debido a que la paquetería <em>stringr</em> trabaja principalmente con cadenas de texto, es importante tener en cuenta que <strong>los objetos de caracteres se definen a través de comillas</strong>, ya sea simples o dobles. La única diferencia está en el caso en que se pretendan usar comillas como parte del texto. En estos casos, la comilla simple es preferible para ser la que defina el texto.</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="tidyverse.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb279-2"><a href="tidyverse.html#cb279-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb279-3"><a href="tidyverse.html#cb279-3" aria-hidden="true" tabindex="-1"></a>Cadena1 <span class="ot">&lt;-</span> <span class="st">&quot;Se definen cadenas a través de comillas dobles&quot;</span></span>
-<span id="cb279-4"><a href="tidyverse.html#cb279-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Cadena1)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="tidyverse.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb291-2"><a href="tidyverse.html#cb291-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb291-3"><a href="tidyverse.html#cb291-3" aria-hidden="true" tabindex="-1"></a>Cadena1 <span class="ot">&lt;-</span> <span class="st">&quot;Se definen cadenas a través de comillas dobles&quot;</span></span>
+<span id="cb291-4"><a href="tidyverse.html#cb291-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Cadena1)</span></code></pre></div>
 <pre><code>## [1] &quot;Se definen cadenas a través de comillas dobles&quot;</code></pre>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="tidyverse.html#cb281-1" aria-hidden="true" tabindex="-1"></a>Cadena2 <span class="ot">&lt;-</span> <span class="st">&#39;También es posible con comillas simples y el resultado es el mismo&#39;</span></span>
-<span id="cb281-2"><a href="tidyverse.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Cadena2)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="tidyverse.html#cb293-1" aria-hidden="true" tabindex="-1"></a>Cadena2 <span class="ot">&lt;-</span> <span class="st">&#39;También es posible con comillas simples y el resultado es el mismo&#39;</span></span>
+<span id="cb293-2"><a href="tidyverse.html#cb293-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Cadena2)</span></code></pre></div>
 <pre><code>## [1] &quot;También es posible con comillas simples y el resultado es el mismo&quot;</code></pre>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="tidyverse.html#cb283-1" aria-hidden="true" tabindex="-1"></a>Cadena3 <span class="ot">&lt;-</span> <span class="st">&#39;Se pueden implementar &quot;comillas&quot; dentro de la cadena&#39;</span></span>
-<span id="cb283-2"><a href="tidyverse.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Cadena3)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="tidyverse.html#cb295-1" aria-hidden="true" tabindex="-1"></a>Cadena3 <span class="ot">&lt;-</span> <span class="st">&#39;Se pueden implementar &quot;comillas&quot; dentro de la cadena&#39;</span></span>
+<span id="cb295-2"><a href="tidyverse.html#cb295-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Cadena3)</span></code></pre></div>
 <pre><code>## [1] &quot;Se pueden implementar \&quot;comillas\&quot; dentro de la cadena&quot;</code></pre>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="tidyverse.html#cb285-1" aria-hidden="true" tabindex="-1"></a>Cadena4 <span class="ot">&lt;-</span> <span class="st">&#39;Esta es otra forma de incluir </span><span class="sc">\&quot;</span><span class="st">comillas</span><span class="sc">\&quot;</span><span class="st"> dentro de un texto&#39;</span></span>
-<span id="cb285-2"><a href="tidyverse.html#cb285-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Cadena4)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="tidyverse.html#cb297-1" aria-hidden="true" tabindex="-1"></a>Cadena4 <span class="ot">&lt;-</span> <span class="st">&#39;Esta es otra forma de incluir </span><span class="sc">\&quot;</span><span class="st">comillas</span><span class="sc">\&quot;</span><span class="st"> dentro de un texto&#39;</span></span>
+<span id="cb297-2"><a href="tidyverse.html#cb297-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Cadena4)</span></code></pre></div>
 <pre><code>## [1] &quot;Esta es otra forma de incluir \&quot;comillas\&quot; dentro de un texto&quot;</code></pre>
 <p>Como es posible apreciar en los ejemplos anteriores, la cadena 3 y 4 no se imprimen exactamente como se definieron. Podría parecer que existe un error, ya que aparecen diagonales antes de los caracteres deseados. Para resolver este problema, únicamente es necesario mandar llamar a la función <em>cat()</em> . Esta función sirve como intérprete de los caracteres que se definen en una cadena.</p>
 <p>La función <em>cat()</em> <strong>sirve como sustituto</strong> de la función <em>print()</em> (cuya función es imprimir de forma literal lo que existe dentro de las comillas), con la diferencia de que <em>cat()</em> <strong>interpreta las salidas</strong> de caracteres especiales en el texto y concatena las salidas finales con el separador específico que se indique. Por default, el separador es un espacio vacío, sin embargo, es posible modificarlo. A continuación se ejemplifica su uso.</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="tidyverse.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(Cadena3)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="tidyverse.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(Cadena3)</span></code></pre></div>
 <pre><code>## Se pueden implementar &quot;comillas&quot; dentro de la cadena</code></pre>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="tidyverse.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(Cadena4)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="tidyverse.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(Cadena4)</span></code></pre></div>
 <pre><code>## Esta es otra forma de incluir &quot;comillas&quot; dentro de un texto</code></pre>
 <p>A través del operador diagonal invertida “\” también es posible definir comillas de manera literal. En caso de querer escribir textualmente una diagonal invertida, se necesitará escribir entre comillas dos diagonales invertidas “\\.” Existen otros caracteres espaciales que ayudan a mejorar el formato de las cadenas. Algunos de los caracteres más comunes son “\n” (nueva línea) y “\t” (tabulador).</p>
 <p>Todas las funciones que se presentarán a continuación, son posibles encontrarlas con otro nombre dentro de la paquetería básica. La ventaja que tienen las funciones de la paquetería <em>stringr</em> es que, los nombres son más intuitivos y comienzan con el mismo prefijo “str_,” haciendo que al escribir las primeras tres letras, la función de autocompletar de RStudio muestre una lista con sugerencias de los nombres de las posibles funciones a usarse.</p>
@@ -1112,9 +1242,9 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <div id="tamaño-de-la-cadena" class="section level3" number="9.4.2">
 <h3><span class="header-section-number">9.4.2</span> Tamaño de la cadena</h3>
 <p>Es común que al procesar los conjuntos de datos, se requiera contar el número de caracteres que tiene una cadena. La paquetería básica cuenta con la función <em>nchar()</em> para realizar esta tarea. Con la ayuda de la paquetería <em>stringr</em>, es posible realizar esta misma tarea a través de la función <em>str_length()</em></p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="tidyverse.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(<span class="st">&quot;Esta es una cadena de 35 caracteres&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="tidyverse.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(<span class="st">&quot;Esta es una cadena de 35 caracteres&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 35</code></pre>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="tidyverse.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(<span class="fu">c</span>(<span class="st">&quot;Un&quot;</span>,<span class="st">&quot;vector&quot;</span>,<span class="st">&quot;con&quot;</span>,<span class="st">&quot;diferente&quot;</span>,<span class="st">&quot;cantidad&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;carecteres&quot;</span>,<span class="st">&quot;por&quot;</span>,<span class="st">&quot;cadena&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="tidyverse.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(<span class="fu">c</span>(<span class="st">&quot;Un&quot;</span>,<span class="st">&quot;vector&quot;</span>,<span class="st">&quot;con&quot;</span>,<span class="st">&quot;diferente&quot;</span>,<span class="st">&quot;cantidad&quot;</span>,<span class="st">&quot;de&quot;</span>,<span class="st">&quot;carecteres&quot;</span>,<span class="st">&quot;por&quot;</span>,<span class="st">&quot;cadena&quot;</span>))</span></code></pre></div>
 <pre><code>## [1]  2  6  3  9  8  2 10  3  6</code></pre>
 <p>Puede usarse la función tanto para objetos de cadenas individuales como para vectores.</p>
 <p>Existen muchos conjuntos de datos que durante su manipulacion podemos encontrar claves alfanuméricas, que pueden ser necesarias <strong>unir información</strong> relevante o para crear claves de identificación única, por ejemplo poder unir el nombre completo de las personas dentro de una base de datos. Uniendo Nombre + Segundo Nombre + Primer Apellido + Segundo Apellido.</p>
@@ -1123,37 +1253,39 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <div id="concatenar-cadenas" class="section level3" number="9.4.3">
 <h3><span class="header-section-number">9.4.3</span> Concatenar cadenas</h3>
 <p>Concatenar cadenas es una de las prácticas constantes en el manejo de conjuntos de datos. La función de la paquetería básica que se encarga de dicha tarea es la función <em>paste()</em>. A través de la paquetería <em>stringr</em> se logrará el <strong>concatenado</strong> mediante la función <em>str_c()</em>. Existe la opción de definir el caracter que hará la combinación de las cadenas mediante el argumento “sep,” que por default no deja ni un espacio entre las cadenas a combinar. Varios ejemplos se mostrarán a continuación.</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="tidyverse.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;Concatenado&quot;</span>, <span class="st">&quot;de&quot;</span>,<span class="st">&quot;varias&quot;</span>, <span class="st">&quot;cadenas&quot;</span>, <span class="st">&quot;sin&quot;</span>,<span class="st">&quot;espacios&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="tidyverse.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;Concatenado&quot;</span>, <span class="st">&quot;de&quot;</span>,<span class="st">&quot;varias&quot;</span>, <span class="st">&quot;cadenas&quot;</span>, <span class="st">&quot;sin&quot;</span>,<span class="st">&quot;espacios&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Concatenadodevariascadenassinespacios&quot;</code></pre>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="tidyverse.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;Concatenado&quot;</span>,<span class="st">&quot;con&quot;</span>,<span class="st">&quot;espacios&quot;</span>, <span class="at">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tidyverse.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;Concatenado&quot;</span>,<span class="st">&quot;con&quot;</span>,<span class="st">&quot;espacios&quot;</span>, <span class="at">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Concatenado con espacios&quot;</code></pre>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="tidyverse.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;separando&quot;</span>,<span class="st">&quot;mediante&quot;</span>,<span class="st">&quot;otro&quot;</span>,<span class="st">&quot;caracter&quot;</span>,<span class="st">&quot;definido&quot;</span>, <span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tidyverse.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;separando&quot;</span>,<span class="st">&quot;mediante&quot;</span>,<span class="st">&quot;otro&quot;</span>,<span class="st">&quot;caracter&quot;</span>,<span class="st">&quot;definido&quot;</span>, <span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;separando-mediante-otro-caracter-definido&quot;</code></pre>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="tidyverse.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;Valores&quot;</span>,<span class="fu">str_c</span>(<span class="st">&quot;09&quot;</span>,<span class="st">&quot;006&quot;</span>),<span class="st">&quot;anidados también se pueden concatenar&quot;</span>,<span class="at">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="tidyverse.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="st">&quot;Valores&quot;</span>,<span class="fu">str_c</span>(<span class="st">&quot;09&quot;</span>,<span class="st">&quot;006&quot;</span>),<span class="st">&quot;anidados también se pueden concatenar&quot;</span>,<span class="at">sep=</span><span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Valores 09006 anidados también se pueden concatenar&quot;</code></pre>
 <p>Es posible, al igual que con la función <em>paste()</em>, colapsar todas las cadenas de un vector en una sola cadena mediante el mismo parámetro: “collapse.” El caracter que divide a los elementos del vector debe ser especificado entre comillas, de lo contrario el valor por default será " ".</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="tidyverse.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">&quot;Colapsamiento&quot;</span>, <span class="st">&quot;de&quot;</span>,<span class="st">&quot;un&quot;</span>,<span class="st">&quot;vector&quot;</span>,<span class="st">&quot;de&quot;</span>, <span class="st">&quot;cadenas&quot;</span>, <span class="st">&quot;en&quot;</span>,<span class="st">&quot;una&quot;</span>,</span>
-<span id="cb303-2"><a href="tidyverse.html#cb303-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;sola&quot;</span>,<span class="st">&quot;cadena&quot;</span>), <span class="at">collapse =</span> <span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="tidyverse.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">&quot;Colapsamiento&quot;</span>, <span class="st">&quot;de&quot;</span>,<span class="st">&quot;un&quot;</span>,<span class="st">&quot;vector&quot;</span>,<span class="st">&quot;de&quot;</span>, <span class="st">&quot;cadenas&quot;</span>, <span class="st">&quot;en&quot;</span>,<span class="st">&quot;una&quot;</span>,</span>
+<span id="cb315-2"><a href="tidyverse.html#cb315-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;sola&quot;</span>,<span class="st">&quot;cadena&quot;</span>), <span class="at">collapse =</span> <span class="st">&quot; &quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Colapsamiento de un vector de cadenas en una sola cadena&quot;</code></pre>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="tidyverse.html#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">&quot;Colapsamiento&quot;</span>, <span class="st">&quot;de&quot;</span>,<span class="st">&quot;un&quot;</span>,<span class="st">&quot;vector&quot;</span>,<span class="st">&quot;de&quot;</span>, <span class="st">&quot;cadenas&quot;</span>,</span>
-<span id="cb305-2"><a href="tidyverse.html#cb305-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;separado&quot;</span>,<span class="st">&quot;por&quot;</span>,<span class="st">&quot;signos&quot;</span>), <span class="at">collapse =</span> <span class="st">&quot;+&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="tidyverse.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(<span class="fu">c</span>(<span class="st">&quot;Colapsamiento&quot;</span>, <span class="st">&quot;de&quot;</span>,<span class="st">&quot;un&quot;</span>,<span class="st">&quot;vector&quot;</span>,<span class="st">&quot;de&quot;</span>, <span class="st">&quot;cadenas&quot;</span>,</span>
+<span id="cb317-2"><a href="tidyverse.html#cb317-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;separado&quot;</span>,<span class="st">&quot;por&quot;</span>,<span class="st">&quot;signos&quot;</span>), <span class="at">collapse =</span> <span class="st">&quot;+&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Colapsamiento+de+un+vector+de+cadenas+separado+por+signos&quot;</code></pre>
 </div>
 <div id="extraer-y-reemplazar-subcadenas" class="section level3" number="9.4.4">
 <h3><span class="header-section-number">9.4.4</span> Extraer y reemplazar subcadenas</h3>
 <p>Cuando únicamente interesa un <strong>subconjunto de alguna cadena</strong> para continuar con el manejo de la información, suele recurrirse a la expresión regular <em>substr()</em> de la paquetería básica para extraer este subconjunto de interés. Con <em>stringr</em>, la función para usar esta expresión regular es <em>str_sub()</em>. Esta función recibe como parámetros el texto desde el cuál se desea extraer el subconjunto, el índice que marque el inicio de la subcadena y el índice del final de la subcadena.</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="tidyverse.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(<span class="st">&quot;subcadenas&quot;</span>, <span class="at">start =</span> <span class="dv">4</span>, <span class="at">end =</span> <span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="tidyverse.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(<span class="st">&quot;subcadenas&quot;</span>, <span class="at">start =</span> <span class="dv">4</span>, <span class="at">end =</span> <span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;cadena&quot;</code></pre>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tidyverse.html#cb309-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;00000090060002&quot;</span></span>
-<span id="cb309-2"><a href="tidyverse.html#cb309-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="at">start =</span> <span class="fu">str_length</span>(x)<span class="sc">-</span><span class="dv">8</span>,<span class="fu">str_length</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="tidyverse.html#cb321-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;00000090060002&quot;</span></span>
+<span id="cb321-2"><a href="tidyverse.html#cb321-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="at">start =</span> <span class="fu">str_length</span>(x) <span class="sc">-</span> <span class="dv">8</span>, <span class="fu">str_length</span>(x))</span></code></pre></div>
+<pre><code>## [1] &quot;090060002&quot;</code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="tidyverse.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="at">start =</span> <span class="sc">-</span><span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;090060002&quot;</code></pre>
 <p>Con la misma función <em>str_sub()</em> es posible <strong>sustituir parcial o totalmente</strong> la cadena “X” que sea introducida como argumento. Ésto se logra asignando a la subcadena seleccionada el valor que se usará para sustituir. En los siguientes ejemplos se muestra cómo modificar la cadena “substring” y la cadena “090060002.”</p>
 <p>En el primer caso, a partir de la cadena de caracteres “substring” se procede a generar una nueva cadena al sustituir las letras 4 a la 9, reemplazando así la subcadena “string” por “cadena,” dando lugar a “subcadena.” En el segundo ejemplo, es la clave correspondiente a los dígitos 3 a 5 los que cambian para dar lugar a otra clave numérica.</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tidyverse.html#cb311-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;substring&quot;</span></span>
-<span id="cb311-2"><a href="tidyverse.html#cb311-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(y, <span class="at">start =</span> <span class="dv">4</span>, <span class="at">end =</span> <span class="dv">9</span>) <span class="ot">&lt;-</span> <span class="st">&quot;cadena&quot;</span>; y</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="tidyverse.html#cb325-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;substring&quot;</span></span>
+<span id="cb325-2"><a href="tidyverse.html#cb325-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(y, <span class="at">start =</span> <span class="dv">4</span>, <span class="at">end =</span> <span class="dv">9</span>) <span class="ot">&lt;-</span> <span class="st">&quot;cadena&quot;</span>; y</span></code></pre></div>
 <pre><code>## [1] &quot;subcadena&quot;</code></pre>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="tidyverse.html#cb313-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;090060002&quot;</span></span>
-<span id="cb313-2"><a href="tidyverse.html#cb313-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="at">start =</span> <span class="fu">str_length</span>(x)<span class="sc">-</span><span class="dv">6</span>,<span class="fu">str_length</span>(x)<span class="sc">-</span><span class="dv">4</span>) <span class="ot">&lt;-</span> <span class="st">&quot;555&quot;</span>; x </span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="tidyverse.html#cb327-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;090060002&quot;</span></span>
+<span id="cb327-2"><a href="tidyverse.html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="at">start =</span> <span class="fu">str_length</span>(x)<span class="sc">-</span><span class="dv">6</span>,<span class="fu">str_length</span>(x)<span class="sc">-</span><span class="dv">4</span>) <span class="ot">&lt;-</span> <span class="st">&quot;555&quot;</span>; x </span></code></pre></div>
 <pre><code>## [1] &quot;095550002&quot;</code></pre>
 <p>Lo anterior es ampliamente usado en el proceso de limpieza de los datos. A veces es posible encontrar errores ortográficos o los llamados errores “de dedo” (hacen referencia a errores accidentales al escribir) que se dan a la hora de capturar la información. Cuando una gran cantidad de datos presentan el mismo error, es buena idea recurrir a esta función.</p>
 </div>
@@ -1162,7 +1294,7 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <p>En el estudio de las expresiones regulares se puede encontrar de manera sobresaliente la aplicación de los <em>patrones coincidentes</em>, los cuáles sirven para describir y descubrir coincidencias de interés en conjuntos específicos a partir de cadenas de caracteres.</p>
 <p>Con el fin de comprender y visualizar de manera práctica el uso de los patrones coincidentes con las expresiones regulares, se hará uso de la función <em>str_view()</em>, que permite distinguir los elementos coincidentes de un vector con un patrón de caracteres descrito.</p>
 <p>La paquetería <em>stringr</em> cuenta con tres conjuntos predefinidos de oraciones y palabras que sirven para ejemplificar el uso de las expresiones regulares. Estos conjuntos llevan el nombre de <strong>sentences, words y fruit</strong>, su contenido es de sentencias, palabras y nombres de frutas. En los tres casos, estos conjuntos han sido escritos en inglés. Los conjuntos sirven bien para ejemplificar el uso de las siguientes funciones y de las expresiones regulares.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="tidyverse.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sentences, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="tidyverse.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(sentences, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;The birch canoe slid on the smooth planks.&quot; 
 ##  [2] &quot;Glue the sheet to the dark blue background.&quot;
 ##  [3] &quot;It&#39;s easy to tell the depth of a well.&quot;     
@@ -1173,25 +1305,28 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 ##  [8] &quot;The hogs were fed chopped corn and garbage.&quot;
 ##  [9] &quot;Four hours of steady work faced us.&quot;        
 ## [10] &quot;Large size in stockings is hard to sell.&quot;</code></pre>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="tidyverse.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(words,<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="tidyverse.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(words, <span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;a&quot;         &quot;able&quot;      &quot;about&quot;     &quot;absolute&quot;  &quot;accept&quot;    &quot;account&quot;  
 ##  [7] &quot;achieve&quot;   &quot;across&quot;    &quot;act&quot;       &quot;active&quot;    &quot;actual&quot;    &quot;add&quot;      
 ## [13] &quot;address&quot;   &quot;admit&quot;     &quot;advertise&quot; &quot;affect&quot;    &quot;afford&quot;    &quot;after&quot;    
 ## [19] &quot;afternoon&quot; &quot;again&quot;</code></pre>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="tidyverse.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fruit,<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="tidyverse.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(fruit, <span class="dv">20</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;apple&quot;        &quot;apricot&quot;      &quot;avocado&quot;      &quot;banana&quot;       &quot;bell pepper&quot; 
 ##  [6] &quot;bilberry&quot;     &quot;blackberry&quot;   &quot;blackcurrant&quot; &quot;blood orange&quot; &quot;blueberry&quot;   
 ## [11] &quot;boysenberry&quot;  &quot;breadfruit&quot;   &quot;canary melon&quot; &quot;cantaloupe&quot;   &quot;cherimoya&quot;   
 ## [16] &quot;cherry&quot;       &quot;chili pepper&quot; &quot;clementine&quot;   &quot;cloudberry&quot;   &quot;coconut&quot;</code></pre>
 <p>Para realizar una coincidencia de patrones, es necesario ingresar como argumento el vector de cadenas de caracteres en donde se desea hacer la búsqueda. Como segundo argumento, se ingresa el patrón con el cuál se desea buscar las coincidencias. Para que únicamente se muestren las coincidencias exitosas se debe agregar el argumento match = TRUE.</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="tidyverse.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(sentences,<span class="st">&quot;great&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_great_2.png" width="700pt" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="tidyverse.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(sentences,<span class="st">&quot;this&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_this_2.png" width="700pt" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="tidyverse.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(sentences,<span class="st">&quot;great&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="htmlwidget-05ae4a3de23d5cb5503f" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-05ae4a3de23d5cb5503f">{"x":{"html":"<ul>\n  <li>Act on these orders with <span class='match'>great<\/span> speed.<\/li>\n  <li>He knew the skill of the <span class='match'>great<\/span> young actress.<\/li>\n  <li>The aim of the contest is to raise a <span class='match'>great<\/span> fund.<\/li>\n  <li>Seven seals were stamped on <span class='match'>great<\/span> sheets.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="tidyverse.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(sentences,<span class="st">&quot;this&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="htmlwidget-4e621dc495c29c0c9dee" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4e621dc495c29c0c9dee">{"x":{"html":"<ul>\n  <li>These <span class='match'>this<\/span>tles bend in a high wind.<\/li>\n  <li>A speedy man can beat <span class='match'>this<\/span> track mark.<\/li>\n  <li>Madam, <span class='match'>this<\/span> is the best brand of corn.<\/li>\n  <li>Dispense with a vest on a day like <span class='match'>this<\/span>.<\/li>\n  <li>The water in <span class='match'>this<\/span> well is a source of good health.<\/li>\n  <li>Take shelter in <span class='match'>this<\/span> tent, but keep still.<\/li>\n  <li>Shake hands with <span class='match'>this<\/span> friendly child.<\/li>\n  <li>A rich farm is rare in <span class='match'>this<\/span> sandy waste.<\/li>\n  <li>Flood the mails with requests for <span class='match'>this<\/span> book.<\/li>\n  <li>Post no bills on <span class='match'>this<\/span> office wall.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Como es posible apreciarse en los dos ejemplos anteriores, la función <em>str_view()</em> filtra los casos coincidentes con los patrones “great” y “this.” Esta coincidencia no necesariamente es perfecta. Basta con que un subconjunto de la sentencia coincida con el patrón definido para que la función <em>str_view()</em> reconozca como coincidencia válida a toda la cadena.</p>
 <p>En caso de no contar con todos los caracteres del patrón deseado o de querer ver todas las combinaciones que tengan un patrón adyacente común, es posible ingresar un “comodín” a través del caracter punto ".", el cuál coincidirá con cualquier caracter. Este caracter especial puede usarse al principio, al final o de manera intermedia dentro del patrón.</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="tidyverse.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(sentences,<span class="st">&quot;up.&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_up.png" width="700pt" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="tidyverse.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(sentences,<span class="st">&quot;up.&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="htmlwidget-cf6ccb10836bba95f198" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cf6ccb10836bba95f198">{"x":{"html":"<ul>\n  <li>The small p<span class='match'>up <\/span>gnawed a hole in the sock.<\/li>\n  <li>A c<span class='match'>up <\/span>of sugar makes sweet fudge.<\/li>\n  <li>The play seems dull and quite st<span class='match'>upi<\/span>d.<\/li>\n  <li>The c<span class='match'>up <\/span>cracked and spilled its contents.<\/li>\n  <li>An abr<span class='match'>upt<\/span> start does not win the prize.<\/li>\n  <li>A rag will soak <span class='match'>up <\/span>spilled water.<\/li>\n  <li>Rake the rubbish <span class='match'>up <\/span>and then burn it.<\/li>\n  <li>He broke his ties with gro<span class='match'>ups<\/span> of former friends.<\/li>\n  <li>Jump the fence and hurry <span class='match'>up <\/span>the bank.<\/li>\n  <li>Women form less than half of the gro<span class='match'>up.<\/span><\/li>\n  <li>Just hoist it <span class='match'>up <\/span>and take it away,<\/li>\n  <li>The sun came <span class='match'>up <\/span>to light the eastern sky.<\/li>\n  <li>Grace makes <span class='match'>up <\/span>for lack of beauty.<\/li>\n  <li>The ramp led <span class='match'>up <\/span>to the wide highway.<\/li>\n  <li>He picked <span class='match'>up <\/span>the dice for a second roll.<\/li>\n  <li>Throw out the used paper c<span class='match'>up <\/span>and plate.<\/li>\n  <li>Footprints showed the path he took <span class='match'>up <\/span>the beach.<\/li>\n  <li>A six comes <span class='match'>up <\/span>more often than a ten.<\/li>\n  <li>The p<span class='match'>up <\/span>jerked the leash as he saw a feline shape.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Como se puede observar, esta es una manera de detectar subconjuntos de particular interés.</p>
 <p><strong>Anclajes</strong></p>
 <p>Como se mencionó anteriormente, por default, la coincidencia de patrones se efectuará sobre cualquier subconjunto de la cadena de caracteres. Es posible definir el caracter inicial y/o el caracter final con el cuál se buscará la coincidencia de patrones. Esto se logra al hacer uso de los siguientes caracteres especiales.</p>
@@ -1199,14 +1334,17 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <li>^ Para hacer coincidir el inicio de la cadena</li>
 <li>$ Para hacer coincidir el final de la cadena</li>
 </ul>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="tidyverse.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(words,<span class="st">&quot;^y&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_%5Ey.png" width="700pt" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="tidyverse.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(words,<span class="st">&quot;x$&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_x.png" width="700pt" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="tidyverse.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(words,<span class="st">&quot;^y&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="htmlwidget-112dd28b912759ab9078" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-112dd28b912759ab9078">{"x":{"html":"<ul>\n  <li><span class='match'>y<\/span>ear<\/li>\n  <li><span class='match'>y<\/span>es<\/li>\n  <li><span class='match'>y<\/span>esterday<\/li>\n  <li><span class='match'>y<\/span>et<\/li>\n  <li><span class='match'>y<\/span>ou<\/li>\n  <li><span class='match'>y<\/span>oung<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="tidyverse.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(words,<span class="st">&quot;x$&quot;</span>, <span class="at">match =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="htmlwidget-d64c84362a2199539b68" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d64c84362a2199539b68">{"x":{"html":"<ul>\n  <li>bo<span class='match'>x<\/span><\/li>\n  <li>se<span class='match'>x<\/span><\/li>\n  <li>si<span class='match'>x<\/span><\/li>\n  <li>ta<span class='match'>x<\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>En caso de desear hacer coincidir todo el contenido de la cadena, deben usarse ambos caracteres especiales para definir el inicio y el final del patrón coincidente como se muestra a continuación.</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="tidyverse.html#cb326-1" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;nulo éxito&quot;</span>, <span class="st">&quot;poco éxito&quot;</span>,<span class="st">&quot;éxito moderado&quot;</span>,<span class="st">&quot;éxito&quot;</span>, <span class="st">&quot;éxito total&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="tidyverse.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(vector,<span class="st">&quot;^éxito$&quot;</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_%5Eexito.png" width="700pt" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="tidyverse.html#cb340-1" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;nulo éxito&quot;</span>, <span class="st">&quot;poco éxito&quot;</span>,<span class="st">&quot;éxito moderado&quot;</span>,<span class="st">&quot;éxito&quot;</span>, <span class="st">&quot;éxito total&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="tidyverse.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(vector,<span class="st">&quot;^éxito$&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-a5ed62e546bfa15d6fc4" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a5ed62e546bfa15d6fc4">{"x":{"html":"<ul>\n  <li>nulo éxito<\/li>\n  <li>poco éxito<\/li>\n  <li>éxito moderado<\/li>\n  <li><span class='match'>éxito<\/span><\/li>\n  <li>éxito total<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Wickham menciona que, además del caracter especial punto ".", existen otros cuatro que resultan muy útiles para mostrar patrones particulares.</p>
 <ul>
 <li>\d Hace coincidir cualquier dígito.</li>
@@ -1215,12 +1353,14 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <li>[^abc] Coincide con cualquier cosa excepto a, b ó c.</li>
 </ul>
 <p>Al momento de definir cualquiera de estos 4 patrones coincidentes será necesario usar doble diagonal invertida. Por ejemplo, “\\d” será el patrón para encontrar la coincidencia con cualquier dígito.</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="tidyverse.html#cb328-1" aria-hidden="true" tabindex="-1"></a>cadena <span class="ot">&lt;-</span> <span class="st">&quot;El año 2018 fue un año de mucho crecimiento personal.&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="tidyverse.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(cadena,<span class="st">&quot;</span><span class="sc">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_2018_1.png" width="700pt" style="display: block; margin: auto;" /></p>
-<p>Wickham menciona que, “es posible usar alternancias para elegir entre uno o más patrones alternativos. Por ejemplo, abc|d..f coincidirá con”abc” o con “deaf.” Haciendo notar que la prioridad para el operador "|" es baja, por lo que abc|xyz coincide con abc o xyz, no con abcyz o abxyz. Al igual que en las matemáticas, si existe ambigüedad en la prioridad de las operaciones, usar paréntesis lo hará todo más claro.”</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="tidyverse.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;tamaño&quot;</span>,<span class="st">&quot;tasa&quot;</span>,<span class="st">&quot;tata&quot;</span>,<span class="st">&quot;taza&quot;</span>,<span class="st">&quot;tapa&quot;</span>),<span class="st">&quot;ta(s|z)a&quot;</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_tasza_2.png" width="700pt" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="tidyverse.html#cb342-1" aria-hidden="true" tabindex="-1"></a>cadena <span class="ot">&lt;-</span> <span class="st">&quot;El año 2018 fue un año de mucho crecimiento personal.&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="tidyverse.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(cadena,<span class="st">&quot;</span><span class="sc">\\</span><span class="st">d&quot;</span>, <span class="at">match =</span> T)</span></code></pre></div>
+<div id="htmlwidget-54bd38e9dafe808fa722" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-54bd38e9dafe808fa722">{"x":{"html":"<ul>\n  <li>El año <span class='match'>2<\/span>018 fue un año de mucho crecimiento personal.<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Wickham menciona que, “es posible usar alternancias para elegir entre uno o más patrones alternativos. Por ejemplo, abc|d..f coincidirá con”abc" o con “deaf.” Haciendo notar que la prioridad para el operador "|" es baja, por lo que abc|xyz coincide con abc o xyz, no con abcyz o abxyz. Al igual que en las matemáticas, si existe ambigüedad en la prioridad de las operaciones, usar paréntesis lo hará todo más claro."</p>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="tidyverse.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">c</span>(<span class="st">&quot;tamaño&quot;</span>,<span class="st">&quot;tasa&quot;</span>,<span class="st">&quot;tata&quot;</span>,<span class="st">&quot;taza&quot;</span>,<span class="st">&quot;tapa&quot;</span>),<span class="st">&quot;ta(s|z)a&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-9e4bb4a2048a6b833455" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9e4bb4a2048a6b833455">{"x":{"html":"<ul>\n  <li>tamaño<\/li>\n  <li><span class='match'>tasa<\/span><\/li>\n  <li>tata<\/li>\n  <li><span class='match'>taza<\/span><\/li>\n  <li>tapa<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><strong>Repeticiones</strong></p>
 <p>El siguiente paso en complejidad para las expresiones regulares es, controlar el número de veces que aparece un patrón coincidente.</p>
 <ul>
@@ -1228,13 +1368,16 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <li>+: Se repite 1 o más veces.</li>
 <li>*: Se repite 0 a más veces.</li>
 </ul>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="tidyverse.html#cb331-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;1888 es el año más largo en números romanos: MDCCCLXXXVIII&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="tidyverse.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;XX?&quot;</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_2018_XX.png" width="700pt" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="tidyverse.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;XX+&quot;</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_2018_XXmas.png" width="700pt" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="tidyverse.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;C[LX]+&quot;</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_2018_CLX.png" width="700pt" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="tidyverse.html#cb345-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;1888 es el año más largo en números romanos: MDCCCLXXXVIII&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="tidyverse.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;XX?&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-0f09063e43e87240e862" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0f09063e43e87240e862">{"x":{"html":"<ul>\n  <li>1888 es el año más largo en números romanos: MDCCCL<span class='match'>XX<\/span>XVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="tidyverse.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;XX+&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-1fe1198439f1be904d72" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1fe1198439f1be904d72">{"x":{"html":"<ul>\n  <li>1888 es el año más largo en números romanos: MDCCCL<span class='match'>XXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="tidyverse.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;C[LX]+&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-cbf1985aa9cf735da6db" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cbf1985aa9cf735da6db">{"x":{"html":"<ul>\n  <li>1888 es el año más largo en números romanos: MDCC<span class='match'>CLXXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p>Es posible especificar el número de repeticiones que se desea hacer coincidir un patrón. Ya sea de manera exacta o dentro de un intervalo. Esta repetición en el patrón se define de la siguiente manera.</p>
 <ul>
 <li>{n}: exactamente n veces</li>
@@ -1242,10 +1385,21 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <li>{,m}: a lo más m veces</li>
 <li>{n,m}: entre n y m veces</li>
 </ul>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="tidyverse.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;X{3}&quot;</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_2018_X%7B3%7D.png" width="700pt" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="tidyverse.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;X{1,2}&quot;</span>)</span></code></pre></div>
-<p><img src="img/03-tidyverse/str_view_2018_X%7B1,2%7D.png" width="700pt" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="tidyverse.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;X{3}&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-c872195a89276dbbbd8d" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c872195a89276dbbbd8d">{"x":{"html":"<ul>\n  <li>1888 es el año más largo en números romanos: MDCCCL<span class='match'>XXX<\/span>VIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="tidyverse.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;X{1,2}&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-67fce2845bc59302389b" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-67fce2845bc59302389b">{"x":{"html":"<ul>\n  <li>1888 es el año más largo en números romanos: MDCCCL<span class='match'>XX<\/span>XVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p><strong>Match múltiple / nulo</strong></p>
+<p>Es interesante el siguiente ejemplo. ¿Qué es lo que sucede?</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="tidyverse.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(x,<span class="st">&quot;M*&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-d4d119f3546425fb1514" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d4d119f3546425fb1514">{"x":{"html":"<ul>\n  <li><span class='match'><\/span>1888 es el año más largo en números romanos: MDCCCLXXXVIII<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Recordemos que los operadores * o ? busca un patrón que puede o no encontrarse dentro de la cadena de interés. En el caso anterior, la letra “M” puede o no encontrarse en la cadena “x.” En el ejemplo anterior, en cada posible caracter existe el hallazgo o no hallazgo de la letra “M,” de forma que el primer match que hace se encuentra al principio de la cadena. Una limitante de la función <em>str_view()</em> es que <strong>únicamente resalta la primer coincidencia</strong> encontrada con el patrón regular, sin embargo, la función <em>str_view_all()</em> se encarga de resaltar todas las coincidencias en la cadena, como se muestra a continuación.</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="tidyverse.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(x,<span class="st">&quot;M*&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-eadd08074f3a04a072e2" style="width:960px;height:100%;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-eadd08074f3a04a072e2">{"x":{"html":"<ul>\n  <li><span class='match'><\/span>1<span class='match'><\/span>8<span class='match'><\/span>8<span class='match'><\/span>8<span class='match'><\/span> <span class='match'><\/span>e<span class='match'><\/span>s<span class='match'><\/span> <span class='match'><\/span>e<span class='match'><\/span>l<span class='match'><\/span> <span class='match'><\/span>a<span class='match'><\/span>ñ<span class='match'><\/span>o<span class='match'><\/span> <span class='match'><\/span>m<span class='match'><\/span>á<span class='match'><\/span>s<span class='match'><\/span> <span class='match'><\/span>l<span class='match'><\/span>a<span class='match'><\/span>r<span class='match'><\/span>g<span class='match'><\/span>o<span class='match'><\/span> <span class='match'><\/span>e<span class='match'><\/span>n<span class='match'><\/span> <span class='match'><\/span>n<span class='match'><\/span>ú<span class='match'><\/span>m<span class='match'><\/span>e<span class='match'><\/span>r<span class='match'><\/span>o<span class='match'><\/span>s<span class='match'><\/span> <span class='match'><\/span>r<span class='match'><\/span>o<span class='match'><\/span>m<span class='match'><\/span>a<span class='match'><\/span>n<span class='match'><\/span>o<span class='match'><\/span>s<span class='match'><\/span>:<span class='match'><\/span> <span class='match'>M<\/span><span class='match'><\/span>D<span class='match'><\/span>C<span class='match'><\/span>C<span class='match'><\/span>C<span class='match'><\/span>L<span class='match'><\/span>X<span class='match'><\/span>X<span class='match'><\/span>X<span class='match'><\/span>V<span class='match'><\/span>I<span class='match'><\/span>I<span class='match'><\/span>I<span class='match'><\/span><\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
 <p><strong>Herramientas</strong></p>
 <p>Una vez que se han visto los aspectos básicos de las expresiones regulares, es posible utilizar los patrones coincidentes y combinarlos para aplicarlos en problemas reales. Algunas de las aplicaciones más comunes son:</p>
 <ul>
@@ -1262,7 +1416,7 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <p>Para determinar las cadenas de caracteres dentro de un vector que coinciden con un patrón, es posible utilizar la función <em>str_detect()</em>. La función regresará un vector booleano una vez que se introduzcan como argumentos el vector con cadenas y el patrón con el que se desea hacer la coincidencia.</p>
 <p>Aplicando esta función a un marco de muestreo es posible apreciar si los elementos coinciden o no con algún patrón indicado.</p>
 <p>En el siguiente ejemplo se puede apreciar cuáles frutas tienen entre sus letras una “a” o una “u.”</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="tidyverse.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(fruit, <span class="st">&quot;[au]&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="tidyverse.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(fruit, <span class="st">&quot;[au]&quot;</span>)</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
 ## [13]  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [25]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE
@@ -1271,7 +1425,7 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 ## [61]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
 ## [73]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
 <p>A continuación se puede apreciar una aplicación de la función <em>str_detect()</em>. Se usará el vector booleano para seleccionar el subconjunto del objeto <strong>fruit</strong> que tiene entre su nombre una letra “l” o una letra “o.”</p>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="tidyverse.html#cb339-1" aria-hidden="true" tabindex="-1"></a>fruit[<span class="fu">str_detect</span>(fruit, <span class="st">&quot;[lo]&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="tidyverse.html#cb355-1" aria-hidden="true" tabindex="-1"></a>fruit[<span class="fu">str_detect</span>(fruit, <span class="st">&quot;[lo]&quot;</span>)]</span></code></pre></div>
 <pre><code>##  [1] &quot;apple&quot;             &quot;apricot&quot;           &quot;avocado&quot;          
 ##  [4] &quot;bell pepper&quot;       &quot;bilberry&quot;          &quot;blackberry&quot;       
 ##  [7] &quot;blackcurrant&quot;      &quot;blood orange&quot;      &quot;blueberry&quot;        
@@ -1295,23 +1449,25 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <h3><span class="header-section-number">9.4.7</span> Contabilizar coincidencias</h3>
 <p>Una variación de la función anterior, es la función <em>str_count()</em>. Esta función en lugar de devolver un vector lógico, devuelve un vector de conteos que corresponde al número de veces que detectó una coincidencia para cada cadena dentro de un vector.</p>
 <p>La manera de usarse es análoga a la función str_detect().</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="tidyverse.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(fruit, <span class="st">&quot;[aeiou]&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="tidyverse.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(fruit, <span class="st">&quot;[aeiou]&quot;</span>)</span></code></pre></div>
 <pre><code>##  [1] 2 3 4 3 3 2 2 3 5 3 3 4 4 5 4 1 4 4 3 3 2 3 2 2 2 4 3 2 3 4 1 3 4 2 4 3 3 3
 ## [39] 3 2 3 4 3 2 2 3 2 4 2 2 4 1 3 3 3 3 5 2 2 3 2 4 1 5 3 6 3 3 3 2 3 3 3 3 3 2
 ## [77] 4 4 4 4</code></pre>
 <p>En el ejemplo anterior se puede apreciar el número de vocales que existen dentro de cada una de los nombres de las frutas.</p>
 <p>Una de las aplicaciones más comunes para esta función, se encuentra en los estudios de análisis de textos. A continuación, se puede apreciar el promedio de vocales que son usadas dentro de los nombres de frutas en el objeto <strong>fruit</strong>.</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="tidyverse.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;[aeiou]&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="tidyverse.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;[aeiou]&quot;</span>))</span></code></pre></div>
 <pre><code>## [1] 3.0125</code></pre>
 <p>Otro ejemplo más complejo de esta función y sus aplicaciones es el siguiente:</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="tidyverse.html#cb345-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="st">&quot;Vocal&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;e&quot;</span>,<span class="st">&quot;i&quot;</span>,<span class="st">&quot;o&quot;</span>,<span class="st">&quot;u&quot;</span>),</span>
-<span id="cb345-2"><a href="tidyverse.html#cb345-2" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;Conteos&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;a&quot;</span>)),<span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;e&quot;</span>)),</span>
-<span id="cb345-3"><a href="tidyverse.html#cb345-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;i&quot;</span>)),<span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;o&quot;</span>)),</span>
-<span id="cb345-4"><a href="tidyverse.html#cb345-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;u&quot;</span>))))</span>
-<span id="cb345-5"><a href="tidyverse.html#cb345-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb345-6"><a href="tidyverse.html#cb345-6" aria-hidden="true" tabindex="-1"></a>tabla<span class="sc">$</span>Porcentaje <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Conteos<span class="sc">/</span><span class="fu">sum</span>(tabla<span class="sc">$</span>Conteos)</span>
-<span id="cb345-7"><a href="tidyverse.html#cb345-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb345-8"><a href="tidyverse.html#cb345-8" aria-hidden="true" tabindex="-1"></a>tabla</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="tidyverse.html#cb361-1" aria-hidden="true" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb361-2"><a href="tidyverse.html#cb361-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Vocal&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;e&quot;</span>,<span class="st">&quot;i&quot;</span>,<span class="st">&quot;o&quot;</span>,<span class="st">&quot;u&quot;</span>),</span>
+<span id="cb361-3"><a href="tidyverse.html#cb361-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Conteos&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;a&quot;</span>)),<span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;e&quot;</span>)),</span>
+<span id="cb361-4"><a href="tidyverse.html#cb361-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;i&quot;</span>)),<span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;o&quot;</span>)),</span>
+<span id="cb361-5"><a href="tidyverse.html#cb361-5" aria-hidden="true" tabindex="-1"></a>                <span class="fu">sum</span>(<span class="fu">str_count</span>(fruit, <span class="st">&quot;u&quot;</span>)))</span>
+<span id="cb361-6"><a href="tidyverse.html#cb361-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb361-7"><a href="tidyverse.html#cb361-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Porcentaje =</span> Conteos<span class="sc">/</span><span class="fu">sum</span>(Conteos))</span>
+<span id="cb361-8"><a href="tidyverse.html#cb361-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb361-9"><a href="tidyverse.html#cb361-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb361-10"><a href="tidyverse.html#cb361-10" aria-hidden="true" tabindex="-1"></a>tabla</span></code></pre></div>
 <pre><code>##   Vocal Conteos Porcentaje
 ## 1     a      65  0.2697095
 ## 2     e      72  0.2987552
@@ -1327,10 +1483,10 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 <h3><span class="header-section-number">9.4.8</span> Extraer coincidencias</h3>
 <p>Cuando se desea identificar y extraer un subgrupo particular de elementos que cumplan con cierta condición definida a través de un patrón coincidente, la función <em>str_extract()</em> es la mejor opción para realizar esta tarea.</p>
 <p>Si se desea extraer el subconjunto de sentencias conjuntivas o disyuntivas es necesario definir el patrón coincidente con el cuál se compararán las sentencias para ser extraídas.</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="tidyverse.html#cb347-1" aria-hidden="true" tabindex="-1"></a>patron <span class="ot">&lt;-</span> <span class="st">&quot;( and )|( or )&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="tidyverse.html#cb363-1" aria-hidden="true" tabindex="-1"></a>patron <span class="ot">&lt;-</span> <span class="st">&quot;( and )|( or )&quot;</span></span></code></pre></div>
 <p>Por su traducción en inglés, “and” y “or” son los conectores “y” y “o” respectivamente. Primero se filtrarán las oraciones que cumplen con la condición de que las conjunciones “and” u “or” se encuentren dentro y posteriormente se extraerán los elementos coincidentes.</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="tidyverse.html#cb348-1" aria-hidden="true" tabindex="-1"></a>coincidencias <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(sentences, patron)</span>
-<span id="cb348-2"><a href="tidyverse.html#cb348-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coincidencias,<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="tidyverse.html#cb364-1" aria-hidden="true" tabindex="-1"></a>coincidencias <span class="ot">&lt;-</span> <span class="fu">str_subset</span>(sentences, patron)</span>
+<span id="cb364-2"><a href="tidyverse.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(coincidencias,<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;The hogs were fed chopped corn and garbage.&quot;    
 ##  [2] &quot;Kick the ball straight and follow through.&quot;     
 ##  [3] &quot;Smoky fires lack flame and heat.&quot;               
@@ -1343,7 +1499,7 @@ Si las queremos ordenar de forma ascendente lo haremos del siguiente modo:</p>
 ## [10] &quot;Cars and busses stalled in snow drifts.&quot;</code></pre>
 <p>Apenas 123 sentencias cumplen con la condición. Éstas representan el 17.08% del total.
 Para extraer los elementos coincidentes, la función <em>str_extract()</em> se usa de la siguiente manera:</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="tidyverse.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(coincidencias, patron)</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="tidyverse.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(coincidencias, patron)</span></code></pre></div>
 <pre><code>##   [1] &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot;
 ##  [10] &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot;
 ##  [19] &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot;
@@ -1358,8 +1514,8 @@ Para extraer los elementos coincidentes, la función <em>str_extract()</em> se u
 ## [100] &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; or &quot;  &quot; and &quot; &quot; and &quot;
 ## [109] &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot;
 ## [118] &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot; &quot; and &quot;</code></pre>
-<p>Con el código anterior se logra extraer el patrón coincidente de cada una de las sentencias, sin embargo, sólo se logra extraer la primer coincidencia de cada cadena en donde hubo al menos una coincidencia. Para extender este resultado a todos los patrones coincidentes dentro de la sentencia, se debe agregar el sufijo “_all” a la función. La función <em>str_extract_all()</em> extraerá todas las coincidencias y las agrupará en un objeto cuya estructura será la de una “lista.” Con la función <em>head()</em> se logrará visualizar los 5 primeros elementos de la lista que guarda el resultado generado por la función <em>str_extract_all()</em>.</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="tidyverse.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">str_extract_all</span>(coincidencias,patron),<span class="dv">5</span>)</span></code></pre></div>
+<p>Con el código anterior se logra extraer el patrón coincidente de cada una de las sentencias, sin embargo, sólo se logra extraer la primer coincidencia de cada cadena en donde hubo al menos una coincidencia. Para extender este resultado a todos los patrones coincidentes dentro de la sentencia, se debe agregar el sufijo "_all" a la función. La función <em>str_extract_all()</em> extraerá todas las coincidencias y las agrupará en un objeto cuya estructura será la de una “lista.” Con la función <em>head()</em> se logrará visualizar los 5 primeros elementos de la lista que guarda el resultado generado por la función <em>str_extract_all()</em>.</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="tidyverse.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">str_extract_all</span>(coincidencias,patron), <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot; and &quot;
 ## 
@@ -1374,25 +1530,28 @@ Para extraer los elementos coincidentes, la función <em>str_extract()</em> se u
 ## 
 ## [[5]]
 ## [1] &quot; and &quot;</code></pre>
-<p>Un formato más compacto del resultado anterior se logra al agregar el parámetro “simplfy = TRUE” dentro de la función de extracción. Para visualizar aleatoriamente diez de los resultados generados, se puede hacer uso de la función <em>some()</em> de la librería <em>car</em> <span class="citation">(<a href="#ref-car" role="doc-biblioref"><strong>car?</strong></a>)</span>.</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="tidyverse.html#cb354-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb354-2"><a href="tidyverse.html#cb354-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb354-3"><a href="tidyverse.html#cb354-3" aria-hidden="true" tabindex="-1"></a><span class="fu">some</span>(<span class="fu">str_extract_all</span>(coincidencias, patron, <span class="at">simplify =</span> <span class="cn">TRUE</span>),<span class="dv">10</span>)</span></code></pre></div>
-<pre><code>##       [,1]    [,2]   
-##  [1,] &quot; and &quot; &quot;&quot;     
-##  [2,] &quot; and &quot; &quot;&quot;     
-##  [3,] &quot; and &quot; &quot;&quot;     
-##  [4,] &quot; and &quot; &quot;&quot;     
-##  [5,] &quot; and &quot; &quot;&quot;     
-##  [6,] &quot; and &quot; &quot;&quot;     
-##  [7,] &quot; and &quot; &quot;&quot;     
-##  [8,] &quot; and &quot; &quot; and &quot;
-##  [9,] &quot; and &quot; &quot;&quot;     
-## [10,] &quot; and &quot; &quot;&quot;</code></pre>
+<p>Un formato más compacto del resultado anterior se logra al agregar el parámetro “simplfy = TRUE” dentro de la función de extracción. Para visualizar aleatoriamente diez de los resultados generados, se puede hacer uso de la función <em>sample_n()</em> de la librería <em>dplyr</em>.</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="tidyverse.html#cb370-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">sample_n</span>(</span>
+<span id="cb370-2"><a href="tidyverse.html#cb370-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">tbl =</span> <span class="fu">as_tibble</span>(<span class="fu">str_extract_all</span>(coincidencias, patron, <span class="at">simplify =</span> <span class="cn">TRUE</span>), <span class="at">.name_repair =</span> <span class="st">&quot;unique&quot;</span>), </span>
+<span id="cb370-3"><a href="tidyverse.html#cb370-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="dv">10</span></span>
+<span id="cb370-4"><a href="tidyverse.html#cb370-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    ...1    ...2   
+##    &lt;chr&gt;   &lt;chr&gt;  
+##  1 &quot; and &quot; &quot;&quot;     
+##  2 &quot; and &quot; &quot;&quot;     
+##  3 &quot; and &quot; &quot;&quot;     
+##  4 &quot; and &quot; &quot;&quot;     
+##  5 &quot; and &quot; &quot;&quot;     
+##  6 &quot; and &quot; &quot;&quot;     
+##  7 &quot; and &quot; &quot; and &quot;
+##  8 &quot; and &quot; &quot;&quot;     
+##  9 &quot; and &quot; &quot;&quot;     
+## 10 &quot; and &quot; &quot;&quot;</code></pre>
 <p>Si en alguna cadena existieran más de dos patrones coincidentes, aparecería en la segunda columna el patrón encontrado (e.g., elemento en el séptimo renglón), de lo contrario, el elemento de la segunda columna permanecerá vacío a través de dos comillas.</p>
 <p>El resultado será un objeto de la clase <em>data.frame</em> que tendrá tantas columnas como coincidencias máximas hayan existido en una sentencia.</p>
 <p>La siguientes línea de código permite hacer conteos del número de veces que el patrón coincidente fue detectado en el vector de oraciones. La función <em>str_count()</em> indicará el número de veces que el patrón fue detectado en cada oración. Finalmente, el vector numérico se suma.</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="tidyverse.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">str_count</span>(coincidencias, <span class="at">pattern =</span> patron))</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="tidyverse.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">str_count</span>(coincidencias, <span class="at">pattern =</span> patron))</span></code></pre></div>
 <pre><code>## [1] 126</code></pre>
 <p>Con este dato, se puede decir que a lo largo de 123 oraciones, se puede encontrar 126 veces el patrón indicado. Este tipo de análisis nos permite hacer reportes como el siguiente: En promedio, cada oración tiene incluido 1.02 veces el patrón coincidente.</p>
 <p>A continuación, se revisará el modo de detectar y reemplazar patrones regulares.</p>
@@ -1401,20 +1560,20 @@ Para extraer los elementos coincidentes, la función <em>str_extract()</em> se u
 <h3><span class="header-section-number">9.4.9</span> Reemplazar coincidencias</h3>
 <p>A menudo es necesario reemplazar algunos patrones. Ya sea derivado de un error en las cadenas de texto o por interés de presentar los resultados de una manera distinta, identificar y sustituir un subconjunto de caracteres es algo que la función <em>str_replace()</em> de la paquetería stringr puede hacer.</p>
 <p>Como todas las funciones vistas hasta el momento provenientes de la paquetería stringr, la función <em>str_replace()</em> recibe el objeto con las cadenas de caracteres originales y a través de un patrón de texto se hace la búsqueda de las coincidencias. Es posible incluir más de 1 patrón y asignar el nuevo texto que sustituirá al anterior para cada uno de los patrones definidos. La función <em>str_replace()</em> hará la sustitución de un solo patrón coincidente y la función <em>str_replace_all()</em> lo hará para todos los patrones definidos.</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="tidyverse.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplos de cambio de codigos a palabras o invertido  </span></span>
-<span id="cb358-2"><a href="tidyverse.html#cb358-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb358-3"><a href="tidyverse.html#cb358-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>)</span>
-<span id="cb358-4"><a href="tidyverse.html#cb358-4" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">str_replace</span>(x, <span class="st">&quot;1&quot;</span>,<span class="st">&quot;Hombre&quot;</span>)</span>
-<span id="cb358-5"><a href="tidyverse.html#cb358-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x1)</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="tidyverse.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejemplos de cambio de codigos a palabras o invertido  </span></span>
+<span id="cb374-2"><a href="tidyverse.html#cb374-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb374-3"><a href="tidyverse.html#cb374-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>,<span class="st">&quot;1&quot;</span>,<span class="st">&quot;2&quot;</span>)</span>
+<span id="cb374-4"><a href="tidyverse.html#cb374-4" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">str_replace</span>(x, <span class="st">&quot;1&quot;</span>,<span class="st">&quot;Hombre&quot;</span>)</span>
+<span id="cb374-5"><a href="tidyverse.html#cb374-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x1)</span></code></pre></div>
 <pre><code>##  [1] &quot;Hombre&quot; &quot;2&quot;      &quot;Hombre&quot; &quot;2&quot;      &quot;Hombre&quot; &quot;2&quot;      &quot;Hombre&quot; &quot;2&quot;     
 ##  [9] &quot;Hombre&quot; &quot;2&quot;</code></pre>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="tidyverse.html#cb360-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">str_replace</span>(x1, <span class="st">&quot;2&quot;</span>,<span class="st">&quot;Mujer&quot;</span>)</span>
-<span id="cb360-2"><a href="tidyverse.html#cb360-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x2)</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="tidyverse.html#cb376-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">str_replace</span>(x1, <span class="st">&quot;2&quot;</span>,<span class="st">&quot;Mujer&quot;</span>)</span>
+<span id="cb376-2"><a href="tidyverse.html#cb376-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x2)</span></code></pre></div>
 <pre><code>##  [1] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot; 
 ##  [9] &quot;Hombre&quot; &quot;Mujer&quot;</code></pre>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="tidyverse.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Es posible replicar el resultado en un solo paso mediante str_replace_all</span></span>
-<span id="cb362-2"><a href="tidyverse.html#cb362-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb362-3"><a href="tidyverse.html#cb362-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(x, <span class="fu">c</span>(<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;Hombre&quot;</span>, <span class="st">&quot;2&quot;</span> <span class="ot">=</span> <span class="st">&quot;Mujer&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="tidyverse.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Es posible replicar el resultado en un solo paso mediante str_replace_all</span></span>
+<span id="cb378-2"><a href="tidyverse.html#cb378-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb378-3"><a href="tidyverse.html#cb378-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(x, <span class="fu">c</span>(<span class="st">&quot;1&quot;</span> <span class="ot">=</span> <span class="st">&quot;Hombre&quot;</span>, <span class="st">&quot;2&quot;</span> <span class="ot">=</span> <span class="st">&quot;Mujer&quot;</span>))</span></code></pre></div>
 <pre><code>##  [1] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot; 
 ##  [9] &quot;Hombre&quot; &quot;Mujer&quot;</code></pre>
 </div>
@@ -1423,26 +1582,28 @@ Para extraer los elementos coincidentes, la función <em>str_extract()</em> se u
 <p>La información se presenta en diferentes formatos todo el tiempo. A veces cada variable tiene su propia columna, pero a veces la información está mezclada y es necesario dividirla a fin de trabajar mejor con ella.</p>
 <p>Un caso recurrente en donde se presenta esta operación es con las fechas. El formato de una fecha a menudo se presenta como dd/mm/aaaa. Bajo este formato se puede encontrar tres datos en uno solo (día, mes y año). Para dividirlo, se podría utilizar el caracter “/” como patrón de coincidencia que permita dividir los datos en tres columnas separadas. Se debe agregar el parámetro “<em>simplify = T</em>” para poder simplificar los resultados y visualizarlos en un objeto <em>data.frame()</em>. La manera de hacerlo es la siguiente:</p>
 <p>Primero se genera un vector con fechas</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="tidyverse.html#cb364-1" aria-hidden="true" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;15/11/1991&quot;</span>,<span class="st">&quot;20/11/1981&quot;</span>,<span class="st">&quot;04/02/1966&quot;</span>,<span class="st">&quot;01/10/1958&quot;</span>,<span class="st">&quot;23/04/1992&quot;</span>);fechas</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="tidyverse.html#cb380-1" aria-hidden="true" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;15/11/1991&quot;</span>,<span class="st">&quot;20/11/1981&quot;</span>,<span class="st">&quot;04/02/1966&quot;</span>,<span class="st">&quot;01/10/1958&quot;</span>,<span class="st">&quot;23/04/1992&quot;</span>);fechas</span></code></pre></div>
 <pre><code>## [1] &quot;15/11/1991&quot; &quot;20/11/1981&quot; &quot;04/02/1966&quot; &quot;01/10/1958&quot; &quot;23/04/1992&quot;</code></pre>
 <p>Ahora, se generan tres columnas, una para el campo “Día,” otra para el campo “Mes” y otra para “Año”</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="tidyverse.html#cb366-1" aria-hidden="true" tabindex="-1"></a>fechas2 <span class="ot">&lt;-</span> <span class="fu">str_split</span>(<span class="at">string =</span> fechas,<span class="at">pattern =</span> <span class="st">&quot;/&quot;</span>,<span class="at">n =</span> <span class="dv">3</span>, <span class="at">simplify =</span> T)</span>
-<span id="cb366-2"><a href="tidyverse.html#cb366-2" aria-hidden="true" tabindex="-1"></a>fechas2 <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(fechas2)</span>
-<span id="cb366-3"><a href="tidyverse.html#cb366-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb366-4"><a href="tidyverse.html#cb366-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(fechas2) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Día&quot;</span>,<span class="st">&quot;Mes&quot;</span>,<span class="st">&quot;Año&quot;</span>)</span>
-<span id="cb366-5"><a href="tidyverse.html#cb366-5" aria-hidden="true" tabindex="-1"></a>fechas2</span></code></pre></div>
-<pre><code>##   Día Mes  Año
-## 1  15  11 1991
-## 2  20  11 1981
-## 3  04  02 1966
-## 4  01  10 1958
-## 5  23  04 1992</code></pre>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="tidyverse.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(<span class="at">string =</span> fechas,<span class="at">pattern =</span> <span class="st">&quot;/&quot;</span>,<span class="at">n =</span> <span class="dv">3</span>, <span class="at">simplify =</span> T) <span class="sc">%&gt;%</span> </span>
+<span id="cb382-2"><a href="tidyverse.html#cb382-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb382-3"><a href="tidyverse.html#cb382-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">day =</span> V1, <span class="at">month =</span> V2, <span class="at">year =</span> V3)</span></code></pre></div>
+<pre><code>## Warning: The `x` argument of `as_tibble.matrix()` must have unique column names if `.name_repair` is omitted as of tibble 2.0.0.
+## Using compatibility `.name_repair`.</code></pre>
+<pre><code>## # A tibble: 5 × 3
+##   day   month year 
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 15    11    1991 
+## 2 20    11    1981 
+## 3 04    02    1966 
+## 4 01    10    1958 
+## 5 23    04    1992</code></pre>
 </div>
 <div id="localización-de-coincidencias" class="section level3" number="9.4.11">
 <h3><span class="header-section-number">9.4.11</span> Localización de coincidencias</h3>
 <p>Para poder hacer operaciones con algunas cadenas de caracteres, en ocasiones es necesario proporcionar los índices que denotan el inicio y el término de algún patrón de caracteres. La función <em>str_locate()</em> devuelve dichos índices una vez que se le haya proporcionado como argumento el patrón coincidente y el vector de cadenas de texto.</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="tidyverse.html#cb368-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;090020001-123&quot;</span>,<span class="st">&quot;090001-512&quot;</span>,<span class="st">&quot;09002-1236&quot;</span>,<span class="st">&quot;90020001-1237&quot;</span>,<span class="st">&quot;09001-123811&quot;</span>)</span>
-<span id="cb368-2"><a href="tidyverse.html#cb368-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_locate</span>(x,<span class="st">&quot;-</span><span class="sc">\\</span><span class="st">d{2,}&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="tidyverse.html#cb385-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;090020001-123&quot;</span>,<span class="st">&quot;090001-512&quot;</span>,<span class="st">&quot;09002-1236&quot;</span>,<span class="st">&quot;90020001-1237&quot;</span>,<span class="st">&quot;09001-123811&quot;</span>)</span>
+<span id="cb385-2"><a href="tidyverse.html#cb385-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_locate</span>(x,<span class="st">&quot;-</span><span class="sc">\\</span><span class="st">d{2,}&quot;</span>)</span></code></pre></div>
 <pre><code>##      start end
 ## [1,]    10  13
 ## [2,]     7  10
@@ -1455,7 +1616,86 @@ Para extraer los elementos coincidentes, la función <em>str_extract()</em> se u
 </div>
 <div id="manipulación-de-fechas-y-horas" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Manipulación de fechas y horas</h2>
+<div id="lectura-y-creación-de-datos-temporales" class="section level3" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Lectura y creación de datos temporales</h3>
+<p>Una de la tareas más comunes en el análisis de datos es la manipulación de fechas y horas. Existe una infinidad de situaciones en donde saber operar con esta clase de datos es vital para el análisis de datos general. El primer paso es lograr identificar una cadena de caracteres como un dato temporal. Veamos un primer ejemplo:</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="tidyverse.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb387-2"><a href="tidyverse.html#cb387-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb387-3"><a href="tidyverse.html#cb387-3" aria-hidden="true" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2018/09/11&quot;</span>, <span class="st">&quot;1992/04/23&quot;</span>, <span class="st">&quot;1966/02/04&quot;</span>, <span class="st">&quot;1958/10/01&quot;</span>, <span class="st">&quot;1991/11/15&quot;</span>)</span>
+<span id="cb387-4"><a href="tidyverse.html#cb387-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fechas)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="tidyverse.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="fu">as_date</span>(fechas))</span></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<p>Como puede apreciarse, los elementos del vector ahora son de la clase “Date.” La función <em>as_date()</em> transforma caracteres a fechas. Otra forma de realizar la implementación de datos temporales es directamente la creación de datos temporales a través de las funciones <em>make_date()</em> y <em>make_datetime()</em>. Esta función recibe los parámetros de cada unidad temporal y crea el dato adecuado para representarlo, ya sea <em>date</em> o <em>datetime</em>.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="tidyverse.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make_date</span>(<span class="at">year =</span> <span class="dv">1999</span>, <span class="at">month =</span> <span class="dv">06</span>, <span class="at">day =</span> <span class="dv">16</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;1999-06-16&quot;</code></pre>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="tidyverse.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make_datetime</span>(<span class="at">year =</span> <span class="dv">1999</span><span class="sc">:</span><span class="dv">2001</span>, <span class="at">month =</span> <span class="dv">06</span>, <span class="at">day =</span> <span class="dv">16</span>, <span class="at">hour =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">min =</span> <span class="dv">37</span>, <span class="at">sec =</span> <span class="dv">15</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;1999-06-16 10:37:15 UTC&quot; &quot;2000-06-16 11:37:15 UTC&quot;
+## [3] &quot;2001-06-16 12:37:15 UTC&quot;</code></pre>
+<p>El segundo ejemplo muestra la capacidad de estas funciones para crear una secuencia de fechas a partir de vectores de cada posible unidad temporal (día, mes año, hora, etc)</p>
+<p>Algo que puede apreciarse en los ejemplos anteriores y que es necesario mencionar, es que el formato universal de fecha se escribe: <strong>yyyy/mm/dd</strong>. En países como USA el formato es <strong>mm/dd/yyyy</strong> y en México y otras partes del mundo puede escribirse comunmente <strong>dd/mm/yyyy</strong>. Este tipo de diferencia a veces puede llegar a generar confusión sobre la fecha exacta en cuestión, más aún si se abrevia el año a dos caracteres <strong>yy</strong>.</p>
+<p>La librería <strong>lubridate</strong> ofrece funciones para lidiar con el formato de lectura. Estas funciones son:</p>
+<ul>
+<li><p>dmy / dmy_h / dmy_hm / dmy_hms</p></li>
+<li><p>mdy / mdy_h / mdy_hm / mdy_hms</p></li>
+<li><p>ymd / ymd_h / ymd_hm / ymd_hms</p></li>
+<li><p>hm / hms</p></li>
+</ul>
+<p>Con todas las funciones mencionadas anteriormente se puede leer cualquier cadena de caracteres que contenga el formato especificado. A continuación, un ejemplo:</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="tidyverse.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mdy</span>(<span class="st">&quot;11/25/1982&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;1982-11-25&quot;</code></pre>
+<p>Automáticamente cualquiera de las funciones antes mencionadas transforma el formato específico al formato universal.</p>
+</div>
+<div id="extracción-de-datos-temporales" class="section level3" number="9.5.2">
+<h3><span class="header-section-number">9.5.2</span> Extracción de datos temporales</h3>
+<p>Una vez que los datos temporales ya se encuentran creados, es importante saber la manera de extraer información particular de nuestro interés. En esta sección se revisará la manera de extraer cualquier unidad temporal a partir de una cadena completa de caracteres. a través de lubridate, las funciones para extracción de sub unidades temporales son intuitivas.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="tidyverse.html#cb397-1" aria-hidden="true" tabindex="-1"></a>tiempo <span class="ot">&lt;-</span> <span class="fu">make_datetime</span>(<span class="at">year =</span> <span class="dv">2004</span>, <span class="at">month =</span> <span class="dv">9</span>, <span class="at">day =</span> <span class="dv">25</span>, <span class="at">hour =</span> <span class="dv">11</span>, <span class="at">min =</span> <span class="dv">30</span>, <span class="at">sec =</span> <span class="dv">1</span>)</span>
+<span id="cb397-2"><a href="tidyverse.html#cb397-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb397-3"><a href="tidyverse.html#cb397-3" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">year</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 2004</code></pre>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="tidyverse.html#cb399-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">month</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="tidyverse.html#cb401-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">month</span>(tiempo, <span class="at">label =</span> T, <span class="at">abbr =</span> F)</span></code></pre></div>
+<pre><code>## [1] septiembre
+## 12 Levels: enero &lt; febrero &lt; marzo &lt; abril &lt; mayo &lt; junio &lt; ... &lt; diciembre</code></pre>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="tidyverse.html#cb403-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">day</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="tidyverse.html#cb405-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">hour</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 11</code></pre>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="tidyverse.html#cb407-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">minute</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="tidyverse.html#cb409-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">second</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Después de las unidades temporales básicas, es posible también extraer día de la semana o día del mes, si es de interés.</p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="tidyverse.html#cb411-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">wday</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="tidyverse.html#cb413-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">wday</span>(tiempo, <span class="at">label =</span> T, <span class="at">abbr =</span> F)</span></code></pre></div>
+<pre><code>## [1] sábado
+## 7 Levels: domingo &lt; lunes &lt; martes &lt; miércoles &lt; jueves &lt; ... &lt; sábado</code></pre>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="tidyverse.html#cb415-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">mday</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="tidyverse.html#cb417-1" aria-hidden="true" tabindex="-1"></a>lubridate<span class="sc">::</span><span class="fu">yday</span>(tiempo)</span></code></pre></div>
+<pre><code>## [1] 269</code></pre>
+</div>
+<div id="operaciones-temporales" class="section level3" number="9.5.3">
+<h3><span class="header-section-number">9.5.3</span> Operaciones temporales</h3>
+<p>Las operaciones aritméticas entre datos temporales es cotidiano en todo momento cuando se analizan datos. Operaciones de sumas y restas de fechas y horas que permiten conocer la longitud de tiempo en dos momentos es una tarea que puede resolverse a través de los operadores aritméticos y lógicos.</p>
+<p>Resta entre fechas</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="tidyverse.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="st">&quot;1991/11/15&quot;</span>) <span class="sc">-</span> <span class="fu">as_date</span>(<span class="st">&quot;1992/04/23&quot;</span>)</span></code></pre></div>
+<pre><code>## Time difference of -160 days</code></pre>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="tidyverse.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="st">&quot;1992/04/23&quot;</span>) <span class="sc">-</span> <span class="fu">as_date</span>(<span class="st">&quot;1991/11/15&quot;</span>)</span></code></pre></div>
+<pre><code>## Time difference of 160 days</code></pre>
+<p>Suma y resta de días</p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="tidyverse.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="st">&quot;1991/11/15&quot;</span>) <span class="sc">+</span> <span class="dv">365</span></span></code></pre></div>
+<pre><code>## [1] &quot;1992-11-14&quot;</code></pre>
+<p>Operadores lógicos</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="tidyverse.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="st">&quot;1992/04/23&quot;</span>) <span class="sc">&gt;</span> <span class="fu">as_date</span>(<span class="st">&quot;1991/11/15&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="tidyverse.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as_date</span>(<span class="st">&quot;1992/04/23&quot;</span>) <span class="sc">&lt;</span> <span class="fu">as_date</span>(<span class="st">&quot;1991/11/15&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>Cada una de las operaciones vistas en este capítulo son compatibles con dplyr y el resto de las librerías tidyverse.</p>
 
+</div>
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -1485,11 +1725,12 @@ $('.pipehover_select_one_row tr').hover(function() {
           </div>
         </div>
       </div>
-<a href="lectura-de-datos.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="lectura-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ggplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1529,10 +1770,6 @@ gitbook.start({
 "text": null
 },
 "download": ["Introducción a Ciencia de Datos con R (Tidyverse).pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "subsection"
 }

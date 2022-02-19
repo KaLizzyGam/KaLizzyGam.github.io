@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 8 Lectura de datos | Introducción a Ciencia de Datos con R (Tidyverse)</title>
   <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 8 Lectura de datos | Introducción a Ciencia de Datos con R (Tidyverse)" />
   <meta property="og:type" content="book" />
@@ -33,9 +33,8 @@
   
 <link rel="prev" href="bucles.html"/>
 <link rel="next" href="tidyverse.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,8 +50,18 @@
 
 
 
+
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<script src="libs/plotly-binding-4.9.4.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -284,6 +293,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="tidyverse.html"><a href="tidyverse.html#pivote-horizontal"><i class="fa fa-check"></i><b>9.3.1</b> Pivote horizontal</a></li>
 <li class="chapter" data-level="9.3.2" data-path="tidyverse.html"><a href="tidyverse.html#pivote-vertical"><i class="fa fa-check"></i><b>9.3.2</b> Pivote vertical</a></li>
+<li class="chapter" data-level="9.3.3" data-path="tidyverse.html"><a href="tidyverse.html#unión-de-columnas"><i class="fa fa-check"></i><b>9.3.3</b> Unión de columnas</a></li>
+<li class="chapter" data-level="9.3.4" data-path="tidyverse.html"><a href="tidyverse.html#separador-de-columnas"><i class="fa fa-check"></i><b>9.3.4</b> Separador de columnas</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-texto-stringr"><i class="fa fa-check"></i><b>9.4</b> Manipulación de texto (stringr)</a>
 <ul>
@@ -299,7 +310,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.10" data-path="tidyverse.html"><a href="tidyverse.html#divisiones-mediante-patrones"><i class="fa fa-check"></i><b>9.4.10</b> Divisiones mediante patrones</a></li>
 <li class="chapter" data-level="9.4.11" data-path="tidyverse.html"><a href="tidyverse.html#localización-de-coincidencias"><i class="fa fa-check"></i><b>9.4.11</b> Localización de coincidencias</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-fechas-y-horas"><i class="fa fa-check"></i><b>9.5</b> Manipulación de fechas y horas</a></li>
+<li class="chapter" data-level="9.5" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-fechas-y-horas"><i class="fa fa-check"></i><b>9.5</b> Manipulación de fechas y horas</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="tidyverse.html"><a href="tidyverse.html#lectura-y-creación-de-datos-temporales"><i class="fa fa-check"></i><b>9.5.1</b> Lectura y creación de datos temporales</a></li>
+<li class="chapter" data-level="9.5.2" data-path="tidyverse.html"><a href="tidyverse.html#extracción-de-datos-temporales"><i class="fa fa-check"></i><b>9.5.2</b> Extracción de datos temporales</a></li>
+<li class="chapter" data-level="9.5.3" data-path="tidyverse.html"><a href="tidyverse.html#operaciones-temporales"><i class="fa fa-check"></i><b>9.5.3</b> Operaciones temporales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>10</b> Ggplot</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ggplot.html"><a href="ggplot.html#eda-análisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>10.1</b> EDA: Análisis Exploratorio de Datos</a></li>
+<li class="chapter" data-level="10.2" data-path="ggplot.html"><a href="ggplot.html#geda-análisis-exploratorio-de-datos-gráficos"><i class="fa fa-check"></i><b>10.2</b> GEDA: Análisis Exploratorio de Datos Gráficos</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="ggplot.html"><a href="ggplot.html#gráficos-univariados"><i class="fa fa-check"></i><b>10.2.1</b> Gráficos univariados:</a></li>
+<li class="chapter" data-level="10.2.2" data-path="ggplot.html"><a href="ggplot.html#gráficos-multivariados"><i class="fa fa-check"></i><b>10.2.2</b> Gráficos multivariados</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="ggplot.html"><a href="ggplot.html#ggplot2"><i class="fa fa-check"></i><b>10.3</b> Ggplot2</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="ggplot.html"><a href="ggplot.html#objetos-aesteticos"><i class="fa fa-check"></i><b>10.3.1</b> Objetos aesteticos</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ggplot.html"><a href="ggplot.html#objetos-geométricos-o-capas"><i class="fa fa-check"></i><b>10.3.2</b> Objetos geométricos o capas</a></li>
+<li class="chapter" data-level="10.3.3" data-path="ggplot.html"><a href="ggplot.html#facetas"><i class="fa fa-check"></i><b>10.3.3</b> Facetas</a></li>
+<li class="chapter" data-level="10.3.4" data-path="ggplot.html"><a href="ggplot.html#más-sobre-estéticas"><i class="fa fa-check"></i><b>10.3.4</b> Más sobre estéticas</a></li>
+<li class="chapter" data-level="10.3.5" data-path="ggplot.html"><a href="ggplot.html#un-vistazo-rápido-a-los-datos"><i class="fa fa-check"></i><b>10.3.5</b> Un vistazo rápido a los datos</a></li>
+<li class="chapter" data-level="10.3.6" data-path="ggplot.html"><a href="ggplot.html#análisis-univariado"><i class="fa fa-check"></i><b>10.3.6</b> Análisis univariado</a></li>
+<li class="chapter" data-level="10.3.7" data-path="ggplot.html"><a href="ggplot.html#análisis-multivariado"><i class="fa fa-check"></i><b>10.3.7</b> Análisis multivariado</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
@@ -324,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="lectura-de-datos" class="section level1" number="8">
 <h1><span class="header-section-number">Capítulo 8</span> Lectura de datos</h1>
 <p>Usualmente, no creamos los datos desde la sesión de <em>R</em>, sino que a través de un archivo externo se realiza la lectura de datos escritos en un archivo. Los más comúnes son:</p>
-<p><img src="img/02-lectura/archivos.jpg" style="display: block; margin: auto;" /></p>
+<p><img src="img/02-lectura/archivos.jpg" width="320" style="display: block; margin: auto;" /></p>
 <p>La paquetería <em>readr</em> fue desarrollada recientemente para lidiar con la lectura de archivos grandes rápidamente. El paquete proporciona reemplazos para funciones como <em>read.table()</em>, <em>read.csv()</em> entre otras. Esta paquetería proporciona funciones que suelen ser mucho más rápidas que las funciones base que proporciona <em>R</em>.</p>
 <p><img src="img/02-lectura/logo-readr.png" width="120" style="display: block; margin: auto;" /></p>
 <p><strong>Ventajas de readr:</strong></p>
@@ -408,14 +443,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1 -93.61975 42.05403
 ## 2 -93.61976 42.05301</code></pre>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="lectura-de-datos.html#cb197-1" aria-hidden="true" tabindex="-1"></a>tidy<span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/ames.csv&quot;</span>)</span></code></pre></div>
-<pre><code>## Rows: 2930 Columns: 74
+<pre><code>## 
 ## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: &quot;,&quot;
-## chr (40): MS_SubClass, MS_Zoning, Street, Alley, Lot_Shape, Land_Contour, Ut...
-## dbl (34): Lot_Frontage, Lot_Area, Year_Built, Year_Remod_Add, Mas_Vnr_Area, ...
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+## cols(
+##   .default = col_character(),
+##   Lot_Frontage = col_double(),
+##   Lot_Area = col_double(),
+##   Year_Built = col_double(),
+##   Year_Remod_Add = col_double(),
+##   Mas_Vnr_Area = col_double(),
+##   BsmtFin_SF_1 = col_double(),
+##   BsmtFin_SF_2 = col_double(),
+##   Bsmt_Unf_SF = col_double(),
+##   Total_Bsmt_SF = col_double(),
+##   First_Flr_SF = col_double(),
+##   Second_Flr_SF = col_double(),
+##   Gr_Liv_Area = col_double(),
+##   Bsmt_Full_Bath = col_double(),
+##   Bsmt_Half_Bath = col_double(),
+##   Full_Bath = col_double(),
+##   Half_Bath = col_double(),
+##   Bedroom_AbvGr = col_double(),
+##   Kitchen_AbvGr = col_double(),
+##   TotRms_AbvGrd = col_double(),
+##   Fireplaces = col_double()
+##   # ... with 14 more columns
+## )
+## ℹ Use `spec()` for the full column specifications.</code></pre>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="lectura-de-datos.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tidy, <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 74
 ##   MS_SubClass             MS_Zoning Lot_Frontage Lot_Area Street Alley Lot_Shape
@@ -659,6 +713,7 @@ $('.pipehover_select_one_row tr').hover(function() {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -698,10 +753,6 @@ gitbook.start({
 "text": null
 },
 "download": ["Introducción a Ciencia de Datos con R (Tidyverse).pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "subsection"
 }

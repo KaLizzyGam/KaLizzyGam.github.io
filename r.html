@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 3 R | Introducción a Ciencia de Datos con R (Tidyverse)</title>
   <meta name="description" content="Curso de aprendizaje de programación de R para Ciencia de Datos con Tidyverse" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 3 R | Introducción a Ciencia de Datos con R (Tidyverse)" />
   <meta property="og:type" content="book" />
@@ -33,9 +33,8 @@
   
 <link rel="prev" href="introducción-a-ciencia-de-datos.html"/>
 <link rel="next" href="tipos-de-variables.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,8 +50,18 @@
 
 
 
+
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/str_view-0.1.0/str_view.css" rel="stylesheet" />
+<script src="libs/str_view-binding-1.4.0/str_view.js"></script>
+<script src="libs/plotly-binding-4.9.4.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
 
 
 <style type="text/css">
@@ -284,6 +293,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="tidyverse.html"><a href="tidyverse.html#pivote-horizontal"><i class="fa fa-check"></i><b>9.3.1</b> Pivote horizontal</a></li>
 <li class="chapter" data-level="9.3.2" data-path="tidyverse.html"><a href="tidyverse.html#pivote-vertical"><i class="fa fa-check"></i><b>9.3.2</b> Pivote vertical</a></li>
+<li class="chapter" data-level="9.3.3" data-path="tidyverse.html"><a href="tidyverse.html#unión-de-columnas"><i class="fa fa-check"></i><b>9.3.3</b> Unión de columnas</a></li>
+<li class="chapter" data-level="9.3.4" data-path="tidyverse.html"><a href="tidyverse.html#separador-de-columnas"><i class="fa fa-check"></i><b>9.3.4</b> Separador de columnas</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-texto-stringr"><i class="fa fa-check"></i><b>9.4</b> Manipulación de texto (stringr)</a>
 <ul>
@@ -299,7 +310,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.10" data-path="tidyverse.html"><a href="tidyverse.html#divisiones-mediante-patrones"><i class="fa fa-check"></i><b>9.4.10</b> Divisiones mediante patrones</a></li>
 <li class="chapter" data-level="9.4.11" data-path="tidyverse.html"><a href="tidyverse.html#localización-de-coincidencias"><i class="fa fa-check"></i><b>9.4.11</b> Localización de coincidencias</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-fechas-y-horas"><i class="fa fa-check"></i><b>9.5</b> Manipulación de fechas y horas</a></li>
+<li class="chapter" data-level="9.5" data-path="tidyverse.html"><a href="tidyverse.html#manipulación-de-fechas-y-horas"><i class="fa fa-check"></i><b>9.5</b> Manipulación de fechas y horas</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="tidyverse.html"><a href="tidyverse.html#lectura-y-creación-de-datos-temporales"><i class="fa fa-check"></i><b>9.5.1</b> Lectura y creación de datos temporales</a></li>
+<li class="chapter" data-level="9.5.2" data-path="tidyverse.html"><a href="tidyverse.html#extracción-de-datos-temporales"><i class="fa fa-check"></i><b>9.5.2</b> Extracción de datos temporales</a></li>
+<li class="chapter" data-level="9.5.3" data-path="tidyverse.html"><a href="tidyverse.html#operaciones-temporales"><i class="fa fa-check"></i><b>9.5.3</b> Operaciones temporales</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>10</b> Ggplot</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ggplot.html"><a href="ggplot.html#eda-análisis-exploratorio-de-datos"><i class="fa fa-check"></i><b>10.1</b> EDA: Análisis Exploratorio de Datos</a></li>
+<li class="chapter" data-level="10.2" data-path="ggplot.html"><a href="ggplot.html#geda-análisis-exploratorio-de-datos-gráficos"><i class="fa fa-check"></i><b>10.2</b> GEDA: Análisis Exploratorio de Datos Gráficos</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="ggplot.html"><a href="ggplot.html#gráficos-univariados"><i class="fa fa-check"></i><b>10.2.1</b> Gráficos univariados:</a></li>
+<li class="chapter" data-level="10.2.2" data-path="ggplot.html"><a href="ggplot.html#gráficos-multivariados"><i class="fa fa-check"></i><b>10.2.2</b> Gráficos multivariados</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="ggplot.html"><a href="ggplot.html#ggplot2"><i class="fa fa-check"></i><b>10.3</b> Ggplot2</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="ggplot.html"><a href="ggplot.html#objetos-aesteticos"><i class="fa fa-check"></i><b>10.3.1</b> Objetos aesteticos</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ggplot.html"><a href="ggplot.html#objetos-geométricos-o-capas"><i class="fa fa-check"></i><b>10.3.2</b> Objetos geométricos o capas</a></li>
+<li class="chapter" data-level="10.3.3" data-path="ggplot.html"><a href="ggplot.html#facetas"><i class="fa fa-check"></i><b>10.3.3</b> Facetas</a></li>
+<li class="chapter" data-level="10.3.4" data-path="ggplot.html"><a href="ggplot.html#más-sobre-estéticas"><i class="fa fa-check"></i><b>10.3.4</b> Más sobre estéticas</a></li>
+<li class="chapter" data-level="10.3.5" data-path="ggplot.html"><a href="ggplot.html#un-vistazo-rápido-a-los-datos"><i class="fa fa-check"></i><b>10.3.5</b> Un vistazo rápido a los datos</a></li>
+<li class="chapter" data-level="10.3.6" data-path="ggplot.html"><a href="ggplot.html#análisis-univariado"><i class="fa fa-check"></i><b>10.3.6</b> Análisis univariado</a></li>
+<li class="chapter" data-level="10.3.7" data-path="ggplot.html"><a href="ggplot.html#análisis-multivariado"><i class="fa fa-check"></i><b>10.3.7</b> Análisis multivariado</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
@@ -345,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Conección con Rmarkwon y Sweave</li>
 </ul>
 <p>La siguiente imagen muestra la forma en la que está estructurado RStudio. El orden de los páneles puede ser elegido por el usuario, así como las características de tipo de letra, tamaño y color de fondo, entre otras características.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-18"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
 <img src="img/01-intro/15_rstudio3.png" alt="Páneles de trabajo de Rstudio" width="800px" height="450px" />
 <p class="caption">
 Figure 3.1: Páneles de trabajo de Rstudio
@@ -405,6 +440,7 @@ $('.pipehover_select_one_row tr').hover(function() {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -444,10 +480,6 @@ gitbook.start({
 "text": null
 },
 "download": ["Introducción a Ciencia de Datos con R (Tidyverse).pdf"],
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "subsection"
 }
