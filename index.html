@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>AMAT- Introducción a Ciencia de Datos y Machine Learning</title>
+  <meta name="description" content="AMAT Curso 1 : Introduccion a Ciencia de Datos" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="AMAT- Introducción a Ciencia de Datos y Machine Learning" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="AMAT Curso 1 : Introduccion a Ciencia de Datos" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="AMAT- Introducción a Ciencia de Datos y Machine Learning" />
+  
+  <meta name="twitter:description" content="AMAT Curso 1 : Introduccion a Ciencia de Datos" />
+  
+
+<meta name="author" content="Karina Lizette Gamboa Puente" />
+<meta name="author" content="Oscar Arturo Bringas López" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="introducción-a-ciencia-de-datos.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"><img src="img/amat-logo.png" width="280"></a></li|
+|:-:|  
+<center>Introducción a Ciencia de Datos y Machine Learning</center>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> BIENVENIDA</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#objetivo"><i class="fa fa-check"></i><b>1.1</b> Objetivo</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#quienes-somos"><i class="fa fa-check"></i><b>1.2</b> ¿Quienes somos?</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#ciencia-de-datos-en-r"><i class="fa fa-check"></i><b>1.3</b> Ciencia de Datos en R</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#estructura-del-curso-actual"><i class="fa fa-check"></i><b>1.4</b> Estructura del curso actual</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="index.html"><a href="index.html#alcances-del-curso"><i class="fa fa-check"></i><b>1.4.1</b> Alcances del curso</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#duración-y-evaluación-del-curso"><i class="fa fa-check"></i><b>1.5</b> Duración y evaluación del curso</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#recursos-y-dinámica-de-clase"><i class="fa fa-check"></i><b>1.6</b> Recursos y dinámica de clase</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html"><i class="fa fa-check"></i><b>2</b> Introducción a Ciencia de Datos</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#qué-es-ciencia-de-datos"><i class="fa fa-check"></i><b>2.1</b> ¿Qué es Ciencia de Datos?</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#definiendo-conceptos"><i class="fa fa-check"></i><b>2.1.1</b> Definiendo conceptos:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#objetivo-de-la-ciencia-de-datos"><i class="fa fa-check"></i><b>2.2</b> Objetivo de la Ciencia de Datos</a></li>
+<li class="chapter" data-level="2.3" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#qué-se-requiere-para-hacer-ciencia-de-datos"><i class="fa fa-check"></i><b>2.3</b> ¿Qué se requiere para hacer Ciencia de Datos?</a></li>
+<li class="chapter" data-level="2.4" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#aplicaciones-de-ciencia-de-datos"><i class="fa fa-check"></i><b>2.4</b> Aplicaciones de Ciencia de Datos</a></li>
+<li class="chapter" data-level="2.5" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#tipos-de-aprendizaje"><i class="fa fa-check"></i><b>2.5</b> Tipos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#aprendizaje-supervisado"><i class="fa fa-check"></i><b>2.5.1</b> Aprendizaje supervisado</a></li>
+<li class="chapter" data-level="2.5.2" data-path="introducción-a-ciencia-de-datos.html"><a href="introducción-a-ciencia-de-datos.html#aprendizaje-no-supervisado"><i class="fa fa-check"></i><b>2.5.2</b> Aprendizaje no supervisado</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ciclo.html"><a href="ciclo.html"><i class="fa fa-check"></i><b>3</b> CICLO DE VIDA</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="ciclo.html"><a href="ciclo.html#ciclo-de-un-proyecto-de-ciencia-de-datos"><i class="fa fa-check"></i><b>3.1</b> Ciclo de un proyecto de Ciencia de Datos</a></li>
+<li class="chapter" data-level="3.2" data-path="ciclo.html"><a href="ciclo.html#data-science-scoping"><i class="fa fa-check"></i><b>3.2</b> Data Science <em>scoping</em></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="ciclo.html"><a href="ciclo.html#data-maturity-framework"><i class="fa fa-check"></i><b>3.2.1</b> Data Maturity Framework</a></li>
+<li class="chapter" data-level="3.2.2" data-path="ciclo.html"><a href="ciclo.html#scoping"><i class="fa fa-check"></i><b>3.2.2</b> Scoping</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="ciclo.html"><a href="ciclo.html#orden-y-estructura-de-proyecto"><i class="fa fa-check"></i><b>3.3</b> Orden y estructura de proyecto</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="ciclo.html"><a href="ciclo.html#plantilla-de-estructura-proyecto"><i class="fa fa-check"></i><b>3.3.1</b> Plantilla de estructura proyecto</a></li>
+<li class="chapter" data-level="3.3.2" data-path="ciclo.html"><a href="ciclo.html#reproducibilidad"><i class="fa fa-check"></i><b>3.3.2</b> Reproducibilidad</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="./"><img src="img/amat-logo.png" width="280"></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">AMAT- Introducción a Ciencia de Datos y Machine Learning</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">AMAT- Introducción a Ciencia de Datos y Machine Learning</h1>
+<p class="author"><em>Karina Lizette Gamboa Puente</em></p>
+<p class="author"><em>Oscar Arturo Bringas López</em></p>
+</div>
+<div id="bienvenida" class="section level1" number="1">
+<h1><span class="header-section-number">Capítulo 1</span> BIENVENIDA</h1>
+<div id="objetivo" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Objetivo</h2>
+<p>La primera parte del curso tiene como finalidad que el alumno tenga un entendimiento general de conceptos, técnicas, algoritmos y del proceso de desarrollo de proyectos de Ciencia de Datos.
+Entenderá la diferencia entre Big Data, Machine Learning, Business Intelligence y Ciencia de Datos.
+Todo lo anterior será cumplido mientras el alumno aprende las paqueterías y funciones más novedosas que se usan en R para Ciencia de Datos y las tecnologías que dan soporte a este software.</p>
+<p><strong>Se asume que el alumno tiene conocimientos generales de estadística, bases matemáticas y de programación básica en R.</strong></p>
+</div>
+<div id="quienes-somos" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> ¿Quienes somos?</h2>
+<p><strong>ACT. ARTURO BRINGAS</strong></p>
+<p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/arturo-bringas/">arturo-bringas</a>
+<strong>Email:</strong> <a href="mailto:act.arturo.b@ciencias.unam.mx" class="email">act.arturo.b@ciencias.unam.mx</a></p>
+<p>Actuario, egresado de la Facultad de Ciencias y Maestría en Ciencia de Datos, ITAM.
+Experiencia en modelos predictivos y de clasificación de machine learning aplicado a seguros, deportes y movilidad internacional. Es jefe de departamento en Investigación Aplicada y Opinión de la UNAM, donde realiza estudios estadísticos de impacto social. Es consultor para empresas y organizaciones como GNP, El Universal, UNAM, Sinnia, la Organización de las Naciones Unidas Contra la Droga y el Delito (UNODC), entre otros. Actualmente es profesor de machine learning y programación en R en AMAT y se desempeña como consultor independiente en diferentes proyectos contribuyendo a empresas en temas de machine learning, estadística, series de tiempo, visualización de datos y análisis geoespacial.</p>
+<p><img src="img/00-presentacion/arturo.png" style="display: block; margin: auto;" /></p>
+<p><strong>ACT. KARINA LIZETTE GAMBOA</strong></p>
+<p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kalizzygam/">KaLizzyGam</a>
+<strong>Email:</strong> <a href="mailto:lizzygamboa@ciencias.unam.mx" class="email">lizzygamboa@ciencias.unam.mx</a></p>
+<p>Actuaria, egresada de la Facultad de Ciencias, UNAM, candidata a Maestra en
+Ciencia de Datos por el ITAM.</p>
+<p>Experiencia en áreas de analítica predictiva e inteligencia del negocio. Lead y Senior
+Data Scientist en consultoría en diferentes sectores como tecnología, asegurador,
+financiero y bancario. Experta en entendimiento de negocio para la correcta
+implementación de algoritmos de inteligencia y explotación de datos.
+Actualmente se desarrolla como Arquitecta de Soluciones Analíticas en Merama,
+startup mexicana clasificada como uno de los nuevos unicornios de Latinoamérica.
+Senior Data Science en CLOSTER y como profesora del diplomado de Metodología
+de la Investigación Social por la UNAM así como instructora de cursos de Ciencia de
+Datos en AMAT.</p>
+<p>Empresas anteriores: GNP, Activer Banco y Casa de Bolsa, PlayCity Casinos,
+RakenDataGroup Consulting, entre otros.</p>
+<p><img src="img/00-presentacion/lizzy.png" style="display: block; margin: auto;" /></p>
+</div>
+<div id="ciencia-de-datos-en-r" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Ciencia de Datos en R</h2>
+<p><img src="img/00-presentacion/DataScienceVerse.png" style="display: block; margin: auto;" /></p>
+</div>
+<div id="estructura-del-curso-actual" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Estructura del curso actual</h2>
+<div id="alcances-del-curso" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Alcances del curso</h3>
+<p>Al finalizar el módulo, el participante sabrá plantear un proyecto de ciencia de datos, desde sus requerimientos hasta sus alcances. Sabrá crear flujos de trabajo limpios y ordenados para crear poderosos modelos de Machine Learning. Este curso brindará las bases para introducirse al módulo intermedio de Ciencia de datos que se imparte en AMAT:</p>
+<pre><code>1. Data Science &amp; Machine Learning (Aprendizaje Supervisado II)</code></pre>
+<p><strong>Requisitos:</strong></p>
+<blockquote>
+<p>Computadora con al menos 4Gb Ram.</p>
+</blockquote>
+<blockquote>
+<p>Instalación de R con al menos versión 4.1.0</p>
+</blockquote>
+<blockquote>
+<p>Instalación de Rstudio con al menos versión 1.4</p>
+</blockquote>
+<blockquote>
+<p>Kit básico para Ciencia de Datos con R (Tidyverse) ó</p>
+</blockquote>
+<blockquote>
+<p>Dominio de las funciones de manipulación y visualización de datos con Tidyverse en R</p>
+</blockquote>
+<p><strong>Temario:</strong></p>
+<p><strong>1.- Introducción a Ciencia de Datos (8 HRS)</strong></p>
+<ul>
+<li>¿Qué es Ciencia de Datos?</li>
+<li>Objetivo de la ciencia de datos</li>
+<li>¿Qué se requiere para hacer ciencia de datos?</li>
+<li>Tipos de problemas que se pueden resolver</li>
+<li>Tipos de algoritmos y aprendizaje</li>
+<li>Ciclo de vida de un proyecto de Ciencia de Datos</li>
+<li>Taller de Scoping</li>
+</ul>
+<p><strong>2. Machine Learning: conceptos básicos (4 HRS)</strong></p>
+<ul>
+<li>ML y algoritmos<br />
+</li>
+<li>Análisis supervisado vs no supervisado</li>
+<li>Sesgo y varianza</li>
+<li>Pre-procesamiento e ingeniería de datos</li>
+<li>Partición de datos: test &amp; train</li>
+</ul>
+<p><strong>3. Machine Learning: Modelos de aprendizaje supervisado (20 HRS)</strong></p>
+<ul>
+<li>Regresión lineal</li>
+<li>Regresión logística</li>
+<li>Regresión lasso</li>
+<li>Regresión ridge</li>
+<li>ElasticNet</li>
+<li>KNN</li>
+<li>Árbol de decisión</li>
+<li>Bagging (básico)</li>
+<li>Random Forest</li>
+<li>Comparación de modelos</li>
+</ul>
+</div>
+</div>
+<div id="duración-y-evaluación-del-curso" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Duración y evaluación del curso</h2>
+<ul>
+<li><p>El programa tiene una duración de 32 hrs.</p></li>
+<li><p>Las clases serán impartidas los días sábado, de 9:00 am a 1:00 pm</p></li>
+<li><p>Serán asignados ejercicios que el participante deberá resolver entre una semana y otra.</p></li>
+<li><p>Al final del curso se solicitará un proyecto final, el cual <strong>deberá ser entregado para ser acreedor a la constancia de participación</strong>.</p></li>
+</ul>
+</div>
+<div id="recursos-y-dinámica-de-clase" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Recursos y dinámica de clase</h2>
+<p>En esta clase estaremos usando:</p>
+<ul>
+<li>R <a href="https://cran.r-project.org/">da click aquí si aún no lo descargas</a></li>
+<li>RStudio <a href="https://www.rstudio.com/products/rstudio/download/">da click aquí también</a></li>
+<li>Miro <a href="https://miro.com/welcomeonboard/c3huendzNURhRUVGbHlsWGVFYlBBMXRaSncybXRrbjBRU2R5WWg2eDFKUXY1VlJ1SGJFdmc4ZmRuWEgwcllpenwzMDc0NDU3MzYxMzQwNDIyODEy?invite_link_id=152058640259">úsame</a></li>
+<li>Zoom <a href="https://us02web.zoom.us/j/5155440751?pwd=YzJCOGF0VnlZdlZlS0Fpc3MvZEhadz09">Clases</a>
+<ul>
+<li>Pulgar arriba: Voy bien, estoy entendiendo!</li>
+<li>Pulgar abajo: Eso no quedó muy claro</li>
+<li>Mano arriba: Quiero participar/preguntar ó Ya estoy listo para iniciar</li>
+</ul></li>
+<li>Grupo de WhatsApp <a href="https://chat.whatsapp.com/KUbqIk8Cqu42zkXffIgUQQ">El chismecito está aquí</a></li>
+<li><a href="https://drive.google.com/drive/folders/16aKNbkhYfF-x6R2oh4RswSQOXN62UQX3?usp=sharing">Google Drive</a></li>
+<li>Notas de clase <a href="KaLizzyGam.github.io/index.html">Revisame si quieres aprender</a></li>
+</ul>
+<div class="watermark">
+<img src="img/header.png" width="400">
+</div>
+
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$('.pipehover_incremental tr').hover(function() {
+  $(this).removeClass()
+  $(this).prevAll().removeClass()
+  $(this).nextAll().removeClass()
+  $(this).addClass('hover');
+  $(this).prevAll().addClass('hover');
+  $(this).closest('div').next().find('img').attr("src", $(this).attr("link"));
+});
+
+
+$('.pipehover_select_one_row tr').hover(function() {
+  $(this).removeClass()
+  $(this).prevAll().removeClass()
+  $(this).nextAll().removeClass()
+  $(this).addClass('hover');
+  $(this).closest('div').next().find('img').attr("src", $(this).attr("link"));
+});
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="introducción-a-ciencia-de-datos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Introducción a Ciencia de Datos y Machine Learning.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
